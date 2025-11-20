@@ -142,15 +142,47 @@ class DetectionPointsInteretsUltraUltra:
 
     # ---------- Étape 6 ----------
     def topk_points_interet(self, heatmap: np.ndarray, top_k: int) -> List[Tuple[int,int,float]]:
+        """
+        Retourne 1 point d'intérêt par zone :
+        - segmentation connected components
+        - pour chaque composante, on prend le pixel de score maximum
+        - on trie les points par score
+        - on applique top_k facultatif
+        """
+        # Mask des zones valides
         mask = heatmap > 0
-        ys, xs = np.nonzero(mask)
-        scores = heatmap[ys, xs]
-        if scores.size > top_k:
-            idx = np.argpartition(-scores, top_k)[:top_k]
-            xs, ys, scores = xs[idx], ys[idx], scores[idx]
-        idx_sort = np.argsort(-scores)
-        xs, ys, scores = xs[idx_sort], ys[idx_sort], scores[idx_sort]
-        return list(zip(xs, ys, scores))
+
+        # 1️⃣ Segmentation en zones connectées
+        num_labels, labels = cv2.connectedComponents(mask.astype(np.uint8))
+
+        points = []
+
+        # 2️⃣ Pour chaque zone (sauf 0 : fond)
+        for lab in range(1, num_labels):
+            ys, xs = np.where(labels == lab)
+            if len(xs) == 0:
+                continue
+
+            # Scores de la zone
+            scores = heatmap[ys, xs]
+
+            # Best pixel of the zone
+            idx_best = np.argmax(scores)
+            best_x = xs[idx_best]
+            best_y = ys[idx_best]
+            best_score = scores[idx_best]
+
+            points.append((best_x, best_y, float(best_score)))
+
+        # 3️⃣ Tri décroissant
+        points.sort(key=lambda p: -p[2])
+
+        # 4️⃣ Optionnel : top-K
+        if len(points) > top_k:
+            points = points[:top_k]
+
+        return points
+
     
     def enregistrer_heatmap_superposee(self, alpha=0.55, colormap=cv2.COLORMAP_TURBO):
 
