@@ -204,6 +204,7 @@ class DetectionPointsInteretsUltraUltra:
 
 # -------- Multi-robots simplifié --------
 from scipy.optimize import linear_sum_assignment
+import heapq
 
 class MultiRobotUltraUltra:
     def __init__(self, heatmap: np.ndarray, robots: List[Tuple[int,int]], points_interet: List[Tuple[int,int,float]]):
@@ -215,11 +216,10 @@ class MultiRobotUltraUltra:
         self.heatmap = heatmap
         self.robots = robots
         self.points_interet = points_interet
+        self.valeur_obstacle = -999999  # valeur des obstacles sur la heatmap
 
+    # ---------- Assignation unique ----------
     def assign_targets_unique(self) -> List[Tuple[int,int]]:
-        """
-        Assigne à chaque robot un point d'intérêt unique en minimisant la distance totale.
-        """
         if len(self.points_interet) == 0 or len(self.robots) == 0:
             return [None]*len(self.robots)
 
@@ -235,30 +235,54 @@ class MultiRobotUltraUltra:
             targets[r] = (self.points_interet[c][0], self.points_interet[c][1])
         return targets
 
-    def generate_paths(self, targets: List[Tuple[int,int]], num_pts: int = 50) -> List[List[Tuple[int,int]]]:
-        """
-        Génère des chemins simples (ligne droite interpolée) de chaque robot vers sa cible.
-        :param targets: liste de points cibles pour chaque robot
-        :param num_pts: nombre de points interpolés dans le chemin
-        """
+    # ---------- A* pour génération de chemins ----------
+    def astar(self, start: Tuple[int,int], goal: Tuple[int,int]) -> List[Tuple[int,int]]:
+        h, w = self.heatmap.shape
+
+        def heuristic(a,b):
+            return np.hypot(b[0]-a[0], b[1]-a[1])
+
+        open_set = [(0 + heuristic(start, goal), 0, start, [start])]
+        visited = set()
+
+        while open_set:
+            f, g, current, path = heapq.heappop(open_set)
+            if current in visited:
+                continue
+            visited.add(current)
+
+            if current == goal:
+                return path
+
+            x, y = current
+            for dx in [-1,0,1]:
+                for dy in [-1,0,1]:
+                    if dx == 0 and dy == 0:
+                        continue
+                    nx, ny = x+dx, y+dy
+                    if 0 <= nx < w and 0 <= ny < h:
+                        if self.heatmap[ny, nx] > self.valeur_obstacle:
+                            cost = g + np.hypot(dx, dy)
+                            heapq.heappush(open_set, (cost + heuristic((nx,ny), goal), cost, (nx, ny), path + [(nx, ny)]))
+        return []  # aucun chemin trouvé
+
+    # ---------- Génération des chemins ----------
+    def generate_paths(self, targets: List[Tuple[int,int]]) -> List[List[Tuple[int,int]]]:
         paths = []
         for r, t in zip(self.robots, targets):
             if t is None:
                 paths.append([])
             else:
-                xs = np.linspace(r[0], t[0], num_pts, dtype=int)
-                ys = np.linspace(r[1], t[1], num_pts, dtype=int)
-                paths.append(list(zip(xs, ys)))
+                path = self.astar(r, t)
+                paths.append(path)
         return paths
 
-    def assign_and_generate_paths(self, num_pts: int = 50) -> Tuple[List[Tuple[int,int]], List[List[Tuple[int,int]]]]:
-        """
-        Assignation unique + génération de chemins optimisés en un seul appel.
-        :return: (targets, paths)
-        """
+    # ---------- Assignation + chemins tout-en-un ----------
+    def assign_and_generate_paths(self) -> Tuple[List[Tuple[int,int]], List[List[Tuple[int,int]]]]:
         targets = self.assign_targets_unique()
-        paths = self.generate_paths(targets, num_pts=num_pts)
+        paths = self.generate_paths(targets)
         return targets, paths
+
 
 
 # ---------------- Exemple ----------------
@@ -267,7 +291,7 @@ if __name__ == "__main__":
     robots = [(67,60), (50,90), (95,70)]
 
     multi = MultiRobotUltraUltra(det.heatmap_normalisee, robots, det.points_interet)
-    targets, paths = multi.assign_and_generate_paths(num_pts=50)
+    targets, paths = multi.assign_and_generate_paths()
 
     # Enregistrement final
     det.enregistrer_heatmap_overlay_points_robots(robots, targets, paths)
