@@ -205,94 +205,68 @@ class DetectionPointsInteretsUltraUltra:
 # -------- Multi-robots simplifié --------
 from scipy.optimize import linear_sum_assignment
 import heapq
+from skimage.graph import route_through_array
+
 
 class MultiRobotUltraUltra:
     def __init__(self, heatmap: np.ndarray, robots: List[Tuple[int,int]], points_interet: List[Tuple[int,int,float]]):
-        """
-        :param heatmap: heatmap normalisée
-        :param robots: liste de positions initiales des robots [(x, y), ...]
-        :param points_interet: liste de points d'intérêt [(x, y, score), ...]
-        """
         self.heatmap = heatmap
         self.robots = robots
         self.points_interet = points_interet
-        self.valeur_obstacle = -999999  # valeur des obstacles sur la heatmap
+        self.valeur_obstacle = -999999  # pixels obstacles sur la heatmap
 
-    # ---------- Assignation unique ----------
-    def assign_targets_unique(self) -> List[Tuple[int,int]]:
-        if len(self.points_interet) == 0 or len(self.robots) == 0:
-            return [None]*len(self.robots)
+        # Carte de coûts pour route_through_array : obstacle = inf, traversable = 1
+        self.cost_map = np.ones_like(self.heatmap, dtype=np.float32)
+        self.cost_map[self.heatmap <= self.valeur_obstacle] = np.inf
 
-        cost_matrix = np.zeros((len(self.robots), len(self.points_interet)), dtype=np.float32)
-        for i, (rx, ry) in enumerate(self.robots):
+    # ---------- Assignation via route_through_array ----------
+    def assign_targets_fast(self) -> Tuple[List[Tuple[int,int]], List[List[Tuple[int,int]]]]:
+        n_r, n_p = len(self.robots), len(self.points_interet)
+        if n_r == 0 or n_p == 0:
+            return [None]*n_r, [[] for _ in range(n_r)]
+
+        cost_matrix = np.full((n_r, n_p), np.inf, dtype=np.float32)
+        paths_matrix = [[[] for _ in range(n_p)] for _ in range(n_r)]
+
+        robot_positions = self.robots.copy()
+
+        # Calculer le chemin et le coût pour chaque robot → point
+        for i, (rx, ry) in enumerate(robot_positions):
             for j, (px, py, _) in enumerate(self.points_interet):
-                cost_matrix[i, j] = np.hypot(px - rx, py - ry)
+                try:
+                    path, cost = route_through_array(self.cost_map, start=(ry, rx), end=(py, px), fully_connected=True)
+                    cost_matrix[i, j] = cost
+                    # Convertir (row,col) → (x,y)
+                    paths_matrix[i][j] = [(c, r) for r, c in path]
+                except Exception:
+                    # Aucun chemin trouvé
+                    cost_matrix[i, j] = np.inf
+                    paths_matrix[i][j] = []
 
+        # Hungarian pour assignation optimale
         row_ind, col_ind = linear_sum_assignment(cost_matrix)
 
-        targets = [None]*len(self.robots)
+        targets = [None]*n_r
+        paths = [[] for _ in range(n_r)]
         for r, c in zip(row_ind, col_ind):
-            targets[r] = (self.points_interet[c][0], self.points_interet[c][1])
-        return targets
+            if cost_matrix[r, c] < np.inf:
+                targets[r] = (self.points_interet[c][0], self.points_interet[c][1])
+                paths[r] = paths_matrix[r][c]
 
-    # ---------- A* pour génération de chemins ----------
-    def astar(self, start: Tuple[int,int], goal: Tuple[int,int]) -> List[Tuple[int,int]]:
-        h, w = self.heatmap.shape
-
-        def heuristic(a,b):
-            return np.hypot(b[0]-a[0], b[1]-a[1])
-
-        open_set = [(0 + heuristic(start, goal), 0, start, [start])]
-        visited = set()
-
-        while open_set:
-            f, g, current, path = heapq.heappop(open_set)
-            if current in visited:
-                continue
-            visited.add(current)
-
-            if current == goal:
-                return path
-
-            x, y = current
-            for dx in [-1,0,1]:
-                for dy in [-1,0,1]:
-                    if dx == 0 and dy == 0:
-                        continue
-                    nx, ny = x+dx, y+dy
-                    if 0 <= nx < w and 0 <= ny < h:
-                        if self.heatmap[ny, nx] > self.valeur_obstacle:
-                            cost = g + np.hypot(dx, dy)
-                            heapq.heappush(open_set, (cost + heuristic((nx,ny), goal), cost, (nx, ny), path + [(nx, ny)]))
-        return []  # aucun chemin trouvé
-
-    # ---------- Génération des chemins ----------
-    def generate_paths(self, targets: List[Tuple[int,int]]) -> List[List[Tuple[int,int]]]:
-        paths = []
-        for r, t in zip(self.robots, targets):
-            if t is None:
-                paths.append([])
-            else:
-                path = self.astar(r, t)
-                paths.append(path)
-        return paths
-
-    # ---------- Assignation + chemins tout-en-un ----------
-    def assign_and_generate_paths(self) -> Tuple[List[Tuple[int,int]], List[List[Tuple[int,int]]]]:
-        targets = self.assign_targets_unique()
-        paths = self.generate_paths(targets)
         return targets, paths
-
-
 
 # ---------------- Exemple ----------------
 if __name__ == "__main__":
+    import time
+    a = time.time()
     det = DetectionPointsInteretsUltraUltra("map.pgm", top_k=50)
     robots = [(67,60), (50,90), (95,70)]
 
     multi = MultiRobotUltraUltra(det.heatmap_normalisee, robots, det.points_interet)
-    targets, paths = multi.assign_and_generate_paths()
+    targets, paths = multi.assign_targets_fast()
 
-    # Enregistrement final
     det.enregistrer_heatmap_overlay_points_robots(robots, targets, paths)
+
+
+    print(time.time()-a)
 
