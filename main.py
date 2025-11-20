@@ -216,30 +216,49 @@ class MultiRobotUltraUltra:
         self.robots = robots
         self.points_interet = points_interet
 
-    def choose_targets_unique(self) -> List[Tuple[int,int]]:
+    def assign_targets_unique(self) -> List[Tuple[int,int]]:
         """
-        Assigne à chaque robot un point d'intérêt unique (aucun partage) 
-        en minimisant la distance totale robot-point.
+        Assigne à chaque robot un point d'intérêt unique en minimisant la distance totale.
         """
         if len(self.points_interet) == 0 or len(self.robots) == 0:
             return [None]*len(self.robots)
 
-        # Matrice des distances (coût) robots ↔ points d’intérêt
         cost_matrix = np.zeros((len(self.robots), len(self.points_interet)), dtype=np.float32)
         for i, (rx, ry) in enumerate(self.robots):
             for j, (px, py, _) in enumerate(self.points_interet):
                 cost_matrix[i, j] = np.hypot(px - rx, py - ry)
 
-        # Assignation optimale
         row_ind, col_ind = linear_sum_assignment(cost_matrix)
 
-        # Création de la liste des cibles
         targets = [None]*len(self.robots)
         for r, c in zip(row_ind, col_ind):
             targets[r] = (self.points_interet[c][0], self.points_interet[c][1])
-
         return targets
 
+    def generate_paths(self, targets: List[Tuple[int,int]], num_pts: int = 50) -> List[List[Tuple[int,int]]]:
+        """
+        Génère des chemins simples (ligne droite interpolée) de chaque robot vers sa cible.
+        :param targets: liste de points cibles pour chaque robot
+        :param num_pts: nombre de points interpolés dans le chemin
+        """
+        paths = []
+        for r, t in zip(self.robots, targets):
+            if t is None:
+                paths.append([])
+            else:
+                xs = np.linspace(r[0], t[0], num_pts, dtype=int)
+                ys = np.linspace(r[1], t[1], num_pts, dtype=int)
+                paths.append(list(zip(xs, ys)))
+        return paths
+
+    def assign_and_generate_paths(self, num_pts: int = 50) -> Tuple[List[Tuple[int,int]], List[List[Tuple[int,int]]]]:
+        """
+        Assignation unique + génération de chemins optimisés en un seul appel.
+        :return: (targets, paths)
+        """
+        targets = self.assign_targets_unique()
+        paths = self.generate_paths(targets, num_pts=num_pts)
+        return targets, paths
 
 
 # ---------------- Exemple ----------------
@@ -248,18 +267,7 @@ if __name__ == "__main__":
     robots = [(67,60), (50,90), (95,70)]
 
     multi = MultiRobotUltraUltra(det.heatmap_normalisee, robots, det.points_interet)
-    targets = multi.choose_targets_unique()
-
-    # Création de chemins simples
-    paths = []
-    for r, t in zip(robots, targets):
-        if t is None:
-            paths.append([])
-        else:
-            num_pts = 50
-            xs = np.linspace(r[0], t[0], num_pts, dtype=int)
-            ys = np.linspace(r[1], t[1], num_pts, dtype=int)
-            paths.append(list(zip(xs, ys)))
+    targets, paths = multi.assign_and_generate_paths(num_pts=50)
 
     # Enregistrement final
     det.enregistrer_heatmap_overlay_points_robots(robots, targets, paths)
