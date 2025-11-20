@@ -2,7 +2,10 @@ import numpy as np
 import cv2
 import os
 from typing import List, Tuple
+from scipy.optimize import linear_sum_assignment
+from skimage.graph import route_through_array
 
+# ---------------- Détection des points d'intérêt ----------------
 class DetectionPointsInteretsUltraUltra:
     """Détection ultra-optimisée des points d'intérêt + visualisation avec robots et trajets."""
 
@@ -10,11 +13,9 @@ class DetectionPointsInteretsUltraUltra:
         self.top_k = top_k
         self.dossier_debug = dossier_debug
         self.valeur_pixel_supprime = -999999
-
-        # Créer dossier debug
         os.makedirs(dossier_debug, exist_ok=True)
 
-        # Étapes principales
+        # Pipeline principal
         self.img = self.lecture_image(path)
         self.metriques_physiques()
         img_travail = self.transformer_valeurs(self.img)
@@ -23,13 +24,9 @@ class DetectionPointsInteretsUltraUltra:
         self.heatmap_normalisee = self.lissage_normalisation(img_nettoyee)
         self.save(self.heatmap_normalisee, "07_heatmap_normalisee.png")
 
-        # Superposition heatmap
+        # Génération des images
         self.enregistrer_heatmap_superposee()
-
-        # Top-K points d’intérêt
         self.points_interet = self.topk_points_interet(self.heatmap_normalisee, top_k=self.top_k)
-
-        # Heatmap overlay avec points
         self.enregistrer_heatmap_overlay_avec_points()
 
     # ---------- Utilitaires ----------
@@ -41,7 +38,7 @@ class DetectionPointsInteretsUltraUltra:
         out8 = (out * 255).astype(np.uint8)
         cv2.imwrite(os.path.join(self.dossier_debug, filename), out8)
 
-    # ---------- Étape 1 ----------
+    # ---------- Lecture ----------
     def lecture_image(self, path: str) -> np.ndarray:
         img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
         if img is None:
@@ -50,15 +47,14 @@ class DetectionPointsInteretsUltraUltra:
         self.save(img, "01_image_originale.png")
         return img
 
-    # ---------- Étape 2 ----------
+    # ---------- Metrics physiques ----------
     def metriques_physiques(self):
         taille_pixel = 0.1
         taille_robot = 0.3
         h_px = max(1, int(taille_robot / taille_pixel))
-        w_px = h_px
-        self.matrice_robot = np.ones((h_px, w_px), dtype=np.float32)
+        self.matrice_robot = np.ones((h_px, h_px), dtype=np.float32)
 
-    # ---------- Étape 3 ----------
+    # ---------- Transformation des valeurs ----------
     def transformer_valeurs(self, img: np.ndarray) -> np.ndarray:
         img_f = img.astype(np.float32)
         self.pixel_occupe = 0
@@ -69,16 +65,14 @@ class DetectionPointsInteretsUltraUltra:
         img_f[img == self.pixel_inconnu] = 100
         return img_f
 
-    # ---------- Étape 4 ----------
+    # ---------- Suppression des pixels inutiles ----------
     def suppression_pixels_inutilisables(self, img: np.ndarray) -> np.ndarray:
         img_out = img.copy()
-
-        # Supprimer autour des obstacles
+        # Suppression autour des obstacles
         kernel = self.matrice_robot / np.prod(self.matrice_robot.shape)
         mask_occ = (img_out == -100).astype(np.float32)
         zones = cv2.filter2D(mask_occ, -1, kernel, borderType=cv2.BORDER_CONSTANT)
         img_out[zones != 0] = self.valeur_pixel_supprime
-        self.save(img_out, "03_suppression_autour_obstacles.png")
 
         # Filtrage des inconnus isolés
         mask_known = (img_out == 0).astype(np.float32)
@@ -96,26 +90,18 @@ class DetectionPointsInteretsUltraUltra:
         self.save(img_out, "04_inconnus_filtrage_voisinage.png")
         return img_out
 
-    # ---------- Étape 5 ----------
+    # ---------- Lissage et normalisation ----------
     def lissage_normalisation(self, img: np.ndarray) -> np.ndarray:
         mask_suppr = img <= self.valeur_pixel_supprime
         img2 = img.copy()
 
-        # 1er passage
-        tmp = img2.copy()
-        tmp[mask_suppr] = 0
-        img2[...] = cv2.boxFilter(tmp, -1, (3, 3), normalize=True)
-        img2[mask_suppr] = self.valeur_pixel_supprime
-        self.save(img2, "05_lissage_pass1.png")
+        # 2 passages de boxFilter
+        for _ in range(2):
+            tmp = img2.copy()
+            tmp[mask_suppr] = 0
+            img2[...] = cv2.boxFilter(tmp, -1, (3, 3), normalize=True)
+            img2[mask_suppr] = self.valeur_pixel_supprime
 
-        # 2e passage
-        tmp = img2.copy()
-        tmp[mask_suppr] = 0
-        img2[...] = cv2.boxFilter(tmp, -1, (3, 3), normalize=True)
-        img2[mask_suppr] = self.valeur_pixel_supprime
-        self.save(img2, "06_lissage_pass2.png")
-
-        # Normalisation finale
         valid = img2[~mask_suppr]
         if valid.size == 0:
             return np.zeros_like(img2)
@@ -124,9 +110,8 @@ class DetectionPointsInteretsUltraUltra:
         norm[mask_suppr] = self.valeur_pixel_supprime
         return norm
 
-    # ---------- Étape 6 ----------
-    def topk_points_interet(self, heatmap: np.ndarray, top_k: int) -> List[Tuple[int,int,float]]:
-        """Retourne 1 point par zone connectée, tri par taille puis score."""
+    # ---------- Top-K points d'intérêt ----------
+    def topk_points_interet(self, heatmap: np.ndarray, top_k: int) -> List[Tuple[int,int,float,int]]:
         mask = heatmap > 0
         num_labels, labels = cv2.connectedComponents(mask.astype(np.uint8))
         points = []
@@ -137,121 +122,93 @@ class DetectionPointsInteretsUltraUltra:
                 continue
             scores = heatmap[ys, xs]
             idx_best = np.argmax(scores)
-            zone_size = len(xs)  # taille de la zone
+            zone_size = len(xs)
             points.append((xs[idx_best], ys[idx_best], float(scores[idx_best]), zone_size))
 
-        # Trier d'abord par taille décroissante, puis par score décroissant
+        # Trier par taille puis score
         points.sort(key=lambda p: (-p[3], -p[2]))
-
-        # Retourner top_k points
-        return [(x, y, score, size) for x, y, score, size in points[:top_k]]
-
+        return points[:top_k]
 
     # ---------- Visualisation ----------
     def enregistrer_heatmap_superposee(self, alpha=0.55, colormap=cv2.COLORMAP_TURBO):
         img_orig_color = cv2.cvtColor(self.img, cv2.COLOR_GRAY2BGR)
-        hm = np.clip(self.heatmap_normalisee, 0, 1)
-        hm8 = (hm*255).astype(np.uint8)
-        hm_color = cv2.applyColorMap(hm8, colormap)
-        overlay = cv2.addWeighted(hm_color, alpha, img_orig_color, 1-alpha, 0)
+        hm8 = (np.clip(self.heatmap_normalisee,0,1)*255).astype(np.uint8)
+        overlay = cv2.addWeighted(cv2.applyColorMap(hm8, colormap), alpha, img_orig_color, 1-alpha, 0)
         cv2.imwrite(os.path.join(self.dossier_debug,"heatmap_overlay.png"), overlay)
-        print("[OK] Heatmap superposée enregistrée.")
 
     def enregistrer_heatmap_overlay_avec_points(self, alpha=0.55, colormap=cv2.COLORMAP_TURBO):
-        """Superposition heatmap + points d'intérêt."""
         img_orig_color = cv2.cvtColor(self.img, cv2.COLOR_GRAY2BGR)
-        hm = np.clip(self.heatmap_normalisee, 0, 1)
-        hm8 = (hm*255).astype(np.uint8)
-        hm_color = cv2.applyColorMap(hm8, colormap)
-        overlay = cv2.addWeighted(hm_color, alpha, img_orig_color, 1-alpha, 0)
-
-        for (x, y, a, _) in self.points_interet:
-            cv2.drawMarker(overlay, (x, y), (255,255,255),
-                           markerType=cv2.MARKER_TILTED_CROSS, markerSize=8, thickness=2)
-            cv2.drawMarker(overlay, (x, y), (0,0,255),
-                           markerType=cv2.MARKER_TILTED_CROSS, markerSize=4, thickness=1)
-
+        hm8 = (np.clip(self.heatmap_normalisee,0,1)*255).astype(np.uint8)
+        overlay = cv2.addWeighted(cv2.applyColorMap(hm8, colormap), alpha, img_orig_color, 1-alpha, 0)
+        for (x, y, _, _) in self.points_interet:
+            cv2.drawMarker(overlay, (x, y), (0,0,255), markerType=cv2.MARKER_TILTED_CROSS, markerSize=6, thickness=1)
         cv2.imwrite(os.path.join(self.dossier_debug,"heatmap_overlay_points.png"), overlay)
-        print("[OK] Overlay + points d'intérêt enregistrés.")
 
-    def enregistrer_heatmap_overlay_points_robots(self, robots: List[Tuple[int,int]],
-                                                  targets: List[Tuple[int,int]],
-                                                  paths: List[List[Tuple[int,int]]],
-                                                  alpha=0.55, colormap=cv2.COLORMAP_TURBO):
-        """Heatmap + points d'intérêt + robots + trajets."""
+    def enregistrer_heatmap_overlay_points_robots(self, robots: List[Tuple[int,int]], targets: List[Tuple[int,int]], paths: List[List[Tuple[int,int]]], alpha=0.55, colormap=cv2.COLORMAP_TURBO):
         img_orig_color = cv2.cvtColor(self.img, cv2.COLOR_GRAY2BGR)
-        hm = np.clip(self.heatmap_normalisee, 0, 1)
-        hm8 = (hm*255).astype(np.uint8)
-        hm_color = cv2.applyColorMap(hm8, colormap)
-        overlay = cv2.addWeighted(hm_color, alpha, img_orig_color, 1-alpha, 0)
-
-        # Points d'intérêt
-        for (x, y, a, _) in self.points_interet:
-            cv2.drawMarker(overlay, (x, y), (255,255,255),
-                           markerType=cv2.MARKER_TILTED_CROSS, markerSize=8, thickness=2)
-            cv2.drawMarker(overlay, (x, y), (0,0,255),
-                           markerType=cv2.MARKER_TILTED_CROSS, markerSize=4, thickness=1)
-
+        hm8 = (np.clip(self.heatmap_normalisee,0,1)*255).astype(np.uint8)
+        overlay = cv2.addWeighted(cv2.applyColorMap(hm8, colormap), alpha, img_orig_color, 1-alpha, 0)
+        # Points
+        for (x, y, _, _) in self.points_interet:
+            cv2.drawMarker(overlay, (x, y), (0,0,255), markerType=cv2.MARKER_TILTED_CROSS, markerSize=6, thickness=1)
         # Robots
         for (rx, ry) in robots:
-            cv2.circle(overlay, (rx, ry), 5, (255,0,0), -1, lineType=cv2.LINE_AA)
-
+            cv2.circle(overlay, (rx, ry), 5, (255,0,0), -1)
         # Trajectoires
         for path in paths:
-            if len(path) < 2:
-                continue
             for i in range(len(path)-1):
-                cv2.line(overlay, path[i], path[i+1], (0,255,0), 2, lineType=cv2.LINE_AA)
-
+                cv2.line(overlay, path[i], path[i+1], (0,255,0), 2)
         cv2.imwrite(os.path.join(self.dossier_debug,"heatmap_overlay_points_robots.png"), overlay)
-        print("[OK] Overlay + points + robots + trajets enregistrés.")
 
 
-# -------- Multi-robots simplifié --------
-from scipy.optimize import linear_sum_assignment
-import heapq
-from skimage.graph import route_through_array
-
-
+# ---------------- Multi-Robot Optimisé ----------------
 class MultiRobotUltraUltra:
-    def __init__(self, heatmap: np.ndarray, robots: List[Tuple[int,int]], points_interet: List[Tuple[int,int,float]]):
+    def __init__(self, heatmap: np.ndarray, robots: List[Tuple[int,int]], points_interet: List[Tuple[int,int,float,int]]):
         self.heatmap = heatmap
         self.robots = robots
         self.points_interet = points_interet
-        self.valeur_obstacle = -999999  # pixels obstacles sur la heatmap
-
-        # Carte de coûts pour route_through_array : obstacle = inf, traversable = 1
+        self.valeur_obstacle = -999999
         self.cost_map = np.ones_like(self.heatmap, dtype=np.float32)
         self.cost_map[self.heatmap <= self.valeur_obstacle] = np.inf
 
-    # ---------- Assignation via route_through_array ----------
-    def assign_targets_fast(self) -> Tuple[List[Tuple[int,int]], List[List[Tuple[int,int]]]]:
+    def assign_targets_optimized(self):
         n_r, n_p = len(self.robots), len(self.points_interet)
         if n_r == 0 or n_p == 0:
             return [None]*n_r, [[] for _ in range(n_r)]
 
+        # Calcul des coûts initiaux
         cost_matrix = np.full((n_r, n_p), np.inf, dtype=np.float32)
         paths_matrix = [[[] for _ in range(n_p)] for _ in range(n_r)]
-
-        robot_positions = self.robots.copy()
-
-        # Calculer le chemin et le coût pour chaque robot → point
-        for i, (rx, ry) in enumerate(robot_positions):
+        for i, (rx, ry) in enumerate(self.robots):
             for j, (px, py, score, size) in enumerate(self.points_interet):
                 try:
                     path, cost = route_through_array(self.cost_map, start=(ry, rx), end=(py, px), fully_connected=True)
-                    # On diminue le coût proportionnellement à la taille de la zone
-                    adjusted_cost = cost / (1 + size)
-                    cost_matrix[i, j] = adjusted_cost
+                    cost_matrix[i, j] = cost / (1 + size)
                     paths_matrix[i][j] = [(c, r) for r, c in path]
-                except Exception:
-                    cost_matrix[i, j] = np.inf
-                    paths_matrix[i][j] = []
+                except:
+                    continue
 
-
-        # Hungarian pour assignation optimale
+        # Assignation initiale via Hungarian
         row_ind, col_ind = linear_sum_assignment(cost_matrix)
+        targets = [None]*n_r
+        paths = [[] for _ in range(n_r)]
+        assigned_points = []
+        for r, c in zip(row_ind, col_ind):
+            if cost_matrix[r, c] < np.inf:
+                targets[r] = (self.points_interet[c][0], self.points_interet[c][1])
+                paths[r] = paths_matrix[r][c]
+                assigned_points.append(self.points_interet[c][:2])
 
+        # Réajuster les points trop proches
+        for i in range(n_r):
+            for j, (px, py, score, size) in enumerate(self.points_interet):
+                if (px, py) in assigned_points:
+                    continue
+                dist = min(np.hypot(px - ax, py - ay) for (ax, ay) in assigned_points)
+                cost_matrix[i, j] *= (1 + np.exp(-dist/5))  # pénalisation auto
+
+        # Nouvelle assignation optimisée
+        row_ind, col_ind = linear_sum_assignment(cost_matrix)
         targets = [None]*n_r
         paths = [[] for _ in range(n_r)]
         for r, c in zip(row_ind, col_ind):
@@ -261,18 +218,14 @@ class MultiRobotUltraUltra:
 
         return targets, paths
 
-# ---------------- Exemple ----------------
+
+# ---------------- Exemple d'utilisation ----------------
 if __name__ == "__main__":
     import time
     a = time.time()
     det = DetectionPointsInteretsUltraUltra("map.pgm", top_k=50)
     robots = [(67,60), (67,70)]
-
     multi = MultiRobotUltraUltra(det.heatmap_normalisee, robots, det.points_interet)
-    targets, paths = multi.assign_targets_fast()
-
+    targets, paths = multi.assign_targets_optimized()
     det.enregistrer_heatmap_overlay_points_robots(robots, targets, paths)
-
-
-    print(time.time()-a)
-
+    print("[INFO] Temps total :", time.time()-a)
