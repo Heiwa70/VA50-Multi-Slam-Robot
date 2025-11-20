@@ -126,7 +126,7 @@ class DetectionPointsInteretsUltraUltra:
 
     # ---------- Étape 6 ----------
     def topk_points_interet(self, heatmap: np.ndarray, top_k: int) -> List[Tuple[int,int,float]]:
-        """Retourne 1 point par zone connectée, tri par score."""
+        """Retourne 1 point par zone connectée, tri par taille puis score."""
         mask = heatmap > 0
         num_labels, labels = cv2.connectedComponents(mask.astype(np.uint8))
         points = []
@@ -137,10 +137,15 @@ class DetectionPointsInteretsUltraUltra:
                 continue
             scores = heatmap[ys, xs]
             idx_best = np.argmax(scores)
-            points.append((xs[idx_best], ys[idx_best], float(scores[idx_best])))
+            zone_size = len(xs)  # taille de la zone
+            points.append((xs[idx_best], ys[idx_best], float(scores[idx_best]), zone_size))
 
-        points.sort(key=lambda p: -p[2])
-        return points[:top_k] if len(points) > top_k else points
+        # Trier d'abord par taille décroissante, puis par score décroissant
+        points.sort(key=lambda p: (-p[3], -p[2]))
+
+        # Retourner top_k points
+        return [(x, y, score, size) for x, y, score, size in points[:top_k]]
+
 
     # ---------- Visualisation ----------
     def enregistrer_heatmap_superposee(self, alpha=0.55, colormap=cv2.COLORMAP_TURBO):
@@ -160,7 +165,7 @@ class DetectionPointsInteretsUltraUltra:
         hm_color = cv2.applyColorMap(hm8, colormap)
         overlay = cv2.addWeighted(hm_color, alpha, img_orig_color, 1-alpha, 0)
 
-        for (x, y, _) in self.points_interet:
+        for (x, y, a, _) in self.points_interet:
             cv2.drawMarker(overlay, (x, y), (255,255,255),
                            markerType=cv2.MARKER_TILTED_CROSS, markerSize=8, thickness=2)
             cv2.drawMarker(overlay, (x, y), (0,0,255),
@@ -181,7 +186,7 @@ class DetectionPointsInteretsUltraUltra:
         overlay = cv2.addWeighted(hm_color, alpha, img_orig_color, 1-alpha, 0)
 
         # Points d'intérêt
-        for (x, y, _) in self.points_interet:
+        for (x, y, a, _) in self.points_interet:
             cv2.drawMarker(overlay, (x, y), (255,255,255),
                            markerType=cv2.MARKER_TILTED_CROSS, markerSize=8, thickness=2)
             cv2.drawMarker(overlay, (x, y), (0,0,255),
@@ -232,16 +237,17 @@ class MultiRobotUltraUltra:
 
         # Calculer le chemin et le coût pour chaque robot → point
         for i, (rx, ry) in enumerate(robot_positions):
-            for j, (px, py, _) in enumerate(self.points_interet):
+            for j, (px, py, score, size) in enumerate(self.points_interet):
                 try:
                     path, cost = route_through_array(self.cost_map, start=(ry, rx), end=(py, px), fully_connected=True)
-                    cost_matrix[i, j] = cost
-                    # Convertir (row,col) → (x,y)
+                    # On diminue le coût proportionnellement à la taille de la zone
+                    adjusted_cost = cost / (1 + size)
+                    cost_matrix[i, j] = adjusted_cost
                     paths_matrix[i][j] = [(c, r) for r, c in path]
                 except Exception:
-                    # Aucun chemin trouvé
                     cost_matrix[i, j] = np.inf
                     paths_matrix[i][j] = []
+
 
         # Hungarian pour assignation optimale
         row_ind, col_ind = linear_sum_assignment(cost_matrix)
@@ -260,7 +266,7 @@ if __name__ == "__main__":
     import time
     a = time.time()
     det = DetectionPointsInteretsUltraUltra("map.pgm", top_k=50)
-    robots = [(67,60), (50,90), (95,70)]
+    robots = [(67,60), (67,70)]
 
     multi = MultiRobotUltraUltra(det.heatmap_normalisee, robots, det.points_interet)
     targets, paths = multi.assign_targets_fast()
