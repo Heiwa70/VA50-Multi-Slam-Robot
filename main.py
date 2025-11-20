@@ -203,39 +203,59 @@ class DetectionPointsInteretsUltraUltra:
 
 
 # -------- Multi-robots simplifié --------
+from scipy.optimize import linear_sum_assignment
+
 class MultiRobotUltraUltra:
-    def __init__(self, heatmap: np.ndarray, robots: List[Tuple[int,int]]):
+    def __init__(self, heatmap: np.ndarray, robots: List[Tuple[int,int]], points_interet: List[Tuple[int,int,float]]):
+        """
+        :param heatmap: heatmap normalisée
+        :param robots: liste de positions initiales des robots [(x, y), ...]
+        :param points_interet: liste de points d'intérêt [(x, y, score), ...]
+        """
         self.heatmap = heatmap
         self.robots = robots
+        self.points_interet = points_interet
 
-    def choose_targets(self, radius: int = 5) -> List[Tuple[int,int]]:
-        targets = []
-        for (rx, ry) in self.robots:
-            x0, x1 = max(0, rx-radius), min(self.heatmap.shape[1], rx+radius+1)
-            y0, y1 = max(0, ry-radius), min(self.heatmap.shape[0], ry+radius+1)
-            local = self.heatmap[y0:y1, x0:x1]
-            if local.size == 0:
-                targets.append(None)
-                continue
-            y, x = np.unravel_index(np.argmax(local), local.shape)
-            targets.append((x + x0, y + y0))
+    def choose_targets_unique(self) -> List[Tuple[int,int]]:
+        """
+        Assigne à chaque robot un point d'intérêt unique (aucun partage) 
+        en minimisant la distance totale robot-point.
+        """
+        if len(self.points_interet) == 0 or len(self.robots) == 0:
+            return [None]*len(self.robots)
+
+        # Matrice des distances (coût) robots ↔ points d’intérêt
+        cost_matrix = np.zeros((len(self.robots), len(self.points_interet)), dtype=np.float32)
+        for i, (rx, ry) in enumerate(self.robots):
+            for j, (px, py, _) in enumerate(self.points_interet):
+                cost_matrix[i, j] = np.hypot(px - rx, py - ry)
+
+        # Assignation optimale
+        row_ind, col_ind = linear_sum_assignment(cost_matrix)
+
+        # Création de la liste des cibles
+        targets = [None]*len(self.robots)
+        for r, c in zip(row_ind, col_ind):
+            targets[r] = (self.points_interet[c][0], self.points_interet[c][1])
+
         return targets
+
 
 
 # ---------------- Exemple ----------------
 if __name__ == "__main__":
     det = DetectionPointsInteretsUltraUltra("map.pgm", top_k=50)
     robots = [(67,60), (50,90), (95,70)]
-    multi = MultiRobotUltraUltra(det.heatmap_normalisee, robots)
-    targets = multi.choose_targets(radius=5)
 
-    # Exemple de chemins (ici ligne droite simple)
+    multi = MultiRobotUltraUltra(det.heatmap_normalisee, robots, det.points_interet)
+    targets = multi.choose_targets_unique()
+
+    # Création de chemins simples
     paths = []
     for r, t in zip(robots, targets):
         if t is None:
             paths.append([])
         else:
-            # Ligne droite simplifiée pour l'exemple
             num_pts = 50
             xs = np.linspace(r[0], t[0], num_pts, dtype=int)
             ys = np.linspace(r[1], t[1], num_pts, dtype=int)
@@ -243,3 +263,4 @@ if __name__ == "__main__":
 
     # Enregistrement final
     det.enregistrer_heatmap_overlay_points_robots(robots, targets, paths)
+
