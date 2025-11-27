@@ -5,6 +5,18 @@ from typing import List, Tuple
 from scipy.optimize import linear_sum_assignment
 from skimage.graph import route_through_array
 
+import rclpy
+from rclpy.node import Node
+from rclpy.qos import QoSProfile, ReliabilityPolicy
+from sensor_msgs.msg import Image
+from geometry_msgs.msg import Twist
+import math
+import numpy as np
+import cv2
+from cv_bridge import CvBridge
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy
+
+
 # ---------------- Détection des points d'intérêt ----------------
 class DetectionPointsInterets:
 
@@ -171,14 +183,51 @@ class MultiRobot:
         return targets, paths
 
 
-# ---------------- Exemple d'utilisation ----------------
-if __name__ == "__main__":
-    det = DetectionPointsInterets("map.pgm", top_k=50)
-    robots = [(25,35), (30,25)]
-    multi = MultiRobot(det.heatmap_normalisee, robots, det.points_interet)
-    targets, paths = multi.assign_targets_optimized()
-    
-    for n in range(len(paths)):
+class AffectationPointsInterets(Node):
 
-        print(f"Robot {n} : {paths[n][0]} -> {paths[n][-1]}")
+    def __init__(self):
+        super().__init__('affectation_points_interets')
+
+        self.cv_bridge = CvBridge()
+
+        qos = QoSProfile(
+            depth=1,
+            reliability=ReliabilityPolicy.BEST_EFFORT,
+            history=QoSHistoryPolicy.KEEP_LAST
+        )
+
+        self.scan_subscriber = self.create_subscription(Image, 'image_raw', self.map_callback, qos)
+        self.scan_subscriber  
+        self.vel_publisher = self.create_publisher(Twist, 'cmd_vel', 10)
+        
+
+
+    def map_callback(self, map_resultat):
+
+        cv_image = self.cv_bridge.imgmsg_to_cv2(map_resultat, desired_encoding='bgr8')
+
+        det = DetectionPointsInterets(cv_image, top_k=50)
+        robots = [(25,35), (30,25)]
+        multi = MultiRobot(det.heatmap_normalisee, robots, det.points_interet)
+        targets, paths = multi.assign_targets_optimized()
+        
+        for n in range(len(paths)):
+
+            print(f"Robot {n} : {paths[n][0]} -> {paths[n][-1]}")
+
+
+def main(args=None):
+    rclpy.init(args=args)
+
+    affectation_points_interets = AffectationPointsInterets()
+    rclpy.spin(affectation_points_interets)
+
+    affectation_points_interets.destroy_node()
+    rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
+
+
      
