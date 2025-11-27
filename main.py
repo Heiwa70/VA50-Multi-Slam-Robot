@@ -6,7 +6,7 @@ from scipy.optimize import linear_sum_assignment
 from skimage.graph import route_through_array
 
 # ---------------- Détection des points d'intérêt ----------------
-class DetectionPointsInteretsUltraUltra:
+class DetectionPointsInterets:
     """Détection ultra-optimisée des points d'intérêt + visualisation avec robots et trajets."""
 
     def __init__(self, path: str, top_k: int = 50, dossier_debug: str = "debug"):
@@ -162,7 +162,7 @@ class DetectionPointsInteretsUltraUltra:
 
 
 # ---------------- Multi-Robot Optimisé ----------------
-class MultiRobotUltraUltra:
+class MultiRobot:
     def __init__(self, heatmap: np.ndarray, robots: List[Tuple[int,int]], points_interet: List[Tuple[int,int,float,int]]):
         self.heatmap = heatmap
         self.robots = robots
@@ -223,9 +223,9 @@ class MultiRobotUltraUltra:
 if __name__ == "__main__":
     import time
     a = time.time()
-    det = DetectionPointsInteretsUltraUltra("map.pgm", top_k=50)
-    robots = [(67,60), (67,70)]
-    multi = MultiRobotUltraUltra(det.heatmap_normalisee, robots, det.points_interet)
+    det = DetectionPointsInterets("map.pgm", top_k=50)
+    robots = [(25,35), (30,25)]
+    multi = MultiRobot(det.heatmap_normalisee, robots, det.points_interet)
     targets, paths = multi.assign_targets_optimized()
     det.enregistrer_heatmap_overlay_points_robots(robots, targets, paths)
     print("[INFO] Temps total :", time.time()-a)
