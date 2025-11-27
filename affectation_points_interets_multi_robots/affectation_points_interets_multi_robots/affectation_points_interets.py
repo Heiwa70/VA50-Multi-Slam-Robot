@@ -7,7 +7,6 @@ from skimage.graph import route_through_array
 
 import rclpy
 from rclpy.node import Node
-from rclpy.qos import QoSProfile, ReliabilityPolicy
 from geometry_msgs.msg import Twist
 
 from cv_bridge import CvBridge
@@ -160,6 +159,8 @@ class MultiRobot:
             for j, (px, py, score, size) in enumerate(self.points_interet):
                 if (px, py) in assigned_points:
                     continue
+                if not assigned_points:
+                    continue
                 dist = min(np.hypot(px - ax, py - ay) for (ax, ay) in assigned_points)
                 cost_matrix[i, j] *= (1 + np.exp(-dist/5))  # pénalisation auto
 
@@ -184,7 +185,7 @@ class AffectationPointsInterets(Node):
 
         qos = QoSProfile(
             depth=1,
-            reliability=ReliabilityPolicy.BEST_EFFORT,
+            reliability=QoSReliabilityPolicy.BEST_EFFORT,
             history=QoSHistoryPolicy.KEEP_LAST
         )
 
@@ -211,9 +212,16 @@ class AffectationPointsInterets(Node):
         self.timer = self.create_timer(0.1, self.update_poses)
 
     def update_poses(self):
+        if not self.map_received:
+            return
+
+        info = self.map_info
+        origin_x = info.origin.position.x
+        origin_y = info.origin.position.y
+        res = info.resolution
+
         for frame in self.robot_frames:
             try:
-                # On cherche la pose dans la carte
                 tr = self.tf_buffer.lookup_transform(
                     "map", frame, rclpy.time.Time(), timeout=rclpy.duration.Duration(seconds=0.1)
                 )
@@ -221,32 +229,36 @@ class AffectationPointsInterets(Node):
                 x = tr.transform.translation.x
                 y = tr.transform.translation.y
 
-                # Yaw (rotation sur Z)
                 q = tr.transform.rotation
                 yaw = np.arctan2(
                     2*(q.w*q.z + q.x*q.y),
                     1 - 2*(q.y*q.y + q.z*q.z)
                 )
 
-                px = int((x - msg.info.origin.position.x) / msg.info.resolution)
-                py = int((y - msg.info.origin.position.y) / msg.info.resolution)
+                # Conversion en pixels
+                px = int((x - origin_x) / res)
+                py = int((y - origin_y) / res)
 
+                print(f"Robot {frame}: px={px}, py={py}, yaw={yaw:.2f}")
 
-                print(f"Robot px {frame}: px={px:.3f}, py={py:.3f}, yaw={yaw:.3f}")
+                self.positions_robots[frame] = {
+                    "x": x, "y": y, "px": px, "py": py, "yaw": yaw
+                }
 
-                self.positions_robots[frame] = {"x":x, "y":y}
-
-
-            except Exception as e:
+            except Exception:
                 pass
-        
+
 
 
     def map_callback(self, msg: OccupancyGrid):
 
-        if len(self.positions_robots)==0:
+        # Stocker les infos de la carte
+        self.map_info = msg.info
+        self.map_received = True
+
+        if len(self.positions_robots) == 0:
             return
-        
+
         width  = msg.info.width
         height = msg.info.height
         taille_pixel_en_metre = msg.info.resolution
@@ -257,23 +269,29 @@ class AffectationPointsInterets(Node):
 
         carte = np.array(msg.data, dtype=np.int8).reshape((msg.info.height, msg.info.width))
 
-        det = DetectionPointsInterets(carte,taille_pixel_en_metre,taille_robot_en_metre, top_k=50)
-
+        det = DetectionPointsInterets(carte, taille_pixel_en_metre, taille_robot_en_metre, top_k=50)
 
         robots = []
         nom_robot = {}
-        
-        for key, value in self.positions_robots.items():
 
-            robots.append((value["x"], value["y"]))
-            nom_robot[str((value["x"], value["y"]))] = key
+        for key, value in self.positions_robots.items():
+            robots.append((value["px"], value["py"]))
+            nom_robot[(value["px"], value["py"])] = key
+
 
         multi = MultiRobot(det.heatmap_normalisee, robots, det.points_interet)
         targets, paths = multi.assign_targets_optimized()
-        
-        for n in range(len(paths)):
 
-            print(f"Robot {nom_robot[str(paths[n][0])]} : {paths[n][0]} -> {paths[n][-1]}")
+        for n in range(len(paths)):
+            start = robots[n]          # position pixel du robot n
+            robot_name = nom_robot[start]
+            start_px, start_py = paths[n][0]
+            end_px, end_py = paths[n][-1]
+
+            print(f"Robot {robot_name} : départ=({start_px},{start_py}) → objectif=({end_px},{end_py})")
+
+
+
 
 def main(args=None):
     rclpy.init(args=args)
