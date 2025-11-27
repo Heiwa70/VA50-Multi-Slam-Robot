@@ -8,26 +8,28 @@ from skimage.graph import route_through_array
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy
-from sensor_msgs.msg import Image
 from geometry_msgs.msg import Twist
-import math
-import numpy as np
-import cv2
+
 from cv_bridge import CvBridge
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy
+
+from geometry_msgs.msg import TransformStamped
+from tf2_ros import Buffer, TransformListener
+from nav_msgs.msg import OccupancyGrid
 
 
 # ---------------- Détection des points d'intérêt ----------------
 class DetectionPointsInterets:
 
-    def __init__(self, path: str, top_k: int = 50, dossier_debug: str = "debug"):
+    def __init__(self, image, taille_pixel_en_metre, taille_robot_en_metre, top_k: int = 50):
         self.top_k = top_k
-        self.dossier_debug = dossier_debug
         self.valeur_pixel_supprime = -999999
-        os.makedirs(dossier_debug, exist_ok=True)
+
+        self.taille_pixel_en_metre = taille_pixel_en_metre
+        self.taille_robot_en_metre = taille_robot_en_metre
 
         # Pipeline principal
-        self.img = self.lecture_image(path)
+        self.img = image
         self.metriques_physiques()
         img_travail = self.transformer_valeurs(self.img)
         img_nettoyee = self.suppression_pixels_inutilisables(img_travail)
@@ -35,27 +37,17 @@ class DetectionPointsInterets:
 
         self.points_interet = self.topk_points_interet(self.heatmap_normalisee, top_k=self.top_k)
 
-    # ---------- Lecture ----------
-    def lecture_image(self, path: str) -> np.ndarray:
-        img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-        if img is None:
-            raise FileNotFoundError(f"Impossible de lire l'image : {path}")
-        self.hauteur, self.largeur = img.shape
-        return img
-
     # ---------- Metrics physiques ----------
     def metriques_physiques(self):
-        taille_pixel = 0.1
-        taille_robot = 0.3
-        h_px = max(1, int(taille_robot / taille_pixel))
+        h_px = max(1, int(self.taille_robot_en_metre / self.taille_pixel_en_metre))
         self.matrice_robot = np.ones((h_px, h_px), dtype=np.float32)
 
     # ---------- Transformation des valeurs ----------
     def transformer_valeurs(self, img: np.ndarray) -> np.ndarray:
         img_f = img.astype(np.float32)
-        self.pixel_occupe = 0
-        self.pixel_connu = 254
-        self.pixel_inconnu = 205
+        self.pixel_occupe = 100
+        self.pixel_connu = 0
+        self.pixel_inconnu = -1
         img_f[img == self.pixel_occupe] = -100
         img_f[img == self.pixel_connu] = 0
         img_f[img == self.pixel_inconnu] = 100
@@ -196,25 +188,92 @@ class AffectationPointsInterets(Node):
             history=QoSHistoryPolicy.KEEP_LAST
         )
 
-        self.scan_subscriber = self.create_subscription(Image, 'image_raw', self.map_callback, qos)
+        self.scan_subscriber = self.create_subscription(OccupancyGrid, '/map', self.map_callback, qos)
         self.scan_subscriber  
         self.vel_publisher = self.create_publisher(Twist, 'cmd_vel', 10)
+
+        self.tf_buffer = Buffer()
+        self.tf_listener = TransformListener(self.tf_buffer, self)
+
+        self.positions_robots = {}
+
+        self.map_info = None
+        self.map_received = False
+
+
+        # Liste des robots à surveiller
+        self.robot_frames = [
+            "robot1/base_link",
+            "robot2/base_link",
+            "robot3/base_link"
+        ]
+
+        self.timer = self.create_timer(0.1, self.update_poses)
+
+    def update_poses(self):
+        for frame in self.robot_frames:
+            try:
+                # On cherche la pose dans la carte
+                tr = self.tf_buffer.lookup_transform(
+                    "map", frame, rclpy.time.Time(), timeout=rclpy.duration.Duration(seconds=0.1)
+                )
+
+                x = tr.transform.translation.x
+                y = tr.transform.translation.y
+
+                # Yaw (rotation sur Z)
+                q = tr.transform.rotation
+                yaw = np.arctan2(
+                    2*(q.w*q.z + q.x*q.y),
+                    1 - 2*(q.y*q.y + q.z*q.z)
+                )
+
+                px = int((x - msg.info.origin.position.x) / msg.info.resolution)
+                py = int((y - msg.info.origin.position.y) / msg.info.resolution)
+
+
+                print(f"Robot px {frame}: px={px:.3f}, py={py:.3f}, yaw={yaw:.3f}")
+
+                self.positions_robots[frame] = {"x":x, "y":y}
+
+
+            except Exception as e:
+                pass
         
 
 
-    def map_callback(self, map_resultat):
+    def map_callback(self, msg: OccupancyGrid):
 
-        cv_image = self.cv_bridge.imgmsg_to_cv2(map_resultat, desired_encoding='bgr8')
+        if len(self.positions_robots)==0:
+            return
+        
+        width  = msg.info.width
+        height = msg.info.height
+        taille_pixel_en_metre = msg.info.resolution
+        taille_robot_en_metre = 0.3
 
-        det = DetectionPointsInterets(cv_image, top_k=50)
-        robots = [(25,35), (30,25)]
+        self.get_logger().info(f"Carte reçue : {width} x {height} px")
+        self.get_logger().info(f"Taille d'un pixel : {taille_pixel_en_metre:.2f} m")
+
+        carte = np.array(msg.data, dtype=np.int8).reshape((msg.info.height, msg.info.width))
+
+        det = DetectionPointsInterets(carte,taille_pixel_en_metre,taille_robot_en_metre, top_k=50)
+
+
+        robots = []
+        nom_robot = {}
+        
+        for key, value in self.positions_robots.items():
+
+            robots.append((value["x"], value["y"]))
+            nom_robot[str((value["x"], value["y"]))] = key
+
         multi = MultiRobot(det.heatmap_normalisee, robots, det.points_interet)
         targets, paths = multi.assign_targets_optimized()
         
         for n in range(len(paths)):
 
-            print(f"Robot {n} : {paths[n][0]} -> {paths[n][-1]}")
-
+            print(f"Robot {nom_robot[str(paths[n][0])]} : {paths[n][0]} -> {paths[n][-1]}")
 
 def main(args=None):
     rclpy.init(args=args)
