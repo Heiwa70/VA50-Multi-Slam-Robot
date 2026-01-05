@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_g_mapping_1_1_odometry_sensor" kind="class" language="C++" prot="public">
+    <compoundname>GMapping::OdometrySensor</compoundname>
+    <basecompoundref refid="class_g_mapping_1_1_sensor" prot="public" virt="non-virtual">GMapping::Sensor</basecompoundref>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_g_mapping_1_1_odometry_sensor_1a2dde536f69a69842a0c0a8ec9c291c18" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GMapping::OdometrySensor::m_ideal</definition>
+        <argsstring></argsstring>
+        <name>m_ideal</name>
+        <qualifiedname>GMapping::OdometrySensor::m_ideal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_odometry/odometrysensor.h" line="14" column="6" bodyfile="include/gmapping/sensor/sensor_odometry/odometrysensor.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g_mapping_1_1_odometry_sensor_1a6eeefc3b376c27eb2dddb0e3f5221de1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::OdometrySensor::OdometrySensor</definition>
+        <argsstring>(const std::string &amp;name, bool ideal=false)</argsstring>
+        <name>OdometrySensor</name>
+        <qualifiedname>GMapping::OdometrySensor::OdometrySensor</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>ideal</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_odometry/odometrysensor.h" line="11" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_odometry_sensor_1a51a6b33e776ddc7afafe14be223cbd12" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GMapping::OdometrySensor::isIdeal</definition>
+        <argsstring>() const</argsstring>
+        <name>isIdeal</name>
+        <qualifiedname>GMapping::OdometrySensor::isIdeal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_odometry/odometrysensor.h" line="12" column="13" bodyfile="include/gmapping/sensor/sensor_odometry/odometrysensor.h" bodystart="12" bodyend="12"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GMapping::OdometrySensor</label>
+        <link refid="class_g_mapping_1_1_odometry_sensor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GMapping::Sensor</label>
+        <link refid="class_g_mapping_1_1_sensor"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GMapping::OdometrySensor</label>
+        <link refid="class_g_mapping_1_1_odometry_sensor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GMapping::Sensor</label>
+        <link refid="class_g_mapping_1_1_sensor"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/gmapping/sensor/sensor_odometry/odometrysensor.h" line="9" column="1" bodyfile="include/gmapping/sensor/sensor_odometry/odometrysensor.h" bodystart="9" bodyend="15"/>
+    <listofallmembers>
+      <member refid="class_g_mapping_1_1_sensor_1a6e4077cd7879e47c47cdaa89cc4ce05b" prot="public" virt="non-virtual"><scope>GMapping::OdometrySensor</scope><name>getName</name></member>
+      <member refid="class_g_mapping_1_1_odometry_sensor_1a51a6b33e776ddc7afafe14be223cbd12" prot="public" virt="non-virtual"><scope>GMapping::OdometrySensor</scope><name>isIdeal</name></member>
+      <member refid="class_g_mapping_1_1_odometry_sensor_1a2dde536f69a69842a0c0a8ec9c291c18" prot="protected" virt="non-virtual"><scope>GMapping::OdometrySensor</scope><name>m_ideal</name></member>
+      <member refid="class_g_mapping_1_1_sensor_1a91dc87e315f9d73c67c6700bf5d12d13" prot="protected" virt="non-virtual"><scope>GMapping::OdometrySensor</scope><name>m_name</name></member>
+      <member refid="class_g_mapping_1_1_odometry_sensor_1a6eeefc3b376c27eb2dddb0e3f5221de1" prot="public" virt="non-virtual"><scope>GMapping::OdometrySensor</scope><name>OdometrySensor</name></member>
+      <member refid="class_g_mapping_1_1_sensor_1a3bfb72525656fca739350da7e06c9231" prot="public" virt="non-virtual"><scope>GMapping::OdometrySensor</scope><name>Sensor</name></member>
+      <member refid="class_g_mapping_1_1_sensor_1ac11338217e237d1134955fb5c7c445ef" prot="public" virt="non-virtual"><scope>GMapping::OdometrySensor</scope><name>setName</name></member>
+      <member refid="class_g_mapping_1_1_sensor_1a4e108fef74045701da7e0a8304320205" prot="public" virt="virtual"><scope>GMapping::OdometrySensor</scope><name>~Sensor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

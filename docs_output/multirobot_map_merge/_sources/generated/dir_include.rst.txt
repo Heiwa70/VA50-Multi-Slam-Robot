@@ -1,0 +1,17 @@
+.. _dir_include:
+
+
+Directory include
+=================
+
+
+*Directory path:* ``include``
+
+Subdirectories
+--------------
+
+- :ref:`dir_include_combine_grids`
+- :ref:`dir_include_map_merge`
+
+
+

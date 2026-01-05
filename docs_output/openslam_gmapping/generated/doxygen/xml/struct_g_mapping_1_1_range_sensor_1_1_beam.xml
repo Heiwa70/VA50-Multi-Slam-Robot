@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_g_mapping_1_1_range_sensor_1_1_beam" kind="struct" language="C++" prot="public">
+    <compoundname>GMapping::RangeSensor::Beam</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_mapping_1_1_range_sensor_1_1_beam_1af58edd45401569fad1901d1a80705ceb" prot="public" static="no" mutable="no">
+        <type>OrientedPoint</type>
+        <definition>OrientedPoint GMapping::RangeSensor::Beam::pose</definition>
+        <argsstring></argsstring>
+        <name>pose</name>
+        <qualifiedname>GMapping::RangeSensor::Beam::pose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="16" column="15" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_mapping_1_1_range_sensor_1_1_beam_1a35e06160bea66a036cdc6545c4df8716" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GMapping::RangeSensor::Beam::span</definition>
+        <argsstring></argsstring>
+        <name>span</name>
+        <qualifiedname>GMapping::RangeSensor::Beam::span</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="17" column="8" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_mapping_1_1_range_sensor_1_1_beam_1ac37ac8ac6ac0878fca017efd633d264b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GMapping::RangeSensor::Beam::maxRange</definition>
+        <argsstring></argsstring>
+        <name>maxRange</name>
+        <qualifiedname>GMapping::RangeSensor::Beam::maxRange</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="18" column="8" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_mapping_1_1_range_sensor_1_1_beam_1a2cb21ef187465442cd2e84ed00f89879" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GMapping::RangeSensor::Beam::s</definition>
+        <argsstring></argsstring>
+        <name>s</name>
+        <qualifiedname>GMapping::RangeSensor::Beam::s</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="19" column="8" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_mapping_1_1_range_sensor_1_1_beam_1a5f79318479c1223e1d6122dd886bdddc" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GMapping::RangeSensor::Beam::c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <qualifiedname>GMapping::RangeSensor::Beam::c</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="19" column="9" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GMapping::RangeSensor::Beam</label>
+        <link refid="struct_g_mapping_1_1_range_sensor_1_1_beam"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>pose</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GMapping::orientedpoint&lt; double, double &gt;</label>
+        <link refid="struct_g_mapping_1_1orientedpoint"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GMapping::point&lt; double &gt;</label>
+        <link refid="struct_g_mapping_1_1point"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="15" column="1" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="15" bodyend="20"/>
+    <listofallmembers>
+      <member refid="struct_g_mapping_1_1_range_sensor_1_1_beam_1a5f79318479c1223e1d6122dd886bdddc" prot="public" virt="non-virtual"><scope>GMapping::RangeSensor::Beam</scope><name>c</name></member>
+      <member refid="struct_g_mapping_1_1_range_sensor_1_1_beam_1ac37ac8ac6ac0878fca017efd633d264b" prot="public" virt="non-virtual"><scope>GMapping::RangeSensor::Beam</scope><name>maxRange</name></member>
+      <member refid="struct_g_mapping_1_1_range_sensor_1_1_beam_1af58edd45401569fad1901d1a80705ceb" prot="public" virt="non-virtual"><scope>GMapping::RangeSensor::Beam</scope><name>pose</name></member>
+      <member refid="struct_g_mapping_1_1_range_sensor_1_1_beam_1a2cb21ef187465442cd2e84ed00f89879" prot="public" virt="non-virtual"><scope>GMapping::RangeSensor::Beam</scope><name>s</name></member>
+      <member refid="struct_g_mapping_1_1_range_sensor_1_1_beam_1a35e06160bea66a036cdc6545c4df8716" prot="public" virt="non-virtual"><scope>GMapping::RangeSensor::Beam</scope><name>span</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

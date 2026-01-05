@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi Robot Exploration Documentation &mdash; Multi Robot Exploration  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Multi Robot Exploration
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Multi Robot Exploration Documentation</a><ul>
+<li><a class="reference internal" href="#module-multi_robot_exploration.dynamic_laser_filter">Python Modules</a><ul>
+<li><a class="reference internal" href="#multi_robot_exploration.dynamic_laser_filter.DynamicLaserFilter"><code class="docutils literal notranslate"><span class="pre">DynamicLaserFilter</span></code></a><ul>
+<li><a class="reference internal" href="#multi_robot_exploration.dynamic_laser_filter.DynamicLaserFilter.__init__"><code class="docutils literal notranslate"><span class="pre">DynamicLaserFilter.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.dynamic_laser_filter.DynamicLaserFilter.scan_callback"><code class="docutils literal notranslate"><span class="pre">DynamicLaserFilter.scan_callback()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#multi_robot_exploration.dynamic_laser_filter.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.icp_alignment.ICPAlignment"><code class="docutils literal notranslate"><span class="pre">ICPAlignment</span></code></a><ul>
+<li><a class="reference internal" href="#multi_robot_exploration.icp_alignment.ICPAlignment.__init__"><code class="docutils literal notranslate"><span class="pre">ICPAlignment.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.icp_alignment.ICPAlignment.pc1_callback"><code class="docutils literal notranslate"><span class="pre">ICPAlignment.pc1_callback()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.icp_alignment.ICPAlignment.pc2_callback"><code class="docutils literal notranslate"><span class="pre">ICPAlignment.pc2_callback()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.icp_alignment.ICPAlignment.ingest_pointcloud"><code class="docutils literal notranslate"><span class="pre">ICPAlignment.ingest_pointcloud()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.icp_alignment.ICPAlignment.ros_to_open3d"><code class="docutils literal notranslate"><span class="pre">ICPAlignment.ros_to_open3d()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.icp_alignment.ICPAlignment.quat_to_matrix"><code class="docutils literal notranslate"><span class="pre">ICPAlignment.quat_to_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.icp_alignment.ICPAlignment.merge_and_preprocess"><code class="docutils literal notranslate"><span class="pre">ICPAlignment.merge_and_preprocess()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.icp_alignment.ICPAlignment.try_icp"><code class="docutils literal notranslate"><span class="pre">ICPAlignment.try_icp()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#multi_robot_exploration.icp_alignment.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier"><code class="docutils literal notranslate"><span class="pre">Frontier</span></code></a><ul>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier.size"><code class="docutils literal notranslate"><span class="pre">Frontier.size</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier.centroid"><code class="docutils literal notranslate"><span class="pre">Frontier.centroid</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier.goal_point"><code class="docutils literal notranslate"><span class="pre">Frontier.goal_point</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier.points"><code class="docutils literal notranslate"><span class="pre">Frontier.points</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier.area_m2"><code class="docutils literal notranslate"><span class="pre">Frontier.area_m2</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier.__init__"><code class="docutils literal notranslate"><span class="pre">Frontier.__init__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch"><code class="docutils literal notranslate"><span class="pre">FastFrontierSearch</span></code></a><ul>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.__init__"><code class="docutils literal notranslate"><span class="pre">FastFrontierSearch.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.update_costmap"><code class="docutils literal notranslate"><span class="pre">FastFrontierSearch.update_costmap()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.map_to_world"><code class="docutils literal notranslate"><span class="pre">FastFrontierSearch.map_to_world()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.find_frontiers_fast"><code class="docutils literal notranslate"><span class="pre">FastFrontierSearch.find_frontiers_fast()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator"><code class="docutils literal notranslate"><span class="pre">OptimalFrontierAllocator</span></code></a><ul>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator.__init__"><code class="docutils literal notranslate"><span class="pre">OptimalFrontierAllocator.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator.compute_cost"><code class="docutils literal notranslate"><span class="pre">OptimalFrontierAllocator.compute_cost()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator.allocate"><code class="docutils literal notranslate"><span class="pre">OptimalFrontierAllocator.allocate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer"><code class="docutils literal notranslate"><span class="pre">MultiRobotFrontierExplorer</span></code></a><ul>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.__init__"><code class="docutils literal notranslate"><span class="pre">MultiRobotFrontierExplorer.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.costmap_callback"><code class="docutils literal notranslate"><span class="pre">MultiRobotFrontierExplorer.costmap_callback()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.update_robot_positions"><code class="docutils literal notranslate"><span class="pre">MultiRobotFrontierExplorer.update_robot_positions()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.get_robot_state"><code class="docutils literal notranslate"><span class="pre">MultiRobotFrontierExplorer.get_robot_state()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.exploration_cycle"><code class="docutils literal notranslate"><span class="pre">MultiRobotFrontierExplorer.exploration_cycle()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.send_goal"><code class="docutils literal notranslate"><span class="pre">MultiRobotFrontierExplorer.send_goal()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.visualize_frontiers"><code class="docutils literal notranslate"><span class="pre">MultiRobotFrontierExplorer.visualize_frontiers()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.teleop_arrows.ArrowTeleop"><code class="docutils literal notranslate"><span class="pre">ArrowTeleop</span></code></a><ul>
+<li><a class="reference internal" href="#multi_robot_exploration.teleop_arrows.ArrowTeleop.__init__"><code class="docutils literal notranslate"><span class="pre">ArrowTeleop.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.teleop_arrows.ArrowTeleop.get_key"><code class="docutils literal notranslate"><span class="pre">ArrowTeleop.get_key()</span></code></a></li>
+<li><a class="reference internal" href="#multi_robot_exploration.teleop_arrows.ArrowTeleop.run"><code class="docutils literal notranslate"><span class="pre">ArrowTeleop.run()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#multi_robot_exploration.teleop_arrows.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Multi Robot Exploration</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Multi Robot Exploration Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="multi-robot-exploration-documentation">
+<h1>Multi Robot Exploration Documentation<a class="headerlink" href="#multi-robot-exploration-documentation" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<section id="module-multi_robot_exploration.dynamic_laser_filter">
+<span id="python-modules"></span><h2>Python Modules<a class="headerlink" href="#module-multi_robot_exploration.dynamic_laser_filter" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="multi_robot_exploration.dynamic_laser_filter.DynamicLaserFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">multi_robot_exploration.dynamic_laser_filter.</span></span><span class="sig-name descname"><span class="pre">DynamicLaserFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/dynamic_laser_filter.html#DynamicLaserFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.dynamic_laser_filter.DynamicLaserFilter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.dynamic_laser_filter.DynamicLaserFilter.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/dynamic_laser_filter.html#DynamicLaserFilter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.dynamic_laser_filter.DynamicLaserFilter.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.dynamic_laser_filter.DynamicLaserFilter.scan_callback">
+<span class="sig-name descname"><span class="pre">scan_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">sensor_msgs.msg.LaserScan</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/dynamic_laser_filter.html#DynamicLaserFilter.scan_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.dynamic_laser_filter.DynamicLaserFilter.scan_callback" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="multi_robot_exploration.dynamic_laser_filter.main">
+<span class="sig-prename descclassname"><span class="pre">multi_robot_exploration.dynamic_laser_filter.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/dynamic_laser_filter.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.dynamic_laser_filter.main" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<p id="module-multi_robot_exploration.icp_alignment">ICP pour fusion multi-robots :
+- On fixe TB3_1 à (0,0,0) dans un repère arbitraire (origine de la fusion)
+- On exprime la pose de TB3_2 par rapport à TB3_1 grâce à l’ICP (nuage2 -&gt; nuage1)
+- On écrit le YAML pour map_merge avec ces poses</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="multi_robot_exploration.icp_alignment.ICPAlignment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">multi_robot_exploration.icp_alignment.</span></span><span class="sig-name descname"><span class="pre">ICPAlignment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/icp_alignment.html#ICPAlignment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.icp_alignment.ICPAlignment" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.icp_alignment.ICPAlignment.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/icp_alignment.html#ICPAlignment.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.icp_alignment.ICPAlignment.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.icp_alignment.ICPAlignment.pc1_callback">
+<span class="sig-name descname"><span class="pre">pc1_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/icp_alignment.html#ICPAlignment.pc1_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.icp_alignment.ICPAlignment.pc1_callback" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.icp_alignment.ICPAlignment.pc2_callback">
+<span class="sig-name descname"><span class="pre">pc2_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/icp_alignment.html#ICPAlignment.pc2_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.icp_alignment.ICPAlignment.pc2_callback" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.icp_alignment.ICPAlignment.ingest_pointcloud">
+<span class="sig-name descname"><span class="pre">ingest_pointcloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">robot_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/icp_alignment.html#ICPAlignment.ingest_pointcloud"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.icp_alignment.ICPAlignment.ingest_pointcloud" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.icp_alignment.ICPAlignment.ros_to_open3d">
+<span class="sig-name descname"><span class="pre">ros_to_open3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">robot_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/icp_alignment.html#ICPAlignment.ros_to_open3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.icp_alignment.ICPAlignment.ros_to_open3d" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.icp_alignment.ICPAlignment.quat_to_matrix">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">quat_to_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/icp_alignment.html#ICPAlignment.quat_to_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.icp_alignment.ICPAlignment.quat_to_matrix" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.icp_alignment.ICPAlignment.merge_and_preprocess">
+<span class="sig-name descname"><span class="pre">merge_and_preprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clouds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/icp_alignment.html#ICPAlignment.merge_and_preprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.icp_alignment.ICPAlignment.merge_and_preprocess" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.icp_alignment.ICPAlignment.try_icp">
+<span class="sig-name descname"><span class="pre">try_icp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/icp_alignment.html#ICPAlignment.try_icp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.icp_alignment.ICPAlignment.try_icp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="multi_robot_exploration.icp_alignment.main">
+<span class="sig-prename descclassname"><span class="pre">multi_robot_exploration.icp_alignment.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/icp_alignment.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.icp_alignment.main" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<p id="module-multi_robot_exploration.multi_robot_frontier_explorer">Frontier Search Optimisé pour exploration multi-robot
+- Précision : Tolérance à 0.3m pour forcer le robot à aller VRAIMENT au bout (après test)
+- Vision : Dilatation augmentée (x5) pour détecter les frontières même s’il y a des trous dans la map.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.Frontier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">multi_robot_exploration.multi_robot_frontier_explorer.</span></span><span class="sig-name descname"><span class="pre">Frontier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centroid:</span> <span class="pre">geometry_msgs.msg.Point</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">goal_point:</span> <span class="pre">geometry_msgs.msg.Point</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points:</span> <span class="pre">List[geometry_msgs.msg.Point]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_m2:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#Frontier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.Frontier.size">
+<span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier.size" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.Frontier.centroid">
+<span class="sig-name descname"><span class="pre">centroid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">geometry_msgs.msg.Point</span></em><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier.centroid" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.Frontier.goal_point">
+<span class="sig-name descname"><span class="pre">goal_point</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">geometry_msgs.msg.Point</span></em><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier.goal_point" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.Frontier.points">
+<span class="sig-name descname"><span class="pre">points</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">geometry_msgs.msg.Point</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier.points" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.Frontier.area_m2">
+<span class="sig-name descname"><span class="pre">area_m2</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier.area_m2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.Frontier.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centroid:</span> <span class="pre">geometry_msgs.msg.Point</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">goal_point:</span> <span class="pre">geometry_msgs.msg.Point</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points:</span> <span class="pre">~typing.List[geometry_msgs.msg.Point]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area_m2:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">multi_robot_exploration.multi_robot_frontier_explorer.</span></span><span class="sig-name descname"><span class="pre">FastFrontierSearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_frontier_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_frontiers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#FastFrontierSearch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_frontier_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_frontiers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#FastFrontierSearch.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.update_costmap">
+<span class="sig-name descname"><span class="pre">update_costmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">costmap_msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nav_msgs.msg.OccupancyGrid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#FastFrontierSearch.update_costmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.update_costmap" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.map_to_world">
+<span class="sig-name descname"><span class="pre">map_to_world</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">my</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#FastFrontierSearch.map_to_world"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.map_to_world" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.find_frontiers_fast">
+<span class="sig-name descname"><span class="pre">find_frontiers_fast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier" title="multi_robot_exploration.multi_robot_frontier_explorer.Frontier"><span class="pre">Frontier</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#FastFrontierSearch.find_frontiers_fast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.find_frontiers_fast" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">multi_robot_exploration.multi_robot_frontier_explorer.</span></span><span class="sig-name descname"><span class="pre">OptimalFrontierAllocator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#OptimalFrontierAllocator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#OptimalFrontierAllocator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator.compute_cost">
+<span class="sig-name descname"><span class="pre">compute_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frontier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier" title="multi_robot_exploration.multi_robot_frontier_explorer.Frontier"><span class="pre">Frontier</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">robot_pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">geometry_msgs.msg.Point</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#OptimalFrontierAllocator.compute_cost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator.compute_cost" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator.allocate">
+<span class="sig-name descname"><span class="pre">allocate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frontiers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier" title="multi_robot_exploration.multi_robot_frontier_explorer.Frontier"><span class="pre">Frontier</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">robot_positions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">geometry_msgs.msg.Point</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_robot_goals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">geometry_msgs.msg.Point</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier" title="multi_robot_exploration.multi_robot_frontier_explorer.Frontier"><span class="pre">Frontier</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#OptimalFrontierAllocator.allocate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator.allocate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">multi_robot_exploration.multi_robot_frontier_explorer.</span></span><span class="sig-name descname"><span class="pre">MultiRobotFrontierExplorer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#MultiRobotFrontierExplorer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#MultiRobotFrontierExplorer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.costmap_callback">
+<span class="sig-name descname"><span class="pre">costmap_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nav_msgs.msg.OccupancyGrid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#MultiRobotFrontierExplorer.costmap_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.costmap_callback" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.update_robot_positions">
+<span class="sig-name descname"><span class="pre">update_robot_positions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#MultiRobotFrontierExplorer.update_robot_positions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.update_robot_positions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.get_robot_state">
+<span class="sig-name descname"><span class="pre">get_robot_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#MultiRobotFrontierExplorer.get_robot_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.get_robot_state" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.exploration_cycle">
+<span class="sig-name descname"><span class="pre">exploration_cycle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#MultiRobotFrontierExplorer.exploration_cycle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.exploration_cycle" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.send_goal">
+<span class="sig-name descname"><span class="pre">send_goal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_ns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">geometry_msgs.msg.Point</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#MultiRobotFrontierExplorer.send_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.send_goal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.visualize_frontiers">
+<span class="sig-name descname"><span class="pre">visualize_frontiers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frontiers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier" title="multi_robot_exploration.multi_robot_frontier_explorer.Frontier"><span class="pre">Frontier</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allocation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#multi_robot_exploration.multi_robot_frontier_explorer.Frontier" title="multi_robot_exploration.multi_robot_frontier_explorer.Frontier"><span class="pre">Frontier</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#MultiRobotFrontierExplorer.visualize_frontiers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.visualize_frontiers" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="multi_robot_exploration.multi_robot_frontier_explorer.main">
+<span class="sig-prename descclassname"><span class="pre">multi_robot_exploration.multi_robot_frontier_explorer.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/multi_robot_frontier_explorer.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.multi_robot_frontier_explorer.main" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class" id="module-multi_robot_exploration.teleop_arrows">
+<dt class="sig sig-object py" id="multi_robot_exploration.teleop_arrows.ArrowTeleop">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">multi_robot_exploration.teleop_arrows.</span></span><span class="sig-name descname"><span class="pre">ArrowTeleop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/teleop_arrows.html#ArrowTeleop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.teleop_arrows.ArrowTeleop" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.teleop_arrows.ArrowTeleop.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/teleop_arrows.html#ArrowTeleop.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.teleop_arrows.ArrowTeleop.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.teleop_arrows.ArrowTeleop.get_key">
+<span class="sig-name descname"><span class="pre">get_key</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/teleop_arrows.html#ArrowTeleop.get_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.teleop_arrows.ArrowTeleop.get_key" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="multi_robot_exploration.teleop_arrows.ArrowTeleop.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/teleop_arrows.html#ArrowTeleop.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.teleop_arrows.ArrowTeleop.run" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="multi_robot_exploration.teleop_arrows.main">
+<span class="sig-prename descclassname"><span class="pre">multi_robot_exploration.teleop_arrows.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/multi_robot_exploration/teleop_arrows.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multi_robot_exploration.teleop_arrows.main" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

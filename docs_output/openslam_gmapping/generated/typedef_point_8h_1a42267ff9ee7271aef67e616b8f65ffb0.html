@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typedef GMapping::IntPoint &mdash; openslam_gmapping 0.1.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=92734c54"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+      <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Typedef GMapping::OrientedPoint" href="typedef_point_8h_1a341f9c97dfb3ebc1c451a351b484f19d.html" />
+    <link rel="prev" title="Typedef GMapping::DoubleMap" href="typedef_map_8h_1a682c22f665d03c8c33fff77093f7079f.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            openslam_gmapping
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#full-c-api">Full C++ API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="namespace_GMapping.html">Namespace GMapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_std.html">Namespace std</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#classes-and-structs">Classes and Structs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structauxiliary__evolver.html">Template Struct auxiliary_evolver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structevolver.html">Template Struct evolver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1autoptr_1_1reference.html">Struct autoptr::reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_covariance3.html">Struct Covariance3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_eigen_covariance3.html">Struct EigenCovariance3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_gaussian3.html">Struct Gaussian3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_grid_slam_processor_1_1_particle.html">Struct GridSlamProcessor::Particle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node.html">Struct GridSlamProcessor::TNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_motion_model.html">Struct MotionModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1orientedpoint.html">Template Struct orientedpoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1point.html">Template Struct point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_point_accumulator.html">Struct PointAccumulator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1pointcomparator.html">Template Struct pointcomparator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1pointradialcomparator.html">Template Struct pointradialcomparator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_range_sensor_1_1_beam.html">Struct RangeSensor::Beam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structuniform__resampler.html">Template Struct uniform_resampler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_array2_d.html">Template Class Array2D</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1autoptr.html">Template Class autoptr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_configuration.html">Class Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_grid_slam_processor.html">Class GridSlamProcessor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_hierarchical_array2_d.html">Template Class HierarchicalArray2D</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_map.html">Template Class Map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_odometry_reading.html">Class OdometryReading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_odometry_sensor.html">Class OdometrySensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_range_reading.html">Class RangeReading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_range_sensor.html">Class RangeSensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_scan_matcher.html">Class ScanMatcher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_sensor.html">Class Sensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_sensor_log.html">Class SensorLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_sensor_reading.html">Class SensorReading</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#enums">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enum_accessstate_8h_1a019911ecc362fe562a3e6bbc4fa4da4c.html">Enum AccessibilityState</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1aab5cf65bbf130c6765d31bc5822681ff.html">Template Function GMapping::absoluteDifference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1acb84992cef22432c5ba8017e9feb3c9c.html">Template Function GMapping::absoluteSum(const orientedpoint&lt;T, A&gt;&amp;, const orientedpoint&lt;T, A&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a1517af52862a1930f94a9a8a5b802dbb.html">Template Function GMapping::absoluteSum(const orientedpoint&lt;T, A&gt;&amp;, const point&lt;T&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_stat_8h_1ad96dc3a2fbeb5f5100e27a01d8bceccd.html">Template Function GMapping::computeGaussianFromSamples(PointIterator&amp;, PointIterator&amp;, WeightIterator&amp;, WeightIterator&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_stat_8h_1a6052104196efe9e2c373a493792284d1.html">Template Function GMapping::computeGaussianFromSamples(PointIterator&amp;, PointIterator&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a9fb08f8514edb3301f2e7dc0d6b40549.html">Template Function GMapping::euclidianDist(const point&lt;T&gt;&amp;, const point&lt;T&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a71a888906877083eaf43d89c764587f2.html">Template Function GMapping::euclidianDist(const orientedpoint&lt;T, A&gt;&amp;, const orientedpoint&lt;T, A&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a0765f34c70101397336ed26fa9523af1.html">Template Function GMapping::euclidianDist(const orientedpoint&lt;T, A&gt;&amp;, const point&lt;T&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a3b885924ff851da7455ba49fa4c6d155.html">Template Function GMapping::euclidianDist(const point&lt;T&gt;&amp;, const orientedpoint&lt;T, A&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_stat_8h_1a5c288a2cdd28dd7921dbd4a400cbd4a4.html">Function GMapping::evalGaussian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_stat_8h_1ab6785e51e0895e103be39b1f2297d4cb.html">Function GMapping::evalLogGaussian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_icp_8h_1a87c3fe74a2c858a9535eb5a4c54edd60.html">Template Function GMapping::icpNonlinearStep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_icp_8h_1a5d699434e4abf22ca9e2fb97698ea3b1.html">Template Function GMapping::icpStep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1af25f800e83033cfa9e721968a4ed63cf.html">Template Function GMapping::interpolate(const point&lt;T&gt;&amp;, const F&amp;, const point&lt;T&gt;&amp;, const F&amp;, const F&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a751968c262a540279f3b43f164aa3e8e.html">Template Function GMapping::interpolate(const orientedpoint&lt;T, A&gt;&amp;, const F&amp;, const orientedpoint&lt;T, A&gt;&amp;, const F&amp;, const F&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a1b9688f5596a41157e6969b083541e4b.html">Template Function GMapping::max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a38be3189cf5fe50b70b2c6c7977ef093.html">Template Function GMapping::min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a37d161afb7e7418b8c2e866d3d00eab4.html">Template Function GMapping::operator*(const point&lt;T&gt;&amp;, const T&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a19f05e4c296b33fc0e02d7cce2e71327.html">Template Function GMapping::operator*(const T&amp;, const point&lt;T&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1afddeb71462a5f466986ad41b939261db.html">Template Function GMapping::operator*(const point&lt;T&gt;&amp;, const point&lt;T&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a476c9606d012855a25376aa137404a7b.html">Template Function GMapping::operator*(const orientedpoint&lt;T, A&gt;&amp;, const T&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a56394863e27bf574a54eaf7cc4f2b093.html">Template Function GMapping::operator*(const T&amp;, const orientedpoint&lt;T, A&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a4b1a8f032e4b95b200b5b54ea3112ce3.html">Template Function GMapping::operator+(const point&lt;T&gt;&amp;, const point&lt;T&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a395da86fbc9e3d01f511e6aea6bd58d6.html">Template Function GMapping::operator+(const orientedpoint&lt;T, A&gt;&amp;, const orientedpoint&lt;T, A&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a97469a08afd3735c8c82bd98ce440289.html">Template Function GMapping::operator-(const point&lt;T&gt;&amp;, const point&lt;T&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1aa1dda22208d97a0dcbd64b1e0f7149a7.html">Template Function GMapping::operator-(const orientedpoint&lt;T, A&gt;&amp;, const orientedpoint&lt;T, A&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_stat_8h_1ad7d6bd6f93f6a89790795a6c8d027705.html">Function GMapping::sampleGaussian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_stat_8h_1a424e591e6ebad081a91efa85eb4fcc1c.html">Function GMapping::sampleUniformDouble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_stat_8h_1a25f729844222571b25762f96c81beaeb.html">Function GMapping::sampleUniformInt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_particlefilter_8h_1a8c7d3bee5088bb14ba097cb4cfeeeb2d.html">Template Function neff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_particlefilter_8h_1a1ff1572e2ab6cf84fa2fc1fd6f2e21f8.html">Template Function normalize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_particlefilter_8h_1a70e3fec1037e3e397bdfa9c398096c5e.html">Template Function repeatIndexes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_particlefilter_8h_1a8b76542e1fb9304501eb4a9bf8164f73.html">Template Function resample</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_particlefilter_8h_1a4531051362d95f7273d49cc607f0ede3.html">Template Function rle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_particlefilter_8h_1aace430f7a11fad799b9a90136ec6bb67.html">Template Function toLogForm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_particlefilter_8h_1a9d0f782f7a8e45ef0c1ebff64434870e.html">Template Function toNormalForm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#variables">Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="variable_map_8h_1a38c77550a7decba15b5a8906a54547d2.html">Template Variable GMapping::Map&lt; Cell, Storage, isClass &gt;::m_unknown</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#defines">Defines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="define_array2d_8h_1a2e82e5699b01e6fecdd9022aa0f1e535.html">Define __FUNCDNAME__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1ae253b167c11826a411455821335f83ea.html">Define CMD_PARSE_BEGIN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1a98cd02d8e60ede703a938fbb8ab0ee05.html">Define CMD_PARSE_BEGIN_SILENT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1a68b463faa67a8992497607d89ce080bc.html">Define CMD_PARSE_END</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1ab4968dec1bee336b2afda8259120b5cf.html">Define CMD_PARSE_END_SILENT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a0e4d708edb8b0da60c8bbd249b82608d.html">Define convertStringArgument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_point_8h_1a01cc042ece075ab5f79f608fed6aa192.html">Define DEBUG_STREAM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_scanmatcher_8h_1afe3d9777d646eef086e7623b376dacb3.html">Define LASER_MAXBEAMS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_gvalues_8h_1ace724a9256f4e65b352465e5feb24a21.html">Define MAXDOUBLE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a08e58b7d3bae77a72ef3a1d920ad4a4c.html">Define MEMBER_PARAM_GET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a9e35a45d82566bb94185ca19e09e8656.html">Define MEMBER_PARAM_SET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a82413e1c8ba898b189be93bdcd1cd7ec.html">Define MEMBER_PARAM_SET_GET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1ae6a3b95681ad79346a8aefaa35a2dd32.html">Define PARAM_GET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a05b722dc673fd5e32b5150f06ca51a4e.html">Define PARAM_SET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a6e1c7140bc09148edd9ce558168d8c14.html">Define PARAM_SET_GET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1ab3734006f6055b64a723137074496d72.html">Define parseDouble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1aedd04e9e6160199bc2db268833a00b2b.html">Define parseDoubleSilent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1a0d80dfc132aa9f408273ae366a577d43.html">Define parseFlag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1a207930558e8fb49ed9a643ed9f1e7ac4.html">Define parseFlagSilent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1a0cbe14e71d86d1a312501d9103bf8a00.html">Define parseInt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1ad4c7e9eec1aa6ada4a846d7bf7ab02f5.html">Define parseIntSilent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1a4cc24c08b980e087573d86bd61eb565e.html">Define parseString</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1ac40450eae42bd59848fed51d223cddb0.html">Define parseStringSilent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_smmap_8h_1a7b5846af516758aa17dda10ccf044a98.html">Define SIGHT_INC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1aa3de02d916a51f9ec446b684def247ab.html">Define STRUCT_PARAM_GET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a9f53434f86ec2430745e17c6dc6dd1b5.html">Define STRUCT_PARAM_SET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a0e10730a44abafbaa1c4a346177d86ef.html">Define STRUCT_PARAM_SET_GET</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#typedefs">Typedefs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="typedef_map_8h_1a6cc1de4fdfea96973d7cca9c06ce2642.html">Typedef GMapping::DoubleArray2D</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_map_8h_1a682c22f665d03c8c33fff77093f7079f.html">Typedef GMapping::DoubleMap</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Typedef GMapping::IntPoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_point_8h_1a341f9c97dfb3ebc1c451a351b484f19d.html">Typedef GMapping::OrientedPoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_point_8h_1a02aca97274c6c5fe90097e517f88493d.html">Typedef GMapping::Point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_icp_8h_1a091accfc9928b96483c7fb1746d24aba.html">Typedef GMapping::PointPair</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_smmap_8h_1afc5f0c8c35212b9a61fb43ef6d8966eb.html">Typedef GMapping::ScanMatcherMap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_sensor_8h_1af37440197d6baeaaf592e4980218742b.html">Typedef GMapping::SensorMap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_gridslamprocessor_8h_1a7dcee7ca2a2a5b13212faa84e250283c.html">Typedef GMapping::TNodeMultimap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_particlefilter_8h_1a97e6281d3d8ae7e187dd5039f32d6e24.html">Typedef UIntPair</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#directories">Directories</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dir_include.html">Directory include</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping.html">Directory gmapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_grid.html">Directory grid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_gridfastslam.html">Directory gridfastslam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_log.html">Directory log</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_particlefilter.html">Directory particlefilter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_scanmatcher.html">Directory scanmatcher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_sensor.html">Directory sensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_sensor_sensor_base.html">Directory sensor_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_sensor_sensor_odometry.html">Directory sensor_odometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_sensor_sensor_range.html">Directory sensor_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_utils.html">Directory utils</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#files">Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_grid_accessstate.h.html">File accessstate.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_grid_array2d.h.html">File array2d.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_utils_autoptr.h.html">File autoptr.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_utils_commandline.h.html">File commandline.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_log_configuration.h.html">File configuration.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_gridfastslam_gridslamprocessor.h.html">File gridslamprocessor.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_gridfastslam_gridslamprocessor.hxx.html">File gridslamprocessor.hxx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_utils_gvalues.h.html">File gvalues.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_grid_harray2d.h.html">File harray2d.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_scanmatcher_icp.h.html">File icp.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_utils_macro_params.h.html">File macro_params.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_grid_map.h.html">File map.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_gridfastslam_motionmodel.h.html">File motionmodel.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_sensor_sensor_odometry_odometryreading.h.html">File odometryreading.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_sensor_sensor_odometry_odometrysensor.h.html">File odometrysensor.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_particlefilter_particlefilter.h.html">File particlefilter.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_utils_point.h.html">File point.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_sensor_sensor_range_rangereading.h.html">File rangereading.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_sensor_sensor_range_rangesensor.h.html">File rangesensor.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_scanmatcher_scanmatcher.h.html">File scanmatcher.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_sensor_sensor_base_sensor.h.html">File sensor.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_log_sensorlog.h.html">File sensorlog.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_sensor_sensor_base_sensorreading.h.html">File sensorreading.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_scanmatcher_smmap.h.html">File smmap.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_utils_stat.h.html">File stat.h</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../standards.html">Standard Documents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../standard_docs/CHANGELOG.html">CHANGELOG</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../standard_docs/CHANGELOG.html#changelog-for-package-openslam-gmapping">Changelog for package openslam_gmapping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../standard_docs/CHANGELOG.html#id1">0.1.2 (2016-04-23)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../standard_docs/CHANGELOG.html#id3">0.1.1 (2015-06-25)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../standard_docs/CHANGELOG.html#id4">0.1.0 (2013-06-28 17:33:53 -0700)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../standard_docs/PACKAGE.html">PACKAGE</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">openslam_gmapping</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">C++ API</a></li>
+      <li class="breadcrumb-item active">Typedef GMapping::IntPoint</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/typedef_point_8h_1a42267ff9ee7271aef67e616b8f65ffb0.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="typedef-gmapping-intpoint">
+<span id="exhale-typedef-point-8h-1a42267ff9ee7271aef67e616b8f65ffb0"></span><h1>Typedef GMapping::IntPoint<a class="headerlink" href="#typedef-gmapping-intpoint" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_gmapping_utils_point.h.html#file-include-gmapping-utils-point-h"><span class="std std-ref">File point.h</span></a></p></li>
+</ul>
+<section id="typedef-documentation">
+<h2>Typedef Documentation<a class="headerlink" href="#typedef-documentation" title="Link to this heading"></a></h2>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping8IntPointE">
+<span id="_CPPv3N8GMapping8IntPointE"></span><span id="_CPPv2N8GMapping8IntPointE"></span><span id="GMapping::IntPoint"></span><span class="target" id="point_8h_1a42267ff9ee7271aef67e616b8f65ffb0"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="struct_g_mapping_1_1point.html#_CPPv4I0EN8GMapping5pointE" title="GMapping::point"><span class="n"><span class="pre">point</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">GMapping</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">IntPoint</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping8IntPointE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="typedef_map_8h_1a682c22f665d03c8c33fff77093f7079f.html" class="btn btn-neutral float-left" title="Typedef GMapping::DoubleMap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="typedef_point_8h_1a341f9c97dfb3ebc1c451a351b484f19d.html" class="btn btn-neutral float-right" title="Typedef GMapping::OrientedPoint" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The &lt;openslam_gmapping&gt; Contributors. License: CreativeCommons-by-nc-sa-2.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

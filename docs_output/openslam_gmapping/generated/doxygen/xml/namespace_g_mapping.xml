@@ -1,0 +1,1063 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="namespace_g_mapping" kind="namespace" language="C++">
+    <compoundname>GMapping</compoundname>
+    <innerclass refid="class_g_mapping_1_1_array2_d" prot="public">GMapping::Array2D</innerclass>
+    <innerclass refid="class_g_mapping_1_1_hierarchical_array2_d" prot="public">GMapping::HierarchicalArray2D</innerclass>
+    <innerclass refid="class_g_mapping_1_1_map" prot="public">GMapping::Map</innerclass>
+    <innerclass refid="class_g_mapping_1_1_grid_slam_processor" prot="public">GMapping::GridSlamProcessor</innerclass>
+    <innerclass refid="struct_g_mapping_1_1_motion_model" prot="public">GMapping::MotionModel</innerclass>
+    <innerclass refid="class_g_mapping_1_1_configuration" prot="public">GMapping::Configuration</innerclass>
+    <innerclass refid="class_g_mapping_1_1_sensor_log" prot="public">GMapping::SensorLog</innerclass>
+    <innerclass refid="class_g_mapping_1_1_scan_matcher" prot="public">GMapping::ScanMatcher</innerclass>
+    <innerclass refid="struct_g_mapping_1_1_point_accumulator" prot="public">GMapping::PointAccumulator</innerclass>
+    <innerclass refid="class_g_mapping_1_1_sensor" prot="public">GMapping::Sensor</innerclass>
+    <innerclass refid="class_g_mapping_1_1_sensor_reading" prot="public">GMapping::SensorReading</innerclass>
+    <innerclass refid="class_g_mapping_1_1_odometry_reading" prot="public">GMapping::OdometryReading</innerclass>
+    <innerclass refid="class_g_mapping_1_1_odometry_sensor" prot="public">GMapping::OdometrySensor</innerclass>
+    <innerclass refid="class_g_mapping_1_1_range_reading" prot="public">GMapping::RangeReading</innerclass>
+    <innerclass refid="class_g_mapping_1_1_range_sensor" prot="public">GMapping::RangeSensor</innerclass>
+    <innerclass refid="class_g_mapping_1_1autoptr" prot="public">GMapping::autoptr</innerclass>
+    <innerclass refid="struct_g_mapping_1_1point" prot="public">GMapping::point</innerclass>
+    <innerclass refid="struct_g_mapping_1_1orientedpoint" prot="public">GMapping::orientedpoint</innerclass>
+    <innerclass refid="struct_g_mapping_1_1pointcomparator" prot="public">GMapping::pointcomparator</innerclass>
+    <innerclass refid="struct_g_mapping_1_1pointradialcomparator" prot="public">GMapping::pointradialcomparator</innerclass>
+    <innerclass refid="struct_g_mapping_1_1_covariance3" prot="public">GMapping::Covariance3</innerclass>
+    <innerclass refid="struct_g_mapping_1_1_eigen_covariance3" prot="public">GMapping::EigenCovariance3</innerclass>
+    <innerclass refid="struct_g_mapping_1_1_gaussian3" prot="public">GMapping::Gaussian3</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="accessstate_8h_1a019911ecc362fe562a3e6bbc4fa4da4c" prot="public" static="no" strong="no">
+        <type></type>
+        <name>AccessibilityState</name>
+        <qualifiedname>GMapping::AccessibilityState</qualifiedname>
+        <enumvalue id="accessstate_8h_1a019911ecc362fe562a3e6bbc4fa4da4caf97119003b47bcbc70df567d6b45ee8c" prot="public">
+          <name>Outside</name>
+          <initializer>=0x0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="accessstate_8h_1a019911ecc362fe562a3e6bbc4fa4da4cac83569b4f8da8f8e806cc437ba21ec49" prot="public">
+          <name>Inside</name>
+          <initializer>=0x1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="accessstate_8h_1a019911ecc362fe562a3e6bbc4fa4da4ca537b8100edd3cc1dd9f150a9c6d977c7" prot="public">
+          <name>Allocated</name>
+          <initializer>=0x2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/accessstate.h" line="5" column="1" bodyfile="include/gmapping/grid/accessstate.h" bodystart="5" bodyend="5"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="map_8h_1a6cc1de4fdfea96973d7cca9c06ce2642" prot="public" static="no">
+        <type><ref refid="class_g_mapping_1_1_array2_d" kindref="compound">Array2D</ref>&lt; double &gt;</type>
+        <definition>typedef Array2D&lt;double&gt; GMapping::DoubleArray2D</definition>
+        <argsstring></argsstring>
+        <name>DoubleArray2D</name>
+        <qualifiedname>GMapping::DoubleArray2D</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The cells have to define the special value Cell::Unknown to handle with the unallocated areas. The cells have to define (int) constructor; </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/map.h" line="13" column="17" bodyfile="include/gmapping/grid/map.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="map_8h_1a682c22f665d03c8c33fff77093f7079f" prot="public" static="no">
+        <type><ref refid="class_g_mapping_1_1_map" kindref="compound">Map</ref>&lt; double, DoubleArray2D, false &gt;</type>
+        <definition>typedef Map&lt;double, DoubleArray2D, false&gt; GMapping::DoubleMap</definition>
+        <argsstring></argsstring>
+        <name>DoubleMap</name>
+        <qualifiedname>GMapping::DoubleMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/map.h" line="95" column="13" bodyfile="include/gmapping/grid/map.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="gridslamprocessor_8h_1a7dcee7ca2a2a5b13212faa84e250283c" prot="public" static="no">
+        <type>std::multimap&lt; const <ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node" kindref="compound">GridSlamProcessor::TNode</ref> *, <ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node" kindref="compound">GridSlamProcessor::TNode</ref> * &gt;</type>
+        <definition>typedef std::multimap&lt;const GridSlamProcessor::TNode*, GridSlamProcessor::TNode*&gt; GMapping::TNodeMultimap</definition>
+        <argsstring></argsstring>
+        <name>TNodeMultimap</name>
+        <qualifiedname>GMapping::TNodeMultimap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/gridfastslam/gridslamprocessor.h" line="330" column="23" bodyfile="include/gmapping/gridfastslam/gridslamprocessor.h" bodystart="330" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="icp_8h_1a091accfc9928b96483c7fb1746d24aba" prot="public" static="no">
+        <type>std::pair&lt; Point, Point &gt;</type>
+        <definition>typedef std::pair&lt;Point,Point&gt; GMapping::PointPair</definition>
+        <argsstring></argsstring>
+        <name>PointPair</name>
+        <qualifiedname>GMapping::PointPair</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/icp.h" line="10" column="19" bodyfile="include/gmapping/scanmatcher/icp.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="smmap_8h_1afc5f0c8c35212b9a61fb43ef6d8966eb" prot="public" static="no">
+        <type><ref refid="class_g_mapping_1_1_map" kindref="compound">Map</ref>&lt; <ref refid="struct_g_mapping_1_1_point_accumulator" kindref="compound">PointAccumulator</ref>, <ref refid="class_g_mapping_1_1_hierarchical_array2_d" kindref="compound">HierarchicalArray2D</ref>&lt; <ref refid="struct_g_mapping_1_1_point_accumulator" kindref="compound">PointAccumulator</ref> &gt; &gt;</type>
+        <definition>typedef Map&lt;PointAccumulator,HierarchicalArray2D&lt;PointAccumulator&gt; &gt; GMapping::ScanMatcherMap</definition>
+        <argsstring></argsstring>
+        <name>ScanMatcherMap</name>
+        <qualifiedname>GMapping::ScanMatcherMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/smmap.h" line="50" column="13" bodyfile="include/gmapping/scanmatcher/smmap.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="sensor_8h_1af37440197d6baeaaf592e4980218742b" prot="public" static="no">
+        <type>std::map&lt; std::string, <ref refid="class_g_mapping_1_1_sensor" kindref="compound">Sensor</ref> * &gt;</type>
+        <definition>typedef std::map&lt;std::string, Sensor*&gt; GMapping::SensorMap</definition>
+        <argsstring></argsstring>
+        <name>SensorMap</name>
+        <qualifiedname>GMapping::SensorMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_base/sensor.h" line="19" column="18" bodyfile="include/gmapping/sensor/sensor_base/sensor.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="point_8h_1a42267ff9ee7271aef67e616b8f65ffb0" prot="public" static="no">
+        <type><ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; int &gt;</type>
+        <definition>typedef point&lt;int&gt; GMapping::IntPoint</definition>
+        <argsstring></argsstring>
+        <name>IntPoint</name>
+        <qualifiedname>GMapping::IntPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="201" column="15" bodyfile="include/gmapping/utils/point.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="point_8h_1a02aca97274c6c5fe90097e517f88493d" prot="public" static="no">
+        <type><ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; double &gt;</type>
+        <definition>typedef point&lt;double&gt; GMapping::Point</definition>
+        <argsstring></argsstring>
+        <name>Point</name>
+        <qualifiedname>GMapping::Point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="202" column="15" bodyfile="include/gmapping/utils/point.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="point_8h_1a341f9c97dfb3ebc1c451a351b484f19d" prot="public" static="no">
+        <type><ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; double, double &gt;</type>
+        <definition>typedef orientedpoint&lt;double, double&gt; GMapping::OrientedPoint</definition>
+        <argsstring></argsstring>
+        <name>OrientedPoint</name>
+        <qualifiedname>GMapping::OrientedPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="203" column="23" bodyfile="include/gmapping/utils/point.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="map_8h_1a38c77550a7decba15b5a8906a54547d2" prot="public" static="no" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>class Cell</type>
+          </param>
+          <param>
+            <type>class Storage</type>
+          </param>
+          <param>
+            <type>const bool</type>
+            <declname>isClass</declname>
+            <defname>isClass</defname>
+          </param>
+        </templateparamlist>
+        <type>const Cell</type>
+        <definition>const Cell GMapping::Map&lt; Cell, Storage, isClass &gt;::m_unknown</definition>
+        <argsstring></argsstring>
+        <name>Map&lt; Cell, Storage, isClass &gt;::m_unknown</name>
+        <qualifiedname>GMapping::m_unknown</qualifiedname>
+        <initializer>= Cell(-1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/map.h" line="98" column="19" bodyfile="include/gmapping/grid/map.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="icp_8h_1a5d699434e4abf22ca9e2fb97698ea3b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointPairContainer</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double GMapping::icpStep</definition>
+        <argsstring>(OrientedPoint &amp;retval, const PointPairContainer &amp;container)</argsstring>
+        <name>icpStep</name>
+        <qualifiedname>GMapping::icpStep</qualifiedname>
+        <param>
+          <type>OrientedPoint &amp;</type>
+          <declname>retval</declname>
+        </param>
+        <param>
+          <type>const PointPairContainer &amp;</type>
+          <declname>container</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/icp.h" line="13" column="8" bodyfile="include/gmapping/scanmatcher/icp.h" bodystart="13" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="icp_8h_1a87c3fe74a2c858a9535eb5a4c54edd60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointPairContainer</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double GMapping::icpNonlinearStep</definition>
+        <argsstring>(OrientedPoint &amp;retval, const PointPairContainer &amp;container)</argsstring>
+        <name>icpNonlinearStep</name>
+        <qualifiedname>GMapping::icpNonlinearStep</qualifiedname>
+        <param>
+          <type>OrientedPoint &amp;</type>
+          <declname>retval</declname>
+        </param>
+        <param>
+          <type>const PointPairContainer &amp;</type>
+          <declname>container</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/icp.h" line="48" column="8" bodyfile="include/gmapping/scanmatcher/icp.h" bodystart="48" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1a4b1a8f032e4b95b200b5b54ea3112ce3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt;</type>
+        <definition>point&lt; T &gt; GMapping::operator+</definition>
+        <argsstring>(const point&lt; T &gt; &amp;p1, const point&lt; T &gt; &amp;p2)</argsstring>
+        <name>operator+</name>
+        <qualifiedname>GMapping::operator+</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="20" column="14" bodyfile="include/gmapping/utils/point.h" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1a97469a08afd3735c8c82bd98ce440289" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt;</type>
+        <definition>point&lt; T &gt; GMapping::operator-</definition>
+        <argsstring>(const point&lt; T &gt; &amp;p1, const point&lt; T &gt; &amp;p2)</argsstring>
+        <name>operator-</name>
+        <qualifiedname>GMapping::operator-</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="25" column="14" bodyfile="include/gmapping/utils/point.h" bodystart="25" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1a37d161afb7e7418b8c2e866d3d00eab4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt;</type>
+        <definition>point&lt; T &gt; GMapping::operator*</definition>
+        <argsstring>(const point&lt; T &gt; &amp;p, const T &amp;v)</argsstring>
+        <name>operator*</name>
+        <qualifiedname>GMapping::operator*</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="30" column="14" bodyfile="include/gmapping/utils/point.h" bodystart="30" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1a19f05e4c296b33fc0e02d7cce2e71327" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt;</type>
+        <definition>point&lt; T &gt; GMapping::operator*</definition>
+        <argsstring>(const T &amp;v, const point&lt; T &gt; &amp;p)</argsstring>
+        <name>operator*</name>
+        <qualifiedname>GMapping::operator*</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="35" column="14" bodyfile="include/gmapping/utils/point.h" bodystart="35" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1afddeb71462a5f466986ad41b939261db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T GMapping::operator*</definition>
+        <argsstring>(const point&lt; T &gt; &amp;p1, const point&lt; T &gt; &amp;p2)</argsstring>
+        <name>operator*</name>
+        <qualifiedname>GMapping::operator*</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="40" column="10" bodyfile="include/gmapping/utils/point.h" bodystart="40" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1a395da86fbc9e3d01f511e6aea6bd58d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>class A</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt;</type>
+        <definition>orientedpoint&lt; T, A &gt; GMapping::operator+</definition>
+        <argsstring>(const orientedpoint&lt; T, A &gt; &amp;p1, const orientedpoint&lt; T, A &gt; &amp;p2)</argsstring>
+        <name>operator+</name>
+        <qualifiedname>GMapping::operator+</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="87" column="15" bodyfile="include/gmapping/utils/point.h" bodystart="87" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1aa1dda22208d97a0dcbd64b1e0f7149a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>class A</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt;</type>
+        <definition>orientedpoint&lt; T, A &gt; GMapping::operator-</definition>
+        <argsstring>(const orientedpoint&lt; T, A &gt; &amp;p1, const orientedpoint&lt; T, A &gt; &amp;p2)</argsstring>
+        <name>operator-</name>
+        <qualifiedname>GMapping::operator-</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="92" column="15" bodyfile="include/gmapping/utils/point.h" bodystart="92" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1a476c9606d012855a25376aa137404a7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>class A</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt;</type>
+        <definition>orientedpoint&lt; T, A &gt; GMapping::operator*</definition>
+        <argsstring>(const orientedpoint&lt; T, A &gt; &amp;p, const T &amp;v)</argsstring>
+        <name>operator*</name>
+        <qualifiedname>GMapping::operator*</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="97" column="15" bodyfile="include/gmapping/utils/point.h" bodystart="97" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1a56394863e27bf574a54eaf7cc4f2b093" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>class A</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt;</type>
+        <definition>orientedpoint&lt; T, A &gt; GMapping::operator*</definition>
+        <argsstring>(const T &amp;v, const orientedpoint&lt; T, A &gt; &amp;p)</argsstring>
+        <name>operator*</name>
+        <qualifiedname>GMapping::operator*</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="102" column="15" bodyfile="include/gmapping/utils/point.h" bodystart="102" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1aab5cf65bbf130c6765d31bc5822681ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>class A</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt;</type>
+        <definition>orientedpoint&lt; T, A &gt; GMapping::absoluteDifference</definition>
+        <argsstring>(const orientedpoint&lt; T, A &gt; &amp;p1, const orientedpoint&lt; T, A &gt; &amp;p2)</argsstring>
+        <name>absoluteDifference</name>
+        <qualifiedname>GMapping::absoluteDifference</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="107" column="15" bodyfile="include/gmapping/utils/point.h" bodystart="107" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1acb84992cef22432c5ba8017e9feb3c9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>class A</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt;</type>
+        <definition>orientedpoint&lt; T, A &gt; GMapping::absoluteSum</definition>
+        <argsstring>(const orientedpoint&lt; T, A &gt; &amp;p1, const orientedpoint&lt; T, A &gt; &amp;p2)</argsstring>
+        <name>absoluteSum</name>
+        <qualifiedname>GMapping::absoluteSum</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="116" column="15" bodyfile="include/gmapping/utils/point.h" bodystart="116" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1a1517af52862a1930f94a9a8a5b802dbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>class A</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt;</type>
+        <definition>point&lt; T &gt; GMapping::absoluteSum</definition>
+        <argsstring>(const orientedpoint&lt; T, A &gt; &amp;p1, const point&lt; T &gt; &amp;p2)</argsstring>
+        <name>absoluteSum</name>
+        <qualifiedname>GMapping::absoluteSum</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="123" column="7" bodyfile="include/gmapping/utils/point.h" bodystart="123" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1a1b9688f5596a41157e6969b083541e4b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt;</type>
+        <definition>point&lt; T &gt; GMapping::max</definition>
+        <argsstring>(const point&lt; T &gt; &amp;p1, const point&lt; T &gt; &amp;p2)</argsstring>
+        <name>max</name>
+        <qualifiedname>GMapping::max</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="146" column="14" bodyfile="include/gmapping/utils/point.h" bodystart="146" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1a38be3189cf5fe50b70b2c6c7977ef093" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt;</type>
+        <definition>point&lt; T &gt; GMapping::min</definition>
+        <argsstring>(const point&lt; T &gt; &amp;p1, const point&lt; T &gt; &amp;p2)</argsstring>
+        <name>min</name>
+        <qualifiedname>GMapping::min</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="154" column="14" bodyfile="include/gmapping/utils/point.h" bodystart="154" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1af25f800e83033cfa9e721968a4ed63cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>class F</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt;</type>
+        <definition>point&lt; T &gt; GMapping::interpolate</definition>
+        <argsstring>(const point&lt; T &gt; &amp;p1, const F &amp;t1, const point&lt; T &gt; &amp;p2, const F &amp;t2, const F &amp;t3)</argsstring>
+        <name>interpolate</name>
+        <qualifiedname>GMapping::interpolate</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const F &amp;</type>
+          <declname>t1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <param>
+          <type>const F &amp;</type>
+          <declname>t2</declname>
+        </param>
+        <param>
+          <type>const F &amp;</type>
+          <declname>t3</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="162" column="14" bodyfile="include/gmapping/utils/point.h" bodystart="162" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1a751968c262a540279f3b43f164aa3e8e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>class A</type>
+          </param>
+          <param>
+            <type>class F</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt;</type>
+        <definition>orientedpoint&lt; T, A &gt; GMapping::interpolate</definition>
+        <argsstring>(const orientedpoint&lt; T, A &gt; &amp;p1, const F &amp;t1, const orientedpoint&lt; T, A &gt; &amp;p2, const F &amp;t2, const F &amp;t3)</argsstring>
+        <name>interpolate</name>
+        <qualifiedname>GMapping::interpolate</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const F &amp;</type>
+          <declname>t1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <param>
+          <type>const F &amp;</type>
+          <declname>t2</declname>
+        </param>
+        <param>
+          <type>const F &amp;</type>
+          <declname>t3</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="170" column="1" bodyfile="include/gmapping/utils/point.h" bodystart="170" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1a9fb08f8514edb3301f2e7dc0d6b40549" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double GMapping::euclidianDist</definition>
+        <argsstring>(const point&lt; T &gt; &amp;p1, const point&lt; T &gt; &amp;p2)</argsstring>
+        <name>euclidianDist</name>
+        <qualifiedname>GMapping::euclidianDist</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="183" column="15" bodyfile="include/gmapping/utils/point.h" bodystart="183" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1a71a888906877083eaf43d89c764587f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>class A</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double GMapping::euclidianDist</definition>
+        <argsstring>(const orientedpoint&lt; T, A &gt; &amp;p1, const orientedpoint&lt; T, A &gt; &amp;p2)</argsstring>
+        <name>euclidianDist</name>
+        <qualifiedname>GMapping::euclidianDist</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="187" column="15" bodyfile="include/gmapping/utils/point.h" bodystart="187" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1a0765f34c70101397336ed26fa9523af1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>class A</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double GMapping::euclidianDist</definition>
+        <argsstring>(const orientedpoint&lt; T, A &gt; &amp;p1, const point&lt; T &gt; &amp;p2)</argsstring>
+        <name>euclidianDist</name>
+        <qualifiedname>GMapping::euclidianDist</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="191" column="15" bodyfile="include/gmapping/utils/point.h" bodystart="191" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="point_8h_1a3b885924ff851da7455ba49fa4c6d155" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>class A</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double GMapping::euclidianDist</definition>
+        <argsstring>(const point&lt; T &gt; &amp;p1, const orientedpoint&lt; T, A &gt; &amp;p2)</argsstring>
+        <name>euclidianDist</name>
+        <qualifiedname>GMapping::euclidianDist</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1orientedpoint" kindref="compound">orientedpoint</ref>&lt; T, A &gt; &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="195" column="15" bodyfile="include/gmapping/utils/point.h" bodystart="195" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="stat_8h_1ad7d6bd6f93f6a89790795a6c8d027705" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double GMapping::sampleGaussian</definition>
+        <argsstring>(double sigma, unsigned int S=0)</argsstring>
+        <name>sampleGaussian</name>
+        <qualifiedname>GMapping::sampleGaussian</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>sigma</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>S</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>stupid utility function for drawing particles form a zero mean, sigma variance normal distribution probably it should not go there </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="11" column="8" declfile="include/gmapping/utils/stat.h" declline="11" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="stat_8h_1a5c288a2cdd28dd7921dbd4a400cbd4a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double GMapping::evalGaussian</definition>
+        <argsstring>(double sigmaSquare, double delta)</argsstring>
+        <name>evalGaussian</name>
+        <qualifiedname>GMapping::evalGaussian</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>sigmaSquare</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>delta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="13" column="8" declfile="include/gmapping/utils/stat.h" declline="13" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="stat_8h_1ab6785e51e0895e103be39b1f2297d4cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double GMapping::evalLogGaussian</definition>
+        <argsstring>(double sigmaSquare, double delta)</argsstring>
+        <name>evalLogGaussian</name>
+        <qualifiedname>GMapping::evalLogGaussian</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>sigmaSquare</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>delta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="14" column="8" declfile="include/gmapping/utils/stat.h" declline="14" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="stat_8h_1a25f729844222571b25762f96c81beaeb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GMapping::sampleUniformInt</definition>
+        <argsstring>(int max)</argsstring>
+        <name>sampleUniformInt</name>
+        <qualifiedname>GMapping::sampleUniformInt</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="15" column="5" declfile="include/gmapping/utils/stat.h" declline="15" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="stat_8h_1a424e591e6ebad081a91efa85eb4fcc1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double GMapping::sampleUniformDouble</definition>
+        <argsstring>(double min, double max)</argsstring>
+        <name>sampleUniformDouble</name>
+        <qualifiedname>GMapping::sampleUniformDouble</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="16" column="8" declfile="include/gmapping/utils/stat.h" declline="16" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="stat_8h_1ad96dc3a2fbeb5f5100e27a01d8bceccd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointIterator</type>
+          </param>
+          <param>
+            <type>typename WeightIterator</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1_gaussian3" kindref="compound">Gaussian3</ref></type>
+        <definition>Gaussian3 GMapping::computeGaussianFromSamples</definition>
+        <argsstring>(PointIterator &amp;pointBegin, PointIterator &amp;pointEnd, WeightIterator &amp;weightBegin, WeightIterator &amp;weightEnd)</argsstring>
+        <name>computeGaussianFromSamples</name>
+        <qualifiedname>GMapping::computeGaussianFromSamples</qualifiedname>
+        <param>
+          <type>PointIterator &amp;</type>
+          <declname>pointBegin</declname>
+        </param>
+        <param>
+          <type>PointIterator &amp;</type>
+          <declname>pointEnd</declname>
+        </param>
+        <param>
+          <type>WeightIterator &amp;</type>
+          <declname>weightBegin</declname>
+        </param>
+        <param>
+          <type>WeightIterator &amp;</type>
+          <declname>weightEnd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="43" column="11" bodyfile="include/gmapping/utils/stat.h" bodystart="43" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="stat_8h_1a6052104196efe9e2c373a493792284d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename PointIterator</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_g_mapping_1_1_gaussian3" kindref="compound">Gaussian3</ref></type>
+        <definition>Gaussian3 GMapping::computeGaussianFromSamples</definition>
+        <argsstring>(PointIterator &amp;pointBegin, PointIterator &amp;pointEnd)</argsstring>
+        <name>computeGaussianFromSamples</name>
+        <qualifiedname>GMapping::computeGaussianFromSamples</qualifiedname>
+        <param>
+          <type>PointIterator &amp;</type>
+          <declname>pointBegin</declname>
+        </param>
+        <param>
+          <type>PointIterator &amp;</type>
+          <declname>pointEnd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="98" column="11" bodyfile="include/gmapping/utils/stat.h" bodystart="98" bodyend="142"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/grid/accessstate.h" line="4" column="1"/>
+  </compounddef>
+</doxygen>

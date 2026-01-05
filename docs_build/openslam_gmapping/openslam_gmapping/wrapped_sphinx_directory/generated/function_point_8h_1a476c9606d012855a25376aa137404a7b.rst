@@ -1,0 +1,14 @@
+.. _exhale_function_point_8h_1a476c9606d012855a25376aa137404a7b:
+
+Template Function GMapping::operator\*(const orientedpoint<T, A>&, const T&)
+============================================================================
+
+- Defined in :ref:`file_include_gmapping_utils_point.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: GMapping::operator*(const orientedpoint<T, A>&, const T&)
+   :project: openslam_gmapping Doxygen Project

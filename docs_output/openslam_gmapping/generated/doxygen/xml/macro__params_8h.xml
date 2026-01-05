@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="macro__params_8h" kind="file" language="C++">
+    <compoundname>macro_params.h</compoundname>
+    <includedby refid="gridslamprocessor_8h" local="no">include/gmapping/gridfastslam/gridslamprocessor.h</includedby>
+    <includedby refid="motionmodel_8h" local="no">include/gmapping/gridfastslam/motionmodel.h</includedby>
+    <includedby refid="scanmatcher_8h" local="no">include/gmapping/scanmatcher/scanmatcher.h</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>include/gmapping/gridfastslam/gridslamprocessor.h</label>
+        <link refid="gridslamprocessor_8h_source"/>
+      </node>
+      <node id="3">
+        <label>include/gmapping/gridfastslam/motionmodel.h</label>
+        <link refid="motionmodel_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>include/gmapping/scanmatcher/scanmatcher.h</label>
+        <link refid="scanmatcher_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>include/gmapping/utils/macro_params.h</label>
+        <link refid="macro__params_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="macro__params_8h_1a6e1c7140bc09148edd9ce558168d8c14" prot="public" static="no">
+        <name>PARAM_SET_GET</name>
+        <param><defname>type</defname></param>
+        <param><defname>name</defname></param>
+        <param><defname>qualifier</defname></param>
+        <param><defname>setqualifier</defname></param>
+        <param><defname>getqualifier</defname></param>
+        <initializer>qualifier: type m_##name;\
+getqualifier: inline type get##name() const {return m_##name;}\
+setqualifier: inline void set##name(type name) {m_##name=name;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/macro_params.h" line="4" column="9" bodyfile="include/gmapping/utils/macro_params.h" bodystart="4" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="define" id="macro__params_8h_1a05b722dc673fd5e32b5150f06ca51a4e" prot="public" static="no">
+        <name>PARAM_SET</name>
+        <param><defname>type</defname></param>
+        <param><defname>name</defname></param>
+        <param><defname>qualifier</defname></param>
+        <param><defname>setqualifier</defname></param>
+        <initializer>qualifier: type m_##name;\
+setqualifier: inline void set##name(type name) {m_##name=name;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/macro_params.h" line="9" column="9" bodyfile="include/gmapping/utils/macro_params.h" bodystart="9" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="define" id="macro__params_8h_1ae6a3b95681ad79346a8aefaa35a2dd32" prot="public" static="no">
+        <name>PARAM_GET</name>
+        <param><defname>type</defname></param>
+        <param><defname>name</defname></param>
+        <param><defname>qualifier</defname></param>
+        <param><defname>getqualifier</defname></param>
+        <initializer>qualifier: type m_##name;\
+getqualifier: inline type get##name() const {return m_##name;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/macro_params.h" line="13" column="9" bodyfile="include/gmapping/utils/macro_params.h" bodystart="13" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="define" id="macro__params_8h_1a82413e1c8ba898b189be93bdcd1cd7ec" prot="public" static="no">
+        <name>MEMBER_PARAM_SET_GET</name>
+        <param><defname>member</defname></param>
+        <param><defname>type</defname></param>
+        <param><defname>name</defname></param>
+        <param><defname>qualifier</defname></param>
+        <param><defname>setqualifier</defname></param>
+        <param><defname>getqualifier</defname></param>
+        <initializer>getqualifier: inline type get##name() const {return member.get##name();}\
+setqualifier: inline void set##name(type name) { member.set##name(name);}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/macro_params.h" line="17" column="9" bodyfile="include/gmapping/utils/macro_params.h" bodystart="17" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="define" id="macro__params_8h_1a9e35a45d82566bb94185ca19e09e8656" prot="public" static="no">
+        <name>MEMBER_PARAM_SET</name>
+        <param><defname>member</defname></param>
+        <param><defname>type</defname></param>
+        <param><defname>name</defname></param>
+        <param><defname>qualifier</defname></param>
+        <param><defname>setqualifier</defname></param>
+        <param><defname>getqualifier</defname></param>
+        <initializer>setqualifier: inline void set##name(type name) { member.set##name(name);}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/macro_params.h" line="21" column="9" bodyfile="include/gmapping/utils/macro_params.h" bodystart="21" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="define" id="macro__params_8h_1a08e58b7d3bae77a72ef3a1d920ad4a4c" prot="public" static="no">
+        <name>MEMBER_PARAM_GET</name>
+        <param><defname>member</defname></param>
+        <param><defname>type</defname></param>
+        <param><defname>name</defname></param>
+        <param><defname>qualifier</defname></param>
+        <param><defname>setqualifier</defname></param>
+        <param><defname>getqualifier</defname></param>
+        <initializer>getqualifier: inline type get##name() const {return member.get##name();}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/macro_params.h" line="24" column="9" bodyfile="include/gmapping/utils/macro_params.h" bodystart="24" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="define" id="macro__params_8h_1a0e10730a44abafbaa1c4a346177d86ef" prot="public" static="no">
+        <name>STRUCT_PARAM_SET_GET</name>
+        <param><defname>member</defname></param>
+        <param><defname>type</defname></param>
+        <param><defname>name</defname></param>
+        <param><defname>qualifier</defname></param>
+        <param><defname>setqualifier</defname></param>
+        <param><defname>getqualifier</defname></param>
+        <initializer>getqualifier: inline type get##name() const {return member.name;}\
+setqualifier: inline void set##name(type name) {member.name=name;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/macro_params.h" line="27" column="9" bodyfile="include/gmapping/utils/macro_params.h" bodystart="27" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="define" id="macro__params_8h_1a9f53434f86ec2430745e17c6dc6dd1b5" prot="public" static="no">
+        <name>STRUCT_PARAM_SET</name>
+        <param><defname>member</defname></param>
+        <param><defname>type</defname></param>
+        <param><defname>name</defname></param>
+        <param><defname>qualifier</defname></param>
+        <param><defname>setqualifier</defname></param>
+        <param><defname>getqualifier</defname></param>
+        <initializer>setqualifier: inline void set##name(type name) {member.name=name;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/macro_params.h" line="31" column="9" bodyfile="include/gmapping/utils/macro_params.h" bodystart="31" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="define" id="macro__params_8h_1aa3de02d916a51f9ec446b684def247ab" prot="public" static="no">
+        <name>STRUCT_PARAM_GET</name>
+        <param><defname>member</defname></param>
+        <param><defname>type</defname></param>
+        <param><defname>name</defname></param>
+        <param><defname>qualifier</defname></param>
+        <param><defname>setqualifier</defname></param>
+        <param><defname>getqualifier</defname></param>
+        <initializer>getqualifier: inline type get##name() const {return member.name;}\</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/macro_params.h" line="34" column="9" bodyfile="include/gmapping/utils/macro_params.h" bodystart="34" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="define" id="macro__params_8h_1a0e4d708edb8b0da60c8bbd249b82608d" prot="public" static="no">
+        <name>convertStringArgument</name>
+        <param><defname>var</defname></param>
+        <param><defname>val</defname></param>
+        <param><defname>buf</defname></param>
+        <initializer>if (!strcmp(buf,#val)) var=val</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/macro_params.h" line="37" column="9" bodyfile="include/gmapping/utils/macro_params.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MACRO_PARAMS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MACRO_PARAMS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PARAM_SET_GET(type,<sp/>name,<sp/>qualifier,<sp/>setqualifier,<sp/>getqualifier)\</highlight></codeline>
+<codeline lineno="5"><highlight class="preprocessor">qualifier:<sp/>type<sp/>m_##name;\</highlight></codeline>
+<codeline lineno="6"><highlight class="preprocessor">getqualifier:<sp/>inline<sp/>type<sp/>get##name()<sp/>const<sp/>{return<sp/>m_##name;}\</highlight></codeline>
+<codeline lineno="7"><highlight class="preprocessor">setqualifier:<sp/>inline<sp/>void<sp/>set##name(type<sp/>name)<sp/>{m_##name=name;}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PARAM_SET(type,<sp/>name,<sp/>qualifier,<sp/>setqualifier)\</highlight></codeline>
+<codeline lineno="10"><highlight class="preprocessor">qualifier:<sp/>type<sp/>m_##name;\</highlight></codeline>
+<codeline lineno="11"><highlight class="preprocessor">setqualifier:<sp/>inline<sp/>void<sp/>set##name(type<sp/>name)<sp/>{m_##name=name;}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PARAM_GET(type,<sp/>name,<sp/>qualifier,<sp/>getqualifier)\</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor">qualifier:<sp/>type<sp/>m_##name;\</highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor">getqualifier:<sp/>inline<sp/>type<sp/>get##name()<sp/>const<sp/>{return<sp/>m_##name;}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEMBER_PARAM_SET_GET(member,<sp/>type,<sp/>name,<sp/>qualifier,<sp/>setqualifier,<sp/>getqualifier)\</highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor">getqualifier:<sp/>inline<sp/>type<sp/>get##name()<sp/>const<sp/>{return<sp/>member.get##name();}\</highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor">setqualifier:<sp/>inline<sp/>void<sp/>set##name(type<sp/>name)<sp/>{<sp/>member.set##name(name);}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEMBER_PARAM_SET(member,<sp/>type,<sp/>name,<sp/>qualifier,<sp/>setqualifier,<sp/>getqualifier)\</highlight></codeline>
+<codeline lineno="22"><highlight class="preprocessor">setqualifier:<sp/>inline<sp/>void<sp/>set##name(type<sp/>name)<sp/>{<sp/>member.set##name(name);}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEMBER_PARAM_GET(member,<sp/>type,<sp/>name,<sp/>qualifier,<sp/>setqualifier,<sp/>getqualifier)\</highlight></codeline>
+<codeline lineno="25"><highlight class="preprocessor">getqualifier:<sp/>inline<sp/>type<sp/>get##name()<sp/>const<sp/>{return<sp/>member.get##name();}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STRUCT_PARAM_SET_GET(member,<sp/>type,<sp/>name,<sp/>qualifier,<sp/>setqualifier,<sp/>getqualifier)\</highlight></codeline>
+<codeline lineno="28"><highlight class="preprocessor">getqualifier:<sp/>inline<sp/>type<sp/>get##name()<sp/>const<sp/>{return<sp/>member.name;}\</highlight></codeline>
+<codeline lineno="29"><highlight class="preprocessor">setqualifier:<sp/>inline<sp/>void<sp/>set##name(type<sp/>name)<sp/>{member.name=name;}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STRUCT_PARAM_SET(member,<sp/>type,<sp/>name,<sp/>qualifier,<sp/>setqualifier,<sp/>getqualifier)\</highlight></codeline>
+<codeline lineno="32"><highlight class="preprocessor">setqualifier:<sp/>inline<sp/>void<sp/>set##name(type<sp/>name)<sp/>{member.name=name;}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STRUCT_PARAM_GET(member,<sp/>type,<sp/>name,<sp/>qualifier,<sp/>setqualifier,<sp/>getqualifier)\</highlight></codeline>
+<codeline lineno="35"><highlight class="preprocessor">getqualifier:<sp/>inline<sp/>type<sp/>get##name()<sp/>const<sp/>{return<sp/>member.name;}\</highlight></codeline>
+<codeline lineno="36"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>convertStringArgument(var,val,buf)<sp/>if<sp/>(!strcmp(buf,#val))<sp/>var=val</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/gmapping/utils/macro_params.h"/>
+  </compounddef>
+</doxygen>

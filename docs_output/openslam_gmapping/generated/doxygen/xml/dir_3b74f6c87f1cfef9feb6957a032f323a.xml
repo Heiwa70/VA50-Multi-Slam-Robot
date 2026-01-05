@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_3b74f6c87f1cfef9feb6957a032f323a" kind="dir">
+    <compoundname>include/gmapping/particlefilter</compoundname>
+    <innerfile refid="particlefilter_8h">particlefilter.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/particlefilter/"/>
+  </compounddef>
+</doxygen>

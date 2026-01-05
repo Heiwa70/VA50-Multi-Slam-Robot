@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_666f709d4901df5650aea12adb57bef3" kind="dir">
+    <compoundname>include/gmapping/sensor/sensor_base</compoundname>
+    <innerfile refid="sensor_8h">sensor.h</innerfile>
+    <innerfile refid="sensorreading_8h">sensorreading.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/sensor/sensor_base/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,14 @@
+.. _exhale_function_point_8h_1a751968c262a540279f3b43f164aa3e8e:
+
+Template Function GMapping::interpolate(const orientedpoint<T, A>&, const F&, const orientedpoint<T, A>&, const F&, const F&)
+=============================================================================================================================
+
+- Defined in :ref:`file_include_gmapping_utils_point.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: GMapping::interpolate(const orientedpoint<T, A>&, const F&, const orientedpoint<T, A>&, const F&, const F&)
+   :project: openslam_gmapping Doxygen Project

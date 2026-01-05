@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>multi_robot_exploration.icp_alignment &mdash; Multi Robot Exploration  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Multi Robot Exploration
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Multi Robot Exploration</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">multi_robot_exploration.icp_alignment</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for multi_robot_exploration.icp_alignment</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">ICP pour fusion multi-robots :</span>
+<span class="sd">- On fixe TB3_1 à (0,0,0) dans un repère arbitraire (origine de la fusion)</span>
+<span class="sd">- On exprime la pose de TB3_2 par rapport à TB3_1 grâce à l&#39;ICP (nuage2 -&gt; nuage1)</span>
+<span class="sd">- On écrit le YAML pour map_merge avec ces poses</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.qos</span><span class="w"> </span><span class="kn">import</span> <span class="n">QoSProfile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.duration</span><span class="w"> </span><span class="kn">import</span> <span class="n">Duration</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">PointCloud2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sensor_msgs_py.point_cloud2</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pc2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">open3d</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">o3d</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tf2_ros</span><span class="w"> </span><span class="kn">import</span> <span class="n">Buffer</span><span class="p">,</span> <span class="n">TransformListener</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<div class="viewcode-block" id="ICPAlignment">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.icp_alignment.ICPAlignment">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ICPAlignment</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+<div class="viewcode-block" id="ICPAlignment.__init__">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.icp_alignment.ICPAlignment.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;icp_alignment&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pc1</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pc2</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pc1_received</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pc2_received</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frames_to_accumulate</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buffers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;TB3_1&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;TB3_2&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+        <span class="c1"># Cache TF de 30 secondes pour avoir suffisamment d&#39;historique</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf_buffer</span> <span class="o">=</span> <span class="n">Buffer</span><span class="p">(</span><span class="n">cache_time</span><span class="o">=</span><span class="n">Duration</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mf">30.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf_listener</span> <span class="o">=</span> <span class="n">TransformListener</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tf_buffer</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">qos</span><span class="o">=</span><span class="n">QoSProfile</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+        
+        <span class="c1"># Attendre 5 secondes pour que le TF buffer se remplisse</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Attente de 5s pour que le TF buffer se remplisse...&#39;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">sub1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_subscription</span><span class="p">(</span><span class="n">PointCloud2</span><span class="p">,</span> <span class="s1">&#39;/TB3_1/camera_depth/points&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pc1_callback</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sub2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_subscription</span><span class="p">(</span><span class="n">PointCloud2</span><span class="p">,</span> <span class="s1">&#39;/TB3_2/camera_depth/points&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pc2_callback</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Attente des nuages de points TB3_1 et TB3_2...&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ICPAlignment.pc1_callback">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.icp_alignment.ICPAlignment.pc1_callback">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pc1_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ingest_pointcloud</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s1">&#39;TB3_1&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ICPAlignment.pc2_callback">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.icp_alignment.ICPAlignment.pc2_callback">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pc2_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ingest_pointcloud</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s1">&#39;TB3_2&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ICPAlignment.ingest_pointcloud">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.icp_alignment.ICPAlignment.ingest_pointcloud">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ingest_pointcloud</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">robot_name</span><span class="p">):</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffers</span><span class="p">[</span><span class="n">robot_name</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frames_to_accumulate</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">pcd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ros_to_open3d</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">robot_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pcd</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">pcd</span><span class="o">.</span><span class="n">points</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pcd</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">robot_name</span><span class="si">}</span><span class="s1">: frame </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">frames_to_accumulate</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">frames_to_accumulate</span><span class="p">:</span>
+            <span class="n">processed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">merge_and_preprocess</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">robot_name</span> <span class="o">==</span> <span class="s1">&#39;TB3_1&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pc1</span> <span class="o">=</span> <span class="n">processed</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pc1_received</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pc2</span> <span class="o">=</span> <span class="n">processed</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pc2_received</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pc1_received</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">pc2_received</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">try_icp</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="ICPAlignment.ros_to_open3d">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.icp_alignment.ICPAlignment.ros_to_open3d">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ros_to_open3d</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">robot_name</span><span class="p">):</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pc2</span><span class="o">.</span><span class="n">read_points</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">field_names</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">),</span> <span class="n">skip_nans</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="n">z</span><span class="p">)</span>
+            <span class="k">if</span> <span class="mf">0.2</span> <span class="o">&lt;</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="mf">4.0</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1.5</span><span class="p">:</span>
+                <span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">points_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+        <span class="c1"># TRANSFORMATION VERS LE REPERE MAP</span>
+        <span class="n">target_frame</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">robot_name</span><span class="si">}</span><span class="s1">/map&#39;</span>
+        <span class="n">source_frame</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span>
+        <span class="c1"># Utiliser le timestamp du message pour le lookup TF</span>
+        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Vérifier d&#39;abord avec le timestamp du message</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">tf_buffer</span><span class="o">.</span><span class="n">can_transform</span><span class="p">(</span><span class="n">target_frame</span><span class="p">,</span> <span class="n">source_frame</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">Duration</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)):</span>
+                <span class="c1"># Si ça échoue, test avec le dernier TF disponible</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;TF au timestamp du message non disponible, essai avec dernier TF...&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">tf_buffer</span><span class="o">.</span><span class="n">can_transform</span><span class="p">(</span><span class="n">target_frame</span><span class="p">,</span> <span class="n">source_frame</span><span class="p">,</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Time</span><span class="p">(),</span> <span class="n">timeout</span><span class="o">=</span><span class="n">Duration</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;TF non disponible: </span><span class="si">{</span><span class="n">source_frame</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="n">target_frame</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="kc">None</span>
+                <span class="n">transform</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tf_buffer</span><span class="o">.</span><span class="n">lookup_transform</span><span class="p">(</span><span class="n">target_frame</span><span class="p">,</span> <span class="n">source_frame</span><span class="p">,</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Time</span><span class="p">(),</span> <span class="n">timeout</span><span class="o">=</span><span class="n">Duration</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mf">2.0</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">transform</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tf_buffer</span><span class="o">.</span><span class="n">lookup_transform</span><span class="p">(</span><span class="n">target_frame</span><span class="p">,</span> <span class="n">source_frame</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">Duration</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mf">2.0</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Erreur TF </span><span class="si">{</span><span class="n">source_frame</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="n">target_frame</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">translation</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">rotation</span>
+        <span class="n">translation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">t</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">z</span><span class="p">])</span>
+        <span class="n">rotation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">quat_to_matrix</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">w</span><span class="p">)</span>
+        <span class="n">points_transformed</span> <span class="o">=</span> <span class="p">(</span><span class="n">rotation</span> <span class="o">@</span> <span class="n">points_array</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">translation</span>
+        <span class="n">pcd</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">PointCloud</span><span class="p">()</span>
+        <span class="n">pcd</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">Vector3dVector</span><span class="p">(</span><span class="n">points_transformed</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pcd</span></div>
+
+
+<div class="viewcode-block" id="ICPAlignment.quat_to_matrix">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.icp_alignment.ICPAlignment.quat_to_matrix">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">quat_to_matrix</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+        <span class="n">norm</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="n">w</span><span class="o">*</span><span class="n">w</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">norm</span> <span class="o">&lt;</span> <span class="mf">1e-10</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="n">norm</span><span class="p">,</span> <span class="n">y</span><span class="o">/</span><span class="n">norm</span><span class="p">,</span> <span class="n">z</span><span class="o">/</span><span class="n">norm</span><span class="p">,</span> <span class="n">w</span><span class="o">/</span><span class="n">norm</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+            <span class="p">[</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="n">z</span><span class="p">),</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="n">w</span><span class="o">*</span><span class="n">z</span><span class="p">),</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="n">w</span><span class="o">*</span><span class="n">y</span><span class="p">)],</span>
+            <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">w</span><span class="o">*</span><span class="n">z</span><span class="p">),</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="n">z</span><span class="p">),</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">z</span> <span class="o">-</span> <span class="n">w</span><span class="o">*</span><span class="n">x</span><span class="p">)],</span>
+            <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">z</span> <span class="o">-</span> <span class="n">w</span><span class="o">*</span><span class="n">y</span><span class="p">),</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="n">w</span><span class="o">*</span><span class="n">x</span><span class="p">),</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">)]</span>
+        <span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="ICPAlignment.merge_and_preprocess">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.icp_alignment.ICPAlignment.merge_and_preprocess">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge_and_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clouds</span><span class="p">):</span>
+        <span class="n">merged</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">PointCloud</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
+            <span class="n">merged</span> <span class="o">+=</span> <span class="n">cloud</span>
+        <span class="n">merged</span> <span class="o">=</span> <span class="n">merged</span><span class="o">.</span><span class="n">voxel_down_sample</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
+        <span class="n">merged</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">merged</span><span class="o">.</span><span class="n">remove_statistical_outlier</span><span class="p">(</span><span class="n">nb_neighbors</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">std_ratio</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">merged</span></div>
+
+
+<div class="viewcode-block" id="ICPAlignment.try_icp">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.icp_alignment.ICPAlignment.try_icp">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">try_icp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Lancement ICP...&#39;</span><span class="p">)</span>
+        <span class="n">pc1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pc1</span><span class="o">.</span><span class="n">voxel_down_sample</span><span class="p">(</span><span class="mf">0.03</span><span class="p">)</span>
+        <span class="n">pc2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pc2</span><span class="o">.</span><span class="n">voxel_down_sample</span><span class="p">(</span><span class="mf">0.03</span><span class="p">)</span>
+        <span class="n">pc1</span><span class="o">.</span><span class="n">estimate_normals</span><span class="p">(</span><span class="n">o3d</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">KDTreeSearchParamHybrid</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">max_nn</span><span class="o">=</span><span class="mi">30</span><span class="p">))</span>
+        <span class="n">pc2</span><span class="o">.</span><span class="n">estimate_normals</span><span class="p">(</span><span class="n">o3d</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">KDTreeSearchParamHybrid</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">max_nn</span><span class="o">=</span><span class="mi">30</span><span class="p">))</span>
+        <span class="n">fpfh1</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">pipelines</span><span class="o">.</span><span class="n">registration</span><span class="o">.</span><span class="n">compute_fpfh_feature</span><span class="p">(</span><span class="n">pc1</span><span class="p">,</span> <span class="n">o3d</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">KDTreeSearchParamHybrid</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">max_nn</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
+        <span class="n">fpfh2</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">pipelines</span><span class="o">.</span><span class="n">registration</span><span class="o">.</span><span class="n">compute_fpfh_feature</span><span class="p">(</span><span class="n">pc2</span><span class="p">,</span> <span class="n">o3d</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">KDTreeSearchParamHybrid</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">max_nn</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
+        <span class="n">result_ransac</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">pipelines</span><span class="o">.</span><span class="n">registration</span><span class="o">.</span><span class="n">registration_ransac_based_on_feature_matching</span><span class="p">(</span>
+            <span class="n">pc2</span><span class="p">,</span> <span class="n">pc1</span><span class="p">,</span> <span class="n">fpfh2</span><span class="p">,</span> <span class="n">fpfh1</span><span class="p">,</span> <span class="n">mutual_filter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_correspondence_distance</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+            <span class="n">estimation_method</span><span class="o">=</span><span class="n">o3d</span><span class="o">.</span><span class="n">pipelines</span><span class="o">.</span><span class="n">registration</span><span class="o">.</span><span class="n">TransformationEstimationPointToPoint</span><span class="p">(</span><span class="kc">False</span><span class="p">),</span>
+            <span class="n">ransac_n</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+            <span class="n">checkers</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">o3d</span><span class="o">.</span><span class="n">pipelines</span><span class="o">.</span><span class="n">registration</span><span class="o">.</span><span class="n">CorrespondenceCheckerBasedOnEdgeLength</span><span class="p">(</span><span class="mf">0.9</span><span class="p">),</span>
+                <span class="n">o3d</span><span class="o">.</span><span class="n">pipelines</span><span class="o">.</span><span class="n">registration</span><span class="o">.</span><span class="n">CorrespondenceCheckerBasedOnDistance</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+            <span class="p">],</span>
+            <span class="n">criteria</span><span class="o">=</span><span class="n">o3d</span><span class="o">.</span><span class="n">pipelines</span><span class="o">.</span><span class="n">registration</span><span class="o">.</span><span class="n">RANSACConvergenceCriteria</span><span class="p">(</span><span class="mi">1000000</span><span class="p">,</span> <span class="mf">0.9999</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">result_icp</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">pipelines</span><span class="o">.</span><span class="n">registration</span><span class="o">.</span><span class="n">registration_icp</span><span class="p">(</span>
+            <span class="n">pc2</span><span class="p">,</span> <span class="n">pc1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">result_ransac</span><span class="o">.</span><span class="n">transformation</span><span class="p">,</span>
+            <span class="n">o3d</span><span class="o">.</span><span class="n">pipelines</span><span class="o">.</span><span class="n">registration</span><span class="o">.</span><span class="n">TransformationEstimationPointToPoint</span><span class="p">(),</span>
+            <span class="n">o3d</span><span class="o">.</span><span class="n">pipelines</span><span class="o">.</span><span class="n">registration</span><span class="o">.</span><span class="n">ICPConvergenceCriteria</span><span class="p">(</span><span class="n">max_iteration</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">final_result</span> <span class="o">=</span> <span class="n">result_icp</span> <span class="k">if</span> <span class="n">result_icp</span><span class="o">.</span><span class="n">fitness</span> <span class="o">&gt;</span> <span class="n">result_ransac</span><span class="o">.</span><span class="n">fitness</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="k">else</span> <span class="n">result_ransac</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="n">final_result</span><span class="o">.</span><span class="n">transformation</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">T</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">yaw_detected</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+        
+        <span class="n">yaw</span> <span class="o">=</span> <span class="mf">0.0</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;RESULTAT: Pose de TB3_2 relative à TB3_1 (repère arbitraire)&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;   x = </span><span class="si">{</span><span class="n">dx</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> m&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;   y = </span><span class="si">{</span><span class="n">dy</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> m&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;   yaw_detected = </span><span class="si">{</span><span class="n">yaw_detected</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> rad (</span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">yaw_detected</span><span class="p">)</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> deg) [IGNORÉ]&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;   Fitness: </span><span class="si">{</span><span class="n">final_result</span><span class="o">.</span><span class="n">fitness</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;   RMSE: </span><span class="si">{</span><span class="n">final_result</span><span class="o">.</span><span class="n">inlier_rmse</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> m&#39;</span><span class="p">)</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;map_merge&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;ros__parameters&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;known_init_poses&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="s1">&#39;merging_rate&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
+                    <span class="s1">&#39;world_frame&#39;</span><span class="p">:</span> <span class="s1">&#39;world&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;robot_map_topic&#39;</span><span class="p">:</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;robot_namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;TB3&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;/TB3_1/map_merge/init_pose_x&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                    <span class="s1">&#39;/TB3_1/map_merge/init_pose_y&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                    <span class="s1">&#39;/TB3_1/map_merge/init_pose_z&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                    <span class="s1">&#39;/TB3_1/map_merge/init_pose_yaw&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                    <span class="s1">&#39;/TB3_2/map_merge/init_pose_x&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">dx</span><span class="p">),</span>
+                    <span class="s1">&#39;/TB3_2/map_merge/init_pose_y&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">dy</span><span class="p">),</span>
+                    <span class="s1">&#39;/TB3_2/map_merge/init_pose_z&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                    <span class="s1">&#39;/TB3_2/map_merge/init_pose_yaw&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">yaw</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">output_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/ros2_humble/src/multi_robot_exploration/config/map_merge_icp_poses.yaml&#39;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">output_file</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sauvegarde: </span><span class="si">{</span><span class="n">output_file</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;TERMINE&#39;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.icp_alignment.main">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">ICPAlignment</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">ok</span><span class="p">():</span>
+            <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

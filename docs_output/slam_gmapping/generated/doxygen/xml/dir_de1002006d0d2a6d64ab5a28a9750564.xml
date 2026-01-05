@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_de1002006d0d2a6d64ab5a28a9750564" kind="dir">
+    <compoundname>include/slam_gmapping</compoundname>
+    <innerfile refid="slam__gmapping_8h">slam_gmapping.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/slam_gmapping/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,634 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="particlefilter_8h" kind="file" language="C++">
+    <compoundname>particlefilter.h</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">sys/types.h</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">utility</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">limits</includes>
+    <includes refid="gvalues_8h" local="no">gmapping/utils/gvalues.h</includes>
+    <includedby refid="gridslamprocessor_8h" local="no">include/gmapping/gridfastslam/gridslamprocessor.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>include/gmapping/particlefilter/particlefilter.h</label>
+        <link refid="particlefilter_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>gmapping/utils/gvalues.h</label>
+        <link refid="gvalues_8h_source"/>
+      </node>
+      <node id="6">
+        <label>cmath</label>
+      </node>
+      <node id="7">
+        <label>limits</label>
+      </node>
+      <node id="2">
+        <label>stdlib.h</label>
+      </node>
+      <node id="3">
+        <label>sys/types.h</label>
+      </node>
+      <node id="5">
+        <label>utility</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>include/gmapping/gridfastslam/gridslamprocessor.h</label>
+        <link refid="gridslamprocessor_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/gmapping/particlefilter/particlefilter.h</label>
+        <link refid="particlefilter_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structuniform__resampler" prot="public">uniform_resampler</innerclass>
+    <innerclass refid="structevolver" prot="public">evolver</innerclass>
+    <innerclass refid="structauxiliary__evolver" prot="public">auxiliary_evolver</innerclass>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="particlefilter_8h_1a97e6281d3d8ae7e187dd5039f32d6e24" prot="public" static="no">
+        <type>std::pair&lt; uint, uint &gt;</type>
+        <definition>typedef std::pair&lt;uint,uint&gt; UIntPair</definition>
+        <argsstring></argsstring>
+        <name>UIntPair</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the particle class has to be convertible into numeric data type; That means that a particle must define the Numeric conversion operator; operator Numeric() const. that returns the weight, and the method setWeight(Numeric) that sets the weight. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="22" column="19" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="particlefilter_8h_1a9d0f782f7a8e45ef0c1ebff64434870e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class OutputIterator</type>
+          </param>
+          <param>
+            <type>class Iterator</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double toNormalForm</definition>
+        <argsstring>(OutputIterator &amp;out, const Iterator &amp;begin, const Iterator &amp;end)</argsstring>
+        <name>toNormalForm</name>
+        <param>
+          <type>OutputIterator &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const Iterator &amp;</type>
+          <declname>begin</declname>
+        </param>
+        <param>
+          <type>const Iterator &amp;</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="25" column="8" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="25" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="particlefilter_8h_1aace430f7a11fad799b9a90136ec6bb67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class OutputIterator</type>
+          </param>
+          <param>
+            <type>class Iterator</type>
+          </param>
+          <param>
+            <type>class Numeric</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void toLogForm</definition>
+        <argsstring>(OutputIterator &amp;out, const Iterator &amp;begin, const Iterator &amp;end, Numeric lmax)</argsstring>
+        <name>toLogForm</name>
+        <param>
+          <type>OutputIterator &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const Iterator &amp;</type>
+          <declname>begin</declname>
+        </param>
+        <param>
+          <type>const Iterator &amp;</type>
+          <declname>end</declname>
+        </param>
+        <param>
+          <type>Numeric</type>
+          <declname>lmax</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="40" column="6" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="40" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="particlefilter_8h_1a8b76542e1fb9304501eb4a9bf8164f73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class WeightVector</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void resample</definition>
+        <argsstring>(std::vector&lt; int &gt; &amp;indexes, const WeightVector &amp;weights, unsigned int nparticles=0)</argsstring>
+        <name>resample</name>
+        <param>
+          <type>std::vector&lt; int &gt; &amp;</type>
+          <declname>indexes</declname>
+        </param>
+        <param>
+          <type>const WeightVector &amp;</type>
+          <declname>weights</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>nparticles</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="50" column="6" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="50" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="particlefilter_8h_1a70e3fec1037e3e397bdfa9c398096c5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Vector</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void repeatIndexes</definition>
+        <argsstring>(Vector &amp;dest, const std::vector&lt; int &gt; &amp;indexes, const Vector &amp;particles)</argsstring>
+        <name>repeatIndexes</name>
+        <param>
+          <type>Vector &amp;</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; int &gt; &amp;</type>
+          <declname>indexes</declname>
+        </param>
+        <param>
+          <type>const Vector &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="85" column="6" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="85" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="particlefilter_8h_1a8c7d3bee5088bb14ba097cb4cfeeeb2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Iterator</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double neff</definition>
+        <argsstring>(const Iterator &amp;begin, const Iterator &amp;end)</argsstring>
+        <name>neff</name>
+        <param>
+          <type>const Iterator &amp;</type>
+          <declname>begin</declname>
+        </param>
+        <param>
+          <type>const Iterator &amp;</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="97" column="8" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="97" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="particlefilter_8h_1a1ff1572e2ab6cf84fa2fc1fd6f2e21f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Iterator</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void normalize</definition>
+        <argsstring>(const Iterator &amp;begin, const Iterator &amp;end)</argsstring>
+        <name>normalize</name>
+        <param>
+          <type>const Iterator &amp;</type>
+          <declname>begin</declname>
+        </param>
+        <param>
+          <type>const Iterator &amp;</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="111" column="6" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="111" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="particlefilter_8h_1a4531051362d95f7273d49cc607f0ede3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class OutputIterator</type>
+          </param>
+          <param>
+            <type>class Iterator</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void rle</definition>
+        <argsstring>(OutputIterator &amp;out, const Iterator &amp;begin, const Iterator &amp;end)</argsstring>
+        <name>rle</name>
+        <param>
+          <type>OutputIterator &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const Iterator &amp;</type>
+          <declname>begin</declname>
+        </param>
+        <param>
+          <type>const Iterator &amp;</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="122" column="6" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="122" bodyend="143"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>PARTICLEFILTER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PARTICLEFILTER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/types.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utility&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;limits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gmapping/utils/gvalues.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::pair&lt;uint,uint&gt;<sp/>UIntPair;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>OutputIterator,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Iterator&gt;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>toNormalForm(OutputIterator&amp;<sp/>out,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Iterator<sp/>&amp;<sp/>begin,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Iterator<sp/>&amp;<sp/>end){</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//determine<sp/>the<sp/>maximum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lmax<sp/>=<sp/>-std::numeric_limits&lt;double&gt;::max();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Iterator<sp/>it=begin;<sp/>it!=end;<sp/>it++){</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lmax=lmax&gt;((double)(*it))?<sp/>lmax:<sp/>(double)(*it);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//convert<sp/>to<sp/>raw<sp/>form</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Iterator<sp/>it=begin;<sp/>it!=end;<sp/>it++){</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*out=exp((</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)(*it)-lmax);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out++;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lmax;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>OutputIterator,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Iterator,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Numeric&gt;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>toLogForm(OutputIterator&amp;<sp/>out,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Iterator<sp/>&amp;<sp/>begin,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Iterator<sp/>&amp;<sp/>end,<sp/>Numeric<sp/>lmax){</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//determine<sp/>the<sp/>maximum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Iterator<sp/>it=begin;<sp/>it!=end;<sp/>it++){</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*out=log((Numeric)(*it))-lmax;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out++;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lmax;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>WeightVector&gt;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>resample(std::vector&lt;int&gt;&amp;<sp/>indexes,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>WeightVector&amp;<sp/>weights,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nparticles=0){</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cweight=0;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//compute<sp/>the<sp/>cumulative<sp/>weights</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n=0;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>WeightVector::const_iterator<sp/>it=weights.begin();<sp/>it!=weights.end();<sp/>++it){</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cweight+=(double)*it;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n++;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nparticles&gt;0)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n=nparticles;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//compute<sp/>the<sp/>interval</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>interval=cweight/n;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//compute<sp/>the<sp/>initial<sp/>target<sp/>weight</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>target=interval*::drand48();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//compute<sp/>the<sp/>resampled<sp/>indexes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>cweight=0;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>indexes.resize(n);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>n=0;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>WeightVector::const_iterator<sp/>it=weights.begin();<sp/>it!=weights.end();<sp/>++it,<sp/>++i){</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cweight+=(double)*<sp/>it;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(cweight&gt;target){</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>indexes[n++]=i;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>target+=interval;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Vector&gt;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>repeatIndexes(Vector&amp;<sp/>dest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;&amp;<sp/>indexes,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Vector&amp;<sp/>particles){</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(indexes.size()==particles.size());</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>dest.resize(particles.size());</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(std::vector&lt;int&gt;::const_iterator<sp/>it=indexes.begin();<sp/>it!=indexes.end();<sp/>++it){</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dest[i]=particles[*it];</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Iterator&gt;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>neff(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Iterator&amp;<sp/>begin,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Iterator&amp;<sp/>end){</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>sum=0;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Iterator<sp/>it=begin;<sp/>it!=end;<sp/>++it){</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sum+=*it;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cum=0;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Iterator<sp/>it=begin;<sp/>it!=end;<sp/>++it){</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>w=*it/sum;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cum+=w*w;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1./cum;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Iterator&gt;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>normalize(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Iterator&amp;<sp/>begin,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Iterator&amp;<sp/>end){</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>sum=0;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Iterator<sp/>it=begin;<sp/>it!=end;<sp/>++it){</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sum+=*it;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Iterator<sp/>it=begin;<sp/>it!=end;<sp/>++it){</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*it=*it/sum;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>OutputIterator,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Iterator&gt;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>rle(OutputIterator&amp;<sp/>out,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Iterator<sp/>&amp;<sp/>begin,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Iterator<sp/>&amp;<sp/>end){</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>current=0;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count=0;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Iterator<sp/>it=begin;<sp/>it!=end;<sp/>it++){</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(it==begin){</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>current=*it;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count=1;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(((uint)*it)<sp/>==current)</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count++;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(((uint)*it)!=current){</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*out=std::make_pair(current,count);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out++;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>current=*it;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>count=1;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(count&gt;0)</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*out=std::make_pair(current,count);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out++;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="comment">//BEGIN<sp/>legacy</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Particle,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Numeric&gt;</highlight></codeline>
+<codeline lineno="147" refid="structuniform__resampler" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structuniform__resampler" kindref="compound">uniform_resampler</ref>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;unsigned<sp/>int&gt;<sp/>resampleIndexes(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;<sp/>&amp;<sp/>particles,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nparticles=0)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;Particle&gt;<sp/>resample(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;<sp/>&amp;<sp/>particles,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nparticles=0)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>Numeric<sp/>neff(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;<sp/>&amp;<sp/>particles)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment">/*Implementation<sp/>of<sp/>the<sp/>above<sp/>stuff*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Particle,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Numeric&gt;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">std::vector&lt;unsigned<sp/>int&gt;<sp/><ref refid="structuniform__resampler" kindref="compound">uniform_resampler&lt;Particle, Numeric&gt;:: resampleIndexes</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;&amp;<sp/>particles,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nparticles)</highlight><highlight class="keyword"><sp/>const</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>Numeric<sp/>cweight=0;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//compute<sp/>the<sp/>cumulative<sp/>weights</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n=0;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;::const_iterator<sp/>it=particles.begin();<sp/>it!=particles.end();<sp/>++it){</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cweight+=(Numeric)*it;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n++;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nparticles&gt;0)</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n=nparticles;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//compute<sp/>the<sp/>interval</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>Numeric<sp/>interval=cweight/n;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//compute<sp/>the<sp/>initial<sp/>target<sp/>weight</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>Numeric<sp/>target=interval*::drand48();</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//compute<sp/>the<sp/>resampled<sp/>indexes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>cweight=0;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;unsigned<sp/>int&gt;<sp/>indexes(n);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>n=0;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;::const_iterator<sp/>it=particles.begin();<sp/>it!=particles.end();<sp/>++it,<sp/>++i){</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cweight+=(Numeric)*<sp/>it;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(cweight&gt;target){</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>indexes[n++]=i;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>target+=interval;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>indexes;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Particle,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Numeric&gt;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal">std::vector&lt;Particle&gt;<sp/>uniform_resampler&lt;Particle,Numeric&gt;::resample</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;&amp;<sp/>particles,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nparticles)</highlight><highlight class="keyword"><sp/>const</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>Numeric<sp/>cweight=0;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//compute<sp/>the<sp/>cumulative<sp/>weights</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n=0;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;::const_iterator<sp/>it=particles.begin();<sp/>it!=particles.end();<sp/>++it){</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cweight+=(Numeric)*it;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n++;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nparticles&gt;0)</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>n=nparticles;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//weight<sp/>of<sp/>the<sp/>particles<sp/>after<sp/>resampling</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>uw=1./n;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//compute<sp/>the<sp/>interval</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>Numeric<sp/>interval=cweight/n;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//compute<sp/>the<sp/>initial<sp/>target<sp/>weight</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>Numeric<sp/>target=interval*::drand48();</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//compute<sp/>the<sp/>resampled<sp/>indexes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>cweight=0;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;Particle&gt;<sp/>resampled;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>n=0;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;::const_iterator<sp/>it=particles.begin();<sp/>it!=particles.end();<sp/>++it,<sp/>++i){</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cweight+=(Numeric)*it;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(cweight&gt;target){</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resampled.push_back(*it);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>resampled.back().setWeight(uw);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>target+=interval;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>resampled;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Particle,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Numeric&gt;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal">Numeric<sp/>uniform_resampler&lt;Particle,Numeric&gt;::neff(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;<sp/>&amp;<sp/>particles)</highlight><highlight class="keyword"><sp/>const</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cum=0;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>sum=0;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;::const_iterator<sp/>it=particles.begin();<sp/>it!=particles.end();<sp/>++it){</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Numeric<sp/>w=(Numeric)*it;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cum+=w*w;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sum+=w;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sum*sum/cum;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"></highlight></codeline>
+<codeline lineno="244"><highlight class="comment">The<sp/>following<sp/>are<sp/>patterns<sp/>for<sp/>the<sp/>evolution<sp/>and<sp/>the<sp/>observation<sp/>classes</highlight></codeline>
+<codeline lineno="245"><highlight class="comment">The<sp/>user<sp/>should<sp/>implement<sp/>classes<sp/>having<sp/>the<sp/>specified<sp/>meaning</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"></highlight></codeline>
+<codeline lineno="247"><highlight class="comment">template<sp/>&lt;class<sp/>State,<sp/>class<sp/>Numeric,<sp/>class<sp/>Observation&gt;</highlight></codeline>
+<codeline lineno="248"><highlight class="comment">struct<sp/>observer{</highlight></codeline>
+<codeline lineno="249"><highlight class="comment"><sp/><sp/><sp/><sp/>Observation&amp;<sp/>observation</highlight></codeline>
+<codeline lineno="250"><highlight class="comment"><sp/><sp/><sp/><sp/>Numeric<sp/>observe(const<sp/>class<sp/>State&amp;)<sp/>const;</highlight></codeline>
+<codeline lineno="251"><highlight class="comment">};</highlight></codeline>
+<codeline lineno="252"><highlight class="comment"></highlight></codeline>
+<codeline lineno="253"><highlight class="comment">template<sp/>&lt;class<sp/>State,<sp/>class<sp/>Numeric,<sp/>class<sp/>Input&gt;</highlight></codeline>
+<codeline lineno="254"><highlight class="comment">struct<sp/>evolver{</highlight></codeline>
+<codeline lineno="255"><highlight class="comment"><sp/><sp/><sp/><sp/>Input&amp;<sp/>input;</highlight></codeline>
+<codeline lineno="256"><highlight class="comment"><sp/><sp/><sp/><sp/>State&amp;<sp/>evolve(const<sp/>State&amp;<sp/>s);</highlight></codeline>
+<codeline lineno="257"><highlight class="comment">};</highlight></codeline>
+<codeline lineno="258"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Particle,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>EvolutionModel&gt;</highlight></codeline>
+<codeline lineno="262" refid="structevolver" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structevolver" kindref="compound">evolver</ref>{</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/>EvolutionModel<sp/>evolutionModel;</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>evolve(std::vector&lt;Particle&gt;&amp;<sp/>particles);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>evolve(std::vector&lt;Particle&gt;&amp;<sp/>dest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;&amp;<sp/>src);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Particle,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>EvolutionModel&gt;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>evolver&lt;Particle,<sp/>EvolutionModel&gt;::evolve(std::vector&lt;Particle&gt;&amp;<sp/>particles){</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;::iterator<sp/>it=particles.begin();<sp/>it!=particles.end();<sp/>++it){</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*it=evolutionModel.evolve(*it);</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="273"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Particle,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>EvolutionModel&gt;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>evolver&lt;Particle,<sp/>EvolutionModel&gt;::evolve(std::vector&lt;Particle&gt;&amp;<sp/>dest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;&amp;<sp/>src){</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/>dest.clear();</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;::const_iterator<sp/>it=src.begin();<sp/>it!=src.end();<sp/>++it)</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dest.push_back(evolutionModel.evolve(*it));</highlight></codeline>
+<codeline lineno="280"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Particle,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Numeric,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>QualificationModel,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>EvolutionModel,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>LikelyhoodModel&gt;</highlight></codeline>
+<codeline lineno="284" refid="structauxiliary__evolver" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structauxiliary__evolver" kindref="compound">auxiliary_evolver</ref>{</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>EvolutionModel<sp/>evolutionModel;</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/>QualificationModel<sp/>qualificationModel;</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/>LikelyhoodModel<sp/>likelyhoodModel;</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>evolve(std::vector&lt;Particle&gt;&amp;<sp/>particles);</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>evolve(std::vector&lt;Particle&gt;&amp;<sp/>dest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;&amp;<sp/>src);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Particle,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Numeric,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>QualificationModel,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>EvolutionModel,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>LikelyhoodModel&gt;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>auxiliary_evolver&lt;Particle,<sp/>Numeric,<sp/>QualificationModel,<sp/>EvolutionModel,<sp/>LikelyhoodModel&gt;::evolve</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/>(std::vector&lt;Particle&gt;&amp;particles){</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;Numeric&gt;<sp/>observationWeights(particles.size());</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;::const_iterator<sp/>it=particles.begin();<sp/>it!=particles.end();<sp/>++it,<sp/>i++){</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>observationWeights[i]=likelyhoodModel.likelyhood(qualificationModel.evolve(*it));</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structuniform__resampler" kindref="compound">uniform_resampler&lt;Numeric, Numeric&gt;</ref><sp/>resampler;</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;unsigned<sp/>int&gt;<sp/>indexes(resampler.resampleIndexes(observationWeights));</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;::const_iterator<sp/>it=indexes.begin();<sp/>it!=indexes.end();<sp/>++it){</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Particle<sp/>&amp;<sp/>particle=particles[*it];</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>particle=evolutionModel.evolve(particle);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>particle.setWeight(likelyhoodModel.likelyhood(particle)/observationWeights[*it]);</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="307"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Particle,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Numeric,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>QualificationModel,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>EvolutionModel,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>LikelyhoodModel&gt;</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>auxiliary_evolver&lt;Particle,<sp/>Numeric,<sp/>QualificationModel,<sp/>EvolutionModel,<sp/>LikelyhoodModel&gt;::evolve</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/>(std::vector&lt;Particle&gt;&amp;<sp/>dest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;&amp;<sp/>src){</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/>dest.clear();</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;Numeric&gt;<sp/>observationWeights(src.size());</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;::const_iterator<sp/>it=src.begin();<sp/>it!=src.end();<sp/>++it,<sp/>i++){</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>observationWeights[i]=likelyhoodModel.likelyhood(qualificationModel.evolve(*it));</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structuniform__resampler" kindref="compound">uniform_resampler&lt;Numeric, Numeric&gt;</ref><sp/>resampler;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;unsigned<sp/>int&gt;<sp/>indexes(resampler.resampleIndexes(observationWeights));</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;::const_iterator<sp/>it=indexes.begin();<sp/>it!=indexes.end();<sp/>++it){</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Particle<sp/>&amp;<sp/>particle=src[*it];</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dest.push_back(evolutionModel.evolve(particle));</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dest.back().weight*=likelyhoodModel.likelyhood(particle)/observationWeights[*it];</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="325"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight><highlight class="comment">//END<sp/>legacy</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"></highlight></codeline>
+<codeline lineno="328"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/gmapping/particlefilter/particlefilter.h"/>
+  </compounddef>
+</doxygen>

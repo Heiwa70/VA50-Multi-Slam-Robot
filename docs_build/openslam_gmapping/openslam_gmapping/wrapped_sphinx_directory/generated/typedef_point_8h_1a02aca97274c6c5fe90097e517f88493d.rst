@@ -1,0 +1,14 @@
+.. _exhale_typedef_point_8h_1a02aca97274c6c5fe90097e517f88493d:
+
+Typedef GMapping::Point
+=======================
+
+- Defined in :ref:`file_include_gmapping_utils_point.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: GMapping::Point
+   :project: openslam_gmapping Doxygen Project

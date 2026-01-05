@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_g_mapping_1_1_odometry_reading" kind="class" language="C++" prot="public">
+    <compoundname>GMapping::OdometryReading</compoundname>
+    <basecompoundref refid="class_g_mapping_1_1_sensor_reading" prot="public" virt="non-virtual">GMapping::SensorReading</basecompoundref>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_g_mapping_1_1_odometry_reading_1a62cfc8b25e477011b3c2803cc0d7ff04" prot="protected" static="no" mutable="no">
+        <type>OrientedPoint</type>
+        <definition>OrientedPoint GMapping::OdometryReading::m_pose</definition>
+        <argsstring></argsstring>
+        <name>m_pose</name>
+        <qualifiedname>GMapping::OdometryReading::m_pose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_odometry/odometryreading.h" line="22" column="15" bodyfile="include/gmapping/sensor/sensor_odometry/odometryreading.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_mapping_1_1_odometry_reading_1a6ae380b592a0bad9a9c276a5e03af912" prot="protected" static="no" mutable="no">
+        <type>OrientedPoint</type>
+        <definition>OrientedPoint GMapping::OdometryReading::m_speed</definition>
+        <argsstring></argsstring>
+        <name>m_speed</name>
+        <qualifiedname>GMapping::OdometryReading::m_speed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_odometry/odometryreading.h" line="23" column="15" bodyfile="include/gmapping/sensor/sensor_odometry/odometryreading.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_mapping_1_1_odometry_reading_1aacedefee70bf15dba9598e8e9777d0d7" prot="protected" static="no" mutable="no">
+        <type>OrientedPoint</type>
+        <definition>OrientedPoint GMapping::OdometryReading::m_acceleration</definition>
+        <argsstring></argsstring>
+        <name>m_acceleration</name>
+        <qualifiedname>GMapping::OdometryReading::m_acceleration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_odometry/odometryreading.h" line="24" column="15" bodyfile="include/gmapping/sensor/sensor_odometry/odometryreading.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g_mapping_1_1_odometry_reading_1a0aaad11632da8d4a4f96b22d1f82c532" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::OdometryReading::OdometryReading</definition>
+        <argsstring>(const OdometrySensor *odo, double time=0)</argsstring>
+        <name>OdometryReading</name>
+        <qualifiedname>GMapping::OdometryReading::OdometryReading</qualifiedname>
+        <param>
+          <type>const <ref refid="class_g_mapping_1_1_odometry_sensor" kindref="compound">OdometrySensor</ref> *</type>
+          <declname>odo</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_odometry/odometryreading.h" line="13" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_odometry_reading_1a3dc1abd0a7b1b01b3856b5351348e467" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const OrientedPoint &amp;</type>
+        <definition>const OrientedPoint &amp; GMapping::OdometryReading::getPose</definition>
+        <argsstring>() const</argsstring>
+        <name>getPose</name>
+        <qualifiedname>GMapping::OdometryReading::getPose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_odometry/odometryreading.h" line="14" column="28" bodyfile="include/gmapping/sensor/sensor_odometry/odometryreading.h" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_odometry_reading_1a461f64e5b35385ae81d1ab932ec5f80b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const OrientedPoint &amp;</type>
+        <definition>const OrientedPoint &amp; GMapping::OdometryReading::getSpeed</definition>
+        <argsstring>() const</argsstring>
+        <name>getSpeed</name>
+        <qualifiedname>GMapping::OdometryReading::getSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_odometry/odometryreading.h" line="15" column="28" bodyfile="include/gmapping/sensor/sensor_odometry/odometryreading.h" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_odometry_reading_1ab89b8754a2f1023ce1bbcbf5c335ea53" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const OrientedPoint &amp;</type>
+        <definition>const OrientedPoint &amp; GMapping::OdometryReading::getAcceleration</definition>
+        <argsstring>() const</argsstring>
+        <name>getAcceleration</name>
+        <qualifiedname>GMapping::OdometryReading::getAcceleration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_odometry/odometryreading.h" line="16" column="28" bodyfile="include/gmapping/sensor/sensor_odometry/odometryreading.h" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_odometry_reading_1abbe380b5e615a2aba1b65ef939e897da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::OdometryReading::setPose</definition>
+        <argsstring>(const OrientedPoint &amp;pose)</argsstring>
+        <name>setPose</name>
+        <qualifiedname>GMapping::OdometryReading::setPose</qualifiedname>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>pose</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_odometry/odometryreading.h" line="17" column="13" bodyfile="include/gmapping/sensor/sensor_odometry/odometryreading.h" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_odometry_reading_1a59dfd8057c91a75e64d6fc86ceb71382" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::OdometryReading::setSpeed</definition>
+        <argsstring>(const OrientedPoint &amp;speed)</argsstring>
+        <name>setSpeed</name>
+        <qualifiedname>GMapping::OdometryReading::setSpeed</qualifiedname>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>speed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_odometry/odometryreading.h" line="18" column="13" bodyfile="include/gmapping/sensor/sensor_odometry/odometryreading.h" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_odometry_reading_1a370bb324919a19be1faec5697dde7914" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::OdometryReading::setAcceleration</definition>
+        <argsstring>(const OrientedPoint &amp;acceleration)</argsstring>
+        <name>setAcceleration</name>
+        <qualifiedname>GMapping::OdometryReading::setAcceleration</qualifiedname>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>acceleration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_odometry/odometryreading.h" line="19" column="13" bodyfile="include/gmapping/sensor/sensor_odometry/odometryreading.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GMapping::OdometryReading</label>
+        <link refid="class_g_mapping_1_1_odometry_reading"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GMapping::SensorReading</label>
+        <link refid="class_g_mapping_1_1_sensor_reading"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GMapping::OdometryReading</label>
+        <link refid="class_g_mapping_1_1_odometry_reading"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>m_acceleration</edgelabel>
+          <edgelabel>m_pose</edgelabel>
+          <edgelabel>m_speed</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GMapping::Sensor</label>
+        <link refid="class_g_mapping_1_1_sensor"/>
+      </node>
+      <node id="2">
+        <label>GMapping::SensorReading</label>
+        <link refid="class_g_mapping_1_1_sensor_reading"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_sensor</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>GMapping::orientedpoint&lt; double, double &gt;</label>
+        <link refid="struct_g_mapping_1_1orientedpoint"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>GMapping::point&lt; double &gt;</label>
+        <link refid="struct_g_mapping_1_1point"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/gmapping/sensor/sensor_odometry/odometryreading.h" line="11" column="1" bodyfile="include/gmapping/sensor/sensor_odometry/odometryreading.h" bodystart="11" bodyend="25"/>
+    <listofallmembers>
+      <member refid="class_g_mapping_1_1_odometry_reading_1ab89b8754a2f1023ce1bbcbf5c335ea53" prot="public" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>getAcceleration</name></member>
+      <member refid="class_g_mapping_1_1_odometry_reading_1a3dc1abd0a7b1b01b3856b5351348e467" prot="public" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>getPose</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1a81598df775634096b7d9a3cafe01eb91" prot="public" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>getSensor</name></member>
+      <member refid="class_g_mapping_1_1_odometry_reading_1a461f64e5b35385ae81d1ab932ec5f80b" prot="public" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>getSpeed</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1afa80948b19650a98ae555f35e9549816" prot="public" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>getTime</name></member>
+      <member refid="class_g_mapping_1_1_odometry_reading_1aacedefee70bf15dba9598e8e9777d0d7" prot="protected" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>m_acceleration</name></member>
+      <member refid="class_g_mapping_1_1_odometry_reading_1a62cfc8b25e477011b3c2803cc0d7ff04" prot="protected" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>m_pose</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1ae68dfa883281d964470df13e47d48275" prot="protected" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>m_sensor</name></member>
+      <member refid="class_g_mapping_1_1_odometry_reading_1a6ae380b592a0bad9a9c276a5e03af912" prot="protected" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>m_speed</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1aa8965e26c4cc6be0036bb7f910fbee7d" prot="protected" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>m_time</name></member>
+      <member refid="class_g_mapping_1_1_odometry_reading_1a0aaad11632da8d4a4f96b22d1f82c532" prot="public" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>OdometryReading</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1a640e3a5ba3ec48e96d84040e46dc28b7" prot="public" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>SensorReading</name></member>
+      <member refid="class_g_mapping_1_1_odometry_reading_1a370bb324919a19be1faec5697dde7914" prot="public" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>setAcceleration</name></member>
+      <member refid="class_g_mapping_1_1_odometry_reading_1abbe380b5e615a2aba1b65ef939e897da" prot="public" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>setPose</name></member>
+      <member refid="class_g_mapping_1_1_odometry_reading_1a59dfd8057c91a75e64d6fc86ceb71382" prot="public" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>setSpeed</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1ace6521ab76975d9850a5f649b8113108" prot="public" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>setTime</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1a7411d16f81c3ede0f94b0e2707fde7ca" prot="public" virt="non-virtual"><scope>GMapping::OdometryReading</scope><name>~SensorReading</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

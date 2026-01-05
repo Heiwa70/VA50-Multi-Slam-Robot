@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_g_mapping_1_1orientedpoint" kind="struct" language="C++" prot="public">
+    <compoundname>GMapping::orientedpoint</compoundname>
+    <basecompoundref refid="struct_g_mapping_1_1point" prot="public" virt="non-virtual">GMapping::point&lt; T &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+      <param>
+        <type>class A</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_mapping_1_1orientedpoint_1a610fdfefb42f5c836de7ab9e94ba11d0" prot="public" static="no" mutable="no">
+        <type>A</type>
+        <definition>A GMapping::orientedpoint&lt; T, A &gt;::theta</definition>
+        <argsstring></argsstring>
+        <name>theta</name>
+        <qualifiedname>GMapping::orientedpoint::theta</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="60" column="3" bodyfile="include/gmapping/utils/point.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_g_mapping_1_1orientedpoint_1afeb4c68dccaab56783e67c6432555ecd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::orientedpoint&lt; T, A &gt;::orientedpoint</definition>
+        <argsstring>()</argsstring>
+        <name>orientedpoint</name>
+        <qualifiedname>GMapping::orientedpoint::orientedpoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="47" column="10" bodyfile="include/gmapping/utils/point.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1orientedpoint_1af196376304a22df53b15289ea4bd19b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::orientedpoint&lt; T, A &gt;::orientedpoint</definition>
+        <argsstring>(const point&lt; T &gt; &amp;p)</argsstring>
+        <name>orientedpoint</name>
+        <qualifiedname>GMapping::orientedpoint::orientedpoint</qualifiedname>
+        <param>
+          <type>const point&lt; T &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="48" column="8" bodyfile="include/gmapping/utils/point.h" bodystart="79" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1orientedpoint_1afa2c29919cb2afea4a66cd7c3421c810" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::orientedpoint&lt; T, A &gt;::orientedpoint</definition>
+        <argsstring>(T x, T y, A _theta)</argsstring>
+        <name>orientedpoint</name>
+        <qualifiedname>GMapping::orientedpoint::orientedpoint</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>A</type>
+          <declname>_theta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="49" column="8" bodyfile="include/gmapping/utils/point.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1orientedpoint_1a57fc056ff866e541e45f16bde846067b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::orientedpoint&lt; T, A &gt;::normalize</definition>
+        <argsstring>()</argsstring>
+        <name>normalize</name>
+        <qualifiedname>GMapping::orientedpoint::normalize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="50" column="21" bodyfile="include/gmapping/utils/point.h" bodystart="65" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1orientedpoint_1a114d0e01a55ac8e7240542fe2927f1cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>orientedpoint&lt; T, A &gt;</type>
+        <definition>orientedpoint&lt; T, A &gt; GMapping::orientedpoint&lt; T, A &gt;::rotate</definition>
+        <argsstring>(A alpha)</argsstring>
+        <name>rotate</name>
+        <qualifiedname>GMapping::orientedpoint::rotate</qualifiedname>
+        <param>
+          <type>A</type>
+          <declname>alpha</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="51" column="22" bodyfile="include/gmapping/utils/point.h" bodystart="51" bodyend="59"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GMapping::orientedpoint&lt; T, A &gt;</label>
+        <link refid="struct_g_mapping_1_1orientedpoint"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GMapping::point&lt; T &gt;</label>
+        <link refid="struct_g_mapping_1_1point"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GMapping::orientedpoint&lt; T, A &gt;</label>
+        <link refid="struct_g_mapping_1_1orientedpoint"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GMapping::point&lt; T &gt;</label>
+        <link refid="struct_g_mapping_1_1point"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/gmapping/utils/point.h" line="46" column="1" bodyfile="include/gmapping/utils/point.h" bodystart="46" bodyend="61"/>
+    <listofallmembers>
+      <member refid="struct_g_mapping_1_1orientedpoint_1a57fc056ff866e541e45f16bde846067b" prot="public" virt="non-virtual"><scope>GMapping::orientedpoint</scope><name>normalize</name></member>
+      <member refid="struct_g_mapping_1_1orientedpoint_1afeb4c68dccaab56783e67c6432555ecd" prot="public" virt="non-virtual"><scope>GMapping::orientedpoint</scope><name>orientedpoint</name></member>
+      <member refid="struct_g_mapping_1_1orientedpoint_1af196376304a22df53b15289ea4bd19b5" prot="public" virt="non-virtual"><scope>GMapping::orientedpoint</scope><name>orientedpoint</name></member>
+      <member refid="struct_g_mapping_1_1orientedpoint_1afa2c29919cb2afea4a66cd7c3421c810" prot="public" virt="non-virtual"><scope>GMapping::orientedpoint</scope><name>orientedpoint</name></member>
+      <member refid="struct_g_mapping_1_1point_1afc685fdd02ade3e26f5b0eaea770291f" prot="public" virt="non-virtual"><scope>GMapping::orientedpoint</scope><name>point</name></member>
+      <member refid="struct_g_mapping_1_1point_1a8c10e5be8877b8799fd66ca5f7ba17b0" prot="public" virt="non-virtual"><scope>GMapping::orientedpoint</scope><name>point</name></member>
+      <member refid="struct_g_mapping_1_1orientedpoint_1a114d0e01a55ac8e7240542fe2927f1cc" prot="public" virt="non-virtual"><scope>GMapping::orientedpoint</scope><name>rotate</name></member>
+      <member refid="struct_g_mapping_1_1orientedpoint_1a610fdfefb42f5c836de7ab9e94ba11d0" prot="public" virt="non-virtual"><scope>GMapping::orientedpoint</scope><name>theta</name></member>
+      <member refid="struct_g_mapping_1_1point_1a1e3816abbc8b56607fa741952fe74a8c" prot="public" virt="non-virtual"><scope>GMapping::orientedpoint</scope><name>x</name></member>
+      <member refid="struct_g_mapping_1_1point_1ae25e311e074409d6329c2e66741006f1" prot="public" virt="non-virtual"><scope>GMapping::orientedpoint</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

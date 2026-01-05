@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_g_mapping_1_1_sensor_reading" kind="class" language="C++" prot="public">
+    <compoundname>GMapping::SensorReading</compoundname>
+    <derivedcompoundref refid="class_g_mapping_1_1_odometry_reading" prot="public" virt="non-virtual">GMapping::OdometryReading</derivedcompoundref>
+    <derivedcompoundref refid="class_g_mapping_1_1_range_reading" prot="public" virt="non-virtual">GMapping::RangeReading</derivedcompoundref>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_g_mapping_1_1_sensor_reading_1aa8965e26c4cc6be0036bb7f910fbee7d" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GMapping::SensorReading::m_time</definition>
+        <argsstring></argsstring>
+        <name>m_time</name>
+        <qualifiedname>GMapping::SensorReading::m_time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_base/sensorreading.h" line="18" column="8" bodyfile="include/gmapping/sensor/sensor_base/sensorreading.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_mapping_1_1_sensor_reading_1ae68dfa883281d964470df13e47d48275" prot="protected" static="no" mutable="no">
+        <type>const <ref refid="class_g_mapping_1_1_sensor" kindref="compound">Sensor</ref> *</type>
+        <definition>const Sensor* GMapping::SensorReading::m_sensor</definition>
+        <argsstring></argsstring>
+        <name>m_sensor</name>
+        <qualifiedname>GMapping::SensorReading::m_sensor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_base/sensorreading.h" line="19" column="14" bodyfile="include/gmapping/sensor/sensor_base/sensorreading.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g_mapping_1_1_sensor_reading_1a640e3a5ba3ec48e96d84040e46dc28b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::SensorReading::SensorReading</definition>
+        <argsstring>(const Sensor *s, double time)</argsstring>
+        <name>SensorReading</name>
+        <qualifiedname>GMapping::SensorReading::SensorReading</qualifiedname>
+        <param>
+          <type>const <ref refid="class_g_mapping_1_1_sensor" kindref="compound">Sensor</ref> *</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_base/sensorreading.h" line="9" column="1" bodyfile="include/gmapping/sensor/sensor_base/sensorreading.h" bodystart="9" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_sensor_reading_1a7411d16f81c3ede0f94b0e2707fde7ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::SensorReading::~SensorReading</definition>
+        <argsstring>()</argsstring>
+        <name>~SensorReading</name>
+        <qualifiedname>GMapping::SensorReading::~SensorReading</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_base/sensorreading.h" line="13" column="1" bodyfile="include/gmapping/sensor/sensor_base/sensorreading.h" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_sensor_reading_1afa80948b19650a98ae555f35e9549816" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GMapping::SensorReading::getTime</definition>
+        <argsstring>() const</argsstring>
+        <name>getTime</name>
+        <qualifiedname>GMapping::SensorReading::getTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_base/sensorreading.h" line="14" column="15" bodyfile="include/gmapping/sensor/sensor_base/sensorreading.h" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_sensor_reading_1ace6521ab76975d9850a5f649b8113108" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::SensorReading::setTime</definition>
+        <argsstring>(double t)</argsstring>
+        <name>setTime</name>
+        <qualifiedname>GMapping::SensorReading::setTime</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_base/sensorreading.h" line="15" column="13" bodyfile="include/gmapping/sensor/sensor_base/sensorreading.h" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_sensor_reading_1a81598df775634096b7d9a3cafe01eb91" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="class_g_mapping_1_1_sensor" kindref="compound">Sensor</ref> *</type>
+        <definition>const Sensor * GMapping::SensorReading::getSensor</definition>
+        <argsstring>() const</argsstring>
+        <name>getSensor</name>
+        <qualifiedname>GMapping::SensorReading::getSensor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_base/sensorreading.h" line="16" column="21" bodyfile="include/gmapping/sensor/sensor_base/sensorreading.h" bodystart="16" bodyend="16"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>GMapping::OdometryReading</label>
+        <link refid="class_g_mapping_1_1_odometry_reading"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GMapping::RangeReading</label>
+        <link refid="class_g_mapping_1_1_range_reading"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>GMapping::SensorReading</label>
+        <link refid="class_g_mapping_1_1_sensor_reading"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>GMapping::Sensor</label>
+        <link refid="class_g_mapping_1_1_sensor"/>
+      </node>
+      <node id="1">
+        <label>GMapping::SensorReading</label>
+        <link refid="class_g_mapping_1_1_sensor_reading"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>m_sensor</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/gmapping/sensor/sensor_base/sensorreading.h" line="7" column="1" bodyfile="include/gmapping/sensor/sensor_base/sensorreading.h" bodystart="7" bodyend="21"/>
+    <listofallmembers>
+      <member refid="class_g_mapping_1_1_sensor_reading_1a81598df775634096b7d9a3cafe01eb91" prot="public" virt="non-virtual"><scope>GMapping::SensorReading</scope><name>getSensor</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1afa80948b19650a98ae555f35e9549816" prot="public" virt="non-virtual"><scope>GMapping::SensorReading</scope><name>getTime</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1ae68dfa883281d964470df13e47d48275" prot="protected" virt="non-virtual"><scope>GMapping::SensorReading</scope><name>m_sensor</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1aa8965e26c4cc6be0036bb7f910fbee7d" prot="protected" virt="non-virtual"><scope>GMapping::SensorReading</scope><name>m_time</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1a640e3a5ba3ec48e96d84040e46dc28b7" prot="public" virt="non-virtual"><scope>GMapping::SensorReading</scope><name>SensorReading</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1ace6521ab76975d9850a5f649b8113108" prot="public" virt="non-virtual"><scope>GMapping::SensorReading</scope><name>setTime</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1a7411d16f81c3ede0f94b0e2707fde7ca" prot="public" virt="non-virtual"><scope>GMapping::SensorReading</scope><name>~SensorReading</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

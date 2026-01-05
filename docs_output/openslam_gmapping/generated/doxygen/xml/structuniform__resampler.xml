@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structuniform__resampler" kind="struct" language="C++" prot="public">
+    <compoundname>uniform_resampler</compoundname>
+    <templateparamlist>
+      <param>
+        <type>class Particle</type>
+      </param>
+      <param>
+        <type>class Numeric</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structuniform__resampler_1a9097c86356bc84ff0130b5a688247838" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; unsigned int &gt;</type>
+        <definition>std::vector&lt; unsigned int &gt; uniform_resampler&lt; Particle, Numeric &gt;::resampleIndexes</definition>
+        <argsstring>(const std::vector&lt; Particle &gt; &amp;particles, int nparticles=0) const</argsstring>
+        <name>resampleIndexes</name>
+        <qualifiedname>uniform_resampler::resampleIndexes</qualifiedname>
+        <param>
+          <type>const std::vector&lt; Particle &gt; &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nparticles</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="148" column="13" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="155" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="structuniform__resampler_1a38b6375a3f75998078c669a62ca76d92" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; Particle &gt;</type>
+        <definition>std::vector&lt; Particle &gt; uniform_resampler&lt; Particle, Numeric &gt;::resample</definition>
+        <argsstring>(const std::vector&lt; Particle &gt; &amp;particles, int nparticles=0) const</argsstring>
+        <name>resample</name>
+        <qualifiedname>uniform_resampler::resample</qualifiedname>
+        <param>
+          <type>const std::vector&lt; Particle &gt; &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nparticles</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="149" column="13" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="191" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="structuniform__resampler_1a1f6d66ec40619a3d96e399cb6c5140b3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Numeric</type>
+        <definition>Numeric uniform_resampler&lt; Particle, Numeric &gt;::neff</definition>
+        <argsstring>(const std::vector&lt; Particle &gt; &amp;particles) const</argsstring>
+        <name>neff</name>
+        <qualifiedname>uniform_resampler::neff</qualifiedname>
+        <param>
+          <type>const std::vector&lt; Particle &gt; &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="150" column="9" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="230" bodyend="239"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/particlefilter/particlefilter.h" line="147" column="1" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="147" bodyend="151"/>
+    <listofallmembers>
+      <member refid="structuniform__resampler_1a1f6d66ec40619a3d96e399cb6c5140b3" prot="public" virt="non-virtual"><scope>uniform_resampler</scope><name>neff</name></member>
+      <member refid="structuniform__resampler_1a38b6375a3f75998078c669a62ca76d92" prot="public" virt="non-virtual"><scope>uniform_resampler</scope><name>resample</name></member>
+      <member refid="structuniform__resampler_1a9097c86356bc84ff0130b5a688247838" prot="public" virt="non-virtual"><scope>uniform_resampler</scope><name>resampleIndexes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

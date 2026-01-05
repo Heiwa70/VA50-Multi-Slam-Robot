@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="map_8h" kind="file" language="C++">
+    <compoundname>map.h</compoundname>
+    <includes refid="point_8h" local="no">gmapping/utils/point.h</includes>
+    <includes local="no">assert.h</includes>
+    <includes refid="accessstate_8h" local="yes">accessstate.h</includes>
+    <includes refid="array2d_8h" local="yes">array2d.h</includes>
+    <includedby refid="smmap_8h" local="no">include/gmapping/scanmatcher/smmap.h</includedby>
+    <incdepgraph>
+      <node id="7">
+        <label>accessstate.h</label>
+        <link refid="accessstate_8h_source"/>
+      </node>
+      <node id="8">
+        <label>array2d.h</label>
+        <link refid="array2d_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>include/gmapping/grid/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>gvalues.h</label>
+        <link refid="gvalues_8h_source"/>
+      </node>
+      <node id="2">
+        <label>gmapping/utils/point.h</label>
+        <link refid="point_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>assert.h</label>
+      </node>
+      <node id="5">
+        <label>iostream</label>
+      </node>
+      <node id="4">
+        <label>math.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>include/gmapping/grid/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>include/gmapping/gridfastslam/gridslamprocessor.h</label>
+        <link refid="gridslamprocessor_8h_source"/>
+      </node>
+      <node id="3">
+        <label>include/gmapping/scanmatcher/scanmatcher.h</label>
+        <link refid="scanmatcher_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>include/gmapping/scanmatcher/smmap.h</label>
+        <link refid="smmap_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_g_mapping_1_1_map" prot="public">GMapping::Map</innerclass>
+    <innernamespace refid="namespace_g_mapping">GMapping</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MAP_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAP_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gmapping/utils/point.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;accessstate.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;array2d.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">GMapping<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="class_g_mapping_1_1_array2_d" kindref="compound">Array2D&lt;double&gt;</ref><sp/>DoubleArray2D;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Cell,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/>const<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isClass=true&gt;<sp/></highlight></codeline>
+<codeline lineno="16" refid="class_g_mapping_1_1_map" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Map{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mapSizeX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mapSizeY,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&amp;<sp/>center,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>worldSizeX,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>worldSizeY,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&amp;<sp/>center,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmax,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymax,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>the<sp/>standard<sp/>implementation<sp/>works<sp/>filen<sp/>in<sp/>this<sp/>case*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Map(const<sp/>Map&amp;<sp/>g);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Map&amp;<sp/>operator<sp/>=(const<sp/>Map&amp;<sp/>g);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>resize(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmax,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymax);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>grow(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmax,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymax);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>IntPoint<sp/>world2map(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&amp;<sp/>p)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Point<sp/>map2world(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IntPoint&amp;<sp/>p)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>IntPoint<sp/>world2map(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y)</highlight><highlight class="keyword"><sp/>const<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>world2map(Point(x,y));<sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Point<sp/>map2world(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y)</highlight><highlight class="keyword"><sp/>const<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>map2world(IntPoint(x,y));<sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Point<sp/>getCenter()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_center;}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>getWorldSizeX()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_worldSizeX;}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>getWorldSizeY()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_worldSizeY;}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getMapSizeX()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_mapSizeX;}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getMapSizeY()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_mapSizeY;}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>getDelta()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_delta;}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>getMapResolution()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_delta;}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>getResolution()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_delta;}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>getSize(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/>xmin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;<sp/>ymin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;<sp/>xmax,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;<sp/>ymax)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point<sp/>min=map2world(0,0),<sp/>max=map2world(IntPoint(m_mapSizeX-1,<sp/>m_mapSizeY-1));<sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xmin=min.x,<sp/>ymin=min.y,<sp/><sp/>xmax=max.x,<sp/>ymax=max.y;<sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Cell&amp;<sp/>cell(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cell(IntPoint(x,<sp/>y));</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Cell&amp;<sp/>cell(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IntPoint&amp;<sp/>p);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Cell&amp;<sp/>cell(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y)</highlight><highlight class="keyword"><sp/>const<sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cell(IntPoint(x,<sp/>y));</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Cell&amp;<sp/>cell(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IntPoint&amp;<sp/>p)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Cell&amp;<sp/>cell(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cell(Point(x,<sp/>y));</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Cell&amp;<sp/>cell(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&amp;<sp/>p);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Cell&amp;<sp/>cell(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cell(Point(x,<sp/>y));</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isInside(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_storage.cellState(IntPoint(x,y))&amp;Inside;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isInside(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IntPoint&amp;<sp/>p)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_storage.cellState(p)&amp;Inside;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isInside(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_storage.cellState(world2map(x,y))&amp;Inside;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isInside(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&amp;<sp/>p)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_storage.cellState(world2map(p))&amp;Inside;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Cell&amp;<sp/>cell(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&amp;<sp/>p)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Storage&amp;<sp/>storage()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_storage;<sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Storage&amp;<sp/>storage()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_storage;<sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DoubleArray2D*<sp/>toDoubleArray()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Map&lt;double,<sp/>DoubleArray2D,<sp/>false&gt;*<sp/>toDoubleMap()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point<sp/>m_center;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>m_worldSizeX,<sp/>m_worldSizeY,<sp/>m_delta;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Storage<sp/>m_storage;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m_mapSizeX,<sp/>m_mapSizeY;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m_sizeX2,<sp/>m_sizeY2;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Cell<sp/>m_unknown;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="class_g_mapping_1_1_map" kindref="compound">Map&lt;double, DoubleArray2D, false&gt;</ref><sp/>DoubleMap;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Cell,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/>const<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isClass&gt;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Cell<sp/><sp/>Map&lt;Cell,Storage,isClass&gt;::m_unknown<sp/>=<sp/>Cell(-1);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Cell,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/>const<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isClass&gt;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">Map&lt;Cell,Storage,isClass&gt;::Map(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mapSizeX,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mapSizeY,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta):</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>m_storage(mapSizeX,<sp/>mapSizeY){</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>m_worldSizeX=mapSizeX<sp/>*<sp/>delta;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>m_worldSizeY=mapSizeY<sp/>*<sp/>delta;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>m_delta=delta;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>m_center=Point(0.5*m_worldSizeX,<sp/>0.5*m_worldSizeY);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>m_sizeX2=m_mapSizeX&gt;&gt;1;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>m_sizeY2=m_mapSizeY&gt;&gt;1;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Cell,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/>const<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isClass&gt;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">Map&lt;Cell,Storage,isClass&gt;::Map(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&amp;<sp/>center,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>worldSizeX,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>worldSizeY,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta):</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>m_storage((int)ceil(worldSizeX/delta),<sp/>(int)ceil(worldSizeY/delta)){</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>m_center=center;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>m_worldSizeX=worldSizeX;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>m_worldSizeY=worldSizeY;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>m_delta=delta;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>m_mapSizeX=m_storage.getXSize()&lt;&lt;m_storage.getPatchSize();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>m_mapSizeY=m_storage.getYSize()&lt;&lt;m_storage.getPatchSize();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>m_sizeX2=m_mapSizeX&gt;&gt;1;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>m_sizeY2=m_mapSizeY&gt;&gt;1;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Cell,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/>const<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isClass&gt;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">Map&lt;Cell,Storage,isClass&gt;::Map(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&amp;<sp/>center,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmax,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymax,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta):</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>m_storage((int)ceil((xmax-xmin)/delta),<sp/>(int)ceil((ymax-ymin)/delta)){</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>m_center=center;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>m_worldSizeX=xmax-xmin;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>m_worldSizeY=ymax-ymin;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>m_delta=delta;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>m_mapSizeX=m_storage.getXSize()&lt;&lt;m_storage.getPatchSize();</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>m_mapSizeY=m_storage.getYSize()&lt;&lt;m_storage.getPatchSize();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>m_sizeX2=(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)round((m_center.x-xmin)/m_delta);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>m_sizeY2=(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)round((m_center.y-ymin)/m_delta);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Cell,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/>const<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isClass&gt;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Map&lt;Cell,Storage,isClass&gt;::resize(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmax,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymax){</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>IntPoint<sp/>imin=world2map(xmin,<sp/>ymin);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>IntPoint<sp/>imax=world2map(xmax,<sp/>ymax);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pxmin,<sp/>pymin,<sp/>pxmax,<sp/>pymax;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>pxmin=(int)floor((</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)imin.x/(1&lt;&lt;m_storage.getPatchMagnitude()));</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>pxmax=(int)ceil((</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)imax.x/(1&lt;&lt;m_storage.getPatchMagnitude()));</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>pymin=(int)floor((</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)imin.y/(1&lt;&lt;m_storage.getPatchMagnitude()));</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>pymax=(int)ceil((</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)imax.y/(1&lt;&lt;m_storage.getPatchMagnitude()));</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>m_storage.resize(pxmin,<sp/>pymin,<sp/>pxmax,<sp/>pymax);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>m_mapSizeX=m_storage.getXSize()&lt;&lt;m_storage.getPatchSize();</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>m_mapSizeY=m_storage.getYSize()&lt;&lt;m_storage.getPatchSize();</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>m_worldSizeX=xmax-xmin;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>m_worldSizeY=ymax-ymin;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>m_sizeX2-=pxmin*(1&lt;&lt;m_storage.getPatchMagnitude());</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>m_sizeY2-=pymin*(1&lt;&lt;m_storage.getPatchMagnitude());</highlight></codeline>
+<codeline lineno="153"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Cell,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/>const<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isClass&gt;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Map&lt;Cell,Storage,isClass&gt;::grow(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmax,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymax){</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>IntPoint<sp/>imin=world2map(xmin,<sp/>ymin);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>IntPoint<sp/>imax=world2map(xmax,<sp/>ymax);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isInside(imin)<sp/>&amp;&amp;<sp/>isInside(imax))</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>imin=min(imin,<sp/>IntPoint(0,0));</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>imax=max(imax,<sp/>IntPoint(m_mapSizeX-1,m_mapSizeY-1));</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pxmin,<sp/>pymin,<sp/>pxmax,<sp/>pymax;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>pxmin=(int)floor((</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)imin.x/(1&lt;&lt;m_storage.getPatchMagnitude()));</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>pxmax=(int)ceil((</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)imax.x/(1&lt;&lt;m_storage.getPatchMagnitude()));</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>pymin=(int)floor((</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)imin.y/(1&lt;&lt;m_storage.getPatchMagnitude()));</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>pymax=(int)ceil((</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)imax.y/(1&lt;&lt;m_storage.getPatchMagnitude()));</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>m_storage.resize(pxmin,<sp/>pymin,<sp/>pxmax,<sp/>pymax);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>m_mapSizeX=m_storage.getXSize()&lt;&lt;m_storage.getPatchSize();</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>m_mapSizeY=m_storage.getYSize()&lt;&lt;m_storage.getPatchSize();</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>m_worldSizeX=xmax-xmin;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>m_worldSizeY=ymax-ymin;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>m_sizeX2-=pxmin*(1&lt;&lt;m_storage.getPatchMagnitude());</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>m_sizeY2-=pymin*(1&lt;&lt;m_storage.getPatchMagnitude());</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Cell,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/>const<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isClass&gt;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal">IntPoint<sp/>Map&lt;Cell,Storage,isClass&gt;::world2map(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&amp;<sp/>p)</highlight><highlight class="keyword"><sp/>const</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>IntPoint(<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)round((p.x-m_center.x)/m_delta)+m_sizeX2,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)round((p.y-m_center.y)/m_delta)+m_sizeY2);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Cell,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/>const<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isClass&gt;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">Point<sp/>Map&lt;Cell,Storage,isClass&gt;::map2world(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IntPoint&amp;<sp/>p)</highlight><highlight class="keyword"><sp/>const</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Point(<sp/>(p.x-m_sizeX2)*m_delta,</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(p.y-m_sizeY2)*m_delta)+m_center;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Cell,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/>const<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isClass&gt;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">Cell&amp;<sp/>Map&lt;Cell,Storage,isClass&gt;::cell(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IntPoint&amp;<sp/>p)<sp/>{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>AccessibilityState<sp/>s=m_storage.cellState(p);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<sp/>(s&amp;Inside))</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert(0);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>(s&amp;Allocated)<sp/>return<sp/>m_storage.cell(p);<sp/>assert(0);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>this<sp/>will<sp/>never<sp/>happend.<sp/>Just<sp/>to<sp/>satify<sp/>the<sp/>compiler..</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_storage.cell(p);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Cell,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/>const<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isClass&gt;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal">Cell&amp;<sp/>Map&lt;Cell,Storage,isClass&gt;::cell(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&amp;<sp/>p)<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>IntPoint<sp/>ip=world2map(p);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>AccessibilityState<sp/>s=m_storage.cellState(ip);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<sp/>(s&amp;Inside))</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert(0);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>(s&amp;Allocated)<sp/>return<sp/>m_storage.cell(ip);<sp/>assert(0);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>this<sp/>will<sp/>never<sp/>happend.<sp/>Just<sp/>to<sp/>satify<sp/>the<sp/>compiler..</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_storage.cell(ip);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Cell,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/>const<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isClass&gt;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Cell&amp;<sp/>Map&lt;Cell,Storage,isClass&gt;::cell(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IntPoint&amp;<sp/>p)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>AccessibilityState<sp/>s=m_storage.cellState(p);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//if<sp/>(!<sp/>s&amp;Inside)<sp/>assert(0);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(s&amp;Allocated)<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_storage.cell(p);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_unknown;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Cell,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/>const<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isClass&gt;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><sp/>Cell&amp;<sp/>Map&lt;Cell,Storage,isClass&gt;::cell(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&amp;<sp/>p)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/>IntPoint<sp/>ip=world2map(p);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/>AccessibilityState<sp/>s=m_storage.cellState(ip);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//if<sp/>(!<sp/>s&amp;Inside)<sp/>assert(0);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(s&amp;Allocated)<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_storage.cell(ip);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><sp/>m_unknown;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight><highlight class="comment">//FIXME<sp/>check<sp/>why<sp/>the<sp/>last<sp/>line<sp/>of<sp/>the<sp/>map<sp/>is<sp/>corrupted.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Cell,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/>const<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isClass&gt;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal">DoubleArray2D*<sp/>Map&lt;Cell,Storage,isClass&gt;::toDoubleArray()</highlight><highlight class="keyword"><sp/>const</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DoubleArray2D*<sp/>darr=</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>DoubleArray2D(getMapSizeX()-1,<sp/>getMapSizeY()-1);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x=0;<sp/>x&lt;getMapSizeX()-1;<sp/>x++)</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y=0;<sp/>y&lt;getMapSizeY()-1;<sp/>y++){</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IntPoint<sp/>p(x,y);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>darr-&gt;cell(p)=cell(p);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>darr;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Cell,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/>const<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isClass&gt;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><ref refid="class_g_mapping_1_1_map" kindref="compound">Map&lt;double, DoubleArray2D, false&gt;</ref>*<sp/>Map&lt;Cell,Storage,isClass&gt;::toDoubleMap()</highlight><highlight class="keyword"><sp/>const</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight><highlight class="comment">//FIXME<sp/>size<sp/>the<sp/>map<sp/>so<sp/>that<sp/>m_center<sp/>will<sp/>be<sp/>setted<sp/>accordingly</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point<sp/>pmin=map2world(IntPoint(0,0));</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/>Point<sp/>pmax=map2world(getMapSizeX()-1,getMapSizeY()-1);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>Point<sp/>center=(pmax+pmin)*0.5;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_map" kindref="compound">Map&lt;double, DoubleArray2D, false&gt;</ref>*<sp/><sp/>plainMap=</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_g_mapping_1_1_map" kindref="compound">Map&lt;double, DoubleArray2D, false&gt;</ref>(center,<sp/>(pmax-pmin).x,<sp/>(pmax-pmin).y,<sp/>getDelta());</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x=0;<sp/>x&lt;getMapSizeX()-1;<sp/>x++)</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y=0;<sp/>y&lt;getMapSizeY()-1;<sp/>y++){</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IntPoint<sp/>p(x,y);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plainMap-&gt;cell(p)=cell(p);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>plainMap;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/gmapping/grid/map.h"/>
+  </compounddef>
+</doxygen>

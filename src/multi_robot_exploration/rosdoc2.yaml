@@ -1,0 +1,4 @@
+builders:
+  - sphinx:
+      name: "Python API Documentation"
+      sphinx_sourcedir: docs

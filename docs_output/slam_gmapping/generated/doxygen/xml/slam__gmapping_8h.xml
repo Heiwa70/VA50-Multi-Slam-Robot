@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="slam__gmapping_8h" kind="file" language="C++">
+    <compoundname>slam_gmapping.h</compoundname>
+    <includes local="no">mutex</includes>
+    <includes local="no">thread</includes>
+    <includes local="no">memory</includes>
+    <includes local="yes">rclcpp/rclcpp.hpp</includes>
+    <includes local="yes">sensor_msgs/msg/laser_scan.hpp</includes>
+    <includes local="yes">std_msgs/msg/float64.hpp</includes>
+    <includes local="yes">nav_msgs/msg/occupancy_grid.hpp</includes>
+    <includes local="yes">nav_msgs/msg/map_meta_data.hpp</includes>
+    <includes local="yes">geometry_msgs/msg/pose.hpp</includes>
+    <includes local="yes">geometry_msgs/msg/pose_stamped.hpp</includes>
+    <includes local="yes">geometry_msgs/msg/transform_stamped.hpp</includes>
+    <includes local="yes">tf2_geometry_msgs/tf2_geometry_msgs.h</includes>
+    <includes local="yes">tf2_ros/transform_listener.h</includes>
+    <includes local="yes">tf2_ros/transform_broadcaster.h</includes>
+    <includes local="yes">tf2/utils.h</includes>
+    <includes local="yes">message_filters/subscriber.h</includes>
+    <includes local="yes">tf2_ros/message_filter.h</includes>
+    <includes local="yes">gmapping/gridfastslam/gridslamprocessor.h</includes>
+    <includes local="yes">gmapping/sensor/sensor_base/sensor.h</includes>
+    <includes local="yes">gmapping/sensor/sensor_range/rangesensor.h</includes>
+    <includes local="yes">gmapping/sensor/sensor_odometry/odometrysensor.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>include/slam_gmapping/slam_gmapping.h</label>
+        <link refid="slam__gmapping_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>geometry_msgs/msg/pose.hpp</label>
+      </node>
+      <node id="11">
+        <label>geometry_msgs/msg/pose_stamped.hpp</label>
+      </node>
+      <node id="12">
+        <label>geometry_msgs/msg/transform_stamped.hpp</label>
+      </node>
+      <node id="19">
+        <label>gmapping/gridfastslam/gridslamprocessor.h</label>
+      </node>
+      <node id="20">
+        <label>gmapping/sensor/sensor_base/sensor.h</label>
+      </node>
+      <node id="22">
+        <label>gmapping/sensor/sensor_odometry/odometrysensor.h</label>
+      </node>
+      <node id="21">
+        <label>gmapping/sensor/sensor_range/rangesensor.h</label>
+      </node>
+      <node id="4">
+        <label>memory</label>
+      </node>
+      <node id="17">
+        <label>message_filters/subscriber.h</label>
+      </node>
+      <node id="2">
+        <label>mutex</label>
+      </node>
+      <node id="9">
+        <label>nav_msgs/msg/map_meta_data.hpp</label>
+      </node>
+      <node id="8">
+        <label>nav_msgs/msg/occupancy_grid.hpp</label>
+      </node>
+      <node id="5">
+        <label>rclcpp/rclcpp.hpp</label>
+      </node>
+      <node id="6">
+        <label>sensor_msgs/msg/laser_scan.hpp</label>
+      </node>
+      <node id="7">
+        <label>std_msgs/msg/float64.hpp</label>
+      </node>
+      <node id="16">
+        <label>tf2/utils.h</label>
+      </node>
+      <node id="13">
+        <label>tf2_geometry_msgs/tf2_geometry_msgs.h</label>
+      </node>
+      <node id="18">
+        <label>tf2_ros/message_filter.h</label>
+      </node>
+      <node id="15">
+        <label>tf2_ros/transform_broadcaster.h</label>
+      </node>
+      <node id="14">
+        <label>tf2_ros/transform_listener.h</label>
+      </node>
+      <node id="3">
+        <label>thread</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_slam_gmapping" prot="public">SlamGmapping</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>slam_gmapping</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2008,<sp/>Willow<sp/>Garage,<sp/>Inc.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>THE<sp/>WORK<sp/>(AS<sp/>DEFINED<sp/>BELOW)<sp/>IS<sp/>PROVIDED<sp/>UNDER<sp/>THE<sp/>TERMS<sp/>OF<sp/>THIS<sp/>CREATIVE</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>COMMONS<sp/>PUBLIC<sp/>LICENSE<sp/>(&quot;CCPL&quot;<sp/>OR<sp/>&quot;LICENSE&quot;).<sp/>THE<sp/>WORK<sp/>IS<sp/>PROTECTED<sp/>BY</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>COPYRIGHT<sp/>AND/OR<sp/>OTHER<sp/>APPLICABLE<sp/>LAW.<sp/>ANY<sp/>USE<sp/>OF<sp/>THE<sp/>WORK<sp/>OTHER<sp/>THAN<sp/>AS</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>AUTHORIZED<sp/>UNDER<sp/>THIS<sp/>LICENSE<sp/>OR<sp/>COPYRIGHT<sp/>LAW<sp/>IS<sp/>PROHIBITED.</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>BY<sp/>EXERCISING<sp/>ANY<sp/>RIGHTS<sp/>TO<sp/>THE<sp/>WORK<sp/>PROVIDED<sp/>HERE,<sp/>YOU<sp/>ACCEPT<sp/>AND<sp/>AGREE<sp/>TO</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>BE<sp/>BOUND<sp/>BY<sp/>THE<sp/>TERMS<sp/>OF<sp/>THIS<sp/>LICENSE.<sp/>THE<sp/>LICENSOR<sp/>GRANTS<sp/>YOU<sp/>THE<sp/>RIGHTS</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>CONTAINED<sp/>HERE<sp/>IN<sp/>CONSIDERATION<sp/>OF<sp/>YOUR<sp/>ACCEPTANCE<sp/>OF<sp/>SUCH<sp/>TERMS<sp/>AND</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>CONDITIONS.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Author:<sp/>Brian<sp/>Gerkey<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Created<sp/>by<sp/>shivesh<sp/>on<sp/>29/10/18.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SLAM_GMAPPING_SLAM_GMAPPING_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SLAM_GMAPPING_SLAM_GMAPPING_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mutex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;thread&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rclcpp/rclcpp.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;sensor_msgs/msg/laser_scan.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;std_msgs/msg/float64.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nav_msgs/msg/occupancy_grid.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nav_msgs/msg/map_meta_data.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;geometry_msgs/msg/pose.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;geometry_msgs/msg/pose_stamped.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;geometry_msgs/msg/transform_stamped.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tf2_geometry_msgs/tf2_geometry_msgs.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tf2_ros/transform_listener.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tf2_ros/transform_broadcaster.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tf2/utils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;message_filters/subscriber.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tf2_ros/message_filter.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;gmapping/gridfastslam/gridslamprocessor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;gmapping/sensor/sensor_base/sensor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;gmapping/sensor/sensor_range/rangesensor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;gmapping/sensor/sensor_odometry/odometrysensor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="class_slam_gmapping" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">SlamGmapping<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>rclcpp::Node{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>SlamGmapping();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>~SlamGmapping()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>init();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>startLiveSlam();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>publishTransform();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>laserCallback(sensor_msgs::msg::LaserScan::ConstSharedPtr<sp/>scan);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>publishLoop(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>transform_publish_period);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::Node::SharedPtr<sp/>node_;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::Publisher&lt;std_msgs::msg::Float64&gt;::SharedPtr<sp/>entropy_publisher_;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::Publisher&lt;nav_msgs::msg::OccupancyGrid&gt;::SharedPtr<sp/>sst_;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>rclcpp::Publisher&lt;nav_msgs::msg::MapMetaData&gt;::SharedPtr<sp/>sstm_;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;tf2_ros::Buffer&gt;<sp/>buffer_;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;tf2_ros::TransformListener&gt;<sp/>tfl_;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;message_filters::Subscriber&lt;sensor_msgs::msg::LaserScan&gt;&gt;<sp/>scan_filter_sub_;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;tf2_ros::MessageFilter&lt;sensor_msgs::msg::LaserScan<sp/>&gt;&gt;<sp/>scan_filter_;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;tf2_ros::TransformBroadcaster&gt;<sp/>tfB_;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor" kindref="compound" external="/Users/clementseiler/Downloads/ros2_humble/cross_reference/openslam_gmapping/openslam_gmapping.tag">GMapping::GridSlamProcessor</ref>*<sp/>gsp_;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_range_sensor" kindref="compound" external="/Users/clementseiler/Downloads/ros2_humble/cross_reference/openslam_gmapping/openslam_gmapping.tag">GMapping::RangeSensor</ref>*<sp/>gsp_laser_;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>angles<sp/>in<sp/>the<sp/>laser,<sp/>going<sp/>from<sp/>-x<sp/>to<sp/>x<sp/>(adjustment<sp/>is<sp/>made<sp/>to<sp/>get<sp/>the<sp/>laser<sp/>between</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>symmetrical<sp/>bounds<sp/>as<sp/>that&apos;s<sp/>what<sp/>gmapping<sp/>expects)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>laser_angles_;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>pose,<sp/>in<sp/>the<sp/>original<sp/>laser<sp/>frame,<sp/>of<sp/>the<sp/>corresponding<sp/>centered<sp/>laser<sp/>with<sp/>z<sp/>facing<sp/>up</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>geometry_msgs::msg::PoseStamped<sp/>centered_laser_pose_;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Depending<sp/>on<sp/>the<sp/>order<sp/>of<sp/>the<sp/>elements<sp/>in<sp/>the<sp/>scan<sp/>and<sp/>the<sp/>orientation<sp/>of<sp/>the<sp/>scan<sp/>frame,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>We<sp/>might<sp/>need<sp/>to<sp/>change<sp/>the<sp/>order<sp/>of<sp/>the<sp/>scan</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>do_reverse_range_;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>gsp_laser_beam_count_;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_odometry_sensor" kindref="compound" external="/Users/clementseiler/Downloads/ros2_humble/cross_reference/openslam_gmapping/openslam_gmapping.tag">GMapping::OdometrySensor</ref>*<sp/>gsp_odom_;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>got_first_scan_;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>got_map_;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>nav_msgs::msg::OccupancyGrid<sp/>map_;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>tf2::Duration<sp/>map_update_interval_;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>tf2::Transform<sp/>map_to_odom_;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>std::mutex<sp/>map_to_odom_mutex_;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>std::mutex<sp/>map_mutex_;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>laser_count_;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>throttle_scans_;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;std::thread&gt;<sp/>transform_thread_;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>base_frame_;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>laser_frame_;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>map_frame_;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>odom_frame_;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateMap(sensor_msgs::msg::LaserScan::ConstSharedPtr<sp/>scan);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>getOdomPose(GMapping::OrientedPoint&amp;<sp/>gmap_pose,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>rclcpp::Time&amp;<sp/>t);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>initMapper(sensor_msgs::msg::LaserScan::ConstSharedPtr<sp/>scan);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>addScan(sensor_msgs::msg::LaserScan::ConstSharedPtr<sp/>scan,<sp/>GMapping::OrientedPoint&amp;<sp/>gmap_pose);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>computePoseEntropy();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Parameters<sp/>used<sp/>by<sp/>GMapping</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxRange_;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxUrange_;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxrange_;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minimum_score_;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>sigma_;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kernelSize_;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lstep_;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>astep_;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iterations_;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lsigma_;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ogain_;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lskip_;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>srr_;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>srt_;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>str_;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>stt_;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>linearUpdate_;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>angularUpdate_;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>temporalUpdate_;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>resampleThreshold_;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>particles_;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmin_;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymin_;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmax_;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymax_;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta_;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>occ_thresh_;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>llsamplerange_;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>llsamplestep_;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lasamplerange_;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lasamplestep_;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>seed_;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>transform_publish_period_;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tf_delay_;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//SLAM_GMAPPING_SLAM_GMAPPING_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/slam_gmapping/slam_gmapping.h"/>
+  </compounddef>
+</doxygen>

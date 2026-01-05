@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_fba292c81b58166e61e600a71a05ec9f" kind="dir">
+    <compoundname>include/gmapping/grid</compoundname>
+    <innerfile refid="accessstate_8h">accessstate.h</innerfile>
+    <innerfile refid="array2d_8h">array2d.h</innerfile>
+    <innerfile refid="harray2d_8h">harray2d.h</innerfile>
+    <innerfile refid="map_8h">map.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/grid/"/>
+  </compounddef>
+</doxygen>

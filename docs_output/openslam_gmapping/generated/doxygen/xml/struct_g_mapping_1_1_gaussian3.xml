@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_g_mapping_1_1_gaussian3" kind="struct" language="C++" prot="public">
+    <compoundname>GMapping::Gaussian3</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_mapping_1_1_gaussian3_1a64b17b61e1bd87923d0c9f65192792ca" prot="public" static="no" mutable="no">
+        <type>OrientedPoint</type>
+        <definition>OrientedPoint GMapping::Gaussian3::mean</definition>
+        <argsstring></argsstring>
+        <name>mean</name>
+        <qualifiedname>GMapping::Gaussian3::mean</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="34" column="15" bodyfile="include/gmapping/utils/stat.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_mapping_1_1_gaussian3_1a3131844c0d9825570f28796fdf5ff92c" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_mapping_1_1_eigen_covariance3" kindref="compound">EigenCovariance3</ref></type>
+        <definition>EigenCovariance3 GMapping::Gaussian3::covariance</definition>
+        <argsstring></argsstring>
+        <name>covariance</name>
+        <qualifiedname>GMapping::Gaussian3::covariance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="35" column="18" bodyfile="include/gmapping/utils/stat.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_mapping_1_1_gaussian3_1a4bea7121bbfe1ff39436d49ad8c950b2" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_mapping_1_1_covariance3" kindref="compound">Covariance3</ref></type>
+        <definition>Covariance3 GMapping::Gaussian3::cov</definition>
+        <argsstring></argsstring>
+        <name>cov</name>
+        <qualifiedname>GMapping::Gaussian3::cov</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="36" column="13" bodyfile="include/gmapping/utils/stat.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_g_mapping_1_1_gaussian3_1a1769fe4ee91ac205d1dcd38ae49e5a89" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double GMapping::Gaussian3::eval</definition>
+        <argsstring>(const OrientedPoint &amp;p) const</argsstring>
+        <name>eval</name>
+        <qualifiedname>GMapping::Gaussian3::eval</qualifiedname>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="37" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1_gaussian3_1ac92a49024d8605f61f252dc39798dc35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::Gaussian3::computeFromSamples</definition>
+        <argsstring>(const std::vector&lt; OrientedPoint &gt; &amp;poses)</argsstring>
+        <name>computeFromSamples</name>
+        <qualifiedname>GMapping::Gaussian3::computeFromSamples</qualifiedname>
+        <param>
+          <type>const std::vector&lt; OrientedPoint &gt; &amp;</type>
+          <declname>poses</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="38" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1_gaussian3_1aa615992e9701c9aaa1391bf9c1422f32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::Gaussian3::computeFromSamples</definition>
+        <argsstring>(const std::vector&lt; OrientedPoint &gt; &amp;poses, const std::vector&lt; double &gt; &amp;weights)</argsstring>
+        <name>computeFromSamples</name>
+        <qualifiedname>GMapping::Gaussian3::computeFromSamples</qualifiedname>
+        <param>
+          <type>const std::vector&lt; OrientedPoint &gt; &amp;</type>
+          <declname>poses</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>weights</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="39" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="5">
+        <label>GMapping::Covariance3</label>
+        <link refid="struct_g_mapping_1_1_covariance3"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>zero</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>GMapping::EigenCovariance3</label>
+        <link refid="struct_g_mapping_1_1_eigen_covariance3"/>
+      </node>
+      <node id="1">
+        <label>GMapping::Gaussian3</label>
+        <link refid="struct_g_mapping_1_1_gaussian3"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>mean</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>covariance</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>cov</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GMapping::orientedpoint&lt; double, double &gt;</label>
+        <link refid="struct_g_mapping_1_1orientedpoint"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GMapping::point&lt; double &gt;</label>
+        <link refid="struct_g_mapping_1_1point"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/gmapping/utils/stat.h" line="33" column="1" bodyfile="include/gmapping/utils/stat.h" bodystart="33" bodyend="40"/>
+    <listofallmembers>
+      <member refid="struct_g_mapping_1_1_gaussian3_1ac92a49024d8605f61f252dc39798dc35" prot="public" virt="non-virtual"><scope>GMapping::Gaussian3</scope><name>computeFromSamples</name></member>
+      <member refid="struct_g_mapping_1_1_gaussian3_1aa615992e9701c9aaa1391bf9c1422f32" prot="public" virt="non-virtual"><scope>GMapping::Gaussian3</scope><name>computeFromSamples</name></member>
+      <member refid="struct_g_mapping_1_1_gaussian3_1a4bea7121bbfe1ff39436d49ad8c950b2" prot="public" virt="non-virtual"><scope>GMapping::Gaussian3</scope><name>cov</name></member>
+      <member refid="struct_g_mapping_1_1_gaussian3_1a3131844c0d9825570f28796fdf5ff92c" prot="public" virt="non-virtual"><scope>GMapping::Gaussian3</scope><name>covariance</name></member>
+      <member refid="struct_g_mapping_1_1_gaussian3_1a1769fe4ee91ac205d1dcd38ae49e5a89" prot="public" virt="non-virtual"><scope>GMapping::Gaussian3</scope><name>eval</name></member>
+      <member refid="struct_g_mapping_1_1_gaussian3_1a64b17b61e1bd87923d0c9f65192792ca" prot="public" virt="non-virtual"><scope>GMapping::Gaussian3</scope><name>mean</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

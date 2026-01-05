@@ -1,0 +1,975 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class GridSlamProcessor &mdash; openslam_gmapping 0.1.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=92734c54"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+      <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Template Class HierarchicalArray2D" href="class_g_mapping_1_1_hierarchical_array2_d.html" />
+    <link rel="prev" title="Class Configuration" href="class_g_mapping_1_1_configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            openslam_gmapping
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#full-c-api">Full C++ API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="namespace_GMapping.html">Namespace GMapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_std.html">Namespace std</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="structauxiliary__evolver.html">Template Struct auxiliary_evolver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structevolver.html">Template Struct evolver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1autoptr_1_1reference.html">Struct autoptr::reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_covariance3.html">Struct Covariance3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_eigen_covariance3.html">Struct EigenCovariance3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_gaussian3.html">Struct Gaussian3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_grid_slam_processor_1_1_particle.html">Struct GridSlamProcessor::Particle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node.html">Struct GridSlamProcessor::TNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_motion_model.html">Struct MotionModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1orientedpoint.html">Template Struct orientedpoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1point.html">Template Struct point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_point_accumulator.html">Struct PointAccumulator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1pointcomparator.html">Template Struct pointcomparator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1pointradialcomparator.html">Template Struct pointradialcomparator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="struct_g_mapping_1_1_range_sensor_1_1_beam.html">Struct RangeSensor::Beam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structuniform__resampler.html">Template Struct uniform_resampler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_array2_d.html">Template Class Array2D</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1autoptr.html">Template Class autoptr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_configuration.html">Class Configuration</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Class GridSlamProcessor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_hierarchical_array2_d.html">Template Class HierarchicalArray2D</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_map.html">Template Class Map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_odometry_reading.html">Class OdometryReading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_odometry_sensor.html">Class OdometrySensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_range_reading.html">Class RangeReading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_range_sensor.html">Class RangeSensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_scan_matcher.html">Class ScanMatcher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_sensor.html">Class Sensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_sensor_log.html">Class SensorLog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_g_mapping_1_1_sensor_reading.html">Class SensorReading</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#enums">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enum_accessstate_8h_1a019911ecc362fe562a3e6bbc4fa4da4c.html">Enum AccessibilityState</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1aab5cf65bbf130c6765d31bc5822681ff.html">Template Function GMapping::absoluteDifference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1acb84992cef22432c5ba8017e9feb3c9c.html">Template Function GMapping::absoluteSum(const orientedpoint&lt;T, A&gt;&amp;, const orientedpoint&lt;T, A&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a1517af52862a1930f94a9a8a5b802dbb.html">Template Function GMapping::absoluteSum(const orientedpoint&lt;T, A&gt;&amp;, const point&lt;T&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_stat_8h_1ad96dc3a2fbeb5f5100e27a01d8bceccd.html">Template Function GMapping::computeGaussianFromSamples(PointIterator&amp;, PointIterator&amp;, WeightIterator&amp;, WeightIterator&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_stat_8h_1a6052104196efe9e2c373a493792284d1.html">Template Function GMapping::computeGaussianFromSamples(PointIterator&amp;, PointIterator&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a9fb08f8514edb3301f2e7dc0d6b40549.html">Template Function GMapping::euclidianDist(const point&lt;T&gt;&amp;, const point&lt;T&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a71a888906877083eaf43d89c764587f2.html">Template Function GMapping::euclidianDist(const orientedpoint&lt;T, A&gt;&amp;, const orientedpoint&lt;T, A&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a0765f34c70101397336ed26fa9523af1.html">Template Function GMapping::euclidianDist(const orientedpoint&lt;T, A&gt;&amp;, const point&lt;T&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a3b885924ff851da7455ba49fa4c6d155.html">Template Function GMapping::euclidianDist(const point&lt;T&gt;&amp;, const orientedpoint&lt;T, A&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_stat_8h_1a5c288a2cdd28dd7921dbd4a400cbd4a4.html">Function GMapping::evalGaussian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_stat_8h_1ab6785e51e0895e103be39b1f2297d4cb.html">Function GMapping::evalLogGaussian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_icp_8h_1a87c3fe74a2c858a9535eb5a4c54edd60.html">Template Function GMapping::icpNonlinearStep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_icp_8h_1a5d699434e4abf22ca9e2fb97698ea3b1.html">Template Function GMapping::icpStep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1af25f800e83033cfa9e721968a4ed63cf.html">Template Function GMapping::interpolate(const point&lt;T&gt;&amp;, const F&amp;, const point&lt;T&gt;&amp;, const F&amp;, const F&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a751968c262a540279f3b43f164aa3e8e.html">Template Function GMapping::interpolate(const orientedpoint&lt;T, A&gt;&amp;, const F&amp;, const orientedpoint&lt;T, A&gt;&amp;, const F&amp;, const F&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a1b9688f5596a41157e6969b083541e4b.html">Template Function GMapping::max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a38be3189cf5fe50b70b2c6c7977ef093.html">Template Function GMapping::min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a37d161afb7e7418b8c2e866d3d00eab4.html">Template Function GMapping::operator*(const point&lt;T&gt;&amp;, const T&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a19f05e4c296b33fc0e02d7cce2e71327.html">Template Function GMapping::operator*(const T&amp;, const point&lt;T&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1afddeb71462a5f466986ad41b939261db.html">Template Function GMapping::operator*(const point&lt;T&gt;&amp;, const point&lt;T&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a476c9606d012855a25376aa137404a7b.html">Template Function GMapping::operator*(const orientedpoint&lt;T, A&gt;&amp;, const T&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a56394863e27bf574a54eaf7cc4f2b093.html">Template Function GMapping::operator*(const T&amp;, const orientedpoint&lt;T, A&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a4b1a8f032e4b95b200b5b54ea3112ce3.html">Template Function GMapping::operator+(const point&lt;T&gt;&amp;, const point&lt;T&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a395da86fbc9e3d01f511e6aea6bd58d6.html">Template Function GMapping::operator+(const orientedpoint&lt;T, A&gt;&amp;, const orientedpoint&lt;T, A&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1a97469a08afd3735c8c82bd98ce440289.html">Template Function GMapping::operator-(const point&lt;T&gt;&amp;, const point&lt;T&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_point_8h_1aa1dda22208d97a0dcbd64b1e0f7149a7.html">Template Function GMapping::operator-(const orientedpoint&lt;T, A&gt;&amp;, const orientedpoint&lt;T, A&gt;&amp;)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_stat_8h_1ad7d6bd6f93f6a89790795a6c8d027705.html">Function GMapping::sampleGaussian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_stat_8h_1a424e591e6ebad081a91efa85eb4fcc1c.html">Function GMapping::sampleUniformDouble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_stat_8h_1a25f729844222571b25762f96c81beaeb.html">Function GMapping::sampleUniformInt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_particlefilter_8h_1a8c7d3bee5088bb14ba097cb4cfeeeb2d.html">Template Function neff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_particlefilter_8h_1a1ff1572e2ab6cf84fa2fc1fd6f2e21f8.html">Template Function normalize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_particlefilter_8h_1a70e3fec1037e3e397bdfa9c398096c5e.html">Template Function repeatIndexes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_particlefilter_8h_1a8b76542e1fb9304501eb4a9bf8164f73.html">Template Function resample</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_particlefilter_8h_1a4531051362d95f7273d49cc607f0ede3.html">Template Function rle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_particlefilter_8h_1aace430f7a11fad799b9a90136ec6bb67.html">Template Function toLogForm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_particlefilter_8h_1a9d0f782f7a8e45ef0c1ebff64434870e.html">Template Function toNormalForm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#variables">Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="variable_map_8h_1a38c77550a7decba15b5a8906a54547d2.html">Template Variable GMapping::Map&lt; Cell, Storage, isClass &gt;::m_unknown</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#defines">Defines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="define_array2d_8h_1a2e82e5699b01e6fecdd9022aa0f1e535.html">Define __FUNCDNAME__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1ae253b167c11826a411455821335f83ea.html">Define CMD_PARSE_BEGIN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1a98cd02d8e60ede703a938fbb8ab0ee05.html">Define CMD_PARSE_BEGIN_SILENT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1a68b463faa67a8992497607d89ce080bc.html">Define CMD_PARSE_END</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1ab4968dec1bee336b2afda8259120b5cf.html">Define CMD_PARSE_END_SILENT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a0e4d708edb8b0da60c8bbd249b82608d.html">Define convertStringArgument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_point_8h_1a01cc042ece075ab5f79f608fed6aa192.html">Define DEBUG_STREAM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_scanmatcher_8h_1afe3d9777d646eef086e7623b376dacb3.html">Define LASER_MAXBEAMS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_gvalues_8h_1ace724a9256f4e65b352465e5feb24a21.html">Define MAXDOUBLE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a08e58b7d3bae77a72ef3a1d920ad4a4c.html">Define MEMBER_PARAM_GET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a9e35a45d82566bb94185ca19e09e8656.html">Define MEMBER_PARAM_SET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a82413e1c8ba898b189be93bdcd1cd7ec.html">Define MEMBER_PARAM_SET_GET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1ae6a3b95681ad79346a8aefaa35a2dd32.html">Define PARAM_GET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a05b722dc673fd5e32b5150f06ca51a4e.html">Define PARAM_SET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a6e1c7140bc09148edd9ce558168d8c14.html">Define PARAM_SET_GET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1ab3734006f6055b64a723137074496d72.html">Define parseDouble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1aedd04e9e6160199bc2db268833a00b2b.html">Define parseDoubleSilent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1a0d80dfc132aa9f408273ae366a577d43.html">Define parseFlag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1a207930558e8fb49ed9a643ed9f1e7ac4.html">Define parseFlagSilent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1a0cbe14e71d86d1a312501d9103bf8a00.html">Define parseInt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1ad4c7e9eec1aa6ada4a846d7bf7ab02f5.html">Define parseIntSilent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1a4cc24c08b980e087573d86bd61eb565e.html">Define parseString</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_commandline_8h_1ac40450eae42bd59848fed51d223cddb0.html">Define parseStringSilent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_smmap_8h_1a7b5846af516758aa17dda10ccf044a98.html">Define SIGHT_INC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1aa3de02d916a51f9ec446b684def247ab.html">Define STRUCT_PARAM_GET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a9f53434f86ec2430745e17c6dc6dd1b5.html">Define STRUCT_PARAM_SET</a></li>
+<li class="toctree-l4"><a class="reference internal" href="define_macro__params_8h_1a0e10730a44abafbaa1c4a346177d86ef.html">Define STRUCT_PARAM_SET_GET</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#typedefs">Typedefs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="typedef_map_8h_1a6cc1de4fdfea96973d7cca9c06ce2642.html">Typedef GMapping::DoubleArray2D</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_map_8h_1a682c22f665d03c8c33fff77093f7079f.html">Typedef GMapping::DoubleMap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_point_8h_1a42267ff9ee7271aef67e616b8f65ffb0.html">Typedef GMapping::IntPoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_point_8h_1a341f9c97dfb3ebc1c451a351b484f19d.html">Typedef GMapping::OrientedPoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_point_8h_1a02aca97274c6c5fe90097e517f88493d.html">Typedef GMapping::Point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_icp_8h_1a091accfc9928b96483c7fb1746d24aba.html">Typedef GMapping::PointPair</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_smmap_8h_1afc5f0c8c35212b9a61fb43ef6d8966eb.html">Typedef GMapping::ScanMatcherMap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_sensor_8h_1af37440197d6baeaaf592e4980218742b.html">Typedef GMapping::SensorMap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_gridslamprocessor_8h_1a7dcee7ca2a2a5b13212faa84e250283c.html">Typedef GMapping::TNodeMultimap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_particlefilter_8h_1a97e6281d3d8ae7e187dd5039f32d6e24.html">Typedef UIntPair</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#directories">Directories</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dir_include.html">Directory include</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping.html">Directory gmapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_grid.html">Directory grid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_gridfastslam.html">Directory gridfastslam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_log.html">Directory log</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_particlefilter.html">Directory particlefilter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_scanmatcher.html">Directory scanmatcher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_sensor.html">Directory sensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_sensor_sensor_base.html">Directory sensor_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_sensor_sensor_odometry.html">Directory sensor_odometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_sensor_sensor_range.html">Directory sensor_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_gmapping_utils.html">Directory utils</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#files">Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_grid_accessstate.h.html">File accessstate.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_grid_array2d.h.html">File array2d.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_utils_autoptr.h.html">File autoptr.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_utils_commandline.h.html">File commandline.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_log_configuration.h.html">File configuration.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_gridfastslam_gridslamprocessor.h.html">File gridslamprocessor.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_gridfastslam_gridslamprocessor.hxx.html">File gridslamprocessor.hxx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_utils_gvalues.h.html">File gvalues.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_grid_harray2d.h.html">File harray2d.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_scanmatcher_icp.h.html">File icp.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_utils_macro_params.h.html">File macro_params.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_grid_map.h.html">File map.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_gridfastslam_motionmodel.h.html">File motionmodel.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_sensor_sensor_odometry_odometryreading.h.html">File odometryreading.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_sensor_sensor_odometry_odometrysensor.h.html">File odometrysensor.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_particlefilter_particlefilter.h.html">File particlefilter.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_utils_point.h.html">File point.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_sensor_sensor_range_rangereading.h.html">File rangereading.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_sensor_sensor_range_rangesensor.h.html">File rangesensor.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_scanmatcher_scanmatcher.h.html">File scanmatcher.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_sensor_sensor_base_sensor.h.html">File sensor.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_log_sensorlog.h.html">File sensorlog.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_sensor_sensor_base_sensorreading.h.html">File sensorreading.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_scanmatcher_smmap.h.html">File smmap.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_gmapping_utils_stat.h.html">File stat.h</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../standards.html">Standard Documents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../standard_docs/CHANGELOG.html">CHANGELOG</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../standard_docs/CHANGELOG.html#changelog-for-package-openslam-gmapping">Changelog for package openslam_gmapping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../standard_docs/CHANGELOG.html#id1">0.1.2 (2016-04-23)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../standard_docs/CHANGELOG.html#id3">0.1.1 (2015-06-25)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../standard_docs/CHANGELOG.html#id4">0.1.0 (2013-06-28 17:33:53 -0700)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../standard_docs/PACKAGE.html">PACKAGE</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">openslam_gmapping</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">C++ API</a></li>
+      <li class="breadcrumb-item active">Class GridSlamProcessor</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/class_g_mapping_1_1_grid_slam_processor.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="class-gridslamprocessor">
+<span id="exhale-class-class-g-mapping-1-1-grid-slam-processor"></span><h1>Class GridSlamProcessor<a class="headerlink" href="#class-gridslamprocessor" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_gmapping_gridfastslam_gridslamprocessor.h.html#file-include-gmapping-gridfastslam-gridslamprocessor-h"><span class="std std-ref">File gridslamprocessor.h</span></a></p></li>
+</ul>
+<section id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Link to this heading"></a></h2>
+<section id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="struct_g_mapping_1_1_grid_slam_processor_1_1_particle.html#exhale-struct-struct-g-mapping-1-1-grid-slam-processor-1-1-particle"><span class="std std-ref">Struct GridSlamProcessor::Particle</span></a></p></li>
+<li><p><a class="reference internal" href="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node.html#exhale-struct-struct-g-mapping-1-1-grid-slam-processor-1-1-t-node"><span class="std std-ref">Struct GridSlamProcessor::TNode</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Link to this heading"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessorE">
+<span id="_CPPv3N8GMapping17GridSlamProcessorE"></span><span id="_CPPv2N8GMapping17GridSlamProcessorE"></span><span id="GMapping::GridSlamProcessor"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GridSlamProcessor</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessorE" title="Link to this definition"></a><br /></dt>
+<dd><p><p>This class defines the basic GridFastSLAM algorithm. It implements a rao blackwellized particle filter. Each particle has its own map and robot pose.</p>
+<p>This implementation works as follows: each time a new pair odometry/laser reading is received, the particle’s robot pose is updated according to the motion model. This pose is subsequently used for initalizing a scan matching algorithm. The scanmatcher performs a local optimization for each particle. It is initialized with the pose drawn from the motion model, and the pose is corrected according to the each particle map.</p>
+
+ In order to avoid unnecessary computation the filter state is updated only when the robot moves more than a given threshold. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor11TNodeVectorE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor11TNodeVectorE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor11TNodeVectorE"></span><span id="GMapping::GridSlamProcessor::TNodeVector"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a5992af06fd86724fbdc9471b2780ab49"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N8GMapping17GridSlamProcessorE" title="GMapping::GridSlamProcessor"><span class="n"><span class="pre">GridSlamProcessor</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N8GMapping17GridSlamProcessor5TNodeE" title="GMapping::GridSlamProcessor::TNode"><span class="n"><span class="pre">TNode</span></span></a><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TNodeVector</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor11TNodeVectorE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor10TNodeDequeE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor10TNodeDequeE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor10TNodeDequeE"></span><span id="GMapping::GridSlamProcessor::TNodeDeque"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a2c477fefb94357e8a6951e1e4786935e"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">deque</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N8GMapping17GridSlamProcessorE" title="GMapping::GridSlamProcessor"><span class="n"><span class="pre">GridSlamProcessor</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N8GMapping17GridSlamProcessor5TNodeE" title="GMapping::GridSlamProcessor::TNode"><span class="n"><span class="pre">TNode</span></span></a><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TNodeDeque</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor10TNodeDequeE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor14ParticleVectorE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor14ParticleVectorE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor14ParticleVectorE"></span><span id="GMapping::GridSlamProcessor::ParticleVector"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1acce61eef3666984121227234e376b8df"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N8GMapping17GridSlamProcessor8ParticleE" title="GMapping::GridSlamProcessor::Particle"><span class="n"><span class="pre">Particle</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ParticleVector</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor14ParticleVectorE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor17GridSlamProcessorEv">
+<span id="_CPPv3N8GMapping17GridSlamProcessor17GridSlamProcessorEv"></span><span id="_CPPv2N8GMapping17GridSlamProcessor17GridSlamProcessorEv"></span><span id="GMapping::GridSlamProcessor::GridSlamProcessor"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a736f647e15e7b3e5f853920beb7b2b80"></span><span class="sig-name descname"><span class="n"><span class="pre">GridSlamProcessor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor17GridSlamProcessorEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a <a class="reference internal" href="#class_g_mapping_1_1_grid_slam_processor"><span class="std std-ref">GridSlamProcessor</span></a>, initialized with the default parameters </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor17GridSlamProcessorERNSt7ostreamE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor17GridSlamProcessorERNSt7ostreamE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor17GridSlamProcessorERNSt7ostreamE"></span><span id="GMapping::GridSlamProcessor::GridSlamProcessor__osR"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1acccb98ea4c54b844acf14d7ec979e8a8"></span><span class="sig-name descname"><span class="n"><span class="pre">GridSlamProcessor</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">infoStr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor17GridSlamProcessorERNSt7ostreamE" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a <a class="reference internal" href="#class_g_mapping_1_1_grid_slam_processor"><span class="std std-ref">GridSlamProcessor</span></a>, whose output is routed to a stream. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>infoStr</strong> – the output stream </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8GMapping17GridSlamProcessor5cloneEv">
+<span id="_CPPv3NK8GMapping17GridSlamProcessor5cloneEv"></span><span id="_CPPv2NK8GMapping17GridSlamProcessor5cloneEv"></span><span id="GMapping::GridSlamProcessor::cloneC"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a2e5270f6e87161189f19e5880db792ca"></span><a class="reference internal" href="#_CPPv4N8GMapping17GridSlamProcessorE" title="GMapping::GridSlamProcessor"><span class="n"><span class="pre">GridSlamProcessor</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">clone</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8GMapping17GridSlamProcessor5cloneEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a deep copy of the grid slam processor with all the internal structures. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessorD0Ev">
+<span id="_CPPv3N8GMapping17GridSlamProcessorD0Ev"></span><span id="_CPPv2N8GMapping17GridSlamProcessorD0Ev"></span><span id="GMapping::GridSlamProcessor::~GridSlamProcessor"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1ad0acfbe24e22ca2450052d67013c06e3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~GridSlamProcessor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessorD0Ev" title="Link to this definition"></a><br /></dt>
+<dd><p>Deleted the gridslamprocessor </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor12setSensorMapERK9SensorMap">
+<span id="_CPPv3N8GMapping17GridSlamProcessor12setSensorMapERK9SensorMap"></span><span id="_CPPv2N8GMapping17GridSlamProcessor12setSensorMapERK9SensorMap"></span><span id="GMapping::GridSlamProcessor::setSensorMap__SensorMapCR"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a4277d04a56f1d03deecddcd3f62bf58d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setSensorMap</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="typedef_sensor_8h_1af37440197d6baeaaf592e4980218742b.html#_CPPv4N8GMapping9SensorMapE" title="GMapping::SensorMap"><span class="n"><span class="pre">SensorMap</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">smap</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor12setSensorMapERK9SensorMap" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor4initEjddddd13OrientedPoint">
+<span id="_CPPv3N8GMapping17GridSlamProcessor4initEjddddd13OrientedPoint"></span><span id="_CPPv2N8GMapping17GridSlamProcessor4initEjddddd13OrientedPoint"></span><span id="GMapping::GridSlamProcessor::init__unsigned-i.double.double.double.double.double.OrientedPoint"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a0993feeb34469143808a6ff2d9d1ae6b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">init</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">size</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">xmin</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ymin</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">xmax</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ymax</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">delta</span></span>, <a class="reference internal" href="typedef_point_8h_1a341f9c97dfb3ebc1c451a351b484f19d.html#_CPPv4N8GMapping13OrientedPointE" title="GMapping::OrientedPoint"><span class="n"><span class="pre">OrientedPoint</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">initialPose</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="typedef_point_8h_1a341f9c97dfb3ebc1c451a351b484f19d.html#_CPPv4N8GMapping13OrientedPointE" title="GMapping::OrientedPoint"><span class="n"><span class="pre">OrientedPoint</span></span></a><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">)</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor4initEjddddd13OrientedPoint" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor21setMatchingParametersEdddiddiddj">
+<span id="_CPPv3N8GMapping17GridSlamProcessor21setMatchingParametersEdddiddiddj"></span><span id="_CPPv2N8GMapping17GridSlamProcessor21setMatchingParametersEdddiddiddj"></span><span id="GMapping::GridSlamProcessor::setMatchingParameters__double.double.double.i.double.double.i.double.double.unsigned-i"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1ac015894484817bd962b0990fa64abfe4"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setMatchingParameters</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">urange</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">range</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sigma</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">kernsize</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">lopt</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">aopt</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">iterations</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">likelihoodSigma</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">likelihoodGain</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">likelihoodSkip</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor21setMatchingParametersEdddiddiddj" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor24setMotionModelParametersEdddd">
+<span id="_CPPv3N8GMapping17GridSlamProcessor24setMotionModelParametersEdddd"></span><span id="_CPPv2N8GMapping17GridSlamProcessor24setMotionModelParametersEdddd"></span><span id="GMapping::GridSlamProcessor::setMotionModelParameters__double.double.double.double"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1af5c4b7f2992f1d11b2e373dbd410cab2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setMotionModelParameters</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">srr</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">srt</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">str</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stt</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor24setMotionModelParametersEdddd" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor18setUpdateDistancesEddd">
+<span id="_CPPv3N8GMapping17GridSlamProcessor18setUpdateDistancesEddd"></span><span id="_CPPv2N8GMapping17GridSlamProcessor18setUpdateDistancesEddd"></span><span id="GMapping::GridSlamProcessor::setUpdateDistances__double.double.double"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a82a12db62b99cf2f0cd3f475c81af77f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setUpdateDistances</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">linear</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">angular</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">resampleThreshold</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor18setUpdateDistancesEddd" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor15setUpdatePeriodEd">
+<span id="_CPPv3N8GMapping17GridSlamProcessor15setUpdatePeriodEd"></span><span id="_CPPv2N8GMapping17GridSlamProcessor15setUpdatePeriodEd"></span><span id="GMapping::GridSlamProcessor::setUpdatePeriod__double"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a37b6e3cfceeae5b20fd34888551464e4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setUpdatePeriod</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">p</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor15setUpdatePeriodEd" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor14processTruePosERK15OdometryReading">
+<span id="_CPPv3N8GMapping17GridSlamProcessor14processTruePosERK15OdometryReading"></span><span id="_CPPv2N8GMapping17GridSlamProcessor14processTruePosERK15OdometryReading"></span><span id="GMapping::GridSlamProcessor::processTruePos__OdometryReadingCR"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1ae95960a9452ea93a6002a92ff8cd4777"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">processTruePos</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="class_g_mapping_1_1_odometry_reading.html#_CPPv4N8GMapping15OdometryReadingE" title="GMapping::OdometryReading"><span class="n"><span class="pre">OdometryReading</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">odometry</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor14processTruePosERK15OdometryReading" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor11processScanERK12RangeReadingi">
+<span id="_CPPv3N8GMapping17GridSlamProcessor11processScanERK12RangeReadingi"></span><span id="_CPPv2N8GMapping17GridSlamProcessor11processScanERK12RangeReadingi"></span><span id="GMapping::GridSlamProcessor::processScan__RangeReadingCR.i"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a34c7f216947ee4c8ac05d5a53366aa5d"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">processScan</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="class_g_mapping_1_1_range_reading.html#_CPPv4N8GMapping12RangeReadingE" title="GMapping::RangeReading"><span class="n"><span class="pre">RangeReading</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">reading</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">adaptParticles</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor11processScanERK12RangeReadingi" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8GMapping17GridSlamProcessor15getTrajectoriesEv">
+<span id="_CPPv3NK8GMapping17GridSlamProcessor15getTrajectoriesEv"></span><span id="_CPPv2NK8GMapping17GridSlamProcessor15getTrajectoriesEv"></span><span id="GMapping::GridSlamProcessor::getTrajectoriesC"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a9a4a65da5c87f57b28623957eae640a4"></span><a class="reference internal" href="#_CPPv4N8GMapping17GridSlamProcessor11TNodeVectorE" title="GMapping::GridSlamProcessor::TNodeVector"><span class="n"><span class="pre">TNodeVector</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getTrajectories</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8GMapping17GridSlamProcessor15getTrajectoriesEv" title="Link to this definition"></a><br /></dt>
+<dd><p>This method copies the state of the filter in a tree. The tree is represented through reversed pointers (each node has a pointer to its parent). The leafs are stored in a vector, whose size is the same as the number of particles. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the leafs of the tree </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor21integrateScanSequenceEP5TNode">
+<span id="_CPPv3N8GMapping17GridSlamProcessor21integrateScanSequenceEP5TNode"></span><span id="_CPPv2N8GMapping17GridSlamProcessor21integrateScanSequenceEP5TNode"></span><span id="GMapping::GridSlamProcessor::integrateScanSequence__TNodeP"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a9f3ed3d072d48b81b5abb76a3dd848b6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">integrateScanSequence</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8GMapping17GridSlamProcessor5TNodeE" title="GMapping::GridSlamProcessor::TNode"><span class="n"><span class="pre">TNode</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">node</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor21integrateScanSequenceEP5TNode" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor12outputStreamEv">
+<span id="_CPPv3N8GMapping17GridSlamProcessor12outputStreamEv"></span><span id="_CPPv2N8GMapping17GridSlamProcessor12outputStreamEv"></span><span id="GMapping::GridSlamProcessor::outputStream"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a4cd45d059a6cc1b82cb7688addccfd29"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ofstream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">outputStream</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor12outputStreamEv" title="Link to this definition"></a><br /></dt>
+<dd><p>the stream used for writing the output of the algorithm </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor10infoStreamEv">
+<span id="_CPPv3N8GMapping17GridSlamProcessor10infoStreamEv"></span><span id="_CPPv2N8GMapping17GridSlamProcessor10infoStreamEv"></span><span id="GMapping::GridSlamProcessor::infoStream"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1ae7be39c0e2a9cea422e1a76c96a407b6"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">infoStream</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor10infoStreamEv" title="Link to this definition"></a><br /></dt>
+<dd><p>the stream used for writing the info/debug messages </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8GMapping17GridSlamProcessor12getParticlesEv">
+<span id="_CPPv3NK8GMapping17GridSlamProcessor12getParticlesEv"></span><span id="_CPPv2NK8GMapping17GridSlamProcessor12getParticlesEv"></span><span id="GMapping::GridSlamProcessor::getParticlesC"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a2e844f171384ea4b85e82a9c5c95916f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8GMapping17GridSlamProcessor14ParticleVectorE" title="GMapping::GridSlamProcessor::ParticleVector"><span class="n"><span class="pre">ParticleVector</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getParticles</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8GMapping17GridSlamProcessor12getParticlesEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the particles </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8GMapping17GridSlamProcessor10getIndexesEv">
+<span id="_CPPv3NK8GMapping17GridSlamProcessor10getIndexesEv"></span><span id="_CPPv2NK8GMapping17GridSlamProcessor10getIndexesEv"></span><span id="GMapping::GridSlamProcessor::getIndexesC"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a4bfa1528c482c9d306746a289de4b789"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">getIndexes</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8GMapping17GridSlamProcessor10getIndexesEv" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8GMapping17GridSlamProcessor20getBestParticleIndexEv">
+<span id="_CPPv3NK8GMapping17GridSlamProcessor20getBestParticleIndexEv"></span><span id="_CPPv2NK8GMapping17GridSlamProcessor20getBestParticleIndexEv"></span><span id="GMapping::GridSlamProcessor::getBestParticleIndexC"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1ab79f70268a5facacc079748b0bc069b7"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getBestParticleIndex</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8GMapping17GridSlamProcessor20getBestParticleIndexEv" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor16onOdometryUpdateEv">
+<span id="_CPPv3N8GMapping17GridSlamProcessor16onOdometryUpdateEv"></span><span id="_CPPv2N8GMapping17GridSlamProcessor16onOdometryUpdateEv"></span><span id="GMapping::GridSlamProcessor::onOdometryUpdate"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a92ad36bdba5d24a5c410dc23c8bf2cfb"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">onOdometryUpdate</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor16onOdometryUpdateEv" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor16onResampleUpdateEv">
+<span id="_CPPv3N8GMapping17GridSlamProcessor16onResampleUpdateEv"></span><span id="_CPPv2N8GMapping17GridSlamProcessor16onResampleUpdateEv"></span><span id="GMapping::GridSlamProcessor::onResampleUpdate"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1ad84981b4a6f7879e96a7f4d065c6b0fc"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">onResampleUpdate</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor16onResampleUpdateEv" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor17onScanmatchUpdateEv">
+<span id="_CPPv3N8GMapping17GridSlamProcessor17onScanmatchUpdateEv"></span><span id="_CPPv2N8GMapping17GridSlamProcessor17onScanmatchUpdateEv"></span><span id="GMapping::GridSlamProcessor::onScanmatchUpdate"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a3050d8cce14734b26582d4bdbdde72f2"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">onScanmatchUpdate</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor17onScanmatchUpdateEv" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a59fd57518b8010bdf60972b239067f19"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">double,</span> <span class="pre">laserMaxRange,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>the maxrange of the laser to consider </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a76a51cf2adbc8b4ff976d94b1c7d6e91"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">double,</span> <span class="pre">usableRange,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>the maximum usable range of the laser. A beam is cropped to this value. [scanmatcher] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a1a4b79434cb2b998ebeecdf84bec85c5"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">double,</span> <span class="pre">gaussianSigma,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>The sigma used by the greedy endpoint matching. [scanmatcher] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a0ca266215482753f991e702f222e5f4b"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">double,</span> <span class="pre">likelihoodSigma,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>The sigma of a beam used for likelihood computation [scanmatcher] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1abe193f91a1ddcdf68cf65284217c64d8"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">int,</span> <span class="pre">kernelSize,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>The kernel in which to look for a correspondence[scanmatcher] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a2d7ed8bd432b4e8fd2f415536f48231d"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">double,</span> <span class="pre">optAngularDelta,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>The optimization step in rotation [scanmatcher] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1ab1d5ded4e425ece05d38a98fbe0a8b2c"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">double,</span> <span class="pre">optLinearDelta,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>The optimization step in translation [scanmatcher] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a52575a11c089158b1a37e74ead526da9"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">unsigned</span> <span class="pre">int,</span> <span class="pre">optRecursiveIterations,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>The number of iterations of the scanmatcher [scanmatcher] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a600cd2d77f3662e3c4c6c241be4aaaac"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">unsigned</span> <span class="pre">int,</span> <span class="pre">likelihoodSkip,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>the beams to skip for computing the likelihood (consider a beam every likelihoodSkip) [scanmatcher] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a61ebeb294126d9081b8cb099fc60c6b0"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">double,</span> <span class="pre">llsamplerange,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>translational sampling range for the likelihood [scanmatcher] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1ab6234158b112bfd2aba9ce5a063eff78"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">double,</span> <span class="pre">lasamplerange,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>angular sampling range for the likelihood [scanmatcher] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a7a491940692ed37326fc746e27c687bc"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">double,</span> <span class="pre">llsamplestep,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>translational sampling range for the likelihood [scanmatcher] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1ae3fb37cdec3e49f4a74d7e5adbeaed75"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">double,</span> <span class="pre">lasamplestep,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>angular sampling step for the likelihood [scanmatcher] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a375b3327975b1d8de93d5b8c4c494463"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">bool,</span> <span class="pre">generateMap,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>generate an accupancy grid map [scanmatcher] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1ad7e50913d07e1003d2fb97b40b3768aa"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">bool,</span> <span class="pre">enlargeStep,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>enlarge the map when the robot goes out of the boundaries [scanmatcher] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a02a3a4462d3e5f35e746a789f0d9674c"></span><span class="sig-name descname"><span class="pre">MEMBER_PARAM_SET_GET</span> <span class="pre">(m_matcher,</span> <span class="pre">OrientedPoint,</span> <span class="pre">laserPose,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>pose of the laser wrt the robot [scanmatcher] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a5dca255f4b499a703a002715fd70828e"></span><span class="sig-name descname"><span class="pre">STRUCT_PARAM_SET_GET</span> <span class="pre">(m_motionModel,</span> <span class="pre">double,</span> <span class="pre">srr,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>odometry error in translation as a function of translation (rho/rho) [motionmodel] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a10f9bff87947ec28aedae11a3ec97f3d"></span><span class="sig-name descname"><span class="pre">STRUCT_PARAM_SET_GET</span> <span class="pre">(m_motionModel,</span> <span class="pre">double,</span> <span class="pre">srt,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>odometry error in translation as a function of rotation (rho/theta) [motionmodel] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a8cb558f4aa4f6f57f2173a0ac8f63bc1"></span><span class="sig-name descname"><span class="pre">STRUCT_PARAM_SET_GET</span> <span class="pre">(m_motionModel,</span> <span class="pre">double,</span> <span class="pre">str,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>odometry error in rotation as a function of translation (theta/rho) [motionmodel] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a272f53828c2033879c364de540d1e0c0"></span><span class="sig-name descname"><span class="pre">STRUCT_PARAM_SET_GET</span> <span class="pre">(m_motionModel,</span> <span class="pre">double,</span> <span class="pre">stt,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>odometry error in rotation as a function of rotation (theta/theta) [motionmodel] </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1aef1af48fa8542ceff98b81e1d0f6e039"></span><span class="sig-name descname"><span class="pre">PARAM_SET_GET</span> <span class="pre">(double,</span> <span class="pre">minimumScore,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>minimum score for considering the outcome of the scanmatching good </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor9m_matcherE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor9m_matcherE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor9m_matcherE"></span><span id="GMapping::GridSlamProcessor::m_matcher__ScanMatcher"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5"></span><a class="reference internal" href="class_g_mapping_1_1_scan_matcher.html#_CPPv4N8GMapping11ScanMatcherE" title="GMapping::ScanMatcher"><span class="n"><span class="pre">ScanMatcher</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_matcher</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor9m_matcherE" title="Link to this definition"></a><br /></dt>
+<dd><p>the scanmatcher algorithm </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-functions">Protected Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor17GridSlamProcessorERK17GridSlamProcessor">
+<span id="_CPPv3N8GMapping17GridSlamProcessor17GridSlamProcessorERK17GridSlamProcessor"></span><span id="_CPPv2N8GMapping17GridSlamProcessor17GridSlamProcessorERK17GridSlamProcessor"></span><span id="GMapping::GridSlamProcessor::GridSlamProcessor__GridSlamProcessorCR"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a7800b02d50b6b5d7c8b226e3c361ca2c"></span><span class="sig-name descname"><span class="n"><span class="pre">GridSlamProcessor</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N8GMapping17GridSlamProcessor17GridSlamProcessorERK17GridSlamProcessor" title="GMapping::GridSlamProcessor::GridSlamProcessor"><span class="n"><span class="pre">GridSlamProcessor</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">gsp</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor17GridSlamProcessorERK17GridSlamProcessor" title="Link to this definition"></a><br /></dt>
+<dd><p>Copy constructor </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a9669d7233fda1a872ee2e7bfd58422f6"></span><span class="sig-name descname"><span class="pre">PARAM_SET_GET</span> <span class="pre">(double,</span> <span class="pre">resampleThreshold,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd><p>this sets the neff based resampling threshold </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1aafaee08750396914c0359cd533a3a32e"></span><span class="sig-name descname"><span class="pre">PARAM_GET</span> <span class="pre">(double,</span> <span class="pre">neff,</span> <span class="pre">protected,</span> <span class="pre">public)</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a5b55357e7c755d1814641bd9277ff67f"></span><span class="sig-name descname"><span class="pre">PARAM_GET</span> <span class="pre">(double,</span> <span class="pre">xmin,</span> <span class="pre">protected,</span> <span class="pre">public)</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a225d3c8e74e1a533a49a18664939f9a1"></span><span class="sig-name descname"><span class="pre">PARAM_GET</span> <span class="pre">(double,</span> <span class="pre">ymin,</span> <span class="pre">protected,</span> <span class="pre">public)</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a9705463bbdbfc1adfaadc9d63de57037"></span><span class="sig-name descname"><span class="pre">PARAM_GET</span> <span class="pre">(double,</span> <span class="pre">xmax,</span> <span class="pre">protected,</span> <span class="pre">public)</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1aa42c6dbd72076e79f858d096e8fa5645"></span><span class="sig-name descname"><span class="pre">PARAM_GET</span> <span class="pre">(double,</span> <span class="pre">ymax,</span> <span class="pre">protected,</span> <span class="pre">public)</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a24de55fb12548d080071138c087eb275"></span><span class="sig-name descname"><span class="pre">PARAM_GET</span> <span class="pre">(double,</span> <span class="pre">delta,</span> <span class="pre">protected,</span> <span class="pre">public)</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a83cecf60f47fc3c3f3142e67fd80e59d"></span><span class="sig-name descname"><span class="pre">PARAM_SET_GET</span> <span class="pre">(double,</span> <span class="pre">regScore,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a98219e814eccc6bb63c1c69f9fa0447f"></span><span class="sig-name descname"><span class="pre">PARAM_SET_GET</span> <span class="pre">(double,</span> <span class="pre">critScore,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a61d3c3d7d5226a7ae92c365d1f3652b3"></span><span class="sig-name descname"><span class="pre">PARAM_SET_GET</span> <span class="pre">(double,</span> <span class="pre">maxMove,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a754c520cbb975790c970ca596e8a4b1f"></span><span class="sig-name descname"><span class="pre">PARAM_SET_GET</span> <span class="pre">(double,</span> <span class="pre">linearThresholdDistance,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a77438894a9614deb0fdf3829ce6557ee"></span><span class="sig-name descname"><span class="pre">PARAM_SET_GET</span> <span class="pre">(double,</span> <span class="pre">angularThresholdDistance,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="class_g_mapping_1_1_grid_slam_processor_1ac86d3cc3827574c10f1169cb63323d23"></span><span class="sig-name descname"><span class="pre">PARAM_SET_GET</span> <span class="pre">(double,</span> <span class="pre">obsSigmaGain,</span> <span class="pre">protected,</span> <span class="pre">public,</span> <span class="pre">public)</span></span></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-attributes">Protected Attributes</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor7m_beamsE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor7m_beamsE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor7m_beamsE"></span><span id="GMapping::GridSlamProcessor::m_beams__unsigned-i"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1aec30b4ee3a767c9f50bb95236851a1be"></span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_beams</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor7m_beamsE" title="Link to this definition"></a><br /></dt>
+<dd><p>the laser beams </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor17last_update_time_E">
+<span id="_CPPv3N8GMapping17GridSlamProcessor17last_update_time_E"></span><span id="_CPPv2N8GMapping17GridSlamProcessor17last_update_time_E"></span><span id="GMapping::GridSlamProcessor::last_update_time___double"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a3f40a117057427e725aa92739dbe2480"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">last_update_time_</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor17last_update_time_E" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor7period_E">
+<span id="_CPPv3N8GMapping17GridSlamProcessor7period_E"></span><span id="_CPPv2N8GMapping17GridSlamProcessor7period_E"></span><span id="GMapping::GridSlamProcessor::period___double"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a83d163ab15cf15856ea69507ec87904a"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">period_</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor7period_E" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor11m_particlesE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor11m_particlesE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor11m_particlesE"></span><span id="GMapping::GridSlamProcessor::m_particles__ParticleVector"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a67c2ade1a066269de12fe382999f2905"></span><a class="reference internal" href="#_CPPv4N8GMapping17GridSlamProcessor14ParticleVectorE" title="GMapping::GridSlamProcessor::ParticleVector"><span class="n"><span class="pre">ParticleVector</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_particles</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor11m_particlesE" title="Link to this definition"></a><br /></dt>
+<dd><p>the particles </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor9m_indexesE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor9m_indexesE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor9m_indexesE"></span><span id="GMapping::GridSlamProcessor::m_indexes__std::vector:unsigned-i:"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a79cee7069bb938f3b9d6d35b42b48ec6"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_indexes</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor9m_indexesE" title="Link to this definition"></a><br /></dt>
+<dd><p>the particle indexes after resampling (internally used) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor9m_weightsE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor9m_weightsE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor9m_weightsE"></span><span id="GMapping::GridSlamProcessor::m_weights__std::vector:double:"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a39e71ee439dde6ca9ccd2929cf12551f"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_weights</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor9m_weightsE" title="Link to this definition"></a><br /></dt>
+<dd><p>the particle weights (internally used) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor13m_motionModelE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor13m_motionModelE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor13m_motionModelE"></span><span id="GMapping::GridSlamProcessor::m_motionModel__MotionModel"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1ae1fa20e9679abdbc23784e2dc17194b5"></span><a class="reference internal" href="struct_g_mapping_1_1_motion_model.html#_CPPv4N8GMapping11MotionModelE" title="GMapping::MotionModel"><span class="n"><span class="pre">MotionModel</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_motionModel</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor13m_motionModelE" title="Link to this definition"></a><br /></dt>
+<dd><p>the motion model </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor7m_countE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor7m_countE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor7m_countE"></span><span id="GMapping::GridSlamProcessor::m_count__i"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a1c7e0a4fec2a31769f27fd17a9cfac3d"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_count</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor7m_countE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor14m_readingCountE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor14m_readingCountE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor14m_readingCountE"></span><span id="GMapping::GridSlamProcessor::m_readingCount__i"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a50a21e3936bb5c122a9e4b8039be9bc9"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_readingCount</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor14m_readingCountE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor14m_lastPartPoseE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor14m_lastPartPoseE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor14m_lastPartPoseE"></span><span id="GMapping::GridSlamProcessor::m_lastPartPose__OrientedPoint"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1aeddf8ebf9784e818d93a4c5bb94e3c0d"></span><a class="reference internal" href="typedef_point_8h_1a341f9c97dfb3ebc1c451a351b484f19d.html#_CPPv4N8GMapping13OrientedPointE" title="GMapping::OrientedPoint"><span class="n"><span class="pre">OrientedPoint</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_lastPartPose</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor14m_lastPartPoseE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor9m_odoPoseE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor9m_odoPoseE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor9m_odoPoseE"></span><span id="GMapping::GridSlamProcessor::m_odoPose__OrientedPoint"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a242df41618ccce684a01229c3c752dc9"></span><a class="reference internal" href="typedef_point_8h_1a341f9c97dfb3ebc1c451a351b484f19d.html#_CPPv4N8GMapping13OrientedPointE" title="GMapping::OrientedPoint"><span class="n"><span class="pre">OrientedPoint</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_odoPose</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor9m_odoPoseE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor6m_poseE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor6m_poseE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor6m_poseE"></span><span id="GMapping::GridSlamProcessor::m_pose__OrientedPoint"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a4435f10953b33bff663a6a7b21acb6cd"></span><a class="reference internal" href="typedef_point_8h_1a341f9c97dfb3ebc1c451a351b484f19d.html#_CPPv4N8GMapping13OrientedPointE" title="GMapping::OrientedPoint"><span class="n"><span class="pre">OrientedPoint</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_pose</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor6m_poseE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor16m_linearDistanceE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor16m_linearDistanceE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor16m_linearDistanceE"></span><span id="GMapping::GridSlamProcessor::m_linearDistance__double"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a94ba410742ad6712b707e908e53da5e1"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_linearDistance</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor16m_linearDistanceE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor17m_angularDistanceE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor17m_angularDistanceE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor17m_angularDistanceE"></span><span id="GMapping::GridSlamProcessor::m_angularDistance__double"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1aeede1ad148cba7c6080da5d8f00d4ac6"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_angularDistance</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor17m_angularDistanceE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor14m_outputStreamE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor14m_outputStreamE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor14m_outputStreamE"></span><span id="GMapping::GridSlamProcessor::m_outputStream__std::ofstream"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a25d322edaf8cdbc585493934918b3a6a"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ofstream</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_outputStream</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor14m_outputStreamE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor12m_infoStreamE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor12m_infoStreamE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor12m_infoStreamE"></span><span id="GMapping::GridSlamProcessor::m_infoStream__osR"></span><span class="target" id="class_g_mapping_1_1_grid_slam_processor_1a7ad909f978d96737b5a336a15c65384c"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">m_infoStream</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor12m_infoStreamE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor5TNodeE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor5TNodeE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor5TNodeE"></span><span id="GMapping::GridSlamProcessor::TNode"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TNode</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor5TNodeE" title="Link to this definition"></a><br /></dt>
+<dd><p>This class defines the the node of reversed tree in which the trajectories are stored. Each node of a tree has a pointer to its parent and a counter indicating the number of childs of a node. The tree is updated in a way consistent with the operation performed on the particles. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor5TNode5TNodeERK13OrientedPointdP5TNodej">
+<span id="_CPPv3N8GMapping17GridSlamProcessor5TNode5TNodeERK13OrientedPointdP5TNodej"></span><span id="_CPPv2N8GMapping17GridSlamProcessor5TNode5TNodeERK13OrientedPointdP5TNodej"></span><span id="GMapping::GridSlamProcessor::TNode::TNode__OrientedPointCR.double.TNodeP.unsigned-i"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a7742a4335c17d489467af9bbd21334ef"></span><span class="sig-name descname"><span class="n"><span class="pre">TNode</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="typedef_point_8h_1a341f9c97dfb3ebc1c451a351b484f19d.html#_CPPv4N8GMapping13OrientedPointE" title="GMapping::OrientedPoint"><span class="n"><span class="pre">OrientedPoint</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pose</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">weight</span></span>, <a class="reference internal" href="#_CPPv4N8GMapping17GridSlamProcessor5TNode5TNodeERK13OrientedPointdP5TNodej" title="GMapping::GridSlamProcessor::TNode::TNode"><span class="n"><span class="pre">TNode</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">parent</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span>, <span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">childs</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor5TNode5TNodeERK13OrientedPointdP5TNodej" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructs a node of the trajectory tree. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pose</strong> – the pose of the robot in the trajectory </p></li>
+<li><p><strong>weight</strong> – the weight of the particle at that point in the trajectory </p></li>
+<li><p><strong>accWeight</strong> – the cumulative weight of the particle </p></li>
+<li><p><strong>parent</strong> – the parent node in the tree </p></li>
+<li><p><strong>childs</strong> – the number of childs </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor5TNodeD0Ev">
+<span id="_CPPv3N8GMapping17GridSlamProcessor5TNodeD0Ev"></span><span id="_CPPv2N8GMapping17GridSlamProcessor5TNodeD0Ev"></span><span id="GMapping::GridSlamProcessor::TNode::~TNode"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a22b5e02c6b9dc2139f63652d8b0d57c5"></span><span class="sig-name descname"><span class="n"><span class="pre">~TNode</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor5TNodeD0Ev" title="Link to this definition"></a><br /></dt>
+<dd><p>Destroys a tree node, and consistently updates the tree. If a node whose parent has only one child is deleted, also the parent node is deleted. This because the parent will not be reacheable anymore in the trajectory tree. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor5TNode4poseE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor5TNode4poseE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor5TNode4poseE"></span><span id="GMapping::GridSlamProcessor::TNode::pose__OrientedPoint"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a00ffad9f49ae467746aa211fbfaf4523"></span><a class="reference internal" href="typedef_point_8h_1a341f9c97dfb3ebc1c451a351b484f19d.html#_CPPv4N8GMapping13OrientedPointE" title="GMapping::OrientedPoint"><span class="n"><span class="pre">OrientedPoint</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pose</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor5TNode4poseE" title="Link to this definition"></a><br /></dt>
+<dd><p>The pose of the robot </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor5TNode6weightE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor5TNode6weightE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor5TNode6weightE"></span><span id="GMapping::GridSlamProcessor::TNode::weight__double"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1ab30d02945ab4cba987bbc428f87b3028"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">weight</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor5TNode6weightE" title="Link to this definition"></a><br /></dt>
+<dd><p>The weight of the particle </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor5TNode9accWeightE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor5TNode9accWeightE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor5TNode9accWeightE"></span><span id="GMapping::GridSlamProcessor::TNode::accWeight__double"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1ab0c21a7a7fb16bd061f3b61cae8f55bd"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">accWeight</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor5TNode9accWeightE" title="Link to this definition"></a><br /></dt>
+<dd><p>The sum of all the particle weights in the previous part of the trajectory </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor5TNode7gweightE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor5TNode7gweightE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor5TNode7gweightE"></span><span id="GMapping::GridSlamProcessor::TNode::gweight__double"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a8163d6ff4d930d1762f9029b9f7162b3"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gweight</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor5TNode7gweightE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor5TNode6parentE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor5TNode6parentE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor5TNode6parentE"></span><span id="GMapping::GridSlamProcessor::TNode::parent__TNodeP"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1aa96443473844405f417fb8170b3d7243"></span><a class="reference internal" href="#_CPPv4N8GMapping17GridSlamProcessor5TNodeE" title="GMapping::GridSlamProcessor::TNode"><span class="n"><span class="pre">TNode</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">parent</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor5TNode6parentE" title="Link to this definition"></a><br /></dt>
+<dd><p>The parent </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor5TNode7readingE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor5TNode7readingE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor5TNode7readingE"></span><span id="GMapping::GridSlamProcessor::TNode::reading__RangeReadingCP"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a574dd0cc9f28e7feb3d85a1ddb544d06"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="class_g_mapping_1_1_range_reading.html#_CPPv4N8GMapping12RangeReadingE" title="GMapping::RangeReading"><span class="n"><span class="pre">RangeReading</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">reading</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor5TNode7readingE" title="Link to this definition"></a><br /></dt>
+<dd><p>The range reading to which this node is associated </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor5TNode6childsE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor5TNode6childsE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor5TNode6childsE"></span><span id="GMapping::GridSlamProcessor::TNode::childs__unsigned-i"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a4c15378fddd812b0376ceb81c43be3e0"></span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">childs</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor5TNode6childsE" title="Link to this definition"></a><br /></dt>
+<dd><p>The number of childs </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor5TNode12visitCounterE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor5TNode12visitCounterE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor5TNode12visitCounterE"></span><span id="GMapping::GridSlamProcessor::TNode::visitCounter__unsigned-i"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1aa5aa2b0e4bea309de90270cd56a2bd78"></span><span class="k"><span class="pre">mutable</span></span><span class="w"> </span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">visitCounter</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor5TNode12visitCounterE" title="Link to this definition"></a><br /></dt>
+<dd><p>counter in visiting the node (internally used) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor5TNode4flagE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor5TNode4flagE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor5TNode4flagE"></span><span id="GMapping::GridSlamProcessor::TNode::flag__b"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a0d10763653ac0630632259c8c1e48e42"></span><span class="k"><span class="pre">mutable</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">flag</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor5TNode4flagE" title="Link to this definition"></a><br /></dt>
+<dd><p>visit flag (internally used) </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor8ParticleE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor8ParticleE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor8ParticleE"></span><span id="GMapping::GridSlamProcessor::Particle"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_particle"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Particle</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor8ParticleE" title="Link to this definition"></a><br /></dt>
+<dd><p>This class defines a particle of the filter. Each particle has a map, a pose, a weight and retains the current node in the trajectory tree </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor8Particle8ParticleERK14ScanMatcherMap">
+<span id="_CPPv3N8GMapping17GridSlamProcessor8Particle8ParticleERK14ScanMatcherMap"></span><span id="_CPPv2N8GMapping17GridSlamProcessor8Particle8ParticleERK14ScanMatcherMap"></span><span id="GMapping::GridSlamProcessor::Particle::Particle__ScanMatcherMapCR"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a51dc73563ad5e3035f8cb3b51965854a"></span><span class="sig-name descname"><span class="n"><span class="pre">Particle</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="typedef_smmap_8h_1afc5f0c8c35212b9a61fb43ef6d8966eb.html#_CPPv4N8GMapping14ScanMatcherMapE" title="GMapping::ScanMatcherMap"><span class="n"><span class="pre">ScanMatcherMap</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">map</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor8Particle8ParticleERK14ScanMatcherMap" title="Link to this definition"></a><br /></dt>
+<dd><p>constructs a particle, given a map </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>map</strong> – the particle map </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8GMapping17GridSlamProcessor8ParticlecvdEv">
+<span id="_CPPv3NK8GMapping17GridSlamProcessor8ParticlecvdEv"></span><span id="_CPPv2NK8GMapping17GridSlamProcessor8ParticlecvdEv"></span><span id="GMapping::GridSlamProcessor::Particle::castto-double-operatorC"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a0b78d91dc4d41c565c388fe7320603b3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8GMapping17GridSlamProcessor8ParticlecvdEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the weight of a particle </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK8GMapping17GridSlamProcessor8Particlecv13OrientedPointEv">
+<span id="_CPPv3NK8GMapping17GridSlamProcessor8Particlecv13OrientedPointEv"></span><span id="_CPPv2NK8GMapping17GridSlamProcessor8Particlecv13OrientedPointEv"></span><span id="GMapping::GridSlamProcessor::Particle::castto-OrientedPoint-operatorC"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a4538a813d749fadc1ba922858cdd8d7f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="w"> </span><a class="reference internal" href="typedef_point_8h_1a341f9c97dfb3ebc1c451a351b484f19d.html#_CPPv4N8GMapping13OrientedPointE" title="GMapping::OrientedPoint"><span class="n"><span class="pre">OrientedPoint</span></span></a></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK8GMapping17GridSlamProcessor8Particlecv13OrientedPointEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the pose of a particle </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor8Particle9setWeightEd">
+<span id="_CPPv3N8GMapping17GridSlamProcessor8Particle9setWeightEd"></span><span id="_CPPv2N8GMapping17GridSlamProcessor8Particle9setWeightEd"></span><span id="GMapping::GridSlamProcessor::Particle::setWeight__double"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a07888ebc307fab0bfee912bbfda45832"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setWeight</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">w</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor8Particle9setWeightEd" title="Link to this definition"></a><br /></dt>
+<dd><p>sets the weight of a particle </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>w</strong> – the weight </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor8Particle3mapE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor8Particle3mapE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor8Particle3mapE"></span><span id="GMapping::GridSlamProcessor::Particle::map__ScanMatcherMap"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a33f1690ccf3a95622e0246e75f5af145"></span><a class="reference internal" href="typedef_smmap_8h_1afc5f0c8c35212b9a61fb43ef6d8966eb.html#_CPPv4N8GMapping14ScanMatcherMapE" title="GMapping::ScanMatcherMap"><span class="n"><span class="pre">ScanMatcherMap</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">map</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor8Particle3mapE" title="Link to this definition"></a><br /></dt>
+<dd><p>The map </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor8Particle4poseE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor8Particle4poseE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor8Particle4poseE"></span><span id="GMapping::GridSlamProcessor::Particle::pose__OrientedPoint"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a82d332a479fe5441be6f6f7be32ba39d"></span><a class="reference internal" href="typedef_point_8h_1a341f9c97dfb3ebc1c451a351b484f19d.html#_CPPv4N8GMapping13OrientedPointE" title="GMapping::OrientedPoint"><span class="n"><span class="pre">OrientedPoint</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pose</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor8Particle4poseE" title="Link to this definition"></a><br /></dt>
+<dd><p>The pose of the robot </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor8Particle12previousPoseE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor8Particle12previousPoseE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor8Particle12previousPoseE"></span><span id="GMapping::GridSlamProcessor::Particle::previousPose__OrientedPoint"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1aa0bfef7c1113864bc0dd5c3e38cfbf38"></span><a class="reference internal" href="typedef_point_8h_1a341f9c97dfb3ebc1c451a351b484f19d.html#_CPPv4N8GMapping13OrientedPointE" title="GMapping::OrientedPoint"><span class="n"><span class="pre">OrientedPoint</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">previousPose</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor8Particle12previousPoseE" title="Link to this definition"></a><br /></dt>
+<dd><p>The pose of the robot at the previous time frame (used for computing thr odometry displacements) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor8Particle6weightE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor8Particle6weightE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor8Particle6weightE"></span><span id="GMapping::GridSlamProcessor::Particle::weight__double"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a29fee66d34dd87e2bd641eeebfe6fc00"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">weight</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor8Particle6weightE" title="Link to this definition"></a><br /></dt>
+<dd><p>The weight of the particle </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor8Particle9weightSumE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor8Particle9weightSumE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor8Particle9weightSumE"></span><span id="GMapping::GridSlamProcessor::Particle::weightSum__double"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a9e1d6ebe3b70943834d2987e826313ef"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">weightSum</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor8Particle9weightSumE" title="Link to this definition"></a><br /></dt>
+<dd><p>The cumulative weight of the particle </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor8Particle7gweightE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor8Particle7gweightE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor8Particle7gweightE"></span><span id="GMapping::GridSlamProcessor::Particle::gweight__double"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a205c1435fc24f59460c76362b65da10c"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gweight</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor8Particle7gweightE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor8Particle13previousIndexE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor8Particle13previousIndexE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor8Particle13previousIndexE"></span><span id="GMapping::GridSlamProcessor::Particle::previousIndex__i"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1ab80f34a85a79ad4584d25b162bb72e5b"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">previousIndex</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor8Particle13previousIndexE" title="Link to this definition"></a><br /></dt>
+<dd><p>The index of the previous particle in the trajectory tree </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N8GMapping17GridSlamProcessor8Particle4nodeE">
+<span id="_CPPv3N8GMapping17GridSlamProcessor8Particle4nodeE"></span><span id="_CPPv2N8GMapping17GridSlamProcessor8Particle4nodeE"></span><span id="GMapping::GridSlamProcessor::Particle::node__TNodeP"></span><span class="target" id="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a9c91ccdf7009b50785d939e1791ae4be"></span><a class="reference internal" href="#_CPPv4N8GMapping17GridSlamProcessor5TNodeE" title="GMapping::GridSlamProcessor::TNode"><span class="n"><span class="pre">TNode</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">node</span></span></span><a class="headerlink" href="#_CPPv4N8GMapping17GridSlamProcessor8Particle4nodeE" title="Link to this definition"></a><br /></dt>
+<dd><p>Entry to the trajectory tree </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="class_g_mapping_1_1_configuration.html" class="btn btn-neutral float-left" title="Class Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="class_g_mapping_1_1_hierarchical_array2_d.html" class="btn btn-neutral float-right" title="Template Class HierarchicalArray2D" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The &lt;openslam_gmapping&gt; Contributors. License: CreativeCommons-by-nc-sa-2.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

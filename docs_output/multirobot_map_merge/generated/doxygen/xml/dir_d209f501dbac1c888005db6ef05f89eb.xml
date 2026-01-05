@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_d209f501dbac1c888005db6ef05f89eb" kind="dir">
+    <compoundname>include/combine_grids</compoundname>
+    <innerfile refid="grid__compositor_8h">grid_compositor.h</innerfile>
+    <innerfile refid="grid__warper_8h">grid_warper.h</innerfile>
+    <innerfile refid="merging__pipeline_8h">merging_pipeline.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/combine_grids/"/>
+  </compounddef>
+</doxygen>

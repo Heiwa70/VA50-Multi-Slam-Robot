@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_f264bbb4f3bfb13e084b22c0c9923568" kind="dir">
+    <compoundname>include/gmapping/sensor/sensor_odometry</compoundname>
+    <innerfile refid="odometryreading_8h">odometryreading.h</innerfile>
+    <innerfile refid="odometrysensor_8h">odometrysensor.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/sensor/sensor_odometry/"/>
+  </compounddef>
+</doxygen>

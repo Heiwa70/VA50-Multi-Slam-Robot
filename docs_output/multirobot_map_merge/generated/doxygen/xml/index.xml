@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.15.0" xml:lang="en-US">
+  <compound refid="classcombine__grids_1_1internal_1_1_grid_compositor" kind="class"><name>combine_grids::internal::GridCompositor</name>
+    <member refid="classcombine__grids_1_1internal_1_1_grid_compositor_1a8b8f70dba19444819bcb798c5984601c" kind="function"><name>compose</name></member>
+  </compound>
+  <compound refid="classcombine__grids_1_1internal_1_1_grid_warper" kind="class"><name>combine_grids::internal::GridWarper</name>
+    <member refid="classcombine__grids_1_1internal_1_1_grid_warper_1a6fddb9ebe60b8df6e86ff68eb063c4a6" kind="function"><name>warp</name></member>
+    <member refid="classcombine__grids_1_1internal_1_1_grid_warper_1aac998e1dc1618cbc494bc2f31c2c97ca" kind="function"><name>warpRoi</name></member>
+  </compound>
+  <compound refid="class_invalid_name_exception" kind="class"><name>InvalidNameException</name>
+    <member refid="class_invalid_name_exception_1a5fbdbdabdfa17ccf4f3f151eecdc4704" kind="function"><name>InvalidNameException</name></member>
+  </compound>
+  <compound refid="classmap__merge_1_1_map_merge" kind="class"><name>map_merge::MapMerge</name>
+    <member refid="classmap__merge_1_1_map_merge_1a3ad2a1ed342966c6b05832482c6d37be" kind="variable"><name>merging_rate_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1af7d6d53a94cdb134f1980c50fbcc4b0a" kind="variable"><name>discovery_rate_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a5afaaa47c266ec01c91c7ee800b41e9b" kind="variable"><name>estimation_rate_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1accc9bf07053e0e8fc1f63d6de361d31a" kind="variable"><name>confidence_threshold_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1aa53be455d0cb6735770e8c0360003cab" kind="variable"><name>robot_map_topic_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1ad6192d8a1a61d6544ff64375868daf4b" kind="variable"><name>robot_map_updates_topic_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a25cc93812606e7967de7140810df009a" kind="variable"><name>robot_namespace_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a8695c40a6dac214888a0c7c77c3b494a" kind="variable"><name>world_frame_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a20a999472b50a8fc10e0974c980a63f8" kind="variable"><name>have_initial_poses_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a9fdf0d2282052223152645ec4da5d8d5" kind="variable"><name>merged_map_publisher_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1aeeb6da3d2ea577c1638697fb30958e13" kind="variable"><name>robots_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a2d448289f01ba3a267a363c8e6e56b4e" kind="variable"><name>subscriptions_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a023b7089d54b313f70eff6426e812a7d" kind="variable"><name>subscriptions_size_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a96d3ccfa2e1825f803d468c1753258df" kind="variable"><name>subscriptions_mutex_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a1875a7c0631c26cbe81b0c8e05d3cb8f" kind="variable"><name>pipeline_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1aa869c894cb07e7a5c8d567f1bda51a00" kind="variable"><name>pipeline_mutex_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1ae717dfd9051732250b35843b93a6ab4d" kind="variable"><name>pad_publishers_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a56d802df2d1166d063218085c9eddda6" kind="variable"><name>logger_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a02f8f0b0a4f2d0272642217ab5669841" kind="variable"><name>map_merging_timer_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a295f11e501ac1ea79d8eaf86f17d7355" kind="variable"><name>topic_subscribing_timer_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1ad85b2cb0a32c149a8325e9931992f95b" kind="variable"><name>pose_estimation_timer_</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a04d681c2f141fdcf8529ac1c54179dd2" kind="function"><name>robotNameFromTopic</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a86b612fa8c2a576bb2892bdbbe9c1fc4" kind="function"><name>isRobotMapTopic</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1aa689330e458613f01bc14b3f72113d01" kind="function"><name>getInitPose</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a17676bd359081759efd5f1f886133915" kind="function"><name>fullMapUpdate</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a6e5ba9363233120894f7924b62ec1a05" kind="function"><name>partialMapUpdate</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1ab3e459879f662055f0329d8f9e3ddede" kind="function"><name>getMaxWidthHeightMaps</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1ad4c9cc438b05519a24e3bbfdebd37549" kind="function"><name>MapMerge</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a3fc05086b7ad5f883c61128f148a9c64" kind="function"><name>topicSubscribing</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1a4e0e22106e9eca46a30f062ec218c1fd" kind="function"><name>mapMerging</name></member>
+    <member refid="classmap__merge_1_1_map_merge_1ab480f85c67f0f52df8af7c0ce0b2317b" kind="function"><name>poseEstimation</name></member>
+  </compound>
+  <compound refid="structmap__merge_1_1_map_subscription" kind="struct"><name>map_merge::MapSubscription</name>
+    <member refid="structmap__merge_1_1_map_subscription_1abe1c876de5eae331652095d1cea0506a" kind="variable"><name>mutex</name></member>
+    <member refid="structmap__merge_1_1_map_subscription_1a49b7b84d0e0503696955e54184e39875" kind="variable"><name>initial_pose</name></member>
+    <member refid="structmap__merge_1_1_map_subscription_1adb0334fba68c7b0ddd9867e29d3508cb" kind="variable"><name>writable_map</name></member>
+    <member refid="structmap__merge_1_1_map_subscription_1ae45e387b55160a6fc9b2a94901e5057e" kind="variable"><name>readonly_map</name></member>
+    <member refid="structmap__merge_1_1_map_subscription_1a20e6486ef7d7002d330eaa078c0f43bf" kind="variable"><name>map_sub</name></member>
+    <member refid="structmap__merge_1_1_map_subscription_1a7164d596ce17b232966e7e94469cebe7" kind="variable"><name>map_updates_sub</name></member>
+  </compound>
+  <compound refid="classcombine__grids_1_1_merging_pipeline" kind="class"><name>combine_grids::MergingPipeline</name>
+    <member refid="classcombine__grids_1_1_merging_pipeline_1ae92f4761b0010714f5200e3a63833e66" kind="variable"><name>grids_</name></member>
+    <member refid="classcombine__grids_1_1_merging_pipeline_1add23193c67efd0c6e1561410c946efc0" kind="variable"><name>images_</name></member>
+    <member refid="classcombine__grids_1_1_merging_pipeline_1a7c36e49285c06b755d58ecced7cda437" kind="variable"><name>transforms_</name></member>
+    <member refid="classcombine__grids_1_1_merging_pipeline_1afc82fb47383cb20e6206608f0cc2df98" kind="variable"><name>max_confidence_achieved_</name></member>
+    <member refid="classcombine__grids_1_1_merging_pipeline_1a604abebbc93f91c1cac8a230523ec18c" kind="function"><name>feed</name></member>
+    <member refid="classcombine__grids_1_1_merging_pipeline_1a2f876a7780f306adcd13dcf44b38259f" kind="function"><name>estimateTransforms</name></member>
+    <member refid="classcombine__grids_1_1_merging_pipeline_1af5a97d7ccaf2a20397a6f9958fa0e1a2" kind="function"><name>composeGrids</name></member>
+    <member refid="classcombine__grids_1_1_merging_pipeline_1a8717a56e45c147db23e5d0049ad60275" kind="function"><name>getTransforms</name></member>
+    <member refid="classcombine__grids_1_1_merging_pipeline_1a6b13239febbaceeaa23ac63856366818" kind="function"><name>setTransforms</name></member>
+  </compound>
+  <compound refid="namespacecombine__grids" kind="namespace"><name>combine_grids</name>
+    <member refid="merging__pipeline_8h_1a3731ce600bc8c3abe4290c74d4be4f33" kind="enum"><name>FeatureType</name></member>
+    <member refid="merging__pipeline_8h_1a3731ce600bc8c3abe4290c74d4be4f33a0ce8d5c4c69fdfa9634d54fcec7e625e" kind="enumvalue"><name>AKAZE</name></member>
+    <member refid="merging__pipeline_8h_1a3731ce600bc8c3abe4290c74d4be4f33ac01be2f37880af8cbae89b5364f02ed1" kind="enumvalue"><name>ORB</name></member>
+    <member refid="merging__pipeline_8h_1a3731ce600bc8c3abe4290c74d4be4f33a72139427420c6d292b93f89a2ea11519" kind="enumvalue"><name>SURF</name></member>
+  </compound>
+  <compound refid="namespacecombine__grids_1_1internal" kind="namespace"><name>combine_grids::internal</name>
+  </compound>
+  <compound refid="namespacemap__merge" kind="namespace"><name>map_merge</name>
+  </compound>
+  <compound refid="namespacerclcpp" kind="namespace"><name>rclcpp</name>
+  </compound>
+  <compound refid="namespaceros1__names" kind="namespace"><name>ros1_names</name>
+    <member refid="ros1__names_8hpp_1a4a188286ccb3ed74de45ba053c837559" kind="function"><name>isValidCharInName</name></member>
+    <member refid="ros1__names_8hpp_1a3fd676143ac1d165ae30f9ccffd71e0a" kind="function"><name>validate</name></member>
+    <member refid="ros1__names_8hpp_1a08e0d5cc99d1f8dfcf359f669076ca2c" kind="function"><name>parentNamespace</name></member>
+    <member refid="ros1__names_8hpp_1a28ee0b3c09f43c5ddd400577b37d7902" kind="function"><name>clean</name></member>
+    <member refid="ros1__names_8hpp_1a3414c31a0007e49035c3cd179cc8f353" kind="function"><name>append</name></member>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="grid__compositor_8h" kind="file"><name>grid_compositor.h</name>
+  </compound>
+  <compound refid="grid__warper_8h" kind="file"><name>grid_warper.h</name>
+  </compound>
+  <compound refid="merging__pipeline_8h" kind="file"><name>merging_pipeline.h</name>
+  </compound>
+  <compound refid="map__merge_8h" kind="file"><name>map_merge.h</name>
+  </compound>
+  <compound refid="ros1__names_8hpp" kind="file"><name>ros1_names.hpp</name>
+  </compound>
+  <compound refid="dir_d209f501dbac1c888005db6ef05f89eb" kind="dir"><name>include/combine_grids</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_a9cff4b41df5f820dfb1b762d4e62f7e" kind="dir"><name>include/map_merge</name>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="namespacecombine__grids" kind="namespace" language="C++">
+    <compoundname>combine_grids</compoundname>
+    <innerclass refid="classcombine__grids_1_1_merging_pipeline" prot="public">combine_grids::MergingPipeline</innerclass>
+    <innernamespace refid="namespacecombine__grids_1_1internal">combine_grids::internal</innernamespace>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="merging__pipeline_8h_1a3731ce600bc8c3abe4290c74d4be4f33" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>FeatureType</name>
+        <qualifiedname>combine_grids::FeatureType</qualifiedname>
+        <enumvalue id="merging__pipeline_8h_1a3731ce600bc8c3abe4290c74d4be4f33a0ce8d5c4c69fdfa9634d54fcec7e625e" prot="public">
+          <name>AKAZE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="merging__pipeline_8h_1a3731ce600bc8c3abe4290c74d4be4f33ac01be2f37880af8cbae89b5364f02ed1" prot="public">
+          <name>ORB</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="merging__pipeline_8h_1a3731ce600bc8c3abe4290c74d4be4f33a72139427420c6d292b93f89a2ea11519" prot="public">
+          <name>SURF</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/combine_grids/merging_pipeline.h" line="51" column="1" bodyfile="include/combine_grids/merging_pipeline.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/combine_grids/grid_compositor.h" line="45" column="1"/>
+  </compounddef>
+</doxygen>

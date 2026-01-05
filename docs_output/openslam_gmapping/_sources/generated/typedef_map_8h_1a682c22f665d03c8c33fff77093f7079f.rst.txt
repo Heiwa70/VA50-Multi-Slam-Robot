@@ -1,0 +1,14 @@
+.. _exhale_typedef_map_8h_1a682c22f665d03c8c33fff77093f7079f:
+
+Typedef GMapping::DoubleMap
+===========================
+
+- Defined in :ref:`file_include_gmapping_grid_map.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: GMapping::DoubleMap
+   :project: openslam_gmapping Doxygen Project

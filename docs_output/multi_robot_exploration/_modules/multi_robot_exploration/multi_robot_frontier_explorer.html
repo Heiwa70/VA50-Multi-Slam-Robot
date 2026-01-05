@@ -1,0 +1,872 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>multi_robot_exploration.multi_robot_frontier_explorer &mdash; Multi Robot Exploration  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Multi Robot Exploration
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Multi Robot Exploration</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">multi_robot_exploration.multi_robot_frontier_explorer</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for multi_robot_exploration.multi_robot_frontier_explorer</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Frontier Search Optimisé pour exploration multi-robot</span>
+<span class="sd">- Précision : Tolérance à 0.3m pour forcer le robot à aller VRAIMENT au bout (après test)</span>
+<span class="sd">- Vision : Dilatation augmentée (x5) pour détecter les frontières même s&#39;il y a des trous dans la map.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;.*NumPy version.*&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.qos</span><span class="w"> </span><span class="kn">import</span> <span class="n">QoSProfile</span><span class="p">,</span> <span class="n">ReliabilityPolicy</span><span class="p">,</span> <span class="n">HistoryPolicy</span><span class="p">,</span> <span class="n">DurabilityPolicy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geometry_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">PoseStamped</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nav_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">OccupancyGrid</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">visualization_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Marker</span><span class="p">,</span> <span class="n">MarkerArray</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">linear_sum_assignment</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial.distance</span><span class="w"> </span><span class="kn">import</span> <span class="n">cdist</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">tf2_ros</span><span class="w"> </span><span class="kn">import</span> <span class="n">TransformException</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tf2_ros.buffer</span><span class="w"> </span><span class="kn">import</span> <span class="n">Buffer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tf2_ros.transform_listener</span><span class="w"> </span><span class="kn">import</span> <span class="n">TransformListener</span>
+
+<span class="n">FREE_SPACE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">UNKNOWN_SPACE</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">LETHAL_OBSTACLE</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">GOAL_TOLERANCE</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">FORCE_RESEND_TIME</span> <span class="o">=</span> <span class="mf">5.0</span>
+
+<div class="viewcode-block" id="Frontier">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.Frontier">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Frontier</span><span class="p">:</span>
+    <span class="n">size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">centroid</span><span class="p">:</span> <span class="n">Point</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">Point</span><span class="p">)</span>
+    <span class="n">goal_point</span><span class="p">:</span> <span class="n">Point</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">Point</span><span class="p">)</span>
+    <span class="n">points</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Point</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">area_m2</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span></div>
+
+
+<div class="viewcode-block" id="FastFrontierSearch">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">FastFrontierSearch</span><span class="p">:</span>
+<div class="viewcode-block" id="FastFrontierSearch.__init__">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_frontier_size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">max_frontiers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_frontier_size</span> <span class="o">=</span> <span class="n">min_frontier_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_frontiers</span> <span class="o">=</span> <span class="n">max_frontiers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">costmap_data</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="mf">0.05</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">origin_x</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">origin_y</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">costmap_frame</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first_costmap</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+    
+<div class="viewcode-block" id="FastFrontierSearch.update_costmap">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.update_costmap">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_costmap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">costmap_msg</span><span class="p">:</span> <span class="n">OccupancyGrid</span><span class="p">):</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">costmap_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">costmap_msg</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">costmap_msg</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">costmap_msg</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">width</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">costmap_msg</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">width</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">costmap_msg</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">height</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="n">costmap_msg</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">resolution</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">origin_x</span> <span class="o">=</span> <span class="n">costmap_msg</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">origin_y</span> <span class="o">=</span> <span class="n">costmap_msg</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">costmap_frame</span> <span class="o">=</span> <span class="n">costmap_msg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span>
+            
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">first_costmap</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">first_costmap</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="n">unique</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">costmap_data</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">stats</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">unique</span><span class="p">,</span> <span class="n">counts</span><span class="p">))</span>
+                <span class="k">return</span> <span class="n">stats</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+    
+<div class="viewcode-block" id="FastFrontierSearch.map_to_world">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.map_to_world">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">map_to_world</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">my</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+        <span class="n">wx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">origin_x</span> <span class="o">+</span> <span class="p">(</span><span class="n">mx</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolution</span>
+        <span class="n">wy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">origin_y</span> <span class="o">+</span> <span class="p">(</span><span class="n">my</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolution</span>
+        <span class="k">return</span> <span class="n">wx</span><span class="p">,</span> <span class="n">wy</span></div>
+
+    
+<div class="viewcode-block" id="FastFrontierSearch.find_frontiers_fast">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.FastFrontierSearch.find_frontiers_fast">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">find_frontiers_fast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Frontier</span><span class="p">]:</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">costmap_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[]</span>
+            
+            <span class="n">costmap</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">costmap_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            
+            <span class="c1"># Masques de base</span>
+            <span class="n">free_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">costmap</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+            <span class="n">unknown_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">costmap</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+            <span class="c1"># Inclure aussi les zones à faible coût comme navigables</span>
+            <span class="n">navigable_mask</span> <span class="o">=</span> <span class="p">((</span><span class="n">costmap</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">costmap</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[DEBUG] Free: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">free_mask</span><span class="p">)</span><span class="si">}</span><span class="s2">, Unknown: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">unknown_mask</span><span class="p">)</span><span class="si">}</span><span class="s2">, Navigable: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">navigable_mask</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">unknown_mask</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[DEBUG] Aucune zone inconnue!&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">[]</span>
+            
+            <span class="c1"># Essayer plusieurs niveaux de dilatation pour trouver TOUTES les frontières</span>
+            <span class="n">all_frontier_masks</span> <span class="o">=</span> <span class="p">[]</span>
+            
+            <span class="c1"># Dilatation faible</span>
+            <span class="n">kernel_small</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getStructuringElement</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">MORPH_RECT</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+            <span class="n">free_expanded_small</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">free_mask</span><span class="p">,</span> <span class="n">kernel_small</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="c1"># Ajouter les zones navigables dilatées</span>
+            <span class="n">navigable_expanded</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">navigable_mask</span><span class="p">,</span> <span class="n">kernel_small</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">accessible_small</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">bitwise_or</span><span class="p">(</span><span class="n">free_expanded_small</span><span class="p">,</span> <span class="n">navigable_expanded</span><span class="p">)</span>
+            <span class="n">accessible_unknown_small</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">unknown_mask</span><span class="p">,</span> <span class="n">accessible_small</span><span class="p">)</span>
+            <span class="n">all_frontier_masks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accessible_unknown_small</span><span class="p">)</span>
+            
+            <span class="c1"># Dilatation moyenne</span>
+            <span class="n">kernel_medium</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getStructuringElement</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">MORPH_RECT</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+            <span class="n">free_expanded_medium</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">free_mask</span><span class="p">,</span> <span class="n">kernel_medium</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+            <span class="n">accessible_unknown_medium</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">unknown_mask</span><span class="p">,</span> <span class="n">free_expanded_medium</span><span class="p">)</span>
+            <span class="n">all_frontier_masks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accessible_unknown_medium</span><span class="p">)</span>
+            
+            <span class="c1"># Dilatation forte</span>
+            <span class="n">kernel_large</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getStructuringElement</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">MORPH_RECT</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+            <span class="n">free_expanded_large</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">free_mask</span><span class="p">,</span> <span class="n">kernel_large</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+            <span class="n">accessible_unknown_large</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">unknown_mask</span><span class="p">,</span> <span class="n">free_expanded_large</span><span class="p">)</span>
+            <span class="n">all_frontier_masks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accessible_unknown_large</span><span class="p">)</span>
+            
+            <span class="c1"># Combiner toutes les détections</span>
+            <span class="n">accessible_unknown</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">unknown_mask</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">mask</span> <span class="ow">in</span> <span class="n">all_frontier_masks</span><span class="p">:</span>
+                <span class="n">accessible_unknown</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">bitwise_or</span><span class="p">(</span><span class="n">accessible_unknown</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[DEBUG] Accessible unknown pixels: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">accessible_unknown</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">accessible_unknown</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[DEBUG] Aucune zone inconnue accessible!&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">[]</span>
+            
+            <span class="c1"># Détection des bords de frontière</span>
+            <span class="n">kernel_edge</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getStructuringElement</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">MORPH_CROSS</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+            <span class="n">unknown_eroded</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">erode</span><span class="p">(</span><span class="n">accessible_unknown</span><span class="p">,</span> <span class="n">kernel_edge</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">unknown_border</span> <span class="o">=</span> <span class="n">accessible_unknown</span> <span class="o">-</span> <span class="n">unknown_eroded</span>
+            
+            <span class="c1"># détecter la frontière comme l&#39;interface free/unknown</span>
+            <span class="c1"># Dilater free et voir où ça touche unknown</span>
+            <span class="n">free_dilated</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">free_mask</span><span class="p">,</span> <span class="n">kernel_edge</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">direct_frontier</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">unknown_mask</span><span class="p">,</span> <span class="n">free_dilated</span><span class="p">)</span>
+            
+            <span class="c1"># Combiner les deux méthodes</span>
+            <span class="n">frontier_mask</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">bitwise_or</span><span class="p">(</span><span class="n">unknown_border</span><span class="p">,</span> <span class="n">direct_frontier</span><span class="p">)</span>
+            
+            <span class="c1"># Nettoyage</span>
+            <span class="n">kernel_clean</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getStructuringElement</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">MORPH_ELLIPSE</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+            <span class="n">frontier_mask</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">morphologyEx</span><span class="p">(</span><span class="n">frontier_mask</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">MORPH_CLOSE</span><span class="p">,</span> <span class="n">kernel_clean</span><span class="p">)</span>
+            <span class="c1"># Dilater légèrement pour connecter les points proches</span>
+            <span class="n">frontier_mask</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">frontier_mask</span><span class="p">,</span> <span class="n">kernel_clean</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[DEBUG] Frontier mask pixels: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">frontier_mask</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+            <span class="n">num_labels</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">stats</span><span class="p">,</span> <span class="n">centroids</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">connectedComponentsWithStats</span><span class="p">(</span>
+                <span class="n">frontier_mask</span><span class="p">,</span> <span class="n">connectivity</span><span class="o">=</span><span class="mi">8</span>
+            <span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[DEBUG] Nombre de composantes: </span><span class="si">{</span><span class="n">num_labels</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+            <span class="n">frontiers</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="c1"># Reduit le seuil adaptatif pour ne pas rater les petites frontières</span>
+            <span class="n">adaptive_threshold</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_frontier_size</span> <span class="o">*</span> <span class="mf">0.3</span>
+            <span class="k">if</span> <span class="n">num_labels</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="n">adaptive_threshold</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_frontier_size</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">)</span>
+            
+            <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">):</span>
+                <span class="n">area_pixels</span> <span class="o">=</span> <span class="n">stats</span><span class="p">[</span><span class="n">label</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CC_STAT_AREA</span><span class="p">]</span>
+                <span class="n">frontier_length_m</span> <span class="o">=</span> <span class="n">area_pixels</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolution</span>
+                
+                <span class="k">if</span> <span class="n">debug</span> <span class="ow">and</span> <span class="n">frontier_length_m</span> <span class="o">&gt;=</span> <span class="mf">0.01</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[DEBUG] Frontière </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">frontier_length_m</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">m (seuil: </span><span class="si">{</span><span class="n">adaptive_threshold</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">m)&quot;</span><span class="p">)</span>
+                
+                <span class="k">if</span> <span class="n">frontier_length_m</span> <span class="o">&lt;</span> <span class="n">adaptive_threshold</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                
+                <span class="n">cx_map</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">centroids</span><span class="p">[</span><span class="n">label</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+                <span class="n">cy_map</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">centroids</span><span class="p">[</span><span class="n">label</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+                <span class="n">frontier_points_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="n">label</span><span class="p">)</span>
+                
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">frontier_points_idx</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">points_xy</span> <span class="o">=</span> <span class="n">frontier_points_idx</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span> 
+                    <span class="n">centroid_xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">cx_map</span><span class="p">,</span> <span class="n">cy_map</span><span class="p">]])</span>
+                    <span class="n">dists</span> <span class="o">=</span> <span class="n">cdist</span><span class="p">(</span><span class="n">centroid_xy</span><span class="p">,</span> <span class="n">points_xy</span><span class="p">)</span>
+                    <span class="n">costs</span> <span class="o">=</span> <span class="n">costmap</span><span class="p">[</span><span class="n">points_xy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">points_xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]]</span>
+                    
+                    <span class="c1"># Chercher un point de goal navigable</span>
+                    <span class="n">mask_super_safe</span> <span class="o">=</span> <span class="p">(</span><span class="n">costs</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">costs</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
+                    <span class="n">mask_safe</span> <span class="o">=</span> <span class="p">(</span><span class="n">costs</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">costs</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">)</span>
+                    <span class="n">mask_ok</span> <span class="o">=</span> <span class="p">(</span><span class="n">costs</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">costs</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">)</span>
+                    
+                    <span class="n">gx_map</span><span class="p">,</span> <span class="n">gy_map</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+                    
+                    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">mask_super_safe</span><span class="p">):</span>
+                        <span class="n">valid_points</span> <span class="o">=</span> <span class="n">points_xy</span><span class="p">[</span><span class="n">mask_super_safe</span><span class="p">]</span>
+                        <span class="n">valid_dists</span> <span class="o">=</span> <span class="n">dists</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">mask_super_safe</span><span class="p">]</span>
+                        <span class="n">gx_map</span><span class="p">,</span> <span class="n">gy_map</span> <span class="o">=</span> <span class="n">valid_points</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">valid_dists</span><span class="p">)]</span>
+                    <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">mask_safe</span><span class="p">):</span>
+                        <span class="n">valid_points</span> <span class="o">=</span> <span class="n">points_xy</span><span class="p">[</span><span class="n">mask_safe</span><span class="p">]</span>
+                        <span class="n">valid_dists</span> <span class="o">=</span> <span class="n">dists</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">mask_safe</span><span class="p">]</span>
+                        <span class="n">gx_map</span><span class="p">,</span> <span class="n">gy_map</span> <span class="o">=</span> <span class="n">valid_points</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">valid_dists</span><span class="p">)]</span>
+                    <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">mask_ok</span><span class="p">):</span>
+                        <span class="n">valid_points</span> <span class="o">=</span> <span class="n">points_xy</span><span class="p">[</span><span class="n">mask_ok</span><span class="p">]</span>
+                        <span class="n">valid_dists</span> <span class="o">=</span> <span class="n">dists</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">mask_ok</span><span class="p">]</span>
+                        <span class="n">gx_map</span><span class="p">,</span> <span class="n">gy_map</span> <span class="o">=</span> <span class="n">valid_points</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">valid_dists</span><span class="p">)]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># chercher le point FREE le plus proche du centroid</span>
+                        <span class="n">gx_map</span><span class="p">,</span> <span class="n">gy_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_nearest_free_point</span><span class="p">(</span><span class="n">cx_map</span><span class="p">,</span> <span class="n">cy_map</span><span class="p">,</span> <span class="n">free_mask</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">gx_map</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span> 
+                                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[DEBUG] Frontière </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> rejetée: pas de point navigable&quot;</span><span class="p">)</span>
+                            <span class="k">continue</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">gx_map</span><span class="p">,</span> <span class="n">gy_map</span> <span class="o">=</span> <span class="n">cx_map</span><span class="p">,</span> <span class="n">cy_map</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">gx_map</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">gy_map</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">):</span>
+                    <span class="k">continue</span>
+
+                <span class="n">cx_world</span><span class="p">,</span> <span class="n">cy_world</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_to_world</span><span class="p">(</span><span class="n">cx_map</span><span class="p">,</span> <span class="n">cy_map</span><span class="p">)</span>
+                <span class="n">gx_world</span><span class="p">,</span> <span class="n">gy_world</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_to_world</span><span class="p">(</span><span class="n">gx_map</span><span class="p">,</span> <span class="n">gy_map</span><span class="p">)</span>
+                
+                <span class="n">frontier</span> <span class="o">=</span> <span class="n">Frontier</span><span class="p">()</span>
+                <span class="n">frontier</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">area_pixels</span>
+                <span class="n">frontier</span><span class="o">.</span><span class="n">area_m2</span> <span class="o">=</span> <span class="n">frontier_length_m</span>
+                <span class="n">frontier</span><span class="o">.</span><span class="n">centroid</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">cx_world</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">cy_world</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+                <span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">gx_world</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">gy_world</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+                
+                <span class="n">step</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">frontier_points_idx</span><span class="p">)</span> <span class="o">//</span> <span class="mi">20</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">py</span><span class="p">,</span> <span class="n">px</span> <span class="ow">in</span> <span class="n">frontier_points_idx</span><span class="p">[::</span><span class="n">step</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="n">costmap</span><span class="p">[</span><span class="n">py</span><span class="p">,</span> <span class="n">px</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+                        <span class="n">wx</span><span class="p">,</span> <span class="n">wy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_to_world</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">)</span>
+                        <span class="n">frontier</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">wx</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">wy</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">0.0</span><span class="p">))</span>
+                
+                <span class="c1"># accepter les frontières avec moins de points</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">frontier</span><span class="o">.</span><span class="n">points</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">frontiers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">frontier</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[DEBUG] ✓ Frontière </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> acceptée: (</span><span class="si">{</span><span class="n">gx_world</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">gy_world</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+                
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">frontiers</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_frontiers</span><span class="p">:</span>
+                    <span class="k">break</span>
+            
+            <span class="n">frontiers</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">area_m2</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[DEBUG] Total frontières trouvées: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">frontiers</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+            <span class="k">return</span> <span class="n">frontiers</span></div>
+
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">_find_nearest_free_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">cy</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">free_mask</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Trouve le point libre le plus proche du centroid.&quot;&quot;&quot;</span>
+        <span class="c1"># Chercher dans un rayon croissant</span>
+        <span class="k">for</span> <span class="n">radius</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">):</span>
+            <span class="n">y_min</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cy</span> <span class="o">-</span> <span class="n">radius</span><span class="p">)</span>
+            <span class="n">y_max</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">cy</span> <span class="o">+</span> <span class="n">radius</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">x_min</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cx</span> <span class="o">-</span> <span class="n">radius</span><span class="p">)</span>
+            <span class="n">x_max</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">cx</span> <span class="o">+</span> <span class="n">radius</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            
+            <span class="n">region</span> <span class="o">=</span> <span class="n">free_mask</span><span class="p">[</span><span class="n">y_min</span><span class="p">:</span><span class="n">y_max</span><span class="p">,</span> <span class="n">x_min</span><span class="p">:</span><span class="n">x_max</span><span class="p">]</span>
+            <span class="n">free_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">region</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">free_points</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># Trouver le plus proche</span>
+                <span class="n">free_points_global</span> <span class="o">=</span> <span class="n">free_points</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">y_min</span><span class="p">,</span> <span class="n">x_min</span><span class="p">])</span>
+                <span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">free_points_global</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">cy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> 
+                               <span class="p">(</span><span class="n">free_points_global</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">cx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+                <span class="n">closest_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">dists</span><span class="p">)</span>
+                <span class="n">gy</span><span class="p">,</span> <span class="n">gx</span> <span class="o">=</span> <span class="n">free_points_global</span><span class="p">[</span><span class="n">closest_idx</span><span class="p">]</span>
+                <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">gx</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">gy</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span></div>
+
+        
+<div class="viewcode-block" id="OptimalFrontierAllocator">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">OptimalFrontierAllocator</span><span class="p">:</span>
+<div class="viewcode-block" id="OptimalFrontierAllocator.__init__">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">distance_weight</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">size_weight</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">distance_weight</span> <span class="o">=</span> <span class="n">distance_weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size_weight</span> <span class="o">=</span> <span class="n">size_weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hysteresis_radius</span> <span class="o">=</span> <span class="mf">5.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hysteresis_bonus</span> <span class="o">=</span> <span class="mf">30.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_robot_separation</span> <span class="o">=</span> <span class="mf">3.0</span>  <span class="c1"># Distance minimale entre les goals (en mètres)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_goal_to_robot_dist</span> <span class="o">=</span> <span class="mf">2.5</span>  <span class="c1"># Distance minimale entre un goal et l&#39;AUTRE robot</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">separation_penalty</span> <span class="o">=</span> <span class="mf">500.0</span>  <span class="c1">#  Pénalité forte</span></div>
+
+    
+<div class="viewcode-block" id="OptimalFrontierAllocator.compute_cost">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator.compute_cost">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_cost</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frontier</span><span class="p">:</span> <span class="n">Frontier</span><span class="p">,</span> <span class="n">robot_pos</span><span class="p">:</span> <span class="n">Point</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">robot_pos</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> 
+            <span class="p">(</span><span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">robot_pos</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">distance_weight</span> <span class="o">*</span> <span class="n">distance</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">size_weight</span> <span class="o">*</span> <span class="n">frontier</span><span class="o">.</span><span class="n">area_m2</span></div>
+
+    
+<div class="viewcode-block" id="OptimalFrontierAllocator.allocate">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.OptimalFrontierAllocator.allocate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">allocate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frontiers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Frontier</span><span class="p">],</span> 
+                 <span class="n">robot_positions</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Point</span><span class="p">],</span>
+                 <span class="n">current_robot_goals</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Point</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Frontier</span><span class="p">]]:</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">frontiers</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">robot_positions</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="n">ns</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">ns</span> <span class="ow">in</span> <span class="n">robot_positions</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
+        
+        <span class="n">robot_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">robot_positions</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">allocation</span> <span class="o">=</span> <span class="p">{</span><span class="n">ns</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">ns</span> <span class="ow">in</span> <span class="n">robot_names</span><span class="p">}</span>
+        <span class="n">unassigned_robots</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">robot_names</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">unassigned_robots</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">allocation</span>
+
+        <span class="n">n_u_robots</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unassigned_robots</span><span class="p">)</span>
+        <span class="n">n_frontiers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">frontiers</span><span class="p">)</span>
+        <span class="n">cost_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">n_u_robots</span><span class="p">,</span> <span class="n">n_frontiers</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>  <span class="c1"># Commencer avec inf</span>
+        
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">robot_ns</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unassigned_robots</span><span class="p">):</span>
+            <span class="n">robot_pos</span> <span class="o">=</span> <span class="n">robot_positions</span><span class="p">[</span><span class="n">robot_ns</span><span class="p">]</span>
+            <span class="n">prev_goal</span> <span class="o">=</span> <span class="n">current_robot_goals</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">robot_ns</span><span class="p">)</span> <span class="k">if</span> <span class="n">current_robot_goals</span> <span class="k">else</span> <span class="kc">None</span>
+            
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">frontier</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">frontiers</span><span class="p">):</span>
+                <span class="c1"># Vérifier d&#39;abord si cette frontière est trop proche d&#39;un autre robot</span>
+                <span class="n">too_close_to_other</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">for</span> <span class="n">other_ns</span><span class="p">,</span> <span class="n">other_pos</span> <span class="ow">in</span> <span class="n">robot_positions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">other_ns</span> <span class="o">!=</span> <span class="n">robot_ns</span> <span class="ow">and</span> <span class="n">other_pos</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">dist_to_other_robot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+                            <span class="p">(</span><span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">other_pos</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> 
+                            <span class="p">(</span><span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">other_pos</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+                        <span class="p">)</span>
+                        <span class="k">if</span> <span class="n">dist_to_other_robot</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_goal_to_robot_dist</span><span class="p">:</span>
+                            <span class="n">too_close_to_other</span> <span class="o">=</span> <span class="kc">True</span>
+                            <span class="k">break</span>
+                
+                <span class="c1"># Si trop proche d&#39;un autre robot, coût infini (frontière interdite)</span>
+                <span class="k">if</span> <span class="n">too_close_to_other</span><span class="p">:</span>
+                    <span class="k">continue</span>  <span class="c1"># Laisse le coût à inf</span>
+                
+                <span class="n">base_cost</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_cost</span><span class="p">(</span><span class="n">frontier</span><span class="p">,</span> <span class="n">robot_pos</span><span class="p">)</span>
+                
+                <span class="k">if</span> <span class="n">prev_goal</span><span class="p">:</span>
+                    <span class="n">dist_to_prev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">prev_goal</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> 
+                                           <span class="p">(</span><span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">prev_goal</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">dist_to_prev</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">hysteresis_radius</span><span class="p">:</span>
+                        <span class="n">base_cost</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hysteresis_bonus</span>
+                
+                <span class="n">dist_now</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">robot_pos</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> 
+                                   <span class="p">(</span><span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">robot_pos</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">dist_now</span> <span class="o">&lt;</span> <span class="mf">0.4</span><span class="p">:</span>
+                    <span class="n">base_cost</span> <span class="o">+=</span> <span class="mf">50.0</span> 
+                
+                <span class="c1"># Pénalité graduée pour proximité avec l&#39;autre robot</span>
+                <span class="k">for</span> <span class="n">other_ns</span><span class="p">,</span> <span class="n">other_pos</span> <span class="ow">in</span> <span class="n">robot_positions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">other_ns</span> <span class="o">!=</span> <span class="n">robot_ns</span> <span class="ow">and</span> <span class="n">other_pos</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">dist_to_other_robot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+                            <span class="p">(</span><span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">other_pos</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> 
+                            <span class="p">(</span><span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">other_pos</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+                        <span class="p">)</span>
+                        <span class="k">if</span> <span class="n">dist_to_other_robot</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_robot_separation</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">:</span>
+                            <span class="n">proximity_factor</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="p">(</span><span class="n">dist_to_other_robot</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min_robot_separation</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">))</span>
+                            <span class="n">base_cost</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">separation_penalty</span> <span class="o">*</span> <span class="n">proximity_factor</span>
+                
+                <span class="n">cost_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">base_cost</span>
+        
+        <span class="c1"># Vérifier qu&#39;il y a des solutions valides</span>
+        <span class="n">valid_assignments_exist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">cost_matrix</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">valid_assignments_exist</span><span class="p">:</span>
+            <span class="c1"># utiliser les coûts de base sans les contraintes strictes</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">robot_ns</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unassigned_robots</span><span class="p">):</span>
+                <span class="n">robot_pos</span> <span class="o">=</span> <span class="n">robot_positions</span><span class="p">[</span><span class="n">robot_ns</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">frontier</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">frontiers</span><span class="p">):</span>
+                    <span class="n">cost_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_cost</span><span class="p">(</span><span class="n">frontier</span><span class="p">,</span> <span class="n">robot_pos</span><span class="p">)</span>
+        
+        <span class="c1"># Remplacer les inf par une grande valeur pour l&#39;algorithme hongrois</span>
+        <span class="n">max_finite</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cost_matrix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">cost_matrix</span><span class="p">)])</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">cost_matrix</span><span class="p">))</span> <span class="k">else</span> <span class="mi">1000</span>
+        <span class="n">cost_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">cost_matrix</span><span class="p">),</span> <span class="n">max_finite</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span> <span class="n">cost_matrix</span><span class="p">)</span>
+        
+        <span class="n">row_indices</span><span class="p">,</span> <span class="n">col_indices</span> <span class="o">=</span> <span class="n">linear_sum_assignment</span><span class="p">(</span><span class="n">cost_matrix</span><span class="p">)</span>
+        
+        <span class="c1"># Allocation avec vérification stricte de séparation</span>
+        <span class="n">allocated_goals</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="c1"># Trier par coût pour donner priorité aux meilleures allocations</span>
+        <span class="n">assignments</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">row_indices</span><span class="p">,</span> <span class="n">col_indices</span><span class="p">))</span>
+        <span class="n">assignments</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">cost_matrix</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+        
+        <span class="k">for</span> <span class="n">r_idx</span><span class="p">,</span> <span class="n">f_idx</span> <span class="ow">in</span> <span class="n">assignments</span><span class="p">:</span>
+            <span class="n">robot_ns</span> <span class="o">=</span> <span class="n">unassigned_robots</span><span class="p">[</span><span class="n">r_idx</span><span class="p">]</span>
+            <span class="n">frontier</span> <span class="o">=</span> <span class="n">frontiers</span><span class="p">[</span><span class="n">f_idx</span><span class="p">]</span>
+            <span class="n">goal</span> <span class="o">=</span> <span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span>
+            <span class="n">robot_pos</span> <span class="o">=</span> <span class="n">robot_positions</span><span class="p">[</span><span class="n">robot_ns</span><span class="p">]</span>
+            
+            <span class="c1"># Vérifier que ce goal est assez loin de tous les goals déjà assignés</span>
+            <span class="n">valid</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">for</span> <span class="n">other_ns</span><span class="p">,</span> <span class="n">other_goal</span> <span class="ow">in</span> <span class="n">allocated_goals</span><span class="p">:</span>
+                <span class="n">dist_between_goals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+                    <span class="p">(</span><span class="n">goal</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">other_goal</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> 
+                    <span class="p">(</span><span class="n">goal</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">other_goal</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">dist_between_goals</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_robot_separation</span><span class="p">:</span>
+                    <span class="n">valid</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="k">break</span>
+            
+            <span class="c1"># Vérifier aussi que ce goal ne va pas croiser le chemin d&#39;un autre robot</span>
+            <span class="k">for</span> <span class="n">other_ns</span><span class="p">,</span> <span class="n">other_pos</span> <span class="ow">in</span> <span class="n">robot_positions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">other_ns</span> <span class="o">!=</span> <span class="n">robot_ns</span> <span class="ow">and</span> <span class="n">other_pos</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="c1"># Vérifier la distance goal -&gt; autre robot</span>
+                    <span class="n">dist_goal_to_other</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+                        <span class="p">(</span><span class="n">goal</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">other_pos</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> 
+                        <span class="p">(</span><span class="n">goal</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">other_pos</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+                    <span class="p">)</span>
+                    <span class="k">if</span> <span class="n">dist_goal_to_other</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_goal_to_robot_dist</span><span class="p">:</span>
+                        <span class="n">valid</span> <span class="o">=</span> <span class="kc">False</span>
+                        <span class="k">break</span>
+            
+            <span class="k">if</span> <span class="n">valid</span><span class="p">:</span>
+                <span class="n">allocation</span><span class="p">[</span><span class="n">robot_ns</span><span class="p">]</span> <span class="o">=</span> <span class="n">frontier</span>
+                <span class="n">allocated_goals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">robot_ns</span><span class="p">,</span> <span class="n">goal</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Chercher une frontière alternative</span>
+                <span class="n">best_alternative</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_alternative_frontier</span><span class="p">(</span>
+                    <span class="n">robot_ns</span><span class="p">,</span> <span class="n">robot_pos</span><span class="p">,</span> <span class="n">frontiers</span><span class="p">,</span> <span class="n">frontier</span><span class="p">,</span> 
+                    <span class="n">allocated_goals</span><span class="p">,</span> <span class="n">robot_positions</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">best_alternative</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">allocation</span><span class="p">[</span><span class="n">robot_ns</span><span class="p">]</span> <span class="o">=</span> <span class="n">best_alternative</span>
+                    <span class="n">allocated_goals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">robot_ns</span><span class="p">,</span> <span class="n">best_alternative</span><span class="o">.</span><span class="n">goal_point</span><span class="p">))</span>
+        
+        <span class="k">return</span> <span class="n">allocation</span></div>
+
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">_find_alternative_frontier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">robot_ns</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">robot_pos</span><span class="p">:</span> <span class="n">Point</span><span class="p">,</span>
+                                   <span class="n">frontiers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Frontier</span><span class="p">],</span> 
+                                   <span class="n">excluded_frontier</span><span class="p">:</span> <span class="n">Frontier</span><span class="p">,</span>
+                                   <span class="n">allocated_goals</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span>
+                                   <span class="n">robot_positions</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Point</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Frontier</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Trouve une frontière alternative qui respecte les contraintes de séparation.&quot;&quot;&quot;</span>
+        <span class="n">best_alternative</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">best_cost</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">alt_frontier</span> <span class="ow">in</span> <span class="n">frontiers</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">alt_frontier</span> <span class="o">==</span> <span class="n">excluded_frontier</span><span class="p">:</span>
+                <span class="k">continue</span>
+            
+            <span class="n">alt_goal</span> <span class="o">=</span> <span class="n">alt_frontier</span><span class="o">.</span><span class="n">goal_point</span>
+            
+            <span class="c1"># Vérifier distance avec les goals déjà assignés</span>
+            <span class="n">far_from_goals</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">assigned_goal</span> <span class="ow">in</span> <span class="n">allocated_goals</span><span class="p">:</span>
+                <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+                    <span class="p">(</span><span class="n">alt_goal</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">assigned_goal</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> 
+                    <span class="p">(</span><span class="n">alt_goal</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">assigned_goal</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_robot_separation</span><span class="p">:</span>
+                    <span class="n">far_from_goals</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="k">break</span>
+            
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">far_from_goals</span><span class="p">:</span>
+                <span class="k">continue</span>
+            
+            <span class="c1"># Vérifier distance avec les autres robots</span>
+            <span class="n">far_from_robots</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">for</span> <span class="n">other_ns</span><span class="p">,</span> <span class="n">other_pos</span> <span class="ow">in</span> <span class="n">robot_positions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">other_ns</span> <span class="o">!=</span> <span class="n">robot_ns</span> <span class="ow">and</span> <span class="n">other_pos</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+                        <span class="p">(</span><span class="n">alt_goal</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">other_pos</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> 
+                        <span class="p">(</span><span class="n">alt_goal</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">other_pos</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+                    <span class="p">)</span>
+                    <span class="k">if</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_goal_to_robot_dist</span><span class="p">:</span>
+                        <span class="n">far_from_robots</span> <span class="o">=</span> <span class="kc">False</span>
+                        <span class="k">break</span>
+            
+            <span class="k">if</span> <span class="n">far_from_robots</span><span class="p">:</span>
+                <span class="n">cost</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_cost</span><span class="p">(</span><span class="n">alt_frontier</span><span class="p">,</span> <span class="n">robot_pos</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">cost</span> <span class="o">&lt;</span> <span class="n">best_cost</span><span class="p">:</span>
+                    <span class="n">best_cost</span> <span class="o">=</span> <span class="n">cost</span>
+                    <span class="n">best_alternative</span> <span class="o">=</span> <span class="n">alt_frontier</span>
+        
+        <span class="k">return</span> <span class="n">best_alternative</span></div>
+
+
+<div class="viewcode-block" id="MultiRobotFrontierExplorer">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MultiRobotFrontierExplorer</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+<div class="viewcode-block" id="MultiRobotFrontierExplorer.__init__">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;multi_robot_frontier_explorer&#39;</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">declare_parameter</span><span class="p">(</span><span class="s1">&#39;min_frontier_size&#39;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">declare_parameter</span><span class="p">(</span><span class="s1">&#39;max_frontiers&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">declare_parameter</span><span class="p">(</span><span class="s1">&#39;distance_weight&#39;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">declare_parameter</span><span class="p">(</span><span class="s1">&#39;size_weight&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">declare_parameter</span><span class="p">(</span><span class="s1">&#39;robot_namespaces&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;TB3_1&#39;</span><span class="p">,</span> <span class="s1">&#39;TB3_2&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">declare_parameter</span><span class="p">(</span><span class="s1">&#39;update_rate&#39;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">declare_parameter</span><span class="p">(</span><span class="s1">&#39;debug_mode&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">robot_namespaces</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="s1">&#39;robot_namespaces&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug_mode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="s1">&#39;debug_mode&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+        <span class="n">update_rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="s1">&#39;update_rate&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">frontier_search</span> <span class="o">=</span> <span class="n">FastFrontierSearch</span><span class="p">(</span>
+            <span class="n">min_frontier_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="s1">&#39;min_frontier_size&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="n">max_frontiers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="s1">&#39;max_frontiers&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+        <span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">allocator</span> <span class="o">=</span> <span class="n">OptimalFrontierAllocator</span><span class="p">(</span>
+            <span class="n">distance_weight</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="s1">&#39;distance_weight&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="n">size_weight</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_parameter</span><span class="p">(</span><span class="s1">&#39;size_weight&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+        <span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf_buffer</span> <span class="o">=</span> <span class="n">Buffer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf_listener</span> <span class="o">=</span> <span class="n">TransformListener</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tf_buffer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        
+        <span class="n">costmap_qos</span> <span class="o">=</span> <span class="n">QoSProfile</span><span class="p">(</span>
+            <span class="n">reliability</span><span class="o">=</span><span class="n">ReliabilityPolicy</span><span class="o">.</span><span class="n">RELIABLE</span><span class="p">,</span>
+            <span class="n">durability</span><span class="o">=</span><span class="n">DurabilityPolicy</span><span class="o">.</span><span class="n">TRANSIENT_LOCAL</span><span class="p">,</span>
+            <span class="n">history</span><span class="o">=</span><span class="n">HistoryPolicy</span><span class="o">.</span><span class="n">KEEP_LAST</span><span class="p">,</span>
+            <span class="n">depth</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">costmap_sub</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_subscription</span><span class="p">(</span>
+            <span class="n">OccupancyGrid</span><span class="p">,</span>
+            <span class="s1">&#39;/TB3_1/global_costmap/costmap&#39;</span><span class="p">,</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">costmap_callback</span><span class="p">,</span>
+            <span class="n">costmap_qos</span>
+        <span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">marker_pub</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">MarkerArray</span><span class="p">,</span> <span class="s1">&#39;/frontier_markers&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">goal_pubs</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">ns</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">PoseStamped</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;/</span><span class="si">{</span><span class="n">ns</span><span class="si">}</span><span class="s1">/goal_pose&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">ns</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_namespaces</span>
+        <span class="p">}</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">robot_positions</span> <span class="o">=</span> <span class="p">{</span><span class="n">ns</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">ns</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_namespaces</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">robot_goals</span> <span class="o">=</span> <span class="p">{</span><span class="n">ns</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">ns</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_namespaces</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_goal_time</span> <span class="o">=</span> <span class="p">{</span><span class="n">ns</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_clock</span><span class="p">()</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="k">for</span> <span class="n">ns</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_namespaces</span><span class="p">}</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">costmap_received</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tf_warnings_shown</span> <span class="o">=</span> <span class="p">{</span><span class="n">ns</span><span class="p">:</span> <span class="kc">False</span> <span class="k">for</span> <span class="n">ns</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_namespaces</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allocation_count</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">update_rate</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">exploration_cycle</span><span class="p">)</span></div>
+
+        
+    
+<div class="viewcode-block" id="MultiRobotFrontierExplorer.costmap_callback">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.costmap_callback">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">costmap_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="n">OccupancyGrid</span><span class="p">):</span>
+        <span class="n">stats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frontier_search</span><span class="o">.</span><span class="n">update_costmap</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">stats</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;📍 Première costmap reçue. Stats: </span><span class="si">{</span><span class="n">stats</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">costmap_received</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+    
+<div class="viewcode-block" id="MultiRobotFrontierExplorer.update_robot_positions">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.update_robot_positions">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_robot_positions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">costmap_frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frontier_search</span><span class="o">.</span><span class="n">costmap_frame</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">costmap_frame</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        
+        <span class="n">all_updated</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">ns</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_namespaces</span><span class="p">:</span>
+            <span class="n">possible_frames</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ns</span><span class="si">}</span><span class="s1">/base_footprint&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ns</span><span class="si">}</span><span class="s1">/base_link&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ns</span><span class="si">}</span><span class="s1">/odom&#39;</span><span class="p">]</span>
+            <span class="n">position_found</span> <span class="o">=</span> <span class="kc">False</span>
+            
+            <span class="k">for</span> <span class="n">source_frame</span> <span class="ow">in</span> <span class="n">possible_frames</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tf_buffer</span><span class="o">.</span><span class="n">lookup_transform</span><span class="p">(</span>
+                        <span class="n">costmap_frame</span><span class="p">,</span> <span class="n">source_frame</span><span class="p">,</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Time</span><span class="p">(),</span>
+                        <span class="n">timeout</span><span class="o">=</span><span class="n">rclpy</span><span class="o">.</span><span class="n">duration</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="n">pos</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">translation</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">translation</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">robot_positions</span><span class="p">[</span><span class="n">ns</span><span class="p">]</span> <span class="o">=</span> <span class="n">pos</span>
+                    <span class="n">position_found</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="k">break</span>
+                <span class="k">except</span> <span class="n">TransformException</span><span class="p">:</span>
+                    <span class="k">continue</span>
+            
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">position_found</span><span class="p">:</span>
+                <span class="n">all_updated</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">tf_warnings_shown</span><span class="p">[</span><span class="n">ns</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;⚠️ Impossible de localiser </span><span class="si">{</span><span class="n">ns</span><span class="si">}</span><span class="s1"> dans </span><span class="si">{</span><span class="n">costmap_frame</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">tf_warnings_shown</span><span class="p">[</span><span class="n">ns</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="n">all_updated</span></div>
+
+    
+<div class="viewcode-block" id="MultiRobotFrontierExplorer.get_robot_state">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.get_robot_state">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_robot_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_goals</span><span class="p">[</span><span class="n">ns</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_positions</span><span class="p">[</span><span class="n">ns</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;IDLE&#39;</span>
+        
+        <span class="n">current_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_positions</span><span class="p">[</span><span class="n">ns</span><span class="p">]</span>
+        <span class="n">goal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_goals</span><span class="p">[</span><span class="n">ns</span><span class="p">]</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">current_pos</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">goal</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">current_pos</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">goal</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="n">GOAL_TOLERANCE</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;IDLE&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;BUSY&#39;</span></div>
+
+
+<div class="viewcode-block" id="MultiRobotFrontierExplorer.exploration_cycle">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.exploration_cycle">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">exploration_cycle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">costmap_received</span><span class="p">:</span>
+            <span class="k">return</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_robot_positions</span><span class="p">():</span>
+            <span class="k">return</span>
+            
+        <span class="n">frontiers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frontier_search</span><span class="o">.</span><span class="n">find_frontiers_fast</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">debug_mode</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">frontiers</span><span class="p">:</span>
+            <span class="n">active_robots</span> <span class="o">=</span> <span class="p">[</span><span class="n">ns</span> <span class="k">for</span> <span class="n">ns</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_namespaces</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_robot_state</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;IDLE&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">active_robots</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">allocation_count</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚠️ Robots </span><span class="si">{</span><span class="n">active_robots</span><span class="si">}</span><span class="s2"> libres mais aucune frontière trouvée.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        
+        <span class="n">current_positions</span> <span class="o">=</span> <span class="p">{</span><span class="n">ns</span><span class="p">:</span> <span class="n">pos</span> <span class="k">for</span> <span class="n">ns</span><span class="p">,</span> <span class="n">pos</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_positions</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">pos</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">}</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">current_positions</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">allocation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">allocator</span><span class="o">.</span><span class="n">allocate</span><span class="p">(</span><span class="n">frontiers</span><span class="p">,</span> <span class="n">current_positions</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_goals</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allocation_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+        <span class="n">current_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_clock</span><span class="p">()</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        
+        <span class="k">for</span> <span class="n">robot_ns</span><span class="p">,</span> <span class="n">frontier</span> <span class="ow">in</span> <span class="n">allocation</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">frontier</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">should_send</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">dist_moved</span> <span class="o">=</span> <span class="mf">100.0</span>
+                
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_goals</span><span class="p">[</span><span class="n">robot_ns</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">last_goal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_goals</span><span class="p">[</span><span class="n">robot_ns</span><span class="p">]</span>
+                    <span class="n">dist_moved</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">last_goal</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> 
+                                         <span class="p">(</span><span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">last_goal</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+                    
+                    <span class="c1"># Si la cible a bougé de moins de 10cm, on ne renvoie pas, sauf si...</span>
+                    <span class="k">if</span> <span class="n">dist_moved</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">:</span> 
+                        <span class="n">should_send</span> <span class="o">=</span> <span class="kc">False</span>
+                        
+                        <span class="c1"># ... sauf si ça fait plus de 5 secondes (pour réveiller le robot bloqué)</span>
+                        <span class="n">time_since_last</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_goal_time</span><span class="p">[</span><span class="n">robot_ns</span><span class="p">])</span><span class="o">.</span><span class="n">nanoseconds</span> <span class="o">/</span> <span class="mf">1e9</span>
+                        <span class="k">if</span> <span class="n">time_since_last</span> <span class="o">&gt;</span> <span class="n">FORCE_RESEND_TIME</span><span class="p">:</span>
+                            <span class="n">should_send</span> <span class="o">=</span> <span class="kc">True</span>
+                            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug_mode</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⏰ Réveil forcé pour </span><span class="si">{</span><span class="n">robot_ns</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">should_send</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="n">robot_ns</span><span class="p">,</span> <span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">robot_goals</span><span class="p">[</span><span class="n">robot_ns</span><span class="p">]</span> <span class="o">=</span> <span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span> 
+                    <span class="bp">self</span><span class="o">.</span><span class="n">last_goal_time</span><span class="p">[</span><span class="n">robot_ns</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_time</span>
+                    
+                    <span class="k">if</span> <span class="n">dist_moved</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">:</span> <span class="c1"># Log seulement les vrais changements</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;🟢 </span><span class="si">{</span><span class="n">robot_ns</span><span class="si">}</span><span class="s1"> -&gt; (</span><span class="si">{</span><span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span><span class="o">.</span><span class="n">x</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">frontier</span><span class="o">.</span><span class="n">goal_point</span><span class="o">.</span><span class="n">y</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">visualize_frontiers</span><span class="p">(</span><span class="n">frontiers</span><span class="p">,</span> <span class="n">allocation</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MultiRobotFrontierExplorer.send_goal">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.send_goal">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">send_goal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">robot_ns</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">point</span><span class="p">:</span> <span class="n">Point</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">PoseStamped</span><span class="p">()</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frontier_search</span><span class="o">.</span><span class="n">costmap_frame</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_clock</span><span class="p">()</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">to_msg</span><span class="p">()</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">point</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">goal_pubs</span><span class="p">[</span><span class="n">robot_ns</span><span class="p">]</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="MultiRobotFrontierExplorer.visualize_frontiers">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.MultiRobotFrontierExplorer.visualize_frontiers">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">visualize_frontiers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frontiers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Frontier</span><span class="p">],</span> 
+                           <span class="n">allocation</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Frontier</span><span class="p">]]):</span>
+        <span class="n">marker_array</span> <span class="o">=</span> <span class="n">MarkerArray</span><span class="p">()</span>
+        <span class="n">assigned_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">allocation</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">f</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">frontier</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">frontiers</span><span class="p">):</span>
+            <span class="n">marker</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">()</span>
+            <span class="n">marker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frontier_search</span><span class="o">.</span><span class="n">costmap_frame</span>
+            <span class="n">marker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_clock</span><span class="p">()</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">to_msg</span><span class="p">()</span>
+            <span class="n">marker</span><span class="o">.</span><span class="n">ns</span> <span class="o">=</span> <span class="s1">&#39;frontiers&#39;</span>
+            <span class="n">marker</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="n">marker</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">POINTS</span>
+            <span class="n">marker</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">ADD</span>
+            <span class="n">marker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">marker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.05</span>
+            
+            <span class="k">if</span> <span class="nb">id</span><span class="p">(</span><span class="n">frontier</span><span class="p">)</span> <span class="ow">in</span> <span class="n">assigned_ids</span><span class="p">:</span>
+                 <span class="n">marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">0.0</span> 
+            <span class="k">else</span><span class="p">:</span>
+                 <span class="n">marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">0.0</span> 
+            <span class="n">marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.7</span>
+            <span class="n">marker</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="n">frontier</span><span class="o">.</span><span class="n">points</span>
+            <span class="n">marker_array</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span>
+            
+            <span class="n">text_marker</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">()</span>
+            <span class="n">text_marker</span><span class="o">.</span><span class="n">header</span> <span class="o">=</span> <span class="n">marker</span><span class="o">.</span><span class="n">header</span>
+            <span class="n">text_marker</span><span class="o">.</span><span class="n">ns</span> <span class="o">=</span> <span class="s1">&#39;labels&#39;</span>
+            <span class="n">text_marker</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="n">text_marker</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">TEXT_VIEW_FACING</span>
+            <span class="n">text_marker</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">ADD</span>
+            <span class="n">text_marker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">frontier</span><span class="o">.</span><span class="n">centroid</span>
+            <span class="n">text_marker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.5</span>
+            <span class="n">text_marker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.2</span>
+            <span class="n">text_marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">text_marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">text_marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.0</span>
+            <span class="n">text_marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span>
+            <span class="n">text_marker</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">frontier</span><span class="o">.</span><span class="n">area_m2</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">m&#39;</span>
+            <span class="n">marker_array</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text_marker</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">ns</span><span class="p">,</span> <span class="n">goal</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">robot_goals</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+            <span class="k">if</span> <span class="n">goal</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">goal_marker</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">()</span>
+                <span class="n">goal_marker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frontier_search</span><span class="o">.</span><span class="n">costmap_frame</span>
+                <span class="n">goal_marker</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_clock</span><span class="p">()</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">to_msg</span><span class="p">()</span>
+                <span class="n">goal_marker</span><span class="o">.</span><span class="n">ns</span> <span class="o">=</span> <span class="s1">&#39;current_goals&#39;</span>
+                <span class="n">goal_marker</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">2000</span>
+                <span class="n">goal_marker</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">SPHERE</span>
+                <span class="n">goal_marker</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">Marker</span><span class="o">.</span><span class="n">ADD</span>
+                <span class="n">goal_marker</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">goal</span>
+                <span class="n">goal_marker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">goal_marker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">goal_marker</span><span class="o">.</span><span class="n">scale</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.3</span>
+                
+                <span class="k">if</span> <span class="s1">&#39;1&#39;</span> <span class="ow">in</span> <span class="n">ns</span><span class="p">:</span> 
+                    <span class="n">goal_marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">goal_marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">goal_marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">goal_marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.8</span>
+                <span class="k">else</span><span class="p">:</span> 
+                    <span class="n">goal_marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">goal_marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">goal_marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">goal_marker</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.8</span>
+                <span class="n">marker_array</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">goal_marker</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">marker_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">marker_array</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../../index.html#multi_robot_exploration.multi_robot_frontier_explorer.main">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">MultiRobotFrontierExplorer</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
+        <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

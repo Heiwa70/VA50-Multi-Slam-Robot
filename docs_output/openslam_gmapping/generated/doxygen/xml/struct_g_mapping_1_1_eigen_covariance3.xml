@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_g_mapping_1_1_eigen_covariance3" kind="struct" language="C++" prot="public">
+    <compoundname>GMapping::EigenCovariance3</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_mapping_1_1_eigen_covariance3_1a6bda6c153a521484a61194c8c563f343" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GMapping::EigenCovariance3::eval[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>eval</name>
+        <qualifiedname>GMapping::EigenCovariance3::eval</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="29" column="8" bodyfile="include/gmapping/utils/stat.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_mapping_1_1_eigen_covariance3_1aa1f7cda37a444b94987b12dce284e830" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GMapping::EigenCovariance3::evec[3][3]</definition>
+        <argsstring>[3][3]</argsstring>
+        <name>evec</name>
+        <qualifiedname>GMapping::EigenCovariance3::evec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="30" column="8" bodyfile="include/gmapping/utils/stat.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_g_mapping_1_1_eigen_covariance3_1aef73a904a1b465eeeb28b37d1f6459a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::EigenCovariance3::EigenCovariance3</definition>
+        <argsstring>()</argsstring>
+        <name>EigenCovariance3</name>
+        <qualifiedname>GMapping::EigenCovariance3::EigenCovariance3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="25" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1_eigen_covariance3_1a382fc4f9890ddb4d5f0b457c60188c21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::EigenCovariance3::EigenCovariance3</definition>
+        <argsstring>(const Covariance3 &amp;c)</argsstring>
+        <name>EigenCovariance3</name>
+        <qualifiedname>GMapping::EigenCovariance3::EigenCovariance3</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1_covariance3" kindref="compound">Covariance3</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="26" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1_eigen_covariance3_1a07bab62ae744d94974144f3b28bd768a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>EigenCovariance3</type>
+        <definition>EigenCovariance3 GMapping::EigenCovariance3::rotate</definition>
+        <argsstring>(double angle) const</argsstring>
+        <name>rotate</name>
+        <qualifiedname>GMapping::EigenCovariance3::rotate</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="27" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1_eigen_covariance3_1ac607d09cfd8a3445928e8db50df56ffa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>OrientedPoint</type>
+        <definition>OrientedPoint GMapping::EigenCovariance3::sample</definition>
+        <argsstring>() const</argsstring>
+        <name>sample</name>
+        <qualifiedname>GMapping::EigenCovariance3::sample</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/stat.h" line="28" column="15"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/utils/stat.h" line="24" column="1" bodyfile="include/gmapping/utils/stat.h" bodystart="24" bodyend="31"/>
+    <listofallmembers>
+      <member refid="struct_g_mapping_1_1_eigen_covariance3_1aef73a904a1b465eeeb28b37d1f6459a9" prot="public" virt="non-virtual"><scope>GMapping::EigenCovariance3</scope><name>EigenCovariance3</name></member>
+      <member refid="struct_g_mapping_1_1_eigen_covariance3_1a382fc4f9890ddb4d5f0b457c60188c21" prot="public" virt="non-virtual"><scope>GMapping::EigenCovariance3</scope><name>EigenCovariance3</name></member>
+      <member refid="struct_g_mapping_1_1_eigen_covariance3_1a6bda6c153a521484a61194c8c563f343" prot="public" virt="non-virtual"><scope>GMapping::EigenCovariance3</scope><name>eval</name></member>
+      <member refid="struct_g_mapping_1_1_eigen_covariance3_1aa1f7cda37a444b94987b12dce284e830" prot="public" virt="non-virtual"><scope>GMapping::EigenCovariance3</scope><name>evec</name></member>
+      <member refid="struct_g_mapping_1_1_eigen_covariance3_1a07bab62ae744d94974144f3b28bd768a" prot="public" virt="non-virtual"><scope>GMapping::EigenCovariance3</scope><name>rotate</name></member>
+      <member refid="struct_g_mapping_1_1_eigen_covariance3_1ac607d09cfd8a3445928e8db50df56ffa" prot="public" virt="non-virtual"><scope>GMapping::EigenCovariance3</scope><name>sample</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

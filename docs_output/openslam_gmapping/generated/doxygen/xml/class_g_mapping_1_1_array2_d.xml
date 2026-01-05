@@ -1,0 +1,442 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_g_mapping_1_1_array2_d" kind="class" language="C++" prot="public">
+    <compoundname>GMapping::Array2D</compoundname>
+    <templateparamlist>
+      <param>
+        <type>class Cell</type>
+      </param>
+      <param>
+        <type>const bool</type>
+        <declname>debug</declname>
+        <defname>debug</defname>
+        <defval>false</defval>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_g_mapping_1_1_array2_d_1afd83021c5123d5ae067a3ed34512a59e" prot="public" static="no" mutable="no">
+        <type>Cell **</type>
+        <definition>Cell** GMapping::Array2D&lt; Cell, debug &gt;::m_cells</definition>
+        <argsstring></argsstring>
+        <name>m_cells</name>
+        <qualifiedname>GMapping::Array2D::m_cells</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="41" column="7" bodyfile="include/gmapping/grid/array2d.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_g_mapping_1_1_array2_d_1aacab0ceb637229a97fe90e2d1a01ec53" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GMapping::Array2D&lt; Cell, debug &gt;::m_xsize</definition>
+        <argsstring></argsstring>
+        <name>m_xsize</name>
+        <qualifiedname>GMapping::Array2D::m_xsize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="43" column="5" bodyfile="include/gmapping/grid/array2d.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_mapping_1_1_array2_d_1afe60e4ad957faf1e8dc04d8850c38c04" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GMapping::Array2D&lt; Cell, debug &gt;::m_ysize</definition>
+        <argsstring></argsstring>
+        <name>m_ysize</name>
+        <qualifiedname>GMapping::Array2D::m_ysize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="43" column="13" bodyfile="include/gmapping/grid/array2d.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1a0d317f25f3a2873f5be6c0be1ab9fa7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::Array2D&lt; Cell, debug &gt;::Array2D</definition>
+        <argsstring>(int xsize=0, int ysize=0)</argsstring>
+        <name>Array2D</name>
+        <qualifiedname>GMapping::Array2D::Array2D</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>xsize</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ysize</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="18" column="1" bodyfile="include/gmapping/grid/array2d.h" bodystart="48" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1aa91eb3778e1066f9039620a9d2eb0975" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Array2D &amp;</type>
+        <definition>Array2D&lt; Cell, debug &gt; &amp; GMapping::Array2D&lt; Cell, debug &gt;::operator=</definition>
+        <argsstring>(const Array2D &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>GMapping::Array2D::operator=</qualifiedname>
+        <param>
+          <type>const Array2D &amp;</type>
+          <defname>g</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="19" column="9" bodyfile="include/gmapping/grid/array2d.h" bodystart="70" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1a08b3d4b4458fb4c6f4e244162d3535ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::Array2D&lt; Cell, debug &gt;::Array2D</definition>
+        <argsstring>(const Array2D&lt; Cell, debug &gt; &amp;)</argsstring>
+        <name>Array2D</name>
+        <qualifiedname>GMapping::Array2D::Array2D</qualifiedname>
+        <param>
+          <type>const Array2D&lt; Cell, debug &gt; &amp;</type>
+          <defname>g</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="20" column="1" bodyfile="include/gmapping/grid/array2d.h" bodystart="94" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1a0e68572ba9edcdd4055c7ad5d013c9e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::Array2D&lt; Cell, debug &gt;::~Array2D</definition>
+        <argsstring>()</argsstring>
+        <name>~Array2D</name>
+        <qualifiedname>GMapping::Array2D::~Array2D</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="21" column="1" bodyfile="include/gmapping/grid/array2d.h" bodystart="111" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1a3b5152ab2325ec1b2bd900a305a7e6cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::Array2D&lt; Cell, debug &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>GMapping::Array2D::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="22" column="6" bodyfile="include/gmapping/grid/array2d.h" bodystart="126" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1a07aee668640ab602d07a7b0c7192a180" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::Array2D&lt; Cell, debug &gt;::resize</definition>
+        <argsstring>(int xmin, int ymin, int xmax, int ymax)</argsstring>
+        <name>resize</name>
+        <qualifiedname>GMapping::Array2D::resize</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>xmin</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ymin</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>xmax</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ymax</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="23" column="6" bodyfile="include/gmapping/grid/array2d.h" bodystart="144" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1a25959e968883eefc2cbcdf9fa1d62a90" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GMapping::Array2D&lt; Cell, debug &gt;::isInside</definition>
+        <argsstring>(int x, int y) const</argsstring>
+        <name>isInside</name>
+        <qualifiedname>GMapping::Array2D::isInside</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="26" column="13" bodyfile="include/gmapping/grid/array2d.h" bodystart="168" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1aed1ef167b9dd53140b303ebddd2d9dcc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const Cell &amp;</type>
+        <definition>const Cell &amp; GMapping::Array2D&lt; Cell, debug &gt;::cell</definition>
+        <argsstring>(int x, int y) const</argsstring>
+        <name>cell</name>
+        <qualifiedname>GMapping::Array2D::cell</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="27" column="19" bodyfile="include/gmapping/grid/array2d.h" bodystart="173" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1a12a931e92317de998eaac698e27bfbc6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Cell &amp;</type>
+        <definition>Cell &amp; GMapping::Array2D&lt; Cell, debug &gt;::cell</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>cell</name>
+        <qualifiedname>GMapping::Array2D::cell</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="28" column="13" bodyfile="include/gmapping/grid/array2d.h" bodystart="180" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1aa91d0ae63e36de075e5f2600de9bd82e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>AccessibilityState</type>
+        <definition>AccessibilityState GMapping::Array2D&lt; Cell, debug &gt;::cellState</definition>
+        <argsstring>(int x, int y) const</argsstring>
+        <name>cellState</name>
+        <qualifiedname>GMapping::Array2D::cellState</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="29" column="27" bodyfile="include/gmapping/grid/array2d.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1af6b20adad6b9616ba09a5a3a9b6a5217" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GMapping::Array2D&lt; Cell, debug &gt;::isInside</definition>
+        <argsstring>(const IntPoint &amp;p) const</argsstring>
+        <name>isInside</name>
+        <qualifiedname>GMapping::Array2D::isInside</qualifiedname>
+        <param>
+          <type>const IntPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="31" column="13" bodyfile="include/gmapping/grid/array2d.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1aa5585a07be807185df4efb1565276d89" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const Cell &amp;</type>
+        <definition>const Cell &amp; GMapping::Array2D&lt; Cell, debug &gt;::cell</definition>
+        <argsstring>(const IntPoint &amp;p) const</argsstring>
+        <name>cell</name>
+        <qualifiedname>GMapping::Array2D::cell</qualifiedname>
+        <param>
+          <type>const IntPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="32" column="19" bodyfile="include/gmapping/grid/array2d.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1abd30dbce13de6c61d7028f20bdc0c8a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Cell &amp;</type>
+        <definition>Cell &amp; GMapping::Array2D&lt; Cell, debug &gt;::cell</definition>
+        <argsstring>(const IntPoint &amp;p)</argsstring>
+        <name>cell</name>
+        <qualifiedname>GMapping::Array2D::cell</qualifiedname>
+        <param>
+          <type>const IntPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="33" column="13" bodyfile="include/gmapping/grid/array2d.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1a4c4a401989e25a1969d5d06e2e07a881" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>AccessibilityState</type>
+        <definition>AccessibilityState GMapping::Array2D&lt; Cell, debug &gt;::cellState</definition>
+        <argsstring>(const IntPoint &amp;p) const</argsstring>
+        <name>cellState</name>
+        <qualifiedname>GMapping::Array2D::cellState</qualifiedname>
+        <param>
+          <type>const IntPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="34" column="27" bodyfile="include/gmapping/grid/array2d.h" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1ad62adb483a791ed9590e6e232d649668" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int GMapping::Array2D&lt; Cell, debug &gt;::getPatchSize</definition>
+        <argsstring>() const</argsstring>
+        <name>getPatchSize</name>
+        <qualifiedname>GMapping::Array2D::getPatchSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="36" column="12" bodyfile="include/gmapping/grid/array2d.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1ab0dec32b505ee0d5705ca4e524c120d3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int GMapping::Array2D&lt; Cell, debug &gt;::getPatchMagnitude</definition>
+        <argsstring>() const</argsstring>
+        <name>getPatchMagnitude</name>
+        <qualifiedname>GMapping::Array2D::getPatchMagnitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="37" column="12" bodyfile="include/gmapping/grid/array2d.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1a415be1e44912dc2a9234ddae24d2b3c3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int GMapping::Array2D&lt; Cell, debug &gt;::getXSize</definition>
+        <argsstring>() const</argsstring>
+        <name>getXSize</name>
+        <qualifiedname>GMapping::Array2D::getXSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="38" column="12" bodyfile="include/gmapping/grid/array2d.h" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1a9546966c70ad82ec627410e545001b6b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int GMapping::Array2D&lt; Cell, debug &gt;::getYSize</definition>
+        <argsstring>() const</argsstring>
+        <name>getYSize</name>
+        <qualifiedname>GMapping::Array2D::getYSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="39" column="12" bodyfile="include/gmapping/grid/array2d.h" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_array2_d_1a4fb538c3cdd144e4bb18b225497946ed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Cell **</type>
+        <definition>Cell ** GMapping::Array2D&lt; Cell, debug &gt;::cells</definition>
+        <argsstring>()</argsstring>
+        <name>cells</name>
+        <qualifiedname>GMapping::Array2D::cells</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/grid/array2d.h" line="40" column="13" bodyfile="include/gmapping/grid/array2d.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/grid/array2d.h" line="16" column="14" bodyfile="include/gmapping/grid/array2d.h" bodystart="16" bodyend="44"/>
+    <listofallmembers>
+      <member refid="class_g_mapping_1_1_array2_d_1a0d317f25f3a2873f5be6c0be1ab9fa7b" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>Array2D</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1a08b3d4b4458fb4c6f4e244162d3535ee" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>Array2D</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1aed1ef167b9dd53140b303ebddd2d9dcc" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>cell</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1a12a931e92317de998eaac698e27bfbc6" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>cell</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1aa5585a07be807185df4efb1565276d89" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>cell</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1abd30dbce13de6c61d7028f20bdc0c8a3" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>cell</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1a4fb538c3cdd144e4bb18b225497946ed" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>cells</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1aa91d0ae63e36de075e5f2600de9bd82e" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>cellState</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1a4c4a401989e25a1969d5d06e2e07a881" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>cellState</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1a3b5152ab2325ec1b2bd900a305a7e6cf" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>clear</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1ab0dec32b505ee0d5705ca4e524c120d3" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>getPatchMagnitude</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1ad62adb483a791ed9590e6e232d649668" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>getPatchSize</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1a415be1e44912dc2a9234ddae24d2b3c3" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>getXSize</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1a9546966c70ad82ec627410e545001b6b" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>getYSize</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1a25959e968883eefc2cbcdf9fa1d62a90" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>isInside</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1af6b20adad6b9616ba09a5a3a9b6a5217" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>isInside</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1afd83021c5123d5ae067a3ed34512a59e" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>m_cells</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1aacab0ceb637229a97fe90e2d1a01ec53" prot="protected" virt="non-virtual"><scope>GMapping::Array2D</scope><name>m_xsize</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1afe60e4ad957faf1e8dc04d8850c38c04" prot="protected" virt="non-virtual"><scope>GMapping::Array2D</scope><name>m_ysize</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1aa91eb3778e1066f9039620a9d2eb0975" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>operator=</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1a07aee668640ab602d07a7b0c7192a180" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>resize</name></member>
+      <member refid="class_g_mapping_1_1_array2_d_1a0e68572ba9edcdd4055c7ad5d013c9e0" prot="public" virt="non-virtual"><scope>GMapping::Array2D</scope><name>~Array2D</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

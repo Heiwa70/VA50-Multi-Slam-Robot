@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="motionmodel_8h" kind="file" language="C++">
+    <compoundname>motionmodel.h</compoundname>
+    <includes refid="point_8h" local="no">gmapping/utils/point.h</includes>
+    <includes refid="stat_8h" local="no">gmapping/utils/stat.h</includes>
+    <includes refid="macro__params_8h" local="no">gmapping/utils/macro_params.h</includes>
+    <includedby refid="gridslamprocessor_8h" local="yes">include/gmapping/gridfastslam/gridslamprocessor.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>include/gmapping/gridfastslam/motionmodel.h</label>
+        <link refid="motionmodel_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>gvalues.h</label>
+        <link refid="gvalues_8h_source"/>
+      </node>
+      <node id="9">
+        <label>gmapping/utils/macro_params.h</label>
+        <link refid="macro__params_8h_source"/>
+      </node>
+      <node id="2">
+        <label>gmapping/utils/point.h</label>
+        <link refid="point_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>gmapping/utils/stat.h</label>
+        <link refid="stat_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>assert.h</label>
+      </node>
+      <node id="5">
+        <label>iostream</label>
+      </node>
+      <node id="4">
+        <label>math.h</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>include/gmapping/gridfastslam/gridslamprocessor.h</label>
+        <link refid="gridslamprocessor_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/gmapping/gridfastslam/motionmodel.h</label>
+        <link refid="motionmodel_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_g_mapping_1_1_motion_model" prot="public">GMapping::MotionModel</innerclass>
+    <innernamespace refid="namespace_g_mapping">GMapping</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOTIONMODEL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOTIONMODEL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gmapping/utils/point.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gmapping/utils/stat.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gmapping/utils/macro_params.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/><sp/></highlight><highlight class="normal">GMapping<sp/>{<sp/></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="struct_g_mapping_1_1_motion_model" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_g_mapping_1_1_motion_model" kindref="compound">MotionModel</ref>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>OrientedPoint<sp/>drawFromMotion(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>OrientedPoint&amp;<sp/>p,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>linearMove,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>angularMove)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>OrientedPoint<sp/>drawFromMotion(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>OrientedPoint&amp;<sp/>p,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>OrientedPoint&amp;<sp/>pnew,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>OrientedPoint&amp;<sp/>pold)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_mapping_1_1_covariance3" kindref="compound">Covariance3</ref><sp/>gaussianApproximation(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>OrientedPoint&amp;<sp/>pnew,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>OrientedPoint&amp;<sp/>pold)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>srr,<sp/>str,<sp/>srt,<sp/>stt;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/gmapping/gridfastslam/motionmodel.h"/>
+  </compounddef>
+</doxygen>

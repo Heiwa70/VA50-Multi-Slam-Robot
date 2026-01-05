@@ -1,0 +1,1214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_slam_gmapping" kind="class" language="C++" prot="public">
+    <compoundname>SlamGmapping</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">rclcpp::Node</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_slam_gmapping_1ad022879df9974a5e39e2ec69486cda87" prot="private" static="no" mutable="no">
+        <type>rclcpp::Node::SharedPtr</type>
+        <definition>rclcpp::Node::SharedPtr SlamGmapping::node_</definition>
+        <argsstring></argsstring>
+        <name>node_</name>
+        <qualifiedname>SlamGmapping::node_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="62" column="29" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a42efd3a914723042bb509006fc315401" prot="private" static="no" mutable="no">
+        <type>rclcpp::Publisher&lt; std_msgs::msg::Float64 &gt;::SharedPtr</type>
+        <definition>rclcpp::Publisher&lt;std_msgs::msg::Float64&gt;::SharedPtr SlamGmapping::entropy_publisher_</definition>
+        <argsstring></argsstring>
+        <name>entropy_publisher_</name>
+        <qualifiedname>SlamGmapping::entropy_publisher_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="63" column="35" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a475f77b984c402e2fd9063db268c2d68" prot="private" static="no" mutable="no">
+        <type>rclcpp::Publisher&lt; nav_msgs::msg::OccupancyGrid &gt;::SharedPtr</type>
+        <definition>rclcpp::Publisher&lt;nav_msgs::msg::OccupancyGrid&gt;::SharedPtr SlamGmapping::sst_</definition>
+        <argsstring></argsstring>
+        <name>sst_</name>
+        <qualifiedname>SlamGmapping::sst_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="64" column="35" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a0df4451dee0cfc1a634156e9936e1b31" prot="private" static="no" mutable="no">
+        <type>rclcpp::Publisher&lt; nav_msgs::msg::MapMetaData &gt;::SharedPtr</type>
+        <definition>rclcpp::Publisher&lt;nav_msgs::msg::MapMetaData&gt;::SharedPtr SlamGmapping::sstm_</definition>
+        <argsstring></argsstring>
+        <name>sstm_</name>
+        <qualifiedname>SlamGmapping::sstm_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="65" column="35" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a8768104c664dd19bfd04e084ab067ac7" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; tf2_ros::Buffer &gt;</type>
+        <definition>std::shared_ptr&lt;tf2_ros::Buffer&gt; SlamGmapping::buffer_</definition>
+        <argsstring></argsstring>
+        <name>buffer_</name>
+        <qualifiedname>SlamGmapping::buffer_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="67" column="21" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a1ac1aacb152aa8abb556f812bdd1ba26" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; tf2_ros::TransformListener &gt;</type>
+        <definition>std::shared_ptr&lt;tf2_ros::TransformListener&gt; SlamGmapping::tfl_</definition>
+        <argsstring></argsstring>
+        <name>tfl_</name>
+        <qualifiedname>SlamGmapping::tfl_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="68" column="21" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1ab332acee6a17434f64989ae1c5480559" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; message_filters::Subscriber&lt; sensor_msgs::msg::LaserScan &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;message_filters::Subscriber&lt;sensor_msgs::msg::LaserScan&gt; &gt; SlamGmapping::scan_filter_sub_</definition>
+        <argsstring></argsstring>
+        <name>scan_filter_sub_</name>
+        <qualifiedname>SlamGmapping::scan_filter_sub_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="70" column="21" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a317e2e660ff61145363db4b6298c0c60" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; tf2_ros::MessageFilter&lt; sensor_msgs::msg::LaserScan &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;tf2_ros::MessageFilter&lt;sensor_msgs::msg::LaserScan &gt; &gt; SlamGmapping::scan_filter_</definition>
+        <argsstring></argsstring>
+        <name>scan_filter_</name>
+        <qualifiedname>SlamGmapping::scan_filter_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="71" column="21" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1aede1742b2b7130de0bcf6021caac7e1c" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; tf2_ros::TransformBroadcaster &gt;</type>
+        <definition>std::shared_ptr&lt;tf2_ros::TransformBroadcaster&gt; SlamGmapping::tfB_</definition>
+        <argsstring></argsstring>
+        <name>tfB_</name>
+        <qualifiedname>SlamGmapping::tfB_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="72" column="21" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1ad9b8c8192ecbc209318062cddb1cbdb4" prot="private" static="no" mutable="no">
+        <type><ref refid="class_g_mapping_1_1_grid_slam_processor" kindref="compound" external="/Users/clementseiler/Downloads/ros2_humble/cross_reference/openslam_gmapping/openslam_gmapping.tag">GMapping::GridSlamProcessor</ref> *</type>
+        <definition>GMapping::GridSlamProcessor* SlamGmapping::gsp_</definition>
+        <argsstring></argsstring>
+        <name>gsp_</name>
+        <qualifiedname>SlamGmapping::gsp_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="74" column="33" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a427d55fd450687d0848dc08a09a50dc3" prot="private" static="no" mutable="no">
+        <type><ref refid="class_g_mapping_1_1_range_sensor" kindref="compound" external="/Users/clementseiler/Downloads/ros2_humble/cross_reference/openslam_gmapping/openslam_gmapping.tag">GMapping::RangeSensor</ref> *</type>
+        <definition>GMapping::RangeSensor* SlamGmapping::gsp_laser_</definition>
+        <argsstring></argsstring>
+        <name>gsp_laser_</name>
+        <qualifiedname>SlamGmapping::gsp_laser_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="75" column="27" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a267f1b9949c9271fcc9c28d1b7d46ae2" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; SlamGmapping::laser_angles_</definition>
+        <argsstring></argsstring>
+        <name>laser_angles_</name>
+        <qualifiedname>SlamGmapping::laser_angles_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="78" column="17" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a840f107e3a8a6ea520fc0cc94cb8604b" prot="private" static="no" mutable="no">
+        <type>geometry_msgs::msg::PoseStamped</type>
+        <definition>geometry_msgs::msg::PoseStamped SlamGmapping::centered_laser_pose_</definition>
+        <argsstring></argsstring>
+        <name>centered_laser_pose_</name>
+        <qualifiedname>SlamGmapping::centered_laser_pose_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="80" column="37" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a1cfef9ce122845a1ca5c864ec98cc089" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SlamGmapping::do_reverse_range_</definition>
+        <argsstring></argsstring>
+        <name>do_reverse_range_</name>
+        <qualifiedname>SlamGmapping::do_reverse_range_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="83" column="10" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a7e3b60141f6faa99a28388afb607fc12" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int SlamGmapping::gsp_laser_beam_count_</definition>
+        <argsstring></argsstring>
+        <name>gsp_laser_beam_count_</name>
+        <qualifiedname>SlamGmapping::gsp_laser_beam_count_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="84" column="18" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a49e8f02ece35eccaeeb93c47aa0b392d" prot="private" static="no" mutable="no">
+        <type><ref refid="class_g_mapping_1_1_odometry_sensor" kindref="compound" external="/Users/clementseiler/Downloads/ros2_humble/cross_reference/openslam_gmapping/openslam_gmapping.tag">GMapping::OdometrySensor</ref> *</type>
+        <definition>GMapping::OdometrySensor* SlamGmapping::gsp_odom_</definition>
+        <argsstring></argsstring>
+        <name>gsp_odom_</name>
+        <qualifiedname>SlamGmapping::gsp_odom_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="85" column="30" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a87a370cf61b3dadfde4e9c2f96425ed8" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SlamGmapping::got_first_scan_</definition>
+        <argsstring></argsstring>
+        <name>got_first_scan_</name>
+        <qualifiedname>SlamGmapping::got_first_scan_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="87" column="10" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a91a230f8d1fe4a45e6322278acfc2886" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SlamGmapping::got_map_</definition>
+        <argsstring></argsstring>
+        <name>got_map_</name>
+        <qualifiedname>SlamGmapping::got_map_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="89" column="10" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1ae7620030a240da969a0e26d1c455c54e" prot="private" static="no" mutable="no">
+        <type>nav_msgs::msg::OccupancyGrid</type>
+        <definition>nav_msgs::msg::OccupancyGrid SlamGmapping::map_</definition>
+        <argsstring></argsstring>
+        <name>map_</name>
+        <qualifiedname>SlamGmapping::map_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="90" column="34" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a41c91346de265eb2f0ea8701671a0091" prot="private" static="no" mutable="no">
+        <type>tf2::Duration</type>
+        <definition>tf2::Duration SlamGmapping::map_update_interval_</definition>
+        <argsstring></argsstring>
+        <name>map_update_interval_</name>
+        <qualifiedname>SlamGmapping::map_update_interval_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="92" column="19" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1ac406e5d81917cfbc79dac8b7025a039b" prot="private" static="no" mutable="no">
+        <type>tf2::Transform</type>
+        <definition>tf2::Transform SlamGmapping::map_to_odom_</definition>
+        <argsstring></argsstring>
+        <name>map_to_odom_</name>
+        <qualifiedname>SlamGmapping::map_to_odom_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="93" column="20" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a8cd8f769af55ce90e27393ae3dce6b8a" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex SlamGmapping::map_to_odom_mutex_</definition>
+        <argsstring></argsstring>
+        <name>map_to_odom_mutex_</name>
+        <qualifiedname>SlamGmapping::map_to_odom_mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="94" column="16" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a950a2a33ac6b92ac5e64e506ba4e2a77" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex SlamGmapping::map_mutex_</definition>
+        <argsstring></argsstring>
+        <name>map_mutex_</name>
+        <qualifiedname>SlamGmapping::map_mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="95" column="16" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a22c829c233afd5117079bac3fe71e2c8" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SlamGmapping::laser_count_</definition>
+        <argsstring></argsstring>
+        <name>laser_count_</name>
+        <qualifiedname>SlamGmapping::laser_count_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="97" column="9" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a74a6a65ad91329adabc6d6599d9c11ac" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SlamGmapping::throttle_scans_</definition>
+        <argsstring></argsstring>
+        <name>throttle_scans_</name>
+        <qualifiedname>SlamGmapping::throttle_scans_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="98" column="9" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a8dfb7b60ad584cd15ea1a352485a2e89" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; std::thread &gt;</type>
+        <definition>std::shared_ptr&lt;std::thread&gt; SlamGmapping::transform_thread_</definition>
+        <argsstring></argsstring>
+        <name>transform_thread_</name>
+        <qualifiedname>SlamGmapping::transform_thread_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="100" column="21" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a486d1899f8d6f295658a4b87e1d5ca3c" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string SlamGmapping::base_frame_</definition>
+        <argsstring></argsstring>
+        <name>base_frame_</name>
+        <qualifiedname>SlamGmapping::base_frame_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="102" column="17" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1af52f66074fac921b61bdb9de7436b81e" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string SlamGmapping::laser_frame_</definition>
+        <argsstring></argsstring>
+        <name>laser_frame_</name>
+        <qualifiedname>SlamGmapping::laser_frame_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="103" column="17" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a49fa00685831acca780ea6922ca87453" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string SlamGmapping::map_frame_</definition>
+        <argsstring></argsstring>
+        <name>map_frame_</name>
+        <qualifiedname>SlamGmapping::map_frame_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="104" column="17" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1af7d84da101696d456281571156bc1136" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string SlamGmapping::odom_frame_</definition>
+        <argsstring></argsstring>
+        <name>odom_frame_</name>
+        <qualifiedname>SlamGmapping::odom_frame_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="105" column="17" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a8e7864d63131cbd40dd3a879f409a5eb" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::maxRange_</definition>
+        <argsstring></argsstring>
+        <name>maxRange_</name>
+        <qualifiedname>SlamGmapping::maxRange_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="114" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1aaa0ecae76982c390ac82e4d07fa7b454" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::maxUrange_</definition>
+        <argsstring></argsstring>
+        <name>maxUrange_</name>
+        <qualifiedname>SlamGmapping::maxUrange_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="115" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a1e2b85a2439bb67f4dbec6fbc71f2525" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::maxrange_</definition>
+        <argsstring></argsstring>
+        <name>maxrange_</name>
+        <qualifiedname>SlamGmapping::maxrange_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="116" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a44924300f68cadd283b0bbba31ce07da" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::minimum_score_</definition>
+        <argsstring></argsstring>
+        <name>minimum_score_</name>
+        <qualifiedname>SlamGmapping::minimum_score_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="117" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a872efdc47453e6f5eabf937203fa6a1c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::sigma_</definition>
+        <argsstring></argsstring>
+        <name>sigma_</name>
+        <qualifiedname>SlamGmapping::sigma_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="118" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1abfc85675c0c8f30f5539a916f7f04ae1" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SlamGmapping::kernelSize_</definition>
+        <argsstring></argsstring>
+        <name>kernelSize_</name>
+        <qualifiedname>SlamGmapping::kernelSize_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="119" column="9" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1ab4ddfdaa67cae0848c5e6fb26f90d4fd" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::lstep_</definition>
+        <argsstring></argsstring>
+        <name>lstep_</name>
+        <qualifiedname>SlamGmapping::lstep_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="120" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a717938a9edb920c7cf896e53e135775c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::astep_</definition>
+        <argsstring></argsstring>
+        <name>astep_</name>
+        <qualifiedname>SlamGmapping::astep_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="121" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a217dabf2c425c615bae767541ab9f734" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SlamGmapping::iterations_</definition>
+        <argsstring></argsstring>
+        <name>iterations_</name>
+        <qualifiedname>SlamGmapping::iterations_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="122" column="9" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a9c27deb25c3c3f3729d7a9420a7a2ad9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::lsigma_</definition>
+        <argsstring></argsstring>
+        <name>lsigma_</name>
+        <qualifiedname>SlamGmapping::lsigma_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="123" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a26040373f5ac10ef6e06fe95d1cf5d43" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::ogain_</definition>
+        <argsstring></argsstring>
+        <name>ogain_</name>
+        <qualifiedname>SlamGmapping::ogain_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="124" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a640ef3015a0ff0c765485b9a89554a41" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SlamGmapping::lskip_</definition>
+        <argsstring></argsstring>
+        <name>lskip_</name>
+        <qualifiedname>SlamGmapping::lskip_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="125" column="9" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1ae0c4fd95aa2a948b10b36f263cfe1117" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::srr_</definition>
+        <argsstring></argsstring>
+        <name>srr_</name>
+        <qualifiedname>SlamGmapping::srr_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="126" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1aa8252ccab84a2c9d7979e782647d8f2f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::srt_</definition>
+        <argsstring></argsstring>
+        <name>srt_</name>
+        <qualifiedname>SlamGmapping::srt_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="127" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1aa2990a0aba3cf3e9d6640cfdc59310fa" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::str_</definition>
+        <argsstring></argsstring>
+        <name>str_</name>
+        <qualifiedname>SlamGmapping::str_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="128" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a5a4b962e9b33bd6851a48cec63c895d3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::stt_</definition>
+        <argsstring></argsstring>
+        <name>stt_</name>
+        <qualifiedname>SlamGmapping::stt_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="129" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a058f431031692b6572d37607858e1420" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::linearUpdate_</definition>
+        <argsstring></argsstring>
+        <name>linearUpdate_</name>
+        <qualifiedname>SlamGmapping::linearUpdate_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="130" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1aa3d7f8bcf12a9c1049979059061f2fe3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::angularUpdate_</definition>
+        <argsstring></argsstring>
+        <name>angularUpdate_</name>
+        <qualifiedname>SlamGmapping::angularUpdate_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="131" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a744d66ae39d6ddb0d0070ca6f4885630" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::temporalUpdate_</definition>
+        <argsstring></argsstring>
+        <name>temporalUpdate_</name>
+        <qualifiedname>SlamGmapping::temporalUpdate_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="132" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1aa0689d73941272de33baa63a5bd90121" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::resampleThreshold_</definition>
+        <argsstring></argsstring>
+        <name>resampleThreshold_</name>
+        <qualifiedname>SlamGmapping::resampleThreshold_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="133" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1ab8facaeb5692418abb51fdc0e05de07d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SlamGmapping::particles_</definition>
+        <argsstring></argsstring>
+        <name>particles_</name>
+        <qualifiedname>SlamGmapping::particles_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="134" column="9" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1ababe5a55fbea50e87d5e9a3d76e1c32c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::xmin_</definition>
+        <argsstring></argsstring>
+        <name>xmin_</name>
+        <qualifiedname>SlamGmapping::xmin_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="135" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a169c9ae6c954a714da485c0894dbfac3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::ymin_</definition>
+        <argsstring></argsstring>
+        <name>ymin_</name>
+        <qualifiedname>SlamGmapping::ymin_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="136" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a7d394436abdf8c821b822bfdfdf54ab0" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::xmax_</definition>
+        <argsstring></argsstring>
+        <name>xmax_</name>
+        <qualifiedname>SlamGmapping::xmax_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="137" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a84bdadf0bdd4dbe1e7e017efb608cc9a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::ymax_</definition>
+        <argsstring></argsstring>
+        <name>ymax_</name>
+        <qualifiedname>SlamGmapping::ymax_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="138" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a76df91cbf64d73d88126c0efcc45c598" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::delta_</definition>
+        <argsstring></argsstring>
+        <name>delta_</name>
+        <qualifiedname>SlamGmapping::delta_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="139" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a68cbb254044b6056901b46fe6a082bbe" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::occ_thresh_</definition>
+        <argsstring></argsstring>
+        <name>occ_thresh_</name>
+        <qualifiedname>SlamGmapping::occ_thresh_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="140" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a48deccc90d38b039aeb03cacb16797ce" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::llsamplerange_</definition>
+        <argsstring></argsstring>
+        <name>llsamplerange_</name>
+        <qualifiedname>SlamGmapping::llsamplerange_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="141" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a7975be2e2c25afcf4101208571ddcb4d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::llsamplestep_</definition>
+        <argsstring></argsstring>
+        <name>llsamplestep_</name>
+        <qualifiedname>SlamGmapping::llsamplestep_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="142" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a31fcb2f5c0bd1732616cb787e9726adb" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::lasamplerange_</definition>
+        <argsstring></argsstring>
+        <name>lasamplerange_</name>
+        <qualifiedname>SlamGmapping::lasamplerange_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="143" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1aa9e181476521d81b2b7d9bbd2746c8e9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::lasamplestep_</definition>
+        <argsstring></argsstring>
+        <name>lasamplestep_</name>
+        <qualifiedname>SlamGmapping::lasamplestep_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="144" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a75593905943ff9a552d0fc49785332be" prot="private" static="no" mutable="no">
+        <type>unsigned long int</type>
+        <definition>unsigned long int SlamGmapping::seed_</definition>
+        <argsstring></argsstring>
+        <name>seed_</name>
+        <qualifiedname>SlamGmapping::seed_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="146" column="23" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a9da308e0eebb93c53b640ccd4454a4f2" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::transform_publish_period_</definition>
+        <argsstring></argsstring>
+        <name>transform_publish_period_</name>
+        <qualifiedname>SlamGmapping::transform_publish_period_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="148" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_slam_gmapping_1a9278e7c38a694a45f6a2e3ef3aa071c8" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SlamGmapping::tf_delay_</definition>
+        <argsstring></argsstring>
+        <name>tf_delay_</name>
+        <qualifiedname>SlamGmapping::tf_delay_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="149" column="12" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_slam_gmapping_1acbd26b4878a20385f77655698e6964d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SlamGmapping::SlamGmapping</definition>
+        <argsstring>()</argsstring>
+        <name>SlamGmapping</name>
+        <qualifiedname>SlamGmapping::SlamGmapping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="52" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_slam_gmapping_1a946844224c657db8f1155e2a1aababf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SlamGmapping::~SlamGmapping</definition>
+        <argsstring>() override</argsstring>
+        <name>~SlamGmapping</name>
+        <qualifiedname>SlamGmapping::~SlamGmapping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="53" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_slam_gmapping_1aed115ad939c89f67f92251d23b0f5f52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SlamGmapping::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <qualifiedname>SlamGmapping::init</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="55" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_slam_gmapping_1ae8d2dd160ed26acd8ed5943ebb204f1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SlamGmapping::startLiveSlam</definition>
+        <argsstring>()</argsstring>
+        <name>startLiveSlam</name>
+        <qualifiedname>SlamGmapping::startLiveSlam</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="56" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_slam_gmapping_1a71bcc7f63afd1f75ede5a513c7d053c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SlamGmapping::publishTransform</definition>
+        <argsstring>()</argsstring>
+        <name>publishTransform</name>
+        <qualifiedname>SlamGmapping::publishTransform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="57" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_slam_gmapping_1a31c41b0e1ea5e81926dcf52c2f411bbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SlamGmapping::laserCallback</definition>
+        <argsstring>(sensor_msgs::msg::LaserScan::ConstSharedPtr scan)</argsstring>
+        <name>laserCallback</name>
+        <qualifiedname>SlamGmapping::laserCallback</qualifiedname>
+        <param>
+          <type>sensor_msgs::msg::LaserScan::ConstSharedPtr</type>
+          <declname>scan</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="58" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_slam_gmapping_1a0c934f4c78038945af88b4a33e6af166" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SlamGmapping::publishLoop</definition>
+        <argsstring>(double transform_publish_period)</argsstring>
+        <name>publishLoop</name>
+        <qualifiedname>SlamGmapping::publishLoop</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>transform_publish_period</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="59" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_slam_gmapping_1a6d6df53d97d8d4b9718c1a5c605cf5fa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SlamGmapping::updateMap</definition>
+        <argsstring>(sensor_msgs::msg::LaserScan::ConstSharedPtr scan)</argsstring>
+        <name>updateMap</name>
+        <qualifiedname>SlamGmapping::updateMap</qualifiedname>
+        <param>
+          <type>sensor_msgs::msg::LaserScan::ConstSharedPtr</type>
+          <declname>scan</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="107" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_slam_gmapping_1a58711260ab13819bcab322ebcae5549a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SlamGmapping::getOdomPose</definition>
+        <argsstring>(GMapping::OrientedPoint &amp;gmap_pose, const rclcpp::Time &amp;t)</argsstring>
+        <name>getOdomPose</name>
+        <qualifiedname>SlamGmapping::getOdomPose</qualifiedname>
+        <param>
+          <type>GMapping::OrientedPoint &amp;</type>
+          <declname>gmap_pose</declname>
+        </param>
+        <param>
+          <type>const rclcpp::Time &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="108" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_slam_gmapping_1a9201bac2925adb5e2f708ef1051353d7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SlamGmapping::initMapper</definition>
+        <argsstring>(sensor_msgs::msg::LaserScan::ConstSharedPtr scan)</argsstring>
+        <name>initMapper</name>
+        <qualifiedname>SlamGmapping::initMapper</qualifiedname>
+        <param>
+          <type>sensor_msgs::msg::LaserScan::ConstSharedPtr</type>
+          <declname>scan</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="109" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_slam_gmapping_1a368e8dc5f52c7d79eaa55d60ef90fefe" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SlamGmapping::addScan</definition>
+        <argsstring>(sensor_msgs::msg::LaserScan::ConstSharedPtr scan, GMapping::OrientedPoint &amp;gmap_pose)</argsstring>
+        <name>addScan</name>
+        <qualifiedname>SlamGmapping::addScan</qualifiedname>
+        <param>
+          <type>sensor_msgs::msg::LaserScan::ConstSharedPtr</type>
+          <declname>scan</declname>
+        </param>
+        <param>
+          <type>GMapping::OrientedPoint &amp;</type>
+          <declname>gmap_pose</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="110" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_slam_gmapping_1a806364db2e0bb3fd76b15521799f92fa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double SlamGmapping::computePoseEntropy</definition>
+        <argsstring>()</argsstring>
+        <name>computePoseEntropy</name>
+        <qualifiedname>SlamGmapping::computePoseEntropy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/slam_gmapping/slam_gmapping.h" line="111" column="12"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>SlamGmapping</label>
+        <link refid="class_slam_gmapping"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rclcpp::Node</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>SlamGmapping</label>
+        <link refid="class_slam_gmapping"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rclcpp::Node</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/slam_gmapping/slam_gmapping.h" line="50" column="1" bodyfile="include/slam_gmapping/slam_gmapping.h" bodystart="50" bodyend="150"/>
+    <listofallmembers>
+      <member refid="class_slam_gmapping_1a368e8dc5f52c7d79eaa55d60ef90fefe" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>addScan</name></member>
+      <member refid="class_slam_gmapping_1aa3d7f8bcf12a9c1049979059061f2fe3" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>angularUpdate_</name></member>
+      <member refid="class_slam_gmapping_1a717938a9edb920c7cf896e53e135775c" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>astep_</name></member>
+      <member refid="class_slam_gmapping_1a486d1899f8d6f295658a4b87e1d5ca3c" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>base_frame_</name></member>
+      <member refid="class_slam_gmapping_1a8768104c664dd19bfd04e084ab067ac7" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>buffer_</name></member>
+      <member refid="class_slam_gmapping_1a840f107e3a8a6ea520fc0cc94cb8604b" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>centered_laser_pose_</name></member>
+      <member refid="class_slam_gmapping_1a806364db2e0bb3fd76b15521799f92fa" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>computePoseEntropy</name></member>
+      <member refid="class_slam_gmapping_1a76df91cbf64d73d88126c0efcc45c598" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>delta_</name></member>
+      <member refid="class_slam_gmapping_1a1cfef9ce122845a1ca5c864ec98cc089" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>do_reverse_range_</name></member>
+      <member refid="class_slam_gmapping_1a42efd3a914723042bb509006fc315401" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>entropy_publisher_</name></member>
+      <member refid="class_slam_gmapping_1a58711260ab13819bcab322ebcae5549a" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>getOdomPose</name></member>
+      <member refid="class_slam_gmapping_1a87a370cf61b3dadfde4e9c2f96425ed8" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>got_first_scan_</name></member>
+      <member refid="class_slam_gmapping_1a91a230f8d1fe4a45e6322278acfc2886" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>got_map_</name></member>
+      <member refid="class_slam_gmapping_1ad9b8c8192ecbc209318062cddb1cbdb4" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>gsp_</name></member>
+      <member refid="class_slam_gmapping_1a427d55fd450687d0848dc08a09a50dc3" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>gsp_laser_</name></member>
+      <member refid="class_slam_gmapping_1a7e3b60141f6faa99a28388afb607fc12" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>gsp_laser_beam_count_</name></member>
+      <member refid="class_slam_gmapping_1a49e8f02ece35eccaeeb93c47aa0b392d" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>gsp_odom_</name></member>
+      <member refid="class_slam_gmapping_1aed115ad939c89f67f92251d23b0f5f52" prot="public" virt="non-virtual"><scope>SlamGmapping</scope><name>init</name></member>
+      <member refid="class_slam_gmapping_1a9201bac2925adb5e2f708ef1051353d7" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>initMapper</name></member>
+      <member refid="class_slam_gmapping_1a217dabf2c425c615bae767541ab9f734" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>iterations_</name></member>
+      <member refid="class_slam_gmapping_1abfc85675c0c8f30f5539a916f7f04ae1" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>kernelSize_</name></member>
+      <member refid="class_slam_gmapping_1a31fcb2f5c0bd1732616cb787e9726adb" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>lasamplerange_</name></member>
+      <member refid="class_slam_gmapping_1aa9e181476521d81b2b7d9bbd2746c8e9" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>lasamplestep_</name></member>
+      <member refid="class_slam_gmapping_1a267f1b9949c9271fcc9c28d1b7d46ae2" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>laser_angles_</name></member>
+      <member refid="class_slam_gmapping_1a22c829c233afd5117079bac3fe71e2c8" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>laser_count_</name></member>
+      <member refid="class_slam_gmapping_1af52f66074fac921b61bdb9de7436b81e" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>laser_frame_</name></member>
+      <member refid="class_slam_gmapping_1a31c41b0e1ea5e81926dcf52c2f411bbc" prot="public" virt="non-virtual"><scope>SlamGmapping</scope><name>laserCallback</name></member>
+      <member refid="class_slam_gmapping_1a058f431031692b6572d37607858e1420" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>linearUpdate_</name></member>
+      <member refid="class_slam_gmapping_1a48deccc90d38b039aeb03cacb16797ce" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>llsamplerange_</name></member>
+      <member refid="class_slam_gmapping_1a7975be2e2c25afcf4101208571ddcb4d" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>llsamplestep_</name></member>
+      <member refid="class_slam_gmapping_1a9c27deb25c3c3f3729d7a9420a7a2ad9" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>lsigma_</name></member>
+      <member refid="class_slam_gmapping_1a640ef3015a0ff0c765485b9a89554a41" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>lskip_</name></member>
+      <member refid="class_slam_gmapping_1ab4ddfdaa67cae0848c5e6fb26f90d4fd" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>lstep_</name></member>
+      <member refid="class_slam_gmapping_1ae7620030a240da969a0e26d1c455c54e" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>map_</name></member>
+      <member refid="class_slam_gmapping_1a49fa00685831acca780ea6922ca87453" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>map_frame_</name></member>
+      <member refid="class_slam_gmapping_1a950a2a33ac6b92ac5e64e506ba4e2a77" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>map_mutex_</name></member>
+      <member refid="class_slam_gmapping_1ac406e5d81917cfbc79dac8b7025a039b" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>map_to_odom_</name></member>
+      <member refid="class_slam_gmapping_1a8cd8f769af55ce90e27393ae3dce6b8a" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>map_to_odom_mutex_</name></member>
+      <member refid="class_slam_gmapping_1a41c91346de265eb2f0ea8701671a0091" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>map_update_interval_</name></member>
+      <member refid="class_slam_gmapping_1a8e7864d63131cbd40dd3a879f409a5eb" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>maxRange_</name></member>
+      <member refid="class_slam_gmapping_1a1e2b85a2439bb67f4dbec6fbc71f2525" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>maxrange_</name></member>
+      <member refid="class_slam_gmapping_1aaa0ecae76982c390ac82e4d07fa7b454" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>maxUrange_</name></member>
+      <member refid="class_slam_gmapping_1a44924300f68cadd283b0bbba31ce07da" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>minimum_score_</name></member>
+      <member refid="class_slam_gmapping_1ad022879df9974a5e39e2ec69486cda87" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>node_</name></member>
+      <member refid="class_slam_gmapping_1a68cbb254044b6056901b46fe6a082bbe" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>occ_thresh_</name></member>
+      <member refid="class_slam_gmapping_1af7d84da101696d456281571156bc1136" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>odom_frame_</name></member>
+      <member refid="class_slam_gmapping_1a26040373f5ac10ef6e06fe95d1cf5d43" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>ogain_</name></member>
+      <member refid="class_slam_gmapping_1ab8facaeb5692418abb51fdc0e05de07d" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>particles_</name></member>
+      <member refid="class_slam_gmapping_1a0c934f4c78038945af88b4a33e6af166" prot="public" virt="non-virtual"><scope>SlamGmapping</scope><name>publishLoop</name></member>
+      <member refid="class_slam_gmapping_1a71bcc7f63afd1f75ede5a513c7d053c5" prot="public" virt="non-virtual"><scope>SlamGmapping</scope><name>publishTransform</name></member>
+      <member refid="class_slam_gmapping_1aa0689d73941272de33baa63a5bd90121" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>resampleThreshold_</name></member>
+      <member refid="class_slam_gmapping_1a317e2e660ff61145363db4b6298c0c60" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>scan_filter_</name></member>
+      <member refid="class_slam_gmapping_1ab332acee6a17434f64989ae1c5480559" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>scan_filter_sub_</name></member>
+      <member refid="class_slam_gmapping_1a75593905943ff9a552d0fc49785332be" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>seed_</name></member>
+      <member refid="class_slam_gmapping_1a872efdc47453e6f5eabf937203fa6a1c" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>sigma_</name></member>
+      <member refid="class_slam_gmapping_1acbd26b4878a20385f77655698e6964d5" prot="public" virt="non-virtual"><scope>SlamGmapping</scope><name>SlamGmapping</name></member>
+      <member refid="class_slam_gmapping_1ae0c4fd95aa2a948b10b36f263cfe1117" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>srr_</name></member>
+      <member refid="class_slam_gmapping_1aa8252ccab84a2c9d7979e782647d8f2f" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>srt_</name></member>
+      <member refid="class_slam_gmapping_1a475f77b984c402e2fd9063db268c2d68" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>sst_</name></member>
+      <member refid="class_slam_gmapping_1a0df4451dee0cfc1a634156e9936e1b31" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>sstm_</name></member>
+      <member refid="class_slam_gmapping_1ae8d2dd160ed26acd8ed5943ebb204f1b" prot="public" virt="non-virtual"><scope>SlamGmapping</scope><name>startLiveSlam</name></member>
+      <member refid="class_slam_gmapping_1aa2990a0aba3cf3e9d6640cfdc59310fa" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>str_</name></member>
+      <member refid="class_slam_gmapping_1a5a4b962e9b33bd6851a48cec63c895d3" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>stt_</name></member>
+      <member refid="class_slam_gmapping_1a744d66ae39d6ddb0d0070ca6f4885630" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>temporalUpdate_</name></member>
+      <member refid="class_slam_gmapping_1a9278e7c38a694a45f6a2e3ef3aa071c8" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>tf_delay_</name></member>
+      <member refid="class_slam_gmapping_1aede1742b2b7130de0bcf6021caac7e1c" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>tfB_</name></member>
+      <member refid="class_slam_gmapping_1a1ac1aacb152aa8abb556f812bdd1ba26" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>tfl_</name></member>
+      <member refid="class_slam_gmapping_1a74a6a65ad91329adabc6d6599d9c11ac" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>throttle_scans_</name></member>
+      <member refid="class_slam_gmapping_1a9da308e0eebb93c53b640ccd4454a4f2" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>transform_publish_period_</name></member>
+      <member refid="class_slam_gmapping_1a8dfb7b60ad584cd15ea1a352485a2e89" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>transform_thread_</name></member>
+      <member refid="class_slam_gmapping_1a6d6df53d97d8d4b9718c1a5c605cf5fa" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>updateMap</name></member>
+      <member refid="class_slam_gmapping_1a7d394436abdf8c821b822bfdfdf54ab0" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>xmax_</name></member>
+      <member refid="class_slam_gmapping_1ababe5a55fbea50e87d5e9a3d76e1c32c" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>xmin_</name></member>
+      <member refid="class_slam_gmapping_1a84bdadf0bdd4dbe1e7e017efb608cc9a" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>ymax_</name></member>
+      <member refid="class_slam_gmapping_1a169c9ae6c954a714da485c0894dbfac3" prot="private" virt="non-virtual"><scope>SlamGmapping</scope><name>ymin_</name></member>
+      <member refid="class_slam_gmapping_1a946844224c657db8f1155e2a1aababf2" prot="public" virt="non-virtual"><scope>SlamGmapping</scope><name>~SlamGmapping</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

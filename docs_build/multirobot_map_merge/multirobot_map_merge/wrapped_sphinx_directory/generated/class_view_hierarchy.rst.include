@@ -1,0 +1,18 @@
+
+Class Hierarchy
+---------------
+
+
+.. raw:: html
+
+   <ul class="treeView" id="class-treeView">
+     <li>
+       <ul class="collapsibleList">
+         <li>Namespace <a href="namespace_combine_grids.html#namespace-combine-grids">combine_grids</a><ul><li>Namespace <a href="namespace_combine_grids__internal.html#namespace-combine-grids-internal">combine_grids::internal</a><ul><li>Class <a href="classcombine__grids_1_1internal_1_1_grid_compositor.html#exhale-class-classcombine-grids-1-1internal-1-1-grid-compositor">GridCompositor</a></li><li class="lastChild">Class <a href="classcombine__grids_1_1internal_1_1_grid_warper.html#exhale-class-classcombine-grids-1-1internal-1-1-grid-warper">GridWarper</a></li></ul></li><li>Class <a href="classcombine__grids_1_1_merging_pipeline.html#exhale-class-classcombine-grids-1-1-merging-pipeline">MergingPipeline</a></li><li class="lastChild">Enum <a href="enum_merging__pipeline_8h_1a3731ce600bc8c3abe4290c74d4be4f33.html#exhale-enum-merging-pipeline-8h-1a3731ce600bc8c3abe4290c74d4be4f33">FeatureType</a></li></ul></li><li>Namespace <a href="namespace_map_merge.html#namespace-map-merge">map_merge</a><ul><li>Struct <a href="structmap__merge_1_1_map_subscription.html#exhale-struct-structmap-merge-1-1-map-subscription">MapSubscription</a></li><li class="lastChild">Class <a href="classmap__merge_1_1_map_merge.html#exhale-class-classmap-merge-1-1-map-merge">MapMerge</a></li></ul></li><li class="lastChild">Class <a href="class_invalid_name_exception.html#exhale-class-class-invalid-name-exception">InvalidNameException</a></li>
+       </ul>
+     </li><!-- only tree view element -->
+   </ul><!-- /treeView class-treeView -->
+
+.. end raw html for treeView
+
+

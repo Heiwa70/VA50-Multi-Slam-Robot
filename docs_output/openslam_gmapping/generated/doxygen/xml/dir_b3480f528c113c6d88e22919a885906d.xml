@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_b3480f528c113c6d88e22919a885906d" kind="dir">
+    <compoundname>include/gmapping/scanmatcher</compoundname>
+    <innerfile refid="icp_8h">icp.h</innerfile>
+    <innerfile refid="scanmatcher_8h">scanmatcher.h</innerfile>
+    <innerfile refid="smmap_8h">smmap.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/scanmatcher/"/>
+  </compounddef>
+</doxygen>

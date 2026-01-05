@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_g_mapping_1_1_range_sensor" kind="class" language="C++" prot="public">
+    <compoundname>GMapping::RangeSensor</compoundname>
+    <basecompoundref refid="class_g_mapping_1_1_sensor" prot="public" virt="non-virtual">GMapping::Sensor</basecompoundref>
+    <innerclass refid="struct_g_mapping_1_1_range_sensor_1_1_beam" prot="public">GMapping::RangeSensor::Beam</innerclass>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="class_g_mapping_1_1_range_sensor_1a30221ddc558692a7b52598b963a74bc2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class Configuration</definition>
+        <argsstring></argsstring>
+        <name>Configuration</name>
+        <qualifiedname>GMapping::RangeSensor::Configuration</qualifiedname>
+        <param>
+          <type>Configuration</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="11" column="14" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="class_g_mapping_1_1_range_sensor_1a09f1dc78bbac19dbdb1bc6ee6fb44ed1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class CarmenConfiguration</definition>
+        <argsstring></argsstring>
+        <name>CarmenConfiguration</name>
+        <qualifiedname>GMapping::RangeSensor::CarmenConfiguration</qualifiedname>
+        <param>
+          <type>CarmenConfiguration</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="12" column="14" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="class_g_mapping_1_1_range_sensor_1afe9c5ce6f93950026cd9f3f18a3fa9f6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class CarmenWrapper</definition>
+        <argsstring></argsstring>
+        <name>CarmenWrapper</name>
+        <qualifiedname>GMapping::RangeSensor::CarmenWrapper</qualifiedname>
+        <param>
+          <type>CarmenWrapper</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="13" column="14" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_g_mapping_1_1_range_sensor_1abb35bace17df584710591ee0e737aa87" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GMapping::RangeSensor::newFormat</definition>
+        <argsstring></argsstring>
+        <name>newFormat</name>
+        <qualifiedname>GMapping::RangeSensor::newFormat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="27" column="6" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_g_mapping_1_1_range_sensor_1a8008abe1dafd518b095c05b9d9dad24d" prot="protected" static="no" mutable="no">
+        <type>OrientedPoint</type>
+        <definition>OrientedPoint GMapping::RangeSensor::m_pose</definition>
+        <argsstring></argsstring>
+        <name>m_pose</name>
+        <qualifiedname>GMapping::RangeSensor::m_pose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="29" column="15" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_mapping_1_1_range_sensor_1a83bf5a2dd17929fb46b62b589f29825e" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="struct_g_mapping_1_1_range_sensor_1_1_beam" kindref="compound">Beam</ref> &gt;</type>
+        <definition>std::vector&lt;Beam&gt; GMapping::RangeSensor::m_beams</definition>
+        <argsstring></argsstring>
+        <name>m_beams</name>
+        <qualifiedname>GMapping::RangeSensor::m_beams</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="30" column="13" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g_mapping_1_1_range_sensor_1a759acaf8e43b5ede4225c223e372e123" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::RangeSensor::RangeSensor</definition>
+        <argsstring>(std::string name)</argsstring>
+        <name>RangeSensor</name>
+        <qualifiedname>GMapping::RangeSensor::RangeSensor</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="21" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_range_sensor_1adbc852d4b503d035e7426cbdc74be79d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::RangeSensor::RangeSensor</definition>
+        <argsstring>(std::string name, unsigned int beams, double res, const OrientedPoint &amp;position=OrientedPoint(0, 0, 0), double span=0, double maxrange=89.0)</argsstring>
+        <name>RangeSensor</name>
+        <qualifiedname>GMapping::RangeSensor::RangeSensor</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>beams</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>res</declname>
+        </param>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>position</declname>
+          <defval>OrientedPoint(0, 0, 0)</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>span</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>maxrange</declname>
+          <defval>89.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="22" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_range_sensor_1afd59f34a4692a4357420944c52372c18" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="struct_g_mapping_1_1_range_sensor_1_1_beam" kindref="compound">Beam</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt; Beam &gt; &amp; GMapping::RangeSensor::beams</definition>
+        <argsstring>() const</argsstring>
+        <name>beams</name>
+        <qualifiedname>GMapping::RangeSensor::beams</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="23" column="26" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_range_sensor_1a31dba755919022576ef7d5aa9c3f5b07" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="struct_g_mapping_1_1_range_sensor_1_1_beam" kindref="compound">Beam</ref> &gt; &amp;</type>
+        <definition>std::vector&lt; Beam &gt; &amp; GMapping::RangeSensor::beams</definition>
+        <argsstring>()</argsstring>
+        <name>beams</name>
+        <qualifiedname>GMapping::RangeSensor::beams</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="24" column="20" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_range_sensor_1a9da0f1915d19b4b9d8837937567755f1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>OrientedPoint</type>
+        <definition>OrientedPoint GMapping::RangeSensor::getPose</definition>
+        <argsstring>() const</argsstring>
+        <name>getPose</name>
+        <qualifiedname>GMapping::RangeSensor::getPose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="25" column="22" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_range_sensor_1a5d4ca7fb976b6423cab5698a91d0384e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::RangeSensor::updateBeamsLookup</definition>
+        <argsstring>()</argsstring>
+        <name>updateBeamsLookup</name>
+        <qualifiedname>GMapping::RangeSensor::updateBeamsLookup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="26" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GMapping::RangeSensor</label>
+        <link refid="class_g_mapping_1_1_range_sensor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GMapping::Sensor</label>
+        <link refid="class_g_mapping_1_1_sensor"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GMapping::RangeSensor</label>
+        <link refid="class_g_mapping_1_1_range_sensor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_pose</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GMapping::Sensor</label>
+        <link refid="class_g_mapping_1_1_sensor"/>
+      </node>
+      <node id="3">
+        <label>GMapping::orientedpoint&lt; double, double &gt;</label>
+        <link refid="struct_g_mapping_1_1orientedpoint"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>GMapping::point&lt; double &gt;</label>
+        <link refid="struct_g_mapping_1_1point"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/gmapping/sensor/sensor_range/rangesensor.h" line="10" column="1" bodyfile="include/gmapping/sensor/sensor_range/rangesensor.h" bodystart="10" bodyend="31"/>
+    <listofallmembers>
+      <member refid="class_g_mapping_1_1_range_sensor_1afd59f34a4692a4357420944c52372c18" prot="public" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>beams</name></member>
+      <member refid="class_g_mapping_1_1_range_sensor_1a31dba755919022576ef7d5aa9c3f5b07" prot="public" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>beams</name></member>
+      <member refid="class_g_mapping_1_1_range_sensor_1a09f1dc78bbac19dbdb1bc6ee6fb44ed1" prot="private" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>CarmenConfiguration</name></member>
+      <member refid="class_g_mapping_1_1_range_sensor_1afe9c5ce6f93950026cd9f3f18a3fa9f6" prot="private" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>CarmenWrapper</name></member>
+      <member refid="class_g_mapping_1_1_range_sensor_1a30221ddc558692a7b52598b963a74bc2" prot="private" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>Configuration</name></member>
+      <member refid="class_g_mapping_1_1_sensor_1a6e4077cd7879e47c47cdaa89cc4ce05b" prot="public" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>getName</name></member>
+      <member refid="class_g_mapping_1_1_range_sensor_1a9da0f1915d19b4b9d8837937567755f1" prot="public" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>getPose</name></member>
+      <member refid="class_g_mapping_1_1_range_sensor_1a83bf5a2dd17929fb46b62b589f29825e" prot="protected" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>m_beams</name></member>
+      <member refid="class_g_mapping_1_1_sensor_1a91dc87e315f9d73c67c6700bf5d12d13" prot="protected" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>m_name</name></member>
+      <member refid="class_g_mapping_1_1_range_sensor_1a8008abe1dafd518b095c05b9d9dad24d" prot="protected" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>m_pose</name></member>
+      <member refid="class_g_mapping_1_1_range_sensor_1abb35bace17df584710591ee0e737aa87" prot="public" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>newFormat</name></member>
+      <member refid="class_g_mapping_1_1_range_sensor_1a759acaf8e43b5ede4225c223e372e123" prot="public" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>RangeSensor</name></member>
+      <member refid="class_g_mapping_1_1_range_sensor_1adbc852d4b503d035e7426cbdc74be79d" prot="public" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>RangeSensor</name></member>
+      <member refid="class_g_mapping_1_1_sensor_1a3bfb72525656fca739350da7e06c9231" prot="public" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>Sensor</name></member>
+      <member refid="class_g_mapping_1_1_sensor_1ac11338217e237d1134955fb5c7c445ef" prot="public" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>setName</name></member>
+      <member refid="class_g_mapping_1_1_range_sensor_1a5d4ca7fb976b6423cab5698a91d0384e" prot="public" virt="non-virtual"><scope>GMapping::RangeSensor</scope><name>updateBeamsLookup</name></member>
+      <member refid="class_g_mapping_1_1_sensor_1a4e108fef74045701da7e0a8304320205" prot="public" virt="virtual"><scope>GMapping::RangeSensor</scope><name>~Sensor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

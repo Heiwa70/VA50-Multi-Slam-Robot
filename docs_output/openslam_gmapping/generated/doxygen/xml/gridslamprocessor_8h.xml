@@ -1,0 +1,588 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="gridslamprocessor_8h" kind="file" language="C++">
+    <compoundname>gridslamprocessor.h</compoundname>
+    <includes local="no">climits</includes>
+    <includes local="no">limits</includes>
+    <includes local="no">fstream</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">deque</includes>
+    <includes refid="particlefilter_8h" local="no">gmapping/particlefilter/particlefilter.h</includes>
+    <includes refid="point_8h" local="no">gmapping/utils/point.h</includes>
+    <includes refid="macro__params_8h" local="no">gmapping/utils/macro_params.h</includes>
+    <includes refid="sensorlog_8h" local="no">gmapping/log/sensorlog.h</includes>
+    <includes refid="rangesensor_8h" local="no">gmapping/sensor/sensor_range/rangesensor.h</includes>
+    <includes refid="rangereading_8h" local="no">gmapping/sensor/sensor_range/rangereading.h</includes>
+    <includes refid="scanmatcher_8h" local="no">gmapping/scanmatcher/scanmatcher.h</includes>
+    <includes refid="motionmodel_8h" local="yes">motionmodel.h</includes>
+    <includes refid="gridslamprocessor_8hxx" local="yes">gridslamprocessor.hxx</includes>
+    <incdepgraph>
+      <node id="35">
+        <label>accessstate.h</label>
+        <link refid="accessstate_8h_source"/>
+      </node>
+      <node id="36">
+        <label>array2d.h</label>
+        <link refid="array2d_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>gmapping/grid/harray2d.h</label>
+        <link refid="harray2d_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>gmapping/grid/map.h</label>
+        <link refid="map_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>include/gmapping/gridfastslam/gridslamprocessor.h</label>
+        <link refid="gridslamprocessor_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>gridslamprocessor.hxx</label>
+        <link refid="gridslamprocessor_8hxx_source"/>
+      </node>
+      <node id="41">
+        <label>motionmodel.h</label>
+        <link refid="motionmodel_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>configuration.h</label>
+        <link refid="configuration_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>gmapping/log/sensorlog.h</label>
+        <link refid="sensorlog_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>gmapping/particlefilter/particlefilter.h</label>
+        <link refid="particlefilter_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>icp.h</label>
+        <link refid="icp_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>gmapping/scanmatcher/scanmatcher.h</label>
+        <link refid="scanmatcher_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>smmap.h</label>
+        <link refid="smmap_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>sensor.h</label>
+        <link refid="sensor_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>gmapping/sensor/sensor_base/sensorreading.h</label>
+        <link refid="sensorreading_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>gmapping/sensor/sensor_odometry/odometryreading.h</label>
+        <link refid="odometryreading_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>gmapping/sensor/sensor_odometry/odometrysensor.h</label>
+        <link refid="odometrysensor_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>gmapping/sensor/sensor_range/rangereading.h</label>
+        <link refid="rangereading_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>gmapping/sensor/sensor_range/rangesensor.h</label>
+        <link refid="rangesensor_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>gmapping/utils/autoptr.h</label>
+        <link refid="autoptr_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>gmapping/utils/gvalues.h</label>
+        <link refid="gvalues_8h_source"/>
+      </node>
+      <node id="17">
+        <label>gmapping/utils/macro_params.h</label>
+        <link refid="macro__params_8h_source"/>
+      </node>
+      <node id="13">
+        <label>gmapping/utils/point.h</label>
+        <link refid="point_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>gmapping/utils/stat.h</label>
+        <link refid="stat_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>assert.h</label>
+      </node>
+      <node id="2">
+        <label>climits</label>
+      </node>
+      <node id="11">
+        <label>cmath</label>
+      </node>
+      <node id="6">
+        <label>deque</label>
+      </node>
+      <node id="4">
+        <label>fstream</label>
+      </node>
+      <node id="16">
+        <label>iostream</label>
+      </node>
+      <node id="20">
+        <label>istream</label>
+      </node>
+      <node id="3">
+        <label>limits</label>
+      </node>
+      <node id="19">
+        <label>list</label>
+      </node>
+      <node id="24">
+        <label>map</label>
+      </node>
+      <node id="15">
+        <label>math.h</label>
+      </node>
+      <node id="38">
+        <label>set</label>
+      </node>
+      <node id="8">
+        <label>stdlib.h</label>
+      </node>
+      <node id="23">
+        <label>string</label>
+      </node>
+      <node id="28">
+        <label>string.h</label>
+      </node>
+      <node id="9">
+        <label>sys/types.h</label>
+      </node>
+      <node id="10">
+        <label>utility</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_g_mapping_1_1_grid_slam_processor" prot="public">GMapping::GridSlamProcessor</innerclass>
+    <innerclass refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node" prot="public">GMapping::GridSlamProcessor::TNode</innerclass>
+    <innerclass refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle" prot="public">GMapping::GridSlamProcessor::Particle</innerclass>
+    <innernamespace refid="namespace_g_mapping">GMapping</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>GRIDSLAMPROCESSOR_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GRIDSLAMPROCESSOR_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;climits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;limits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deque&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gmapping/particlefilter/particlefilter.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gmapping/utils/point.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gmapping/utils/macro_params.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gmapping/log/sensorlog.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gmapping/sensor/sensor_range/rangesensor.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gmapping/sensor/sensor_range/rangereading.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gmapping/scanmatcher/scanmatcher.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;motionmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">GMapping<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="class_g_mapping_1_1_grid_slam_processor" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_g_mapping_1_1_grid_slam_processor_1a736f647e15e7b3e5f853920beb7b2b80" kindref="member">GridSlamProcessor</ref>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a7742a4335c17d489467af9bbd21334ef" kindref="member">TNode</ref>{</highlight></codeline>
+<codeline lineno="50" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a7742a4335c17d489467af9bbd21334ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a7742a4335c17d489467af9bbd21334ef" kindref="member">TNode</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>OrientedPoint&amp;<sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a00ffad9f49ae467746aa211fbfaf4523" kindref="member">pose</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1ab30d02945ab4cba987bbc428f87b3028" kindref="member">weight</ref>,<sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a7742a4335c17d489467af9bbd21334ef" kindref="member">TNode</ref>*<sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1aa96443473844405f417fb8170b3d7243" kindref="member">parent</ref>=0,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a4c15378fddd812b0376ceb81c43be3e0" kindref="member">childs</ref>=0);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a22b5e02c6b9dc2139f63652d8b0d57c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a22b5e02c6b9dc2139f63652d8b0d57c5" kindref="member">~TNode</ref>();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a00ffad9f49ae467746aa211fbfaf4523" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>OrientedPoint<sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a00ffad9f49ae467746aa211fbfaf4523" kindref="member">pose</ref>;<sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1ab30d02945ab4cba987bbc428f87b3028" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1ab30d02945ab4cba987bbc428f87b3028" kindref="member">weight</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1ab0c21a7a7fb16bd061f3b61cae8f55bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1ab0c21a7a7fb16bd061f3b61cae8f55bd" kindref="member">accWeight</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gweight;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1aa96443473844405f417fb8170b3d7243" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a7742a4335c17d489467af9bbd21334ef" kindref="member">TNode</ref>*<sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1aa96443473844405f417fb8170b3d7243" kindref="member">parent</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a574dd0cc9f28e7feb3d85a1ddb544d06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_g_mapping_1_1_range_reading" kindref="compound">RangeReading</ref>*<sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a574dd0cc9f28e7feb3d85a1ddb544d06" kindref="member">reading</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a4c15378fddd812b0376ceb81c43be3e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a4c15378fddd812b0376ceb81c43be3e0" kindref="member">childs</ref>;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1aa5aa2b0e4bea309de90270cd56a2bd78" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1aa5aa2b0e4bea309de90270cd56a2bd78" kindref="member">visitCounter</ref>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a0d10763653ac0630632259c8c1e48e42" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a0d10763653ac0630632259c8c1e48e42" kindref="member">flag</ref>;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;GridSlamProcessor::TNode*&gt;<sp/>TNodeVector;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::deque&lt;GridSlamProcessor::TNode*&gt;<sp/>TNodeDeque;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="88" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a51dc73563ad5e3035f8cb3b51965854a" kindref="member">Particle</ref>{</highlight></codeline>
+<codeline lineno="92" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a51dc73563ad5e3035f8cb3b51965854a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a51dc73563ad5e3035f8cb3b51965854a" kindref="member">Particle</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ScanMatcherMap&amp;<sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a33f1690ccf3a95622e0246e75f5af145" kindref="member">map</ref>);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a0b78d91dc4d41c565c388fe7320603b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/>double()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a29fee66d34dd87e2bd641eeebfe6fc00" kindref="member">weight</ref>;}</highlight></codeline>
+<codeline lineno="97" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a4538a813d749fadc1ba922858cdd8d7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/>OrientedPoint()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a82d332a479fe5441be6f6f7be32ba39d" kindref="member">pose</ref>;}</highlight></codeline>
+<codeline lineno="101" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a07888ebc307fab0bfee912bbfda45832" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a07888ebc307fab0bfee912bbfda45832" kindref="member">setWeight</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>w)<sp/>{<ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a29fee66d34dd87e2bd641eeebfe6fc00" kindref="member">weight</ref>=w;}</highlight></codeline>
+<codeline lineno="103" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a33f1690ccf3a95622e0246e75f5af145" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ScanMatcherMap<sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a33f1690ccf3a95622e0246e75f5af145" kindref="member">map</ref>;</highlight></codeline>
+<codeline lineno="105" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a82d332a479fe5441be6f6f7be32ba39d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>OrientedPoint<sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a82d332a479fe5441be6f6f7be32ba39d" kindref="member">pose</ref>;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1aa0bfef7c1113864bc0dd5c3e38cfbf38" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>OrientedPoint<sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1aa0bfef7c1113864bc0dd5c3e38cfbf38" kindref="member">previousPose</ref>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a29fee66d34dd87e2bd641eeebfe6fc00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a29fee66d34dd87e2bd641eeebfe6fc00" kindref="member">weight</ref>;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a9e1d6ebe3b70943834d2987e826313ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a9e1d6ebe3b70943834d2987e826313ef" kindref="member">weightSum</ref>;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gweight;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1ab80f34a85a79ad4584d25b162bb72e5b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1ab80f34a85a79ad4584d25b162bb72e5b" kindref="member">previousIndex</ref>;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122" refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a9c91ccdf7009b50785d939e1791ae4be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node" kindref="compound">TNode</ref>*<sp/><ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a9c91ccdf7009b50785d939e1791ae4be" kindref="member">node</ref>;<sp/></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;Particle&gt;<sp/>ParticleVector;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="129" refid="class_g_mapping_1_1_grid_slam_processor_1a736f647e15e7b3e5f853920beb7b2b80" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a736f647e15e7b3e5f853920beb7b2b80" kindref="member">GridSlamProcessor</ref>();</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="class_g_mapping_1_1_grid_slam_processor_1acccb98ea4c54b844acf14d7ec979e8a8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1acccb98ea4c54b844acf14d7ec979e8a8" kindref="member">GridSlamProcessor</ref>(std::ostream&amp;<sp/>infoStr);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="138" refid="class_g_mapping_1_1_grid_slam_processor_1a2e5270f6e87161189f19e5880db792ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a736f647e15e7b3e5f853920beb7b2b80" kindref="member">GridSlamProcessor</ref>*<sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a2e5270f6e87161189f19e5880db792ca" kindref="member">clone</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="141" refid="class_g_mapping_1_1_grid_slam_processor_1ad0acfbe24e22ca2450052d67013c06e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1ad0acfbe24e22ca2450052d67013c06e3" kindref="member">~GridSlamProcessor</ref>();</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//methods<sp/>for<sp/>accessing<sp/>the<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setSensorMap(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>SensorMap&amp;<sp/>smap);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>init(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymin,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmax,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ymax,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta,<sp/></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OrientedPoint<sp/>initialPose=OrientedPoint(0,0,0));</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setMatchingParameters(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>urange,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>range,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>sigma,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kernsize,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lopt,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>aopt,<sp/></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iterations,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>likelihoodSigma=1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>likelihoodGain=1,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>likelihoodSkip=0);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setMotionModelParameters(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>srr,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>srt,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>str,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>stt);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setUpdateDistances(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>linear,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>angular,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>resampleThreshold);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setUpdatePeriod(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>p)<sp/>{period_=p;}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//the<sp/>&quot;core&quot;<sp/>algorithm</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>processTruePos(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_g_mapping_1_1_odometry_reading" kindref="compound">OdometryReading</ref>&amp;<sp/>odometry);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>processScan(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_g_mapping_1_1_range_reading" kindref="compound">RangeReading</ref><sp/>&amp;<sp/>reading,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>adaptParticles=0);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="162" refid="class_g_mapping_1_1_grid_slam_processor_1a9a4a65da5c87f57b28623957eae640a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>TNodeVector<sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a9a4a65da5c87f57b28623957eae640a4" kindref="member">getTrajectories</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>integrateScanSequence(<ref refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node" kindref="compound">TNode</ref>*<sp/>node);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="166" refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_scan_matcher" kindref="compound">ScanMatcher</ref><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>;</highlight></codeline>
+<codeline lineno="168" refid="class_g_mapping_1_1_grid_slam_processor_1a4cd45d059a6cc1b82cb7688addccfd29" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ofstream&amp;<sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a4cd45d059a6cc1b82cb7688addccfd29" kindref="member">outputStream</ref>();</highlight></codeline>
+<codeline lineno="170" refid="class_g_mapping_1_1_grid_slam_processor_1ae7be39c0e2a9cea422e1a76c96a407b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ostream&amp;<sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1ae7be39c0e2a9cea422e1a76c96a407b6" kindref="member">infoStream</ref>();</highlight></codeline>
+<codeline lineno="172" refid="class_g_mapping_1_1_grid_slam_processor_1a2e844f171384ea4b85e82a9c5c95916f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ParticleVector&amp;<sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a2e844f171384ea4b85e82a9c5c95916f" kindref="member">getParticles</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a67c2ade1a066269de12fe382999f2905" kindref="member">m_particles</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>int&gt;&amp;<sp/>getIndexes()</highlight><highlight class="keyword"><sp/>const</highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a79cee7069bb938f3b9d6d35b42b48ec6" kindref="member">m_indexes</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getBestParticleIndex()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//callbacks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onOdometryUpdate();</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onResampleUpdate();</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onScanmatchUpdate();</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//accessor<sp/>methods</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183" refid="class_g_mapping_1_1_grid_slam_processor_1a59fd57518b8010bdf60972b239067f19" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a59fd57518b8010bdf60972b239067f19" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>laserMaxRange,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186" refid="class_g_mapping_1_1_grid_slam_processor_1a76a51cf2adbc8b4ff976d94b1c7d6e91" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a76a51cf2adbc8b4ff976d94b1c7d6e91" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>usableRange,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189" refid="class_g_mapping_1_1_grid_slam_processor_1a1a4b79434cb2b998ebeecdf84bec85c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a1a4b79434cb2b998ebeecdf84bec85c5" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>gaussianSigma,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192" refid="class_g_mapping_1_1_grid_slam_processor_1a0ca266215482753f991e702f222e5f4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a0ca266215482753f991e702f222e5f4b" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>likelihoodSigma,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195" refid="class_g_mapping_1_1_grid_slam_processor_1abe193f91a1ddcdf68cf65284217c64d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1abe193f91a1ddcdf68cf65284217c64d8" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/><sp/><sp/><sp/>kernelSize,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198" refid="class_g_mapping_1_1_grid_slam_processor_1a2d7ed8bd432b4e8fd2f415536f48231d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a2d7ed8bd432b4e8fd2f415536f48231d" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>optAngularDelta,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201" refid="class_g_mapping_1_1_grid_slam_processor_1ab1d5ded4e425ece05d38a98fbe0a8b2c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1ab1d5ded4e425ece05d38a98fbe0a8b2c" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>optLinearDelta,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204" refid="class_g_mapping_1_1_grid_slam_processor_1a52575a11c089158b1a37e74ead526da9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a52575a11c089158b1a37e74ead526da9" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/>optRecursiveIterations,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207" refid="class_g_mapping_1_1_grid_slam_processor_1a600cd2d77f3662e3c4c6c241be4aaaac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a600cd2d77f3662e3c4c6c241be4aaaac" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/>likelihoodSkip,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210" refid="class_g_mapping_1_1_grid_slam_processor_1a61ebeb294126d9081b8cb099fc60c6b0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a61ebeb294126d9081b8cb099fc60c6b0" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>llsamplerange,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213" refid="class_g_mapping_1_1_grid_slam_processor_1ab6234158b112bfd2aba9ce5a063eff78" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1ab6234158b112bfd2aba9ce5a063eff78" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>lasamplerange,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216" refid="class_g_mapping_1_1_grid_slam_processor_1a7a491940692ed37326fc746e27c687bc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a7a491940692ed37326fc746e27c687bc" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>llsamplestep,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219" refid="class_g_mapping_1_1_grid_slam_processor_1ae3fb37cdec3e49f4a74d7e5adbeaed75" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1ae3fb37cdec3e49f4a74d7e5adbeaed75" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>lasamplestep,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222" refid="class_g_mapping_1_1_grid_slam_processor_1a375b3327975b1d8de93d5b8c4c494463" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a375b3327975b1d8de93d5b8c4c494463" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">,<sp/>generateMap,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225" refid="class_g_mapping_1_1_grid_slam_processor_1ad7e50913d07e1003d2fb97b40b3768aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1ad7e50913d07e1003d2fb97b40b3768aa" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">,<sp/>enlargeStep,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228" refid="class_g_mapping_1_1_grid_slam_processor_1a02a3a4462d3e5f35e746a789f0d9674c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a02a3a4462d3e5f35e746a789f0d9674c" kindref="member">MEMBER_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kindref="member">m_matcher</ref>,<sp/>OrientedPoint,<sp/>laserPose,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232" refid="class_g_mapping_1_1_grid_slam_processor_1a5dca255f4b499a703a002715fd70828e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a5dca255f4b499a703a002715fd70828e" kindref="member">STRUCT_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ae1fa20e9679abdbc23784e2dc17194b5" kindref="member">m_motionModel</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>srr,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235" refid="class_g_mapping_1_1_grid_slam_processor_1a10f9bff87947ec28aedae11a3ec97f3d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a10f9bff87947ec28aedae11a3ec97f3d" kindref="member">STRUCT_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ae1fa20e9679abdbc23784e2dc17194b5" kindref="member">m_motionModel</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>srt,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238" refid="class_g_mapping_1_1_grid_slam_processor_1a8cb558f4aa4f6f57f2173a0ac8f63bc1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a8cb558f4aa4f6f57f2173a0ac8f63bc1" kindref="member">STRUCT_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ae1fa20e9679abdbc23784e2dc17194b5" kindref="member">m_motionModel</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>str,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241" refid="class_g_mapping_1_1_grid_slam_processor_1a272f53828c2033879c364de540d1e0c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a272f53828c2033879c364de540d1e0c0" kindref="member">STRUCT_PARAM_SET_GET</ref>(<ref refid="class_g_mapping_1_1_grid_slam_processor_1ae1fa20e9679abdbc23784e2dc17194b5" kindref="member">m_motionModel</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>stt,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="244" refid="class_g_mapping_1_1_grid_slam_processor_1aef1af48fa8542ceff98b81e1d0f6e039" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1aef1af48fa8542ceff98b81e1d0f6e039" kindref="member">PARAM_SET_GET</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>minimumScore,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="248" refid="class_g_mapping_1_1_grid_slam_processor_1a7800b02d50b6b5d7c8b226e3c361ca2c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a7800b02d50b6b5d7c8b226e3c361ca2c" kindref="member">GridSlamProcessor</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a736f647e15e7b3e5f853920beb7b2b80" kindref="member">GridSlamProcessor</ref>&amp;<sp/>gsp);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="251" refid="class_g_mapping_1_1_grid_slam_processor_1aec30b4ee3a767c9f50bb95236851a1be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1aec30b4ee3a767c9f50bb95236851a1be" kindref="member">m_beams</ref>;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>last_update_time_;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>period_;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="256" refid="class_g_mapping_1_1_grid_slam_processor_1a67c2ade1a066269de12fe382999f2905" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>ParticleVector<sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a67c2ade1a066269de12fe382999f2905" kindref="member">m_particles</ref>;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259" refid="class_g_mapping_1_1_grid_slam_processor_1a79cee7069bb938f3b9d6d35b42b48ec6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;unsigned<sp/>int&gt;<sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a79cee7069bb938f3b9d6d35b42b48ec6" kindref="member">m_indexes</ref>;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262" refid="class_g_mapping_1_1_grid_slam_processor_1a39e71ee439dde6ca9ccd2929cf12551f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a39e71ee439dde6ca9ccd2929cf12551f" kindref="member">m_weights</ref>;</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="265" refid="class_g_mapping_1_1_grid_slam_processor_1ae1fa20e9679abdbc23784e2dc17194b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_mapping_1_1_motion_model" kindref="compound">MotionModel</ref><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1ae1fa20e9679abdbc23784e2dc17194b5" kindref="member">m_motionModel</ref>;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268" refid="class_g_mapping_1_1_grid_slam_processor_1a9669d7233fda1a872ee2e7bfd58422f6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1a9669d7233fda1a872ee2e7bfd58422f6" kindref="member">PARAM_SET_GET</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>resampleThreshold,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//state</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/>m_count,<sp/>m_readingCount;</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>OrientedPoint<sp/>m_lastPartPose;</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>OrientedPoint<sp/>m_odoPose;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>OrientedPoint<sp/>m_pose;</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>m_linearDistance,<sp/>m_angularDistance;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/>PARAM_GET(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>neff,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//processing<sp/>parameters<sp/>(size<sp/>of<sp/>the<sp/>map)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/>PARAM_GET(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>xmin,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/>PARAM_GET(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>ymin,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/>PARAM_GET(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>xmax,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>PARAM_GET(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>ymax,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//processing<sp/>parameters<sp/>(resolution<sp/>of<sp/>the<sp/>map)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/>PARAM_GET(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>delta,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//registration<sp/>score<sp/>(if<sp/>a<sp/>scan<sp/>score<sp/>is<sp/>above<sp/>this<sp/>threshold<sp/>it<sp/>is<sp/>registered<sp/>in<sp/>the<sp/>map)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1aef1af48fa8542ceff98b81e1d0f6e039" kindref="member">PARAM_SET_GET</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>regScore,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//registration<sp/>score<sp/>(if<sp/>a<sp/>scan<sp/>score<sp/>is<sp/>below<sp/>this<sp/>threshold<sp/>a<sp/>scan<sp/>matching<sp/>failure<sp/>is<sp/>reported)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1aef1af48fa8542ceff98b81e1d0f6e039" kindref="member">PARAM_SET_GET</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>critScore,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//registration<sp/>score<sp/>maximum<sp/>move<sp/>allowed<sp/>between<sp/>consecutive<sp/>scans</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1aef1af48fa8542ceff98b81e1d0f6e039" kindref="member">PARAM_SET_GET</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>maxMove,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//process<sp/>a<sp/>scan<sp/>each<sp/>time<sp/>the<sp/>robot<sp/>translates<sp/>of<sp/>linearThresholdDistance</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1aef1af48fa8542ceff98b81e1d0f6e039" kindref="member">PARAM_SET_GET</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>linearThresholdDistance,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//process<sp/>a<sp/>scan<sp/>each<sp/>time<sp/>the<sp/>robot<sp/>rotates<sp/>more<sp/>than<sp/>angularThresholdDistance</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1aef1af48fa8542ceff98b81e1d0f6e039" kindref="member">PARAM_SET_GET</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>angularThresholdDistance,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//smoothing<sp/>factor<sp/>for<sp/>the<sp/>likelihood</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_mapping_1_1_grid_slam_processor_1aef1af48fa8542ceff98b81e1d0f6e039" kindref="member">PARAM_SET_GET</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/>obsSigmaGain,<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//stream<sp/>in<sp/>which<sp/>to<sp/>write<sp/>the<sp/>gfs<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ofstream<sp/>m_outputStream;</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>stream<sp/>in<sp/>which<sp/>to<sp/>write<sp/>the<sp/>messages</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ostream&amp;<sp/>m_infoStream;</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>functions<sp/>below<sp/>performs<sp/>side<sp/>effect<sp/>on<sp/>the<sp/>internal<sp/>structure,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//should<sp/>be<sp/>called<sp/>only<sp/>inside<sp/>the<sp/>processScan<sp/>method</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>scanMatch(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*plainReading);</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>normalize();</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>return<sp/>if<sp/>a<sp/>resampling<sp/>occured<sp/>or<sp/>not</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>resample(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>plainReading,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>adaptParticles,<sp/></highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_g_mapping_1_1_range_reading" kindref="compound">RangeReading</ref>*<sp/>rr=0);</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//tree<sp/>utilities</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>updateTreeWeights(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>weightsAlreadyNormalized<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>resetTree();</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>propagateWeights();</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"></highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::multimap&lt;const<sp/>GridSlamProcessor::TNode*,<sp/>GridSlamProcessor::TNode*&gt;<sp/>TNodeMultimap;</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;gridslamprocessor.hxx&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="334"><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/gmapping/gridfastslam/gridslamprocessor.h"/>
+  </compounddef>
+</doxygen>

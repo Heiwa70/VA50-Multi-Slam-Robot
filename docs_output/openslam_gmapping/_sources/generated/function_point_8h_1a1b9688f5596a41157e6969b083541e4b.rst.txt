@@ -1,0 +1,14 @@
+.. _exhale_function_point_8h_1a1b9688f5596a41157e6969b083541e4b:
+
+Template Function GMapping::max
+===============================
+
+- Defined in :ref:`file_include_gmapping_utils_point.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: GMapping::max(const point<T>&, const point<T>&)
+   :project: openslam_gmapping Doxygen Project

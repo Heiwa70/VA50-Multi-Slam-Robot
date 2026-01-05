@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_g_mapping_1_1_motion_model" kind="struct" language="C++" prot="public">
+    <compoundname>GMapping::MotionModel</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_mapping_1_1_motion_model_1aee71b09737b96073a3573589eccfe4e9" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GMapping::MotionModel::srr</definition>
+        <argsstring></argsstring>
+        <name>srr</name>
+        <qualifiedname>GMapping::MotionModel::srr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/gridfastslam/motionmodel.h" line="14" column="8" bodyfile="include/gmapping/gridfastslam/motionmodel.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_mapping_1_1_motion_model_1a71d8c1a219b92804770ca27b4b48c4d6" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GMapping::MotionModel::str</definition>
+        <argsstring></argsstring>
+        <name>str</name>
+        <qualifiedname>GMapping::MotionModel::str</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/gridfastslam/motionmodel.h" line="14" column="12" bodyfile="include/gmapping/gridfastslam/motionmodel.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_mapping_1_1_motion_model_1aeeeec3e6a5230f2851e7b4cd07a862a2" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GMapping::MotionModel::srt</definition>
+        <argsstring></argsstring>
+        <name>srt</name>
+        <qualifiedname>GMapping::MotionModel::srt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/gridfastslam/motionmodel.h" line="14" column="16" bodyfile="include/gmapping/gridfastslam/motionmodel.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_mapping_1_1_motion_model_1a459aa742e5ae4b3d50b1441b75a9ea3d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GMapping::MotionModel::stt</definition>
+        <argsstring></argsstring>
+        <name>stt</name>
+        <qualifiedname>GMapping::MotionModel::stt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/gridfastslam/motionmodel.h" line="14" column="20" bodyfile="include/gmapping/gridfastslam/motionmodel.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_g_mapping_1_1_motion_model_1ad7db4e12da0f04f5338b6fad17b9a449" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>OrientedPoint</type>
+        <definition>OrientedPoint GMapping::MotionModel::drawFromMotion</definition>
+        <argsstring>(const OrientedPoint &amp;p, double linearMove, double angularMove) const</argsstring>
+        <name>drawFromMotion</name>
+        <qualifiedname>GMapping::MotionModel::drawFromMotion</qualifiedname>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>linearMove</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>angularMove</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/gridfastslam/motionmodel.h" line="11" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1_motion_model_1ab43a9c5433ea162ba213cbd31c856f70" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>OrientedPoint</type>
+        <definition>OrientedPoint GMapping::MotionModel::drawFromMotion</definition>
+        <argsstring>(const OrientedPoint &amp;p, const OrientedPoint &amp;pnew, const OrientedPoint &amp;pold) const</argsstring>
+        <name>drawFromMotion</name>
+        <qualifiedname>GMapping::MotionModel::drawFromMotion</qualifiedname>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>pnew</declname>
+        </param>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>pold</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/gridfastslam/motionmodel.h" line="12" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1_motion_model_1ae0de3d2abdc87b040825f6e440e25a48" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_mapping_1_1_covariance3" kindref="compound">Covariance3</ref></type>
+        <definition>Covariance3 GMapping::MotionModel::gaussianApproximation</definition>
+        <argsstring>(const OrientedPoint &amp;pnew, const OrientedPoint &amp;pold) const</argsstring>
+        <name>gaussianApproximation</name>
+        <qualifiedname>GMapping::MotionModel::gaussianApproximation</qualifiedname>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>pnew</declname>
+        </param>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>pold</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/gridfastslam/motionmodel.h" line="13" column="13"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/gridfastslam/motionmodel.h" line="10" column="1" bodyfile="include/gmapping/gridfastslam/motionmodel.h" bodystart="10" bodyend="15"/>
+    <listofallmembers>
+      <member refid="struct_g_mapping_1_1_motion_model_1ad7db4e12da0f04f5338b6fad17b9a449" prot="public" virt="non-virtual"><scope>GMapping::MotionModel</scope><name>drawFromMotion</name></member>
+      <member refid="struct_g_mapping_1_1_motion_model_1ab43a9c5433ea162ba213cbd31c856f70" prot="public" virt="non-virtual"><scope>GMapping::MotionModel</scope><name>drawFromMotion</name></member>
+      <member refid="struct_g_mapping_1_1_motion_model_1ae0de3d2abdc87b040825f6e440e25a48" prot="public" virt="non-virtual"><scope>GMapping::MotionModel</scope><name>gaussianApproximation</name></member>
+      <member refid="struct_g_mapping_1_1_motion_model_1aee71b09737b96073a3573589eccfe4e9" prot="public" virt="non-virtual"><scope>GMapping::MotionModel</scope><name>srr</name></member>
+      <member refid="struct_g_mapping_1_1_motion_model_1aeeeec3e6a5230f2851e7b4cd07a862a2" prot="public" virt="non-virtual"><scope>GMapping::MotionModel</scope><name>srt</name></member>
+      <member refid="struct_g_mapping_1_1_motion_model_1a71d8c1a219b92804770ca27b4b48c4d6" prot="public" virt="non-virtual"><scope>GMapping::MotionModel</scope><name>str</name></member>
+      <member refid="struct_g_mapping_1_1_motion_model_1a459aa742e5ae4b3d50b1441b75a9ea3d" prot="public" virt="non-virtual"><scope>GMapping::MotionModel</scope><name>stt</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

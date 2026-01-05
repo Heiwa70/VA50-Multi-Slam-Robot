@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="namespaceros1__names" kind="namespace" language="C++">
+    <compoundname>ros1_names</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="ros1__names_8hpp_1a4a188286ccb3ed74de45ba053c837559" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ros1_names::isValidCharInName</definition>
+        <argsstring>(char c)</argsstring>
+        <name>isValidCharInName</name>
+        <qualifiedname>ros1_names::isValidCharInName</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map_merge/ros1_names.hpp" line="44" column="6" bodyfile="include/map_merge/ros1_names.hpp" bodystart="44" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="ros1__names_8hpp_1a3fd676143ac1d165ae30f9ccffd71e0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ros1_names::validate</definition>
+        <argsstring>(const std::string &amp;name, std::string &amp;error)</argsstring>
+        <name>validate</name>
+        <qualifiedname>ros1_names::validate</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map_merge/ros1_names.hpp" line="54" column="6" bodyfile="include/map_merge/ros1_names.hpp" bodystart="54" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="ros1__names_8hpp_1a08e0d5cc99d1f8dfcf359f669076ca2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string ros1_names::parentNamespace</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>parentNamespace</name>
+        <qualifiedname>ros1_names::parentNamespace</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map_merge/ros1_names.hpp" line="87" column="13" bodyfile="include/map_merge/ros1_names.hpp" bodystart="87" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="ros1__names_8hpp_1a28ee0b3c09f43c5ddd400577b37d7902" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string ros1_names::clean</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>clean</name>
+        <qualifiedname>ros1_names::clean</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map_merge/ros1_names.hpp" line="117" column="13" bodyfile="include/map_merge/ros1_names.hpp" bodystart="117" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="ros1__names_8hpp_1a3414c31a0007e49035c3cd179cc8f353" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string ros1_names::append</definition>
+        <argsstring>(const std::string &amp;left, const std::string &amp;right)</argsstring>
+        <name>append</name>
+        <qualifiedname>ros1_names::append</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>right</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map_merge/ros1_names.hpp" line="136" column="13" bodyfile="include/map_merge/ros1_names.hpp" bodystart="136" bodyend="139"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/map_merge/ros1_names.hpp" line="41" column="1"/>
+  </compounddef>
+</doxygen>

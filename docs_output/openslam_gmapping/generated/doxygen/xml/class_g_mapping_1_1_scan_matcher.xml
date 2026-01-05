@@ -1,0 +1,612 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_g_mapping_1_1_scan_matcher" kind="class" language="C++" prot="public">
+    <compoundname>GMapping::ScanMatcher</compoundname>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="class_g_mapping_1_1_scan_matcher_1aa8ccaea5e1c6949e7913e487f35b8c46" prot="public" static="no">
+        <type><ref refid="struct_g_mapping_1_1_covariance3" kindref="compound">Covariance3</ref></type>
+        <definition>typedef Covariance3 GMapping::ScanMatcher::CovarianceMatrix</definition>
+        <argsstring></argsstring>
+        <name>CovarianceMatrix</name>
+        <qualifiedname>GMapping::ScanMatcher::CovarianceMatrix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="16" column="21" bodyfile="include/gmapping/scanmatcher/scanmatcher.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_g_mapping_1_1_scan_matcher_1addb69a08f07cc87f8b60730ba449b5f1" prot="public" static="yes" mutable="no">
+        <type>const double</type>
+        <definition>const double GMapping::ScanMatcher::nullLikelihood</definition>
+        <argsstring></argsstring>
+        <name>nullLikelihood</name>
+        <qualifiedname>GMapping::ScanMatcher::nullLikelihood</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="40" column="21" bodyfile="include/gmapping/scanmatcher/scanmatcher.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_g_mapping_1_1_scan_matcher_1ab876e0a655f97d1eb485985fe95b31d1" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GMapping::ScanMatcher::m_activeAreaComputed</definition>
+        <argsstring></argsstring>
+        <name>m_activeAreaComputed</name>
+        <qualifiedname>GMapping::ScanMatcher::m_activeAreaComputed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="43" column="6" bodyfile="include/gmapping/scanmatcher/scanmatcher.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_mapping_1_1_scan_matcher_1ade447080711cbb616eb19cdd55d6a266" prot="protected" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int GMapping::ScanMatcher::m_laserBeams</definition>
+        <argsstring></argsstring>
+        <name>m_laserBeams</name>
+        <qualifiedname>GMapping::ScanMatcher::m_laserBeams</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>laser parameters </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="46" column="14" bodyfile="include/gmapping/scanmatcher/scanmatcher.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_mapping_1_1_scan_matcher_1a76dd3a7a3e03a30ad99f6cca3cc9ca2b" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double GMapping::ScanMatcher::m_laserAngles[LASER_MAXBEAMS]</definition>
+        <argsstring>[LASER_MAXBEAMS]</argsstring>
+        <name>m_laserAngles</name>
+        <qualifiedname>GMapping::ScanMatcher::m_laserAngles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="47" column="14" bodyfile="include/gmapping/scanmatcher/scanmatcher.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_mapping_1_1_scan_matcher_1a73a0f19d405bb52d342e73e6152bf76a" prot="protected" static="no" mutable="no">
+        <type>IntPoint *</type>
+        <definition>IntPoint* GMapping::ScanMatcher::m_linePoints</definition>
+        <argsstring></argsstring>
+        <name>m_linePoints</name>
+        <qualifiedname>GMapping::ScanMatcher::m_linePoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>scan_matcher parameters </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="73" column="10" bodyfile="include/gmapping/scanmatcher/scanmatcher.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1a6ef28a29dbb9ea49be1bf2edd90423c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::ScanMatcher::ScanMatcher</definition>
+        <argsstring>()</argsstring>
+        <name>ScanMatcher</name>
+        <qualifiedname>GMapping::ScanMatcher::ScanMatcher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="18" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1a209255038c9a46950fd50193dd161728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::ScanMatcher::~ScanMatcher</definition>
+        <argsstring>()</argsstring>
+        <name>~ScanMatcher</name>
+        <qualifiedname>GMapping::ScanMatcher::~ScanMatcher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="19" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1a219a9d84a3f13241cd06f89ebf128f77" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double GMapping::ScanMatcher::icpOptimize</definition>
+        <argsstring>(OrientedPoint &amp;pnew, const ScanMatcherMap &amp;map, const OrientedPoint &amp;p, const double *readings) const</argsstring>
+        <name>icpOptimize</name>
+        <qualifiedname>GMapping::ScanMatcher::icpOptimize</qualifiedname>
+        <param>
+          <type>OrientedPoint &amp;</type>
+          <declname>pnew</declname>
+        </param>
+        <param>
+          <type>const ScanMatcherMap &amp;</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>readings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="20" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1a1484d288d25465f68c7107b9700d0295" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double GMapping::ScanMatcher::optimize</definition>
+        <argsstring>(OrientedPoint &amp;pnew, const ScanMatcherMap &amp;map, const OrientedPoint &amp;p, const double *readings) const</argsstring>
+        <name>optimize</name>
+        <qualifiedname>GMapping::ScanMatcher::optimize</qualifiedname>
+        <param>
+          <type>OrientedPoint &amp;</type>
+          <declname>pnew</declname>
+        </param>
+        <param>
+          <type>const ScanMatcherMap &amp;</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>readings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="21" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1a2002a79c40c66916ec4c66b72420c68e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double GMapping::ScanMatcher::optimize</definition>
+        <argsstring>(OrientedPoint &amp;mean, CovarianceMatrix &amp;cov, const ScanMatcherMap &amp;map, const OrientedPoint &amp;p, const double *readings) const</argsstring>
+        <name>optimize</name>
+        <qualifiedname>GMapping::ScanMatcher::optimize</qualifiedname>
+        <param>
+          <type>OrientedPoint &amp;</type>
+          <declname>mean</declname>
+        </param>
+        <param>
+          <type>CovarianceMatrix &amp;</type>
+          <declname>cov</declname>
+        </param>
+        <param>
+          <type>const ScanMatcherMap &amp;</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>readings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="22" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1a51abbe9fe5808899a40995751a1bcd37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double GMapping::ScanMatcher::registerScan</definition>
+        <argsstring>(ScanMatcherMap &amp;map, const OrientedPoint &amp;p, const double *readings)</argsstring>
+        <name>registerScan</name>
+        <qualifiedname>GMapping::ScanMatcher::registerScan</qualifiedname>
+        <param>
+          <type>ScanMatcherMap &amp;</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>readings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="24" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1a64191c56d4fd0dedea13acf4228fb3d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::ScanMatcher::setLaserParameters</definition>
+        <argsstring>(unsigned int beams, double *angles, const OrientedPoint &amp;lpose)</argsstring>
+        <name>setLaserParameters</name>
+        <qualifiedname>GMapping::ScanMatcher::setLaserParameters</qualifiedname>
+        <param>
+          <type>unsigned int</type>
+          <declname>beams</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>angles</declname>
+        </param>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>lpose</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="25" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1aad081e39e5629e1532af566370b842fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::ScanMatcher::setMatchingParameters</definition>
+        <argsstring>(double urange, double range, double sigma, int kernsize, double lopt, double aopt, int iterations, double likelihoodSigma=1, unsigned int likelihoodSkip=0)</argsstring>
+        <name>setMatchingParameters</name>
+        <qualifiedname>GMapping::ScanMatcher::setMatchingParameters</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>urange</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>range</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>sigma</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>kernsize</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>lopt</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>aopt</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iterations</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>likelihoodSigma</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>likelihoodSkip</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="27" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1a60ef33bbb1408a534a74efccd096fc16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::ScanMatcher::invalidateActiveArea</definition>
+        <argsstring>()</argsstring>
+        <name>invalidateActiveArea</name>
+        <qualifiedname>GMapping::ScanMatcher::invalidateActiveArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="29" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1a6cf280963c3d391f2cc8677f8e2e11cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::ScanMatcher::computeActiveArea</definition>
+        <argsstring>(ScanMatcherMap &amp;map, const OrientedPoint &amp;p, const double *readings)</argsstring>
+        <name>computeActiveArea</name>
+        <qualifiedname>GMapping::ScanMatcher::computeActiveArea</qualifiedname>
+        <param>
+          <type>ScanMatcherMap &amp;</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>readings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="30" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1a676430fc7673dc7d9786a4a39e16f67d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GMapping::ScanMatcher::icpStep</definition>
+        <argsstring>(OrientedPoint &amp;pret, const ScanMatcherMap &amp;map, const OrientedPoint &amp;p, const double *readings) const</argsstring>
+        <name>icpStep</name>
+        <qualifiedname>GMapping::ScanMatcher::icpStep</qualifiedname>
+        <param>
+          <type>OrientedPoint &amp;</type>
+          <declname>pret</declname>
+        </param>
+        <param>
+          <type>const ScanMatcherMap &amp;</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>readings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="32" column="15" bodyfile="include/gmapping/scanmatcher/scanmatcher.h" bodystart="76" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1a634d6d8fb5bbec96fe3b9bdd992b5565" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GMapping::ScanMatcher::score</definition>
+        <argsstring>(const ScanMatcherMap &amp;map, const OrientedPoint &amp;p, const double *readings) const</argsstring>
+        <name>score</name>
+        <qualifiedname>GMapping::ScanMatcher::score</qualifiedname>
+        <param>
+          <type>const ScanMatcherMap &amp;</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>readings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="33" column="15" bodyfile="include/gmapping/scanmatcher/scanmatcher.h" bodystart="143" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1a619f90b0489e7a5858fa72d986680dc4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int GMapping::ScanMatcher::likelihoodAndScore</definition>
+        <argsstring>(double &amp;s, double &amp;l, const ScanMatcherMap &amp;map, const OrientedPoint &amp;p, const double *readings) const</argsstring>
+        <name>likelihoodAndScore</name>
+        <qualifiedname>GMapping::ScanMatcher::likelihoodAndScore</qualifiedname>
+        <param>
+          <type>double &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>const ScanMatcherMap &amp;</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>readings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="34" column="21" bodyfile="include/gmapping/scanmatcher/scanmatcher.h" bodystart="191" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1a6c277f4226a7f217b7d9e1a39cd64205" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double GMapping::ScanMatcher::likelihood</definition>
+        <argsstring>(double &amp;lmax, OrientedPoint &amp;mean, CovarianceMatrix &amp;cov, const ScanMatcherMap &amp;map, const OrientedPoint &amp;p, const double *readings)</argsstring>
+        <name>likelihood</name>
+        <qualifiedname>GMapping::ScanMatcher::likelihood</qualifiedname>
+        <param>
+          <type>double &amp;</type>
+          <declname>lmax</declname>
+        </param>
+        <param>
+          <type>OrientedPoint &amp;</type>
+          <declname>mean</declname>
+        </param>
+        <param>
+          <type>CovarianceMatrix &amp;</type>
+          <declname>cov</declname>
+        </param>
+        <param>
+          <type>const ScanMatcherMap &amp;</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>readings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="35" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1a302a6418f60c00ef955028a3d2b3b30a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double GMapping::ScanMatcher::likelihood</definition>
+        <argsstring>(double &amp;_lmax, OrientedPoint &amp;_mean, CovarianceMatrix &amp;_cov, const ScanMatcherMap &amp;map, const OrientedPoint &amp;p, Gaussian3 &amp;odometry, const double *readings, double gain=180.)</argsstring>
+        <name>likelihood</name>
+        <qualifiedname>GMapping::ScanMatcher::likelihood</qualifiedname>
+        <param>
+          <type>double &amp;</type>
+          <declname>_lmax</declname>
+        </param>
+        <param>
+          <type>OrientedPoint &amp;</type>
+          <declname>_mean</declname>
+        </param>
+        <param>
+          <type>CovarianceMatrix &amp;</type>
+          <declname>_cov</declname>
+        </param>
+        <param>
+          <type>const ScanMatcherMap &amp;</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_mapping_1_1_gaussian3" kindref="compound">Gaussian3</ref> &amp;</type>
+          <declname>odometry</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>readings</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>gain</declname>
+          <defval>180.</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="36" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1af8248d0dd63ec48ffd73328d64b099c3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const double *</type>
+        <definition>const double * GMapping::ScanMatcher::laserAngles</definition>
+        <argsstring>() const</argsstring>
+        <name>laserAngles</name>
+        <qualifiedname>GMapping::ScanMatcher::laserAngles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="37" column="21" bodyfile="include/gmapping/scanmatcher/scanmatcher.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_scan_matcher_1ace8b2f94cf5eb73bd221b1acece45cad" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int GMapping::ScanMatcher::laserBeams</definition>
+        <argsstring>() const</argsstring>
+        <name>laserBeams</name>
+        <qualifiedname>GMapping::ScanMatcher::laserBeams</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/scanmatcher.h" line="38" column="21" bodyfile="include/gmapping/scanmatcher/scanmatcher.h" bodystart="38" bodyend="38"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GMapping::ScanMatcher</label>
+        <link refid="class_g_mapping_1_1_scan_matcher"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>m_linePoints</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GMapping::point&lt; int &gt;</label>
+        <link refid="struct_g_mapping_1_1point"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/gmapping/scanmatcher/scanmatcher.h" line="14" column="1" bodyfile="include/gmapping/scanmatcher/scanmatcher.h" bodystart="14" bodyend="74"/>
+    <listofallmembers>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a6cf280963c3d391f2cc8677f8e2e11cd" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>computeActiveArea</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1aa8ccaea5e1c6949e7913e487f35b8c46" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>CovarianceMatrix</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a219a9d84a3f13241cd06f89ebf128f77" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>icpOptimize</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a676430fc7673dc7d9786a4a39e16f67d" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>icpStep</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a60ef33bbb1408a534a74efccd096fc16" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>invalidateActiveArea</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1af8248d0dd63ec48ffd73328d64b099c3" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>laserAngles</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1ace8b2f94cf5eb73bd221b1acece45cad" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>laserBeams</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a6c277f4226a7f217b7d9e1a39cd64205" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>likelihood</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a302a6418f60c00ef955028a3d2b3b30a" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>likelihood</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a619f90b0489e7a5858fa72d986680dc4" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>likelihoodAndScore</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1ab876e0a655f97d1eb485985fe95b31d1" prot="protected" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>m_activeAreaComputed</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a76dd3a7a3e03a30ad99f6cca3cc9ca2b" prot="protected" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>m_laserAngles</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1ade447080711cbb616eb19cdd55d6a266" prot="protected" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>m_laserBeams</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a73a0f19d405bb52d342e73e6152bf76a" prot="protected" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>m_linePoints</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1addb69a08f07cc87f8b60730ba449b5f1" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>nullLikelihood</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a1484d288d25465f68c7107b9700d0295" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>optimize</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a2002a79c40c66916ec4c66b72420c68e" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>optimize</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a51abbe9fe5808899a40995751a1bcd37" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>registerScan</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a6ef28a29dbb9ea49be1bf2edd90423c6" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>ScanMatcher</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a634d6d8fb5bbec96fe3b9bdd992b5565" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>score</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a64191c56d4fd0dedea13acf4228fb3d7" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>setLaserParameters</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1aad081e39e5629e1532af566370b842fb" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>setMatchingParameters</name></member>
+      <member refid="class_g_mapping_1_1_scan_matcher_1a209255038c9a46950fd50193dd161728" prot="public" virt="non-virtual"><scope>GMapping::ScanMatcher</scope><name>~ScanMatcher</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

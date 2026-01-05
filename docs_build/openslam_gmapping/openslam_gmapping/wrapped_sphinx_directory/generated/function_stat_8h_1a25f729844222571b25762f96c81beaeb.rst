@@ -1,0 +1,14 @@
+.. _exhale_function_stat_8h_1a25f729844222571b25762f96c81beaeb:
+
+Function GMapping::sampleUniformInt
+===================================
+
+- Defined in :ref:`file_include_gmapping_utils_stat.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: GMapping::sampleUniformInt(int)
+   :project: openslam_gmapping Doxygen Project

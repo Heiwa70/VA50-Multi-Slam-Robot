@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_g_mapping_1_1autoptr_1_1reference" kind="struct" language="C++" prot="public">
+    <compoundname>GMapping::autoptr::reference</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_mapping_1_1autoptr_1_1reference_1ad8ef983e1c6a32353f4c32be2bfe3896" prot="public" static="no" mutable="no">
+        <type>X *</type>
+        <definition>X* GMapping::autoptr&lt; X &gt;::reference::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>GMapping::autoptr::reference::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/autoptr.h" line="13" column="3" bodyfile="include/gmapping/utils/autoptr.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_mapping_1_1autoptr_1_1reference_1ae7e64cc901f97ed951aa38721052f4e7" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int GMapping::autoptr&lt; X &gt;::reference::shares</definition>
+        <argsstring></argsstring>
+        <name>shares</name>
+        <qualifiedname>GMapping::autoptr::reference::shares</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/autoptr.h" line="14" column="14" bodyfile="include/gmapping/utils/autoptr.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/utils/autoptr.h" line="12" column="1" bodyfile="include/gmapping/utils/autoptr.h" bodystart="12" bodyend="15"/>
+    <listofallmembers>
+      <member refid="struct_g_mapping_1_1autoptr_1_1reference_1ad8ef983e1c6a32353f4c32be2bfe3896" prot="public" virt="non-virtual"><scope>GMapping::autoptr::reference</scope><name>data</name></member>
+      <member refid="struct_g_mapping_1_1autoptr_1_1reference_1ae7e64cc901f97ed951aa38721052f4e7" prot="public" virt="non-virtual"><scope>GMapping::autoptr::reference</scope><name>shares</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

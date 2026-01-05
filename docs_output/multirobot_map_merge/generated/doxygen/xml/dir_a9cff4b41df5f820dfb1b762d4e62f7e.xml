@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_a9cff4b41df5f820dfb1b762d4e62f7e" kind="dir">
+    <compoundname>include/map_merge</compoundname>
+    <innerfile refid="map__merge_8h">map_merge.h</innerfile>
+    <innerfile refid="ros1__names_8hpp">ros1_names.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/map_merge/"/>
+  </compounddef>
+</doxygen>

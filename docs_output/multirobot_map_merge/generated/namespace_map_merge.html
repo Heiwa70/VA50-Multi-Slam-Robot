@@ -1,0 +1,197 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Namespace map_merge &mdash; multirobot_map_merge 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+      <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Namespace rclcpp" href="namespace_rclcpp.html" />
+    <link rel="prev" title="Namespace combine_grids::internal" href="namespace_combine_grids__internal.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            multirobot_map_merge
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#full-c-api">Full C++ API</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#namespaces">Namespaces</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="namespace_combine_grids.html">Namespace combine_grids</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_combine_grids__internal.html">Namespace combine_grids::internal</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Namespace map_merge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_rclcpp.html">Namespace rclcpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_ros1_names.html">Namespace ros1_names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_std.html">Namespace std</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#classes-and-structs">Classes and Structs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structmap__merge_1_1_map_subscription.html">Struct MapSubscription</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcombine__grids_1_1internal_1_1_grid_compositor.html">Class GridCompositor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcombine__grids_1_1internal_1_1_grid_warper.html">Class GridWarper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classcombine__grids_1_1_merging_pipeline.html">Class MergingPipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_invalid_name_exception.html">Class InvalidNameException</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classmap__merge_1_1_map_merge.html">Class MapMerge</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#enums">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enum_merging__pipeline_8h_1a3731ce600bc8c3abe4290c74d4be4f33.html">Enum FeatureType</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="function_ros1__names_8hpp_1a3414c31a0007e49035c3cd179cc8f353.html">Function ros1_names::append</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_ros1__names_8hpp_1a28ee0b3c09f43c5ddd400577b37d7902.html">Function ros1_names::clean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_ros1__names_8hpp_1a4a188286ccb3ed74de45ba053c837559.html">Function ros1_names::isValidCharInName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_ros1__names_8hpp_1a08e0d5cc99d1f8dfcf359f669076ca2c.html">Function ros1_names::parentNamespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_ros1__names_8hpp_1a3fd676143ac1d165ae30f9ccffd71e0a.html">Function ros1_names::validate</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#directories">Directories</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dir_include.html">Directory include</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_combine_grids.html">Directory combine_grids</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_map_merge.html">Directory map_merge</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#files">Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="file_include_combine_grids_grid_compositor.h.html">File grid_compositor.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_combine_grids_grid_warper.h.html">File grid_warper.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_map_merge_map_merge.h.html">File map_merge.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_combine_grids_merging_pipeline.h.html">File merging_pipeline.h</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_map_merge_ros1_names.hpp.html">File ros1_names.hpp</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../standards.html">Standard Documents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../standard_docs/CHANGELOG.html">CHANGELOG</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../standard_docs/CHANGELOG.html#changelog-for-package-multirobot-map-merge">Changelog for package multirobot_map_merge</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../standard_docs/CHANGELOG.html#id1">2.1.4 (2021-01-07)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../standard_docs/CHANGELOG.html#id2">2.1.3 (2021-01-03)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../standard_docs/CHANGELOG.html#id3">2.1.2 (2021-01-02)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../standard_docs/CHANGELOG.html#id4">2.1.1 (2017-12-16)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../standard_docs/CHANGELOG.html#id6">2.1.0 (2017-10-30)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../standard_docs/CHANGELOG.html#id7">2.0.0 (2017-03-26)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../standard_docs/CHANGELOG.html#id8">1.0.1 (2017-03-25)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../standard_docs/CHANGELOG.html#id9">1.0.0 (2016-05-11)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../standard_docs/PACKAGE.html">PACKAGE</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">multirobot_map_merge</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">C++ API</a></li>
+      <li class="breadcrumb-item active">Namespace map_merge</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/namespace_map_merge.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="namespace-map-merge">
+<span id="id1"></span><h1>Namespace map_merge<a class="headerlink" href="#namespace-map-merge" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#classes" id="id2">Classes</a></p></li>
+</ul>
+</nav>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="structmap__merge_1_1_map_subscription.html#exhale-struct-structmap-merge-1-1-map-subscription"><span class="std std-ref">Struct MapSubscription</span></a></p></li>
+<li><p><a class="reference internal" href="classmap__merge_1_1_map_merge.html#exhale-class-classmap-merge-1-1-map-merge"><span class="std std-ref">Class MapMerge</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="namespace_combine_grids__internal.html" class="btn btn-neutral float-left" title="Namespace combine_grids::internal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="namespace_rclcpp.html" class="btn btn-neutral float-right" title="Namespace rclcpp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The &lt;multirobot_map_merge&gt; Contributors. License: BSD.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

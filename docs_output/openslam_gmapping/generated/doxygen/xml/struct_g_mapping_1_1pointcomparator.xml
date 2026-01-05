@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_g_mapping_1_1pointcomparator" kind="struct" language="C++" prot="public">
+    <compoundname>GMapping::pointcomparator</compoundname>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_g_mapping_1_1pointcomparator_1ac0e0ea9de81827487751bfeba3098e89" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GMapping::pointcomparator&lt; T &gt;::operator()</definition>
+        <argsstring>(const point&lt; T &gt; &amp;a, const point&lt; T &gt; &amp;b) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>GMapping::pointcomparator::operator()</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="130" column="6" bodyfile="include/gmapping/utils/point.h" bodystart="130" bodyend="132"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/utils/point.h" line="129" column="1" bodyfile="include/gmapping/utils/point.h" bodystart="129" bodyend="133"/>
+    <listofallmembers>
+      <member refid="struct_g_mapping_1_1pointcomparator_1ac0e0ea9de81827487751bfeba3098e89" prot="public" virt="non-virtual"><scope>GMapping::pointcomparator</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

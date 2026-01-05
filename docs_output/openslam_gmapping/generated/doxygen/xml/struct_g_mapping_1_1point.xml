@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_g_mapping_1_1point" kind="struct" language="C++" prot="public">
+    <compoundname>GMapping::point</compoundname>
+    <derivedcompoundref refid="struct_g_mapping_1_1orientedpoint" prot="public" virt="non-virtual">GMapping::orientedpoint&lt; T, A &gt;</derivedcompoundref>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_mapping_1_1point_1a1e3816abbc8b56607fa741952fe74a8c" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T GMapping::point&lt; T &gt;::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>GMapping::point::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="16" column="3" bodyfile="include/gmapping/utils/point.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_mapping_1_1point_1ae25e311e074409d6329c2e66741006f1" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T GMapping::point&lt; T &gt;::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>GMapping::point::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="16" column="5" bodyfile="include/gmapping/utils/point.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_g_mapping_1_1point_1afc685fdd02ade3e26f5b0eaea770291f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::point&lt; T &gt;::point</definition>
+        <argsstring>()</argsstring>
+        <name>point</name>
+        <qualifiedname>GMapping::point::point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="14" column="8" bodyfile="include/gmapping/utils/point.h" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1point_1a8c10e5be8877b8799fd66ca5f7ba17b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::point&lt; T &gt;::point</definition>
+        <argsstring>(T _x, T _y)</argsstring>
+        <name>point</name>
+        <qualifiedname>GMapping::point::point</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>_x</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>_y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="15" column="8" bodyfile="include/gmapping/utils/point.h" bodystart="15" bodyend="15"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>GMapping::orientedpoint&lt; T, A &gt;</label>
+        <link refid="struct_g_mapping_1_1orientedpoint"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>GMapping::point&lt; T &gt;</label>
+        <link refid="struct_g_mapping_1_1point"/>
+      </node>
+    </inheritancegraph>
+    <location file="include/gmapping/utils/point.h" line="13" column="1" bodyfile="include/gmapping/utils/point.h" bodystart="13" bodyend="17"/>
+    <listofallmembers>
+      <member refid="struct_g_mapping_1_1point_1afc685fdd02ade3e26f5b0eaea770291f" prot="public" virt="non-virtual"><scope>GMapping::point</scope><name>point</name></member>
+      <member refid="struct_g_mapping_1_1point_1a8c10e5be8877b8799fd66ca5f7ba17b0" prot="public" virt="non-virtual"><scope>GMapping::point</scope><name>point</name></member>
+      <member refid="struct_g_mapping_1_1point_1a1e3816abbc8b56607fa741952fe74a8c" prot="public" virt="non-virtual"><scope>GMapping::point</scope><name>x</name></member>
+      <member refid="struct_g_mapping_1_1point_1ae25e311e074409d6329c2e66741006f1" prot="public" virt="non-virtual"><scope>GMapping::point</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

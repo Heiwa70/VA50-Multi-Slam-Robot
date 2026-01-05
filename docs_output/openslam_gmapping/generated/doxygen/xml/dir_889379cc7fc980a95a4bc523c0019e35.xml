@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_889379cc7fc980a95a4bc523c0019e35" kind="dir">
+    <compoundname>include/gmapping/utils</compoundname>
+    <innerfile refid="autoptr_8h">autoptr.h</innerfile>
+    <innerfile refid="commandline_8h">commandline.h</innerfile>
+    <innerfile refid="gvalues_8h">gvalues.h</innerfile>
+    <innerfile refid="macro__params_8h">macro_params.h</innerfile>
+    <innerfile refid="point_8h">point.h</innerfile>
+    <innerfile refid="stat_8h">stat.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/utils/"/>
+  </compounddef>
+</doxygen>

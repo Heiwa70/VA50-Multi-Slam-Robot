@@ -1,0 +1,759 @@
+
+Full C++ API
+------------
+
+Namespaces
+**********
+
+
+.. toctree::
+   :maxdepth: 1
+
+   namespace_GMapping.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   namespace_std.rst
+
+Classes and Structs
+*******************
+
+
+.. toctree::
+   :maxdepth: 1
+
+   structauxiliary__evolver.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   structevolver.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   struct_g_mapping_1_1autoptr_1_1reference.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   struct_g_mapping_1_1_covariance3.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   struct_g_mapping_1_1_eigen_covariance3.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   struct_g_mapping_1_1_gaussian3.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   struct_g_mapping_1_1_grid_slam_processor_1_1_particle.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   struct_g_mapping_1_1_grid_slam_processor_1_1_t_node.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   struct_g_mapping_1_1_motion_model.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   struct_g_mapping_1_1orientedpoint.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   struct_g_mapping_1_1point.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   struct_g_mapping_1_1_point_accumulator.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   struct_g_mapping_1_1pointcomparator.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   struct_g_mapping_1_1pointradialcomparator.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   struct_g_mapping_1_1_range_sensor_1_1_beam.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   structuniform__resampler.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   class_g_mapping_1_1_array2_d.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   class_g_mapping_1_1autoptr.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   class_g_mapping_1_1_configuration.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   class_g_mapping_1_1_grid_slam_processor.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   class_g_mapping_1_1_hierarchical_array2_d.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   class_g_mapping_1_1_map.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   class_g_mapping_1_1_odometry_reading.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   class_g_mapping_1_1_odometry_sensor.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   class_g_mapping_1_1_range_reading.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   class_g_mapping_1_1_range_sensor.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   class_g_mapping_1_1_scan_matcher.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   class_g_mapping_1_1_sensor.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   class_g_mapping_1_1_sensor_log.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   class_g_mapping_1_1_sensor_reading.rst
+
+Enums
+*****
+
+
+.. toctree::
+   :maxdepth: 1
+
+   enum_accessstate_8h_1a019911ecc362fe562a3e6bbc4fa4da4c.rst
+
+Functions
+*********
+
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1aab5cf65bbf130c6765d31bc5822681ff.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1acb84992cef22432c5ba8017e9feb3c9c.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1a1517af52862a1930f94a9a8a5b802dbb.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_stat_8h_1ad96dc3a2fbeb5f5100e27a01d8bceccd.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_stat_8h_1a6052104196efe9e2c373a493792284d1.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1a9fb08f8514edb3301f2e7dc0d6b40549.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1a71a888906877083eaf43d89c764587f2.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1a0765f34c70101397336ed26fa9523af1.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1a3b885924ff851da7455ba49fa4c6d155.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_stat_8h_1a5c288a2cdd28dd7921dbd4a400cbd4a4.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_stat_8h_1ab6785e51e0895e103be39b1f2297d4cb.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_icp_8h_1a87c3fe74a2c858a9535eb5a4c54edd60.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_icp_8h_1a5d699434e4abf22ca9e2fb97698ea3b1.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1af25f800e83033cfa9e721968a4ed63cf.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1a751968c262a540279f3b43f164aa3e8e.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1a1b9688f5596a41157e6969b083541e4b.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1a38be3189cf5fe50b70b2c6c7977ef093.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1a37d161afb7e7418b8c2e866d3d00eab4.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1a19f05e4c296b33fc0e02d7cce2e71327.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1afddeb71462a5f466986ad41b939261db.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1a476c9606d012855a25376aa137404a7b.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1a56394863e27bf574a54eaf7cc4f2b093.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1a4b1a8f032e4b95b200b5b54ea3112ce3.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1a395da86fbc9e3d01f511e6aea6bd58d6.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1a97469a08afd3735c8c82bd98ce440289.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_point_8h_1aa1dda22208d97a0dcbd64b1e0f7149a7.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_stat_8h_1ad7d6bd6f93f6a89790795a6c8d027705.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_stat_8h_1a424e591e6ebad081a91efa85eb4fcc1c.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_stat_8h_1a25f729844222571b25762f96c81beaeb.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_particlefilter_8h_1a8c7d3bee5088bb14ba097cb4cfeeeb2d.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_particlefilter_8h_1a1ff1572e2ab6cf84fa2fc1fd6f2e21f8.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_particlefilter_8h_1a70e3fec1037e3e397bdfa9c398096c5e.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_particlefilter_8h_1a8b76542e1fb9304501eb4a9bf8164f73.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_particlefilter_8h_1a4531051362d95f7273d49cc607f0ede3.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_particlefilter_8h_1aace430f7a11fad799b9a90136ec6bb67.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   function_particlefilter_8h_1a9d0f782f7a8e45ef0c1ebff64434870e.rst
+
+Variables
+*********
+
+
+.. toctree::
+   :maxdepth: 1
+
+   variable_map_8h_1a38c77550a7decba15b5a8906a54547d2.rst
+
+Defines
+*******
+
+
+.. toctree::
+   :maxdepth: 1
+
+   define_array2d_8h_1a2e82e5699b01e6fecdd9022aa0f1e535.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_commandline_8h_1ae253b167c11826a411455821335f83ea.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_commandline_8h_1a98cd02d8e60ede703a938fbb8ab0ee05.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_commandline_8h_1a68b463faa67a8992497607d89ce080bc.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_commandline_8h_1ab4968dec1bee336b2afda8259120b5cf.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_macro__params_8h_1a0e4d708edb8b0da60c8bbd249b82608d.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_point_8h_1a01cc042ece075ab5f79f608fed6aa192.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_scanmatcher_8h_1afe3d9777d646eef086e7623b376dacb3.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_gvalues_8h_1ace724a9256f4e65b352465e5feb24a21.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_macro__params_8h_1a08e58b7d3bae77a72ef3a1d920ad4a4c.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_macro__params_8h_1a9e35a45d82566bb94185ca19e09e8656.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_macro__params_8h_1a82413e1c8ba898b189be93bdcd1cd7ec.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_macro__params_8h_1ae6a3b95681ad79346a8aefaa35a2dd32.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_macro__params_8h_1a05b722dc673fd5e32b5150f06ca51a4e.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_macro__params_8h_1a6e1c7140bc09148edd9ce558168d8c14.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_commandline_8h_1ab3734006f6055b64a723137074496d72.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_commandline_8h_1aedd04e9e6160199bc2db268833a00b2b.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_commandline_8h_1a0d80dfc132aa9f408273ae366a577d43.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_commandline_8h_1a207930558e8fb49ed9a643ed9f1e7ac4.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_commandline_8h_1a0cbe14e71d86d1a312501d9103bf8a00.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_commandline_8h_1ad4c7e9eec1aa6ada4a846d7bf7ab02f5.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_commandline_8h_1a4cc24c08b980e087573d86bd61eb565e.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_commandline_8h_1ac40450eae42bd59848fed51d223cddb0.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_smmap_8h_1a7b5846af516758aa17dda10ccf044a98.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_macro__params_8h_1aa3de02d916a51f9ec446b684def247ab.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_macro__params_8h_1a9f53434f86ec2430745e17c6dc6dd1b5.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   define_macro__params_8h_1a0e10730a44abafbaa1c4a346177d86ef.rst
+
+Typedefs
+********
+
+
+.. toctree::
+   :maxdepth: 1
+
+   typedef_map_8h_1a6cc1de4fdfea96973d7cca9c06ce2642.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   typedef_map_8h_1a682c22f665d03c8c33fff77093f7079f.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   typedef_point_8h_1a42267ff9ee7271aef67e616b8f65ffb0.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   typedef_point_8h_1a341f9c97dfb3ebc1c451a351b484f19d.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   typedef_point_8h_1a02aca97274c6c5fe90097e517f88493d.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   typedef_icp_8h_1a091accfc9928b96483c7fb1746d24aba.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   typedef_smmap_8h_1afc5f0c8c35212b9a61fb43ef6d8966eb.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   typedef_sensor_8h_1af37440197d6baeaaf592e4980218742b.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   typedef_gridslamprocessor_8h_1a7dcee7ca2a2a5b13212faa84e250283c.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   typedef_particlefilter_8h_1a97e6281d3d8ae7e187dd5039f32d6e24.rst
+
+Directories
+***********
+
+
+.. toctree::
+   :maxdepth: 1
+
+   dir_include.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   dir_include_gmapping.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   dir_include_gmapping_grid.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   dir_include_gmapping_gridfastslam.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   dir_include_gmapping_log.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   dir_include_gmapping_particlefilter.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   dir_include_gmapping_scanmatcher.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   dir_include_gmapping_sensor.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   dir_include_gmapping_sensor_sensor_base.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   dir_include_gmapping_sensor_sensor_odometry.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   dir_include_gmapping_sensor_sensor_range.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   dir_include_gmapping_utils.rst
+
+Files
+*****
+
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_grid_accessstate.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_grid_array2d.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_utils_autoptr.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_utils_commandline.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_log_configuration.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_gridfastslam_gridslamprocessor.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_gridfastslam_gridslamprocessor.hxx.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_utils_gvalues.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_grid_harray2d.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_scanmatcher_icp.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_utils_macro_params.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_grid_map.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_gridfastslam_motionmodel.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_sensor_sensor_odometry_odometryreading.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_sensor_sensor_odometry_odometrysensor.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_particlefilter_particlefilter.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_utils_point.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_sensor_sensor_range_rangereading.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_sensor_sensor_range_rangesensor.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_scanmatcher_scanmatcher.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_sensor_sensor_base_sensor.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_log_sensorlog.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_sensor_sensor_base_sensorreading.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_scanmatcher_smmap.h.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_gmapping_utils_stat.h.rst

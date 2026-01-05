@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structmap__merge_1_1_map_subscription" kind="struct" language="C++" prot="public">
+    <compoundname>map_merge::MapSubscription</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmap__merge_1_1_map_subscription_1abe1c876de5eae331652095d1cea0506a" prot="public" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex map_merge::MapSubscription::mutex</definition>
+        <argsstring></argsstring>
+        <name>mutex</name>
+        <qualifiedname>map_merge::MapSubscription::mutex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map_merge/map_merge.h" line="60" column="14" bodyfile="include/map_merge/map_merge.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmap__merge_1_1_map_subscription_1a49b7b84d0e0503696955e54184e39875" prot="public" static="no" mutable="no">
+        <type>geometry_msgs::msg::Transform</type>
+        <definition>geometry_msgs::msg::Transform map_merge::MapSubscription::initial_pose</definition>
+        <argsstring></argsstring>
+        <name>initial_pose</name>
+        <qualifiedname>map_merge::MapSubscription::initial_pose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map_merge/map_merge.h" line="62" column="33" bodyfile="include/map_merge/map_merge.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmap__merge_1_1_map_subscription_1adb0334fba68c7b0ddd9867e29d3508cb" prot="public" static="no" mutable="no">
+        <type>nav_msgs::msg::OccupancyGrid::SharedPtr</type>
+        <definition>nav_msgs::msg::OccupancyGrid::SharedPtr map_merge::MapSubscription::writable_map</definition>
+        <argsstring></argsstring>
+        <name>writable_map</name>
+        <qualifiedname>map_merge::MapSubscription::writable_map</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map_merge/map_merge.h" line="63" column="43" bodyfile="include/map_merge/map_merge.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmap__merge_1_1_map_subscription_1ae45e387b55160a6fc9b2a94901e5057e" prot="public" static="no" mutable="no">
+        <type>nav_msgs::msg::OccupancyGrid::ConstSharedPtr</type>
+        <definition>nav_msgs::msg::OccupancyGrid::ConstSharedPtr map_merge::MapSubscription::readonly_map</definition>
+        <argsstring></argsstring>
+        <name>readonly_map</name>
+        <qualifiedname>map_merge::MapSubscription::readonly_map</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map_merge/map_merge.h" line="64" column="48" bodyfile="include/map_merge/map_merge.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmap__merge_1_1_map_subscription_1a20e6486ef7d7002d330eaa078c0f43bf" prot="public" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; nav_msgs::msg::OccupancyGrid &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;nav_msgs::msg::OccupancyGrid&gt;::SharedPtr map_merge::MapSubscription::map_sub</definition>
+        <argsstring></argsstring>
+        <name>map_sub</name>
+        <qualifiedname>map_merge::MapSubscription::map_sub</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map_merge/map_merge.h" line="68" column="36" bodyfile="include/map_merge/map_merge.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmap__merge_1_1_map_subscription_1a7164d596ce17b232966e7e94469cebe7" prot="public" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; map_msgs::msg::OccupancyGridUpdate &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;map_msgs::msg::OccupancyGridUpdate&gt;::SharedPtr map_merge::MapSubscription::map_updates_sub</definition>
+        <argsstring></argsstring>
+        <name>map_updates_sub</name>
+        <qualifiedname>map_merge::MapSubscription::map_updates_sub</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map_merge/map_merge.h" line="69" column="36" bodyfile="include/map_merge/map_merge.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/map_merge/map_merge.h" line="57" column="1" bodyfile="include/map_merge/map_merge.h" bodystart="57" bodyend="70"/>
+    <listofallmembers>
+      <member refid="structmap__merge_1_1_map_subscription_1a49b7b84d0e0503696955e54184e39875" prot="public" virt="non-virtual"><scope>map_merge::MapSubscription</scope><name>initial_pose</name></member>
+      <member refid="structmap__merge_1_1_map_subscription_1a20e6486ef7d7002d330eaa078c0f43bf" prot="public" virt="non-virtual"><scope>map_merge::MapSubscription</scope><name>map_sub</name></member>
+      <member refid="structmap__merge_1_1_map_subscription_1a7164d596ce17b232966e7e94469cebe7" prot="public" virt="non-virtual"><scope>map_merge::MapSubscription</scope><name>map_updates_sub</name></member>
+      <member refid="structmap__merge_1_1_map_subscription_1abe1c876de5eae331652095d1cea0506a" prot="public" virt="non-virtual"><scope>map_merge::MapSubscription</scope><name>mutex</name></member>
+      <member refid="structmap__merge_1_1_map_subscription_1ae45e387b55160a6fc9b2a94901e5057e" prot="public" virt="non-virtual"><scope>map_merge::MapSubscription</scope><name>readonly_map</name></member>
+      <member refid="structmap__merge_1_1_map_subscription_1adb0334fba68c7b0ddd9867e29d3508cb" prot="public" virt="non-virtual"><scope>map_merge::MapSubscription</scope><name>writable_map</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

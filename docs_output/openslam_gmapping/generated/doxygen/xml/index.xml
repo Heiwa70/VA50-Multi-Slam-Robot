@@ -1,0 +1,573 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.15.0" xml:lang="en-US">
+  <compound refid="class_g_mapping_1_1_array2_d" kind="class"><name>GMapping::Array2D</name>
+    <member refid="class_g_mapping_1_1_array2_d_1afd83021c5123d5ae067a3ed34512a59e" kind="variable"><name>m_cells</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1aacab0ceb637229a97fe90e2d1a01ec53" kind="variable"><name>m_xsize</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1afe60e4ad957faf1e8dc04d8850c38c04" kind="variable"><name>m_ysize</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1a0d317f25f3a2873f5be6c0be1ab9fa7b" kind="function"><name>Array2D</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1aa91eb3778e1066f9039620a9d2eb0975" kind="function"><name>operator=</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1a08b3d4b4458fb4c6f4e244162d3535ee" kind="function"><name>Array2D</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1a0e68572ba9edcdd4055c7ad5d013c9e0" kind="function"><name>~Array2D</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1a3b5152ab2325ec1b2bd900a305a7e6cf" kind="function"><name>clear</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1a07aee668640ab602d07a7b0c7192a180" kind="function"><name>resize</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1a25959e968883eefc2cbcdf9fa1d62a90" kind="function"><name>isInside</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1aed1ef167b9dd53140b303ebddd2d9dcc" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1a12a931e92317de998eaac698e27bfbc6" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1aa91d0ae63e36de075e5f2600de9bd82e" kind="function"><name>cellState</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1af6b20adad6b9616ba09a5a3a9b6a5217" kind="function"><name>isInside</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1aa5585a07be807185df4efb1565276d89" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1abd30dbce13de6c61d7028f20bdc0c8a3" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1a4c4a401989e25a1969d5d06e2e07a881" kind="function"><name>cellState</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1ad62adb483a791ed9590e6e232d649668" kind="function"><name>getPatchSize</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1ab0dec32b505ee0d5705ca4e524c120d3" kind="function"><name>getPatchMagnitude</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1a415be1e44912dc2a9234ddae24d2b3c3" kind="function"><name>getXSize</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1a9546966c70ad82ec627410e545001b6b" kind="function"><name>getYSize</name></member>
+    <member refid="class_g_mapping_1_1_array2_d_1a4fb538c3cdd144e4bb18b225497946ed" kind="function"><name>cells</name></member>
+  </compound>
+  <compound refid="class_g_mapping_1_1autoptr" kind="class"><name>GMapping::autoptr</name>
+    <member refid="class_g_mapping_1_1autoptr_1aa641f3e33480944c12157ec2dbcfba43" kind="variable"><name>m_reference</name></member>
+    <member refid="class_g_mapping_1_1autoptr_1a881a032985196cd34211b73f2b42e85f" kind="function"><name>autoptr</name></member>
+    <member refid="class_g_mapping_1_1autoptr_1a138e5689bf690da8c8bb2273d251a263" kind="function"><name>autoptr</name></member>
+    <member refid="class_g_mapping_1_1autoptr_1a7d34a833cda2a53139f00b7b9ed6fa91" kind="function"><name>operator=</name></member>
+    <member refid="class_g_mapping_1_1autoptr_1a8ebdd156f5ac607eb217d2b6e70c1083" kind="function"><name>~autoptr</name></member>
+    <member refid="class_g_mapping_1_1autoptr_1adfd2157bfe4c2322d94dfdc831fc4ba4" kind="function"><name>operator int</name></member>
+    <member refid="class_g_mapping_1_1autoptr_1a465bd585f4f8e72c0afe9fbbb888035a" kind="function"><name>operator*</name></member>
+    <member refid="class_g_mapping_1_1autoptr_1a06051538281923780fde5a64a7eb6dc3" kind="function"><name>operator*</name></member>
+  </compound>
+  <compound refid="structauxiliary__evolver" kind="struct"><name>auxiliary_evolver</name>
+    <member refid="structauxiliary__evolver_1a6376d772526806b776e7ee09e2b70de6" kind="variable"><name>evolutionModel</name></member>
+    <member refid="structauxiliary__evolver_1ad591b97ca5d245ad2bf0c32949bb3788" kind="variable"><name>qualificationModel</name></member>
+    <member refid="structauxiliary__evolver_1ab6f7b707a228d6f62a6fc33ad4e77e89" kind="variable"><name>likelyhoodModel</name></member>
+    <member refid="structauxiliary__evolver_1a5b5b1faaebe2bbb3f625ca6ac1678257" kind="function"><name>evolve</name></member>
+    <member refid="structauxiliary__evolver_1a162deb7efec81ab84491c51d5387cc6c" kind="function"><name>evolve</name></member>
+  </compound>
+  <compound refid="struct_g_mapping_1_1_range_sensor_1_1_beam" kind="struct"><name>GMapping::RangeSensor::Beam</name>
+    <member refid="struct_g_mapping_1_1_range_sensor_1_1_beam_1af58edd45401569fad1901d1a80705ceb" kind="variable"><name>pose</name></member>
+    <member refid="struct_g_mapping_1_1_range_sensor_1_1_beam_1a35e06160bea66a036cdc6545c4df8716" kind="variable"><name>span</name></member>
+    <member refid="struct_g_mapping_1_1_range_sensor_1_1_beam_1ac37ac8ac6ac0878fca017efd633d264b" kind="variable"><name>maxRange</name></member>
+    <member refid="struct_g_mapping_1_1_range_sensor_1_1_beam_1a2cb21ef187465442cd2e84ed00f89879" kind="variable"><name>s</name></member>
+    <member refid="struct_g_mapping_1_1_range_sensor_1_1_beam_1a5f79318479c1223e1d6122dd886bdddc" kind="variable"><name>c</name></member>
+  </compound>
+  <compound refid="class_g_mapping_1_1_configuration" kind="class"><name>GMapping::Configuration</name>
+    <member refid="class_g_mapping_1_1_configuration_1ae5d5cf3612c9234cef74689906c3971b" kind="function"><name>~Configuration</name></member>
+    <member refid="class_g_mapping_1_1_configuration_1a3b95d050932e23425ceaa034041729a9" kind="function"><name>computeSensorMap</name></member>
+  </compound>
+  <compound refid="struct_g_mapping_1_1_covariance3" kind="struct"><name>GMapping::Covariance3</name>
+    <member refid="struct_g_mapping_1_1_covariance3_1a510c13587cbd1b61e04bfc26f5a7760e" kind="variable"><name>zero</name></member>
+    <member refid="struct_g_mapping_1_1_covariance3_1aaa7763fce4398415a11a795113ecc58f" kind="variable"><name>xx</name></member>
+    <member refid="struct_g_mapping_1_1_covariance3_1a67d9c25f8d4d82374585055abf938a8a" kind="variable"><name>yy</name></member>
+    <member refid="struct_g_mapping_1_1_covariance3_1a94f8bccf1b24913eb5a96d716780ea2c" kind="variable"><name>tt</name></member>
+    <member refid="struct_g_mapping_1_1_covariance3_1ae05cd80836061793618a1d4a0f05bf83" kind="variable"><name>xy</name></member>
+    <member refid="struct_g_mapping_1_1_covariance3_1ae719f67dc607cdd4f02f580566415576" kind="variable"><name>xt</name></member>
+    <member refid="struct_g_mapping_1_1_covariance3_1ac63dcd7bf55cb6647a5a907df0494753" kind="variable"><name>yt</name></member>
+    <member refid="struct_g_mapping_1_1_covariance3_1a28d60d44d32e4ef1f567a714cebc57b6" kind="function"><name>operator+</name></member>
+  </compound>
+  <compound refid="struct_g_mapping_1_1_eigen_covariance3" kind="struct"><name>GMapping::EigenCovariance3</name>
+    <member refid="struct_g_mapping_1_1_eigen_covariance3_1a6bda6c153a521484a61194c8c563f343" kind="variable"><name>eval</name></member>
+    <member refid="struct_g_mapping_1_1_eigen_covariance3_1aa1f7cda37a444b94987b12dce284e830" kind="variable"><name>evec</name></member>
+    <member refid="struct_g_mapping_1_1_eigen_covariance3_1aef73a904a1b465eeeb28b37d1f6459a9" kind="function"><name>EigenCovariance3</name></member>
+    <member refid="struct_g_mapping_1_1_eigen_covariance3_1a382fc4f9890ddb4d5f0b457c60188c21" kind="function"><name>EigenCovariance3</name></member>
+    <member refid="struct_g_mapping_1_1_eigen_covariance3_1a07bab62ae744d94974144f3b28bd768a" kind="function"><name>rotate</name></member>
+    <member refid="struct_g_mapping_1_1_eigen_covariance3_1ac607d09cfd8a3445928e8db50df56ffa" kind="function"><name>sample</name></member>
+  </compound>
+  <compound refid="structevolver" kind="struct"><name>evolver</name>
+    <member refid="structevolver_1a68d662fa9cc8460e4353e5b2467dea3d" kind="variable"><name>evolutionModel</name></member>
+    <member refid="structevolver_1a61f5d2b046a866f06e298e389221211c" kind="function"><name>evolve</name></member>
+    <member refid="structevolver_1a61e6aa8695a0639547e2ac174a92d186" kind="function"><name>evolve</name></member>
+  </compound>
+  <compound refid="struct_g_mapping_1_1_gaussian3" kind="struct"><name>GMapping::Gaussian3</name>
+    <member refid="struct_g_mapping_1_1_gaussian3_1a64b17b61e1bd87923d0c9f65192792ca" kind="variable"><name>mean</name></member>
+    <member refid="struct_g_mapping_1_1_gaussian3_1a3131844c0d9825570f28796fdf5ff92c" kind="variable"><name>covariance</name></member>
+    <member refid="struct_g_mapping_1_1_gaussian3_1a4bea7121bbfe1ff39436d49ad8c950b2" kind="variable"><name>cov</name></member>
+    <member refid="struct_g_mapping_1_1_gaussian3_1a1769fe4ee91ac205d1dcd38ae49e5a89" kind="function"><name>eval</name></member>
+    <member refid="struct_g_mapping_1_1_gaussian3_1ac92a49024d8605f61f252dc39798dc35" kind="function"><name>computeFromSamples</name></member>
+    <member refid="struct_g_mapping_1_1_gaussian3_1aa615992e9701c9aaa1391bf9c1422f32" kind="function"><name>computeFromSamples</name></member>
+  </compound>
+  <compound refid="class_g_mapping_1_1_grid_slam_processor" kind="class"><name>GMapping::GridSlamProcessor</name>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a5992af06fd86724fbdc9471b2780ab49" kind="typedef"><name>TNodeVector</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a2c477fefb94357e8a6951e1e4786935e" kind="typedef"><name>TNodeDeque</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1acce61eef3666984121227234e376b8df" kind="typedef"><name>ParticleVector</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1ac50952d259590c4aeba22eee4e6437f5" kind="variable"><name>m_matcher</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1aec30b4ee3a767c9f50bb95236851a1be" kind="variable"><name>m_beams</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a3f40a117057427e725aa92739dbe2480" kind="variable"><name>last_update_time_</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a83d163ab15cf15856ea69507ec87904a" kind="variable"><name>period_</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a67c2ade1a066269de12fe382999f2905" kind="variable"><name>m_particles</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a79cee7069bb938f3b9d6d35b42b48ec6" kind="variable"><name>m_indexes</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a39e71ee439dde6ca9ccd2929cf12551f" kind="variable"><name>m_weights</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1ae1fa20e9679abdbc23784e2dc17194b5" kind="variable"><name>m_motionModel</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a1c7e0a4fec2a31769f27fd17a9cfac3d" kind="variable"><name>m_count</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a50a21e3936bb5c122a9e4b8039be9bc9" kind="variable"><name>m_readingCount</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1aeddf8ebf9784e818d93a4c5bb94e3c0d" kind="variable"><name>m_lastPartPose</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a242df41618ccce684a01229c3c752dc9" kind="variable"><name>m_odoPose</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a4435f10953b33bff663a6a7b21acb6cd" kind="variable"><name>m_pose</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a94ba410742ad6712b707e908e53da5e1" kind="variable"><name>m_linearDistance</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1aeede1ad148cba7c6080da5d8f00d4ac6" kind="variable"><name>m_angularDistance</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a25d322edaf8cdbc585493934918b3a6a" kind="variable"><name>m_outputStream</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a7ad909f978d96737b5a336a15c65384c" kind="variable"><name>m_infoStream</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a736f647e15e7b3e5f853920beb7b2b80" kind="function"><name>GridSlamProcessor</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1acccb98ea4c54b844acf14d7ec979e8a8" kind="function"><name>GridSlamProcessor</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a2e5270f6e87161189f19e5880db792ca" kind="function"><name>clone</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1ad0acfbe24e22ca2450052d67013c06e3" kind="function"><name>~GridSlamProcessor</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a4277d04a56f1d03deecddcd3f62bf58d" kind="function"><name>setSensorMap</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a0993feeb34469143808a6ff2d9d1ae6b" kind="function"><name>init</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1ac015894484817bd962b0990fa64abfe4" kind="function"><name>setMatchingParameters</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1af5c4b7f2992f1d11b2e373dbd410cab2" kind="function"><name>setMotionModelParameters</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a82a12db62b99cf2f0cd3f475c81af77f" kind="function"><name>setUpdateDistances</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a37b6e3cfceeae5b20fd34888551464e4" kind="function"><name>setUpdatePeriod</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1ae95960a9452ea93a6002a92ff8cd4777" kind="function"><name>processTruePos</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a34c7f216947ee4c8ac05d5a53366aa5d" kind="function"><name>processScan</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a9a4a65da5c87f57b28623957eae640a4" kind="function"><name>getTrajectories</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a9f3ed3d072d48b81b5abb76a3dd848b6" kind="function"><name>integrateScanSequence</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a4cd45d059a6cc1b82cb7688addccfd29" kind="function"><name>outputStream</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1ae7be39c0e2a9cea422e1a76c96a407b6" kind="function"><name>infoStream</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a2e844f171384ea4b85e82a9c5c95916f" kind="function"><name>getParticles</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a4bfa1528c482c9d306746a289de4b789" kind="function"><name>getIndexes</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1ab79f70268a5facacc079748b0bc069b7" kind="function"><name>getBestParticleIndex</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a92ad36bdba5d24a5c410dc23c8bf2cfb" kind="function"><name>onOdometryUpdate</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1ad84981b4a6f7879e96a7f4d065c6b0fc" kind="function"><name>onResampleUpdate</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a3050d8cce14734b26582d4bdbdde72f2" kind="function"><name>onScanmatchUpdate</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a59fd57518b8010bdf60972b239067f19" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a76a51cf2adbc8b4ff976d94b1c7d6e91" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a1a4b79434cb2b998ebeecdf84bec85c5" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a0ca266215482753f991e702f222e5f4b" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1abe193f91a1ddcdf68cf65284217c64d8" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a2d7ed8bd432b4e8fd2f415536f48231d" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1ab1d5ded4e425ece05d38a98fbe0a8b2c" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a52575a11c089158b1a37e74ead526da9" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a600cd2d77f3662e3c4c6c241be4aaaac" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a61ebeb294126d9081b8cb099fc60c6b0" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1ab6234158b112bfd2aba9ce5a063eff78" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a7a491940692ed37326fc746e27c687bc" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1ae3fb37cdec3e49f4a74d7e5adbeaed75" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a375b3327975b1d8de93d5b8c4c494463" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1ad7e50913d07e1003d2fb97b40b3768aa" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a02a3a4462d3e5f35e746a789f0d9674c" kind="function"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a5dca255f4b499a703a002715fd70828e" kind="function"><name>STRUCT_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a10f9bff87947ec28aedae11a3ec97f3d" kind="function"><name>STRUCT_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a8cb558f4aa4f6f57f2173a0ac8f63bc1" kind="function"><name>STRUCT_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a272f53828c2033879c364de540d1e0c0" kind="function"><name>STRUCT_PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1aef1af48fa8542ceff98b81e1d0f6e039" kind="function"><name>PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a7800b02d50b6b5d7c8b226e3c361ca2c" kind="function"><name>GridSlamProcessor</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a9669d7233fda1a872ee2e7bfd58422f6" kind="function"><name>PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1aafaee08750396914c0359cd533a3a32e" kind="function"><name>PARAM_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a5b55357e7c755d1814641bd9277ff67f" kind="function"><name>PARAM_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a225d3c8e74e1a533a49a18664939f9a1" kind="function"><name>PARAM_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a9705463bbdbfc1adfaadc9d63de57037" kind="function"><name>PARAM_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1aa42c6dbd72076e79f858d096e8fa5645" kind="function"><name>PARAM_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a24de55fb12548d080071138c087eb275" kind="function"><name>PARAM_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a83cecf60f47fc3c3f3142e67fd80e59d" kind="function"><name>PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a98219e814eccc6bb63c1c69f9fa0447f" kind="function"><name>PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a61d3c3d7d5226a7ae92c365d1f3652b3" kind="function"><name>PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a754c520cbb975790c970ca596e8a4b1f" kind="function"><name>PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a77438894a9614deb0fdf3829ce6557ee" kind="function"><name>PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1ac86d3cc3827574c10f1169cb63323d23" kind="function"><name>PARAM_SET_GET</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a68d54e109e6da1345d7ed5ec64772747" kind="function"><name>scanMatch</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a94ecbeeeaf0416daa4dd008401282d89" kind="function"><name>normalize</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a9071e1553ada2e245025f4fdd6919555" kind="function"><name>resample</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a9984785d452344b9f6bd77c9af1ca37c" kind="function"><name>updateTreeWeights</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1a6b8618514f0ef9b5bd15258d8fab7e93" kind="function"><name>resetTree</name></member>
+    <member refid="class_g_mapping_1_1_grid_slam_processor_1adfd6f98cfcba6a54c6697bcf997f77d6" kind="function"><name>propagateWeights</name></member>
+  </compound>
+  <compound refid="class_g_mapping_1_1_hierarchical_array2_d" kind="class"><name>GMapping::HierarchicalArray2D</name>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1a7d0dc555a718be704efb07072143ad24" kind="typedef"><name>PointSet</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1acfab704916dbd69cb898a75cf2601d51" kind="variable"><name>m_activeArea</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1a4d051e715e956f822947f46029423c05" kind="variable"><name>m_patchMagnitude</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1a836ab0931153bb262daf5dc282a228e4" kind="variable"><name>m_patchSize</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1a8387b44c217afb9b0c76655980cd9674" kind="function"><name>HierarchicalArray2D</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1a572f71d12aa211d46b1677fd012d98df" kind="function"><name>HierarchicalArray2D</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1aff20242b7aae7b6e7ca3de94413dd1e0" kind="function"><name>operator=</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1a033b843960b7beb654c2e50fbf07620c" kind="function"><name>~HierarchicalArray2D</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1af0c314c8bd0f455989be870dab0c62d9" kind="function"><name>resize</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1a7621b0180c2abe9020f078228f10b555" kind="function"><name>getPatchSize</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1acb244fa354bba4ac2d71c73de03be861" kind="function"><name>getPatchMagnitude</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1aac7be6c8e14b79cad399582380b7bdff" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1a96008d329debb99dd82bb2a7ecd497bf" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1ae614e3426f7841705ea254e0868a2aed" kind="function"><name>isAllocated</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1a37ce321fda8e7bd3953712fc8ca1e931" kind="function"><name>cellState</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1a47c8875306a6ccf469aa4ad2e90832ff" kind="function"><name>patchIndexes</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1aeb2764a3b7f0be2dac565887e662dc9d" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1a195ee48f5c29a99e5ed966402a8ab7f5" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1afd9515a52dcc78a1800d8704c2b0ef20" kind="function"><name>isAllocated</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1a4e73cf41869cbc193bd9f9d16be616f6" kind="function"><name>cellState</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1ad4f1306880b973886c436a06afaa47f3" kind="function"><name>patchIndexes</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1a399f280ae58ca46305f5a85df8b7686c" kind="function"><name>setActiveArea</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1a06f348aa1859b627e8329af03d894997" kind="function"><name>getActiveArea</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1af017c9fa14f942f1293c981494cac602" kind="function"><name>allocActiveArea</name></member>
+    <member refid="class_g_mapping_1_1_hierarchical_array2_d_1a82fe8ba018a06140de5db598dd51b69a" kind="function"><name>createPatch</name></member>
+  </compound>
+  <compound refid="class_g_mapping_1_1_map" kind="class"><name>GMapping::Map</name>
+    <member refid="class_g_mapping_1_1_map_1aecd8d0eb5c8a5a8454c55e283934c5f0" kind="variable"><name>m_center</name></member>
+    <member refid="class_g_mapping_1_1_map_1a10fdfaab06655e3a860b22a128b1e38b" kind="variable"><name>m_worldSizeX</name></member>
+    <member refid="class_g_mapping_1_1_map_1a04515b99844c64b5467e262206fc1093" kind="variable"><name>m_worldSizeY</name></member>
+    <member refid="class_g_mapping_1_1_map_1a2ff6f09bc5532cadc6ffbae79aad6016" kind="variable"><name>m_delta</name></member>
+    <member refid="class_g_mapping_1_1_map_1a485e3b3e595bad7e907939e6c1cd2d07" kind="variable"><name>m_storage</name></member>
+    <member refid="class_g_mapping_1_1_map_1a537a3f96ba5e7c8559789daf81162969" kind="variable"><name>m_mapSizeX</name></member>
+    <member refid="class_g_mapping_1_1_map_1a96613b57751a8a4942f2988da41305d7" kind="variable"><name>m_mapSizeY</name></member>
+    <member refid="class_g_mapping_1_1_map_1a573575e86b23cc139d4e4c1069e1cdbf" kind="variable"><name>m_sizeX2</name></member>
+    <member refid="class_g_mapping_1_1_map_1a107cabec8e4630a31fb11e5562543fb5" kind="variable"><name>m_sizeY2</name></member>
+    <member refid="class_g_mapping_1_1_map_1aca2e12fc76363d004fe5bf403b72a6aa" kind="variable"><name>m_unknown</name></member>
+    <member refid="class_g_mapping_1_1_map_1a36bacfcd3fc3fabc5fe7617754b25567" kind="function"><name>Map</name></member>
+    <member refid="class_g_mapping_1_1_map_1a0ea4f04959c874b7c3086d96fac30236" kind="function"><name>Map</name></member>
+    <member refid="class_g_mapping_1_1_map_1a6703b56ce15339cb9d9603f61332bfc1" kind="function"><name>Map</name></member>
+    <member refid="class_g_mapping_1_1_map_1a89c4799297d5231a5bae0a0eef9adc28" kind="function"><name>resize</name></member>
+    <member refid="class_g_mapping_1_1_map_1af79403cb4804e75ed16aeaf78bcfcfee" kind="function"><name>grow</name></member>
+    <member refid="class_g_mapping_1_1_map_1aa0cdf0d1af8991704693ac78a0d83d5a" kind="function"><name>world2map</name></member>
+    <member refid="class_g_mapping_1_1_map_1a4a3caa104a1a6faf240001279e92199b" kind="function"><name>map2world</name></member>
+    <member refid="class_g_mapping_1_1_map_1a182b2bc4ae28c064176c745437eac2cd" kind="function"><name>world2map</name></member>
+    <member refid="class_g_mapping_1_1_map_1a687b05f408e176b12a032835ca61b3dd" kind="function"><name>map2world</name></member>
+    <member refid="class_g_mapping_1_1_map_1a51d79d775e7e9ba9fad119f3fe8363e0" kind="function"><name>getCenter</name></member>
+    <member refid="class_g_mapping_1_1_map_1a547de649b4e93ff35a46993bc15950fe" kind="function"><name>getWorldSizeX</name></member>
+    <member refid="class_g_mapping_1_1_map_1abfd0ba43b75538269787abbf9717b1f7" kind="function"><name>getWorldSizeY</name></member>
+    <member refid="class_g_mapping_1_1_map_1ac3ae4095e469da549d41c5f71cd4581f" kind="function"><name>getMapSizeX</name></member>
+    <member refid="class_g_mapping_1_1_map_1a010cbdc6712b21c9d7ae845aac10ed33" kind="function"><name>getMapSizeY</name></member>
+    <member refid="class_g_mapping_1_1_map_1a7e4d075ffd05e958655bd57f468dbe46" kind="function"><name>getDelta</name></member>
+    <member refid="class_g_mapping_1_1_map_1aca1bfd698a956de8d255c6d61b41bf58" kind="function"><name>getMapResolution</name></member>
+    <member refid="class_g_mapping_1_1_map_1ae627deaed285f19a7d587adffb9466df" kind="function"><name>getResolution</name></member>
+    <member refid="class_g_mapping_1_1_map_1a56be1afc747f98139c7e609d55782679" kind="function"><name>getSize</name></member>
+    <member refid="class_g_mapping_1_1_map_1aca7e75295216a6f3540a9dcbec2decc8" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_map_1a0587b6d6590af4f0500be3b71309bccc" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_map_1aded828e47b4d482d4e6ef5d49b4f2ba5" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_map_1a95106109c3ff4f5a7eab44beb82ee387" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_map_1aadde7d33d44dd1111fc4729d4e011ab1" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_map_1a31daad0361fb10b11bae75a88c104f2b" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_map_1ab3d6ff57b23152f0247465c8d4769ec0" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_map_1aef45014647a01d8fa00c1a96a27ad8ee" kind="function"><name>isInside</name></member>
+    <member refid="class_g_mapping_1_1_map_1a83f0cc6f57d1a33197352e6cad1a96fc" kind="function"><name>isInside</name></member>
+    <member refid="class_g_mapping_1_1_map_1ac36215843a4f82e4c212902cf14c5301" kind="function"><name>isInside</name></member>
+    <member refid="class_g_mapping_1_1_map_1a22f5070ce945d7f7f9bf2cdab8326e3f" kind="function"><name>isInside</name></member>
+    <member refid="class_g_mapping_1_1_map_1ac25cc844ef6af3a71deb8d2eed2374f1" kind="function"><name>cell</name></member>
+    <member refid="class_g_mapping_1_1_map_1a4531c226faf7712e9d3c306233f82fc4" kind="function"><name>storage</name></member>
+    <member refid="class_g_mapping_1_1_map_1acfa10208c19592f0965c72a3a42a3565" kind="function"><name>storage</name></member>
+    <member refid="class_g_mapping_1_1_map_1aec32de1d6f2bf3c4c65e8b0061d70114" kind="function"><name>toDoubleArray</name></member>
+    <member refid="class_g_mapping_1_1_map_1a951c00310fe6138f46e29af17ff2dd64" kind="function"><name>toDoubleMap</name></member>
+  </compound>
+  <compound refid="struct_g_mapping_1_1_motion_model" kind="struct"><name>GMapping::MotionModel</name>
+    <member refid="struct_g_mapping_1_1_motion_model_1aee71b09737b96073a3573589eccfe4e9" kind="variable"><name>srr</name></member>
+    <member refid="struct_g_mapping_1_1_motion_model_1a71d8c1a219b92804770ca27b4b48c4d6" kind="variable"><name>str</name></member>
+    <member refid="struct_g_mapping_1_1_motion_model_1aeeeec3e6a5230f2851e7b4cd07a862a2" kind="variable"><name>srt</name></member>
+    <member refid="struct_g_mapping_1_1_motion_model_1a459aa742e5ae4b3d50b1441b75a9ea3d" kind="variable"><name>stt</name></member>
+    <member refid="struct_g_mapping_1_1_motion_model_1ad7db4e12da0f04f5338b6fad17b9a449" kind="function"><name>drawFromMotion</name></member>
+    <member refid="struct_g_mapping_1_1_motion_model_1ab43a9c5433ea162ba213cbd31c856f70" kind="function"><name>drawFromMotion</name></member>
+    <member refid="struct_g_mapping_1_1_motion_model_1ae0de3d2abdc87b040825f6e440e25a48" kind="function"><name>gaussianApproximation</name></member>
+  </compound>
+  <compound refid="class_g_mapping_1_1_odometry_reading" kind="class"><name>GMapping::OdometryReading</name>
+    <member refid="class_g_mapping_1_1_odometry_reading_1a62cfc8b25e477011b3c2803cc0d7ff04" kind="variable"><name>m_pose</name></member>
+    <member refid="class_g_mapping_1_1_odometry_reading_1a6ae380b592a0bad9a9c276a5e03af912" kind="variable"><name>m_speed</name></member>
+    <member refid="class_g_mapping_1_1_odometry_reading_1aacedefee70bf15dba9598e8e9777d0d7" kind="variable"><name>m_acceleration</name></member>
+    <member refid="class_g_mapping_1_1_odometry_reading_1a0aaad11632da8d4a4f96b22d1f82c532" kind="function"><name>OdometryReading</name></member>
+    <member refid="class_g_mapping_1_1_odometry_reading_1a3dc1abd0a7b1b01b3856b5351348e467" kind="function"><name>getPose</name></member>
+    <member refid="class_g_mapping_1_1_odometry_reading_1a461f64e5b35385ae81d1ab932ec5f80b" kind="function"><name>getSpeed</name></member>
+    <member refid="class_g_mapping_1_1_odometry_reading_1ab89b8754a2f1023ce1bbcbf5c335ea53" kind="function"><name>getAcceleration</name></member>
+    <member refid="class_g_mapping_1_1_odometry_reading_1abbe380b5e615a2aba1b65ef939e897da" kind="function"><name>setPose</name></member>
+    <member refid="class_g_mapping_1_1_odometry_reading_1a59dfd8057c91a75e64d6fc86ceb71382" kind="function"><name>setSpeed</name></member>
+    <member refid="class_g_mapping_1_1_odometry_reading_1a370bb324919a19be1faec5697dde7914" kind="function"><name>setAcceleration</name></member>
+  </compound>
+  <compound refid="class_g_mapping_1_1_odometry_sensor" kind="class"><name>GMapping::OdometrySensor</name>
+    <member refid="class_g_mapping_1_1_odometry_sensor_1a2dde536f69a69842a0c0a8ec9c291c18" kind="variable"><name>m_ideal</name></member>
+    <member refid="class_g_mapping_1_1_odometry_sensor_1a6eeefc3b376c27eb2dddb0e3f5221de1" kind="function"><name>OdometrySensor</name></member>
+    <member refid="class_g_mapping_1_1_odometry_sensor_1a51a6b33e776ddc7afafe14be223cbd12" kind="function"><name>isIdeal</name></member>
+  </compound>
+  <compound refid="struct_g_mapping_1_1orientedpoint" kind="struct"><name>GMapping::orientedpoint</name>
+    <member refid="struct_g_mapping_1_1orientedpoint_1a610fdfefb42f5c836de7ab9e94ba11d0" kind="variable"><name>theta</name></member>
+    <member refid="struct_g_mapping_1_1orientedpoint_1afeb4c68dccaab56783e67c6432555ecd" kind="function"><name>orientedpoint</name></member>
+    <member refid="struct_g_mapping_1_1orientedpoint_1af196376304a22df53b15289ea4bd19b5" kind="function"><name>orientedpoint</name></member>
+    <member refid="struct_g_mapping_1_1orientedpoint_1afa2c29919cb2afea4a66cd7c3421c810" kind="function"><name>orientedpoint</name></member>
+    <member refid="struct_g_mapping_1_1orientedpoint_1a57fc056ff866e541e45f16bde846067b" kind="function"><name>normalize</name></member>
+    <member refid="struct_g_mapping_1_1orientedpoint_1a114d0e01a55ac8e7240542fe2927f1cc" kind="function"><name>rotate</name></member>
+  </compound>
+  <compound refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle" kind="struct"><name>GMapping::GridSlamProcessor::Particle</name>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a33f1690ccf3a95622e0246e75f5af145" kind="variable"><name>map</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a82d332a479fe5441be6f6f7be32ba39d" kind="variable"><name>pose</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1aa0bfef7c1113864bc0dd5c3e38cfbf38" kind="variable"><name>previousPose</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a29fee66d34dd87e2bd641eeebfe6fc00" kind="variable"><name>weight</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a9e1d6ebe3b70943834d2987e826313ef" kind="variable"><name>weightSum</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a205c1435fc24f59460c76362b65da10c" kind="variable"><name>gweight</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1ab80f34a85a79ad4584d25b162bb72e5b" kind="variable"><name>previousIndex</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a9c91ccdf7009b50785d939e1791ae4be" kind="variable"><name>node</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a51dc73563ad5e3035f8cb3b51965854a" kind="function"><name>Particle</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a0b78d91dc4d41c565c388fe7320603b3" kind="function"><name>operator double</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a4538a813d749fadc1ba922858cdd8d7f" kind="function"><name>operator OrientedPoint</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_particle_1a07888ebc307fab0bfee912bbfda45832" kind="function"><name>setWeight</name></member>
+  </compound>
+  <compound refid="struct_g_mapping_1_1point" kind="struct"><name>GMapping::point</name>
+    <member refid="struct_g_mapping_1_1point_1a1e3816abbc8b56607fa741952fe74a8c" kind="variable"><name>x</name></member>
+    <member refid="struct_g_mapping_1_1point_1ae25e311e074409d6329c2e66741006f1" kind="variable"><name>y</name></member>
+    <member refid="struct_g_mapping_1_1point_1afc685fdd02ade3e26f5b0eaea770291f" kind="function"><name>point</name></member>
+    <member refid="struct_g_mapping_1_1point_1a8c10e5be8877b8799fd66ca5f7ba17b0" kind="function"><name>point</name></member>
+  </compound>
+  <compound refid="struct_g_mapping_1_1_point_accumulator" kind="struct"><name>GMapping::PointAccumulator</name>
+    <member refid="struct_g_mapping_1_1_point_accumulator_1aa256b887e57057b22cc726d0b708e63f" kind="typedef"><name>FloatPoint</name></member>
+    <member refid="struct_g_mapping_1_1_point_accumulator_1a6567075a56ab6a676d766c3b8b95a442" kind="variable"><name>unknown_ptr</name></member>
+    <member refid="struct_g_mapping_1_1_point_accumulator_1afe87f0be8d1e6fc22fa3b1cd071fccbc" kind="variable"><name>acc</name></member>
+    <member refid="struct_g_mapping_1_1_point_accumulator_1a0f8ef48ef8f7ffb3a032fae2b8894a59" kind="variable"><name>n</name></member>
+    <member refid="struct_g_mapping_1_1_point_accumulator_1ac0f05215ef622a21313b219015ae5de1" kind="variable"><name>visits</name></member>
+    <member refid="struct_g_mapping_1_1_point_accumulator_1aa1264f6df810b462d874501545f3077c" kind="function"><name>PointAccumulator</name></member>
+    <member refid="struct_g_mapping_1_1_point_accumulator_1a2dcf27d200b53ba10f16c1b701bd0503" kind="function"><name>PointAccumulator</name></member>
+    <member refid="struct_g_mapping_1_1_point_accumulator_1ac414ab2f3d79d50fbb1b5326423fc84f" kind="function"><name>update</name></member>
+    <member refid="struct_g_mapping_1_1_point_accumulator_1aee73954066c51b648da5b9af3cd2089d" kind="function"><name>mean</name></member>
+    <member refid="struct_g_mapping_1_1_point_accumulator_1abdfda9e51d85cb2cc70f87b446be47f1" kind="function"><name>operator double</name></member>
+    <member refid="struct_g_mapping_1_1_point_accumulator_1a81e890f24d04e5f04433ba2fc7c51be8" kind="function"><name>add</name></member>
+    <member refid="struct_g_mapping_1_1_point_accumulator_1a723dc2aaaca092a1e33246f416feb59e" kind="function"><name>entropy</name></member>
+    <member refid="struct_g_mapping_1_1_point_accumulator_1af90fe8362650bd94d87fd4adf42193cb" kind="function"><name>Unknown</name></member>
+  </compound>
+  <compound refid="struct_g_mapping_1_1pointcomparator" kind="struct"><name>GMapping::pointcomparator</name>
+    <member refid="struct_g_mapping_1_1pointcomparator_1ac0e0ea9de81827487751bfeba3098e89" kind="function"><name>operator()</name></member>
+  </compound>
+  <compound refid="struct_g_mapping_1_1pointradialcomparator" kind="struct"><name>GMapping::pointradialcomparator</name>
+    <member refid="struct_g_mapping_1_1pointradialcomparator_1a4e1f35f20e5f53230cd4d21306070926" kind="variable"><name>origin</name></member>
+    <member refid="struct_g_mapping_1_1pointradialcomparator_1a1804b5280042a9014285099fec87cdff" kind="function"><name>operator()</name></member>
+  </compound>
+  <compound refid="class_g_mapping_1_1_range_reading" kind="class"><name>GMapping::RangeReading</name>
+    <member refid="class_g_mapping_1_1_range_reading_1a2ee201c5ff8b2875904ca696234865e6" kind="variable"><name>m_pose</name></member>
+    <member refid="class_g_mapping_1_1_range_reading_1afd3cc81a7d26c4d141e7fb2b67b39de5" kind="function"><name>RangeReading</name></member>
+    <member refid="class_g_mapping_1_1_range_reading_1ab004e5752633c773410cc78e8578b218" kind="function"><name>RangeReading</name></member>
+    <member refid="class_g_mapping_1_1_range_reading_1aafed8df8050b4d54625956362d7a7b61" kind="function"><name>~RangeReading</name></member>
+    <member refid="class_g_mapping_1_1_range_reading_1acbd7e132d613104b6ea3208c31c6295c" kind="function"><name>getPose</name></member>
+    <member refid="class_g_mapping_1_1_range_reading_1a14bd6d1fe87196ffeb2b78f2d69500fc" kind="function"><name>setPose</name></member>
+    <member refid="class_g_mapping_1_1_range_reading_1a567ac887823c73ca3d1da3d04df678dc" kind="function"><name>rawView</name></member>
+    <member refid="class_g_mapping_1_1_range_reading_1af6a18cc22892ffc409805066d6455fcb" kind="function"><name>cartesianForm</name></member>
+    <member refid="class_g_mapping_1_1_range_reading_1a7bf8e17ff306e0085ea6312e68471c50" kind="function"><name>activeBeams</name></member>
+  </compound>
+  <compound refid="class_g_mapping_1_1_range_sensor" kind="class"><name>GMapping::RangeSensor</name>
+    <member refid="class_g_mapping_1_1_range_sensor_1a30221ddc558692a7b52598b963a74bc2" kind="friend"><name>Configuration</name></member>
+    <member refid="class_g_mapping_1_1_range_sensor_1a09f1dc78bbac19dbdb1bc6ee6fb44ed1" kind="friend"><name>CarmenConfiguration</name></member>
+    <member refid="class_g_mapping_1_1_range_sensor_1afe9c5ce6f93950026cd9f3f18a3fa9f6" kind="friend"><name>CarmenWrapper</name></member>
+    <member refid="class_g_mapping_1_1_range_sensor_1abb35bace17df584710591ee0e737aa87" kind="variable"><name>newFormat</name></member>
+    <member refid="class_g_mapping_1_1_range_sensor_1a8008abe1dafd518b095c05b9d9dad24d" kind="variable"><name>m_pose</name></member>
+    <member refid="class_g_mapping_1_1_range_sensor_1a83bf5a2dd17929fb46b62b589f29825e" kind="variable"><name>m_beams</name></member>
+    <member refid="class_g_mapping_1_1_range_sensor_1a759acaf8e43b5ede4225c223e372e123" kind="function"><name>RangeSensor</name></member>
+    <member refid="class_g_mapping_1_1_range_sensor_1adbc852d4b503d035e7426cbdc74be79d" kind="function"><name>RangeSensor</name></member>
+    <member refid="class_g_mapping_1_1_range_sensor_1afd59f34a4692a4357420944c52372c18" kind="function"><name>beams</name></member>
+    <member refid="class_g_mapping_1_1_range_sensor_1a31dba755919022576ef7d5aa9c3f5b07" kind="function"><name>beams</name></member>
+    <member refid="class_g_mapping_1_1_range_sensor_1a9da0f1915d19b4b9d8837937567755f1" kind="function"><name>getPose</name></member>
+    <member refid="class_g_mapping_1_1_range_sensor_1a5d4ca7fb976b6423cab5698a91d0384e" kind="function"><name>updateBeamsLookup</name></member>
+  </compound>
+  <compound refid="struct_g_mapping_1_1autoptr_1_1reference" kind="struct"><name>GMapping::autoptr::reference</name>
+    <member refid="struct_g_mapping_1_1autoptr_1_1reference_1ad8ef983e1c6a32353f4c32be2bfe3896" kind="variable"><name>data</name></member>
+    <member refid="struct_g_mapping_1_1autoptr_1_1reference_1ae7e64cc901f97ed951aa38721052f4e7" kind="variable"><name>shares</name></member>
+  </compound>
+  <compound refid="class_g_mapping_1_1_scan_matcher" kind="class"><name>GMapping::ScanMatcher</name>
+    <member refid="class_g_mapping_1_1_scan_matcher_1aa8ccaea5e1c6949e7913e487f35b8c46" kind="typedef"><name>CovarianceMatrix</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1addb69a08f07cc87f8b60730ba449b5f1" kind="variable"><name>nullLikelihood</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1ab876e0a655f97d1eb485985fe95b31d1" kind="variable"><name>m_activeAreaComputed</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1ade447080711cbb616eb19cdd55d6a266" kind="variable"><name>m_laserBeams</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a76dd3a7a3e03a30ad99f6cca3cc9ca2b" kind="variable"><name>m_laserAngles</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a73a0f19d405bb52d342e73e6152bf76a" kind="variable"><name>m_linePoints</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a6ef28a29dbb9ea49be1bf2edd90423c6" kind="function"><name>ScanMatcher</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a209255038c9a46950fd50193dd161728" kind="function"><name>~ScanMatcher</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a219a9d84a3f13241cd06f89ebf128f77" kind="function"><name>icpOptimize</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a1484d288d25465f68c7107b9700d0295" kind="function"><name>optimize</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a2002a79c40c66916ec4c66b72420c68e" kind="function"><name>optimize</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a51abbe9fe5808899a40995751a1bcd37" kind="function"><name>registerScan</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a64191c56d4fd0dedea13acf4228fb3d7" kind="function"><name>setLaserParameters</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1aad081e39e5629e1532af566370b842fb" kind="function"><name>setMatchingParameters</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a60ef33bbb1408a534a74efccd096fc16" kind="function"><name>invalidateActiveArea</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a6cf280963c3d391f2cc8677f8e2e11cd" kind="function"><name>computeActiveArea</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a676430fc7673dc7d9786a4a39e16f67d" kind="function"><name>icpStep</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a634d6d8fb5bbec96fe3b9bdd992b5565" kind="function"><name>score</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a619f90b0489e7a5858fa72d986680dc4" kind="function"><name>likelihoodAndScore</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a6c277f4226a7f217b7d9e1a39cd64205" kind="function"><name>likelihood</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1a302a6418f60c00ef955028a3d2b3b30a" kind="function"><name>likelihood</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1af8248d0dd63ec48ffd73328d64b099c3" kind="function"><name>laserAngles</name></member>
+    <member refid="class_g_mapping_1_1_scan_matcher_1ace8b2f94cf5eb73bd221b1acece45cad" kind="function"><name>laserBeams</name></member>
+  </compound>
+  <compound refid="class_g_mapping_1_1_sensor" kind="class"><name>GMapping::Sensor</name>
+    <member refid="class_g_mapping_1_1_sensor_1a91dc87e315f9d73c67c6700bf5d12d13" kind="variable"><name>m_name</name></member>
+    <member refid="class_g_mapping_1_1_sensor_1a3bfb72525656fca739350da7e06c9231" kind="function"><name>Sensor</name></member>
+    <member refid="class_g_mapping_1_1_sensor_1a4e108fef74045701da7e0a8304320205" kind="function"><name>~Sensor</name></member>
+    <member refid="class_g_mapping_1_1_sensor_1a6e4077cd7879e47c47cdaa89cc4ce05b" kind="function"><name>getName</name></member>
+    <member refid="class_g_mapping_1_1_sensor_1ac11338217e237d1134955fb5c7c445ef" kind="function"><name>setName</name></member>
+  </compound>
+  <compound refid="class_g_mapping_1_1_sensor_log" kind="class"><name>GMapping::SensorLog</name>
+    <member refid="class_g_mapping_1_1_sensor_log_1a1b309acc3cacc72c26d4f67da2cf5d77" kind="variable"><name>m_sensorMap</name></member>
+    <member refid="class_g_mapping_1_1_sensor_log_1ac4a889158ae6ccb35890cef3b701d00f" kind="function"><name>SensorLog</name></member>
+    <member refid="class_g_mapping_1_1_sensor_log_1a63183f64ed2a773948c094544ceae595" kind="function"><name>~SensorLog</name></member>
+    <member refid="class_g_mapping_1_1_sensor_log_1a320ddef217720b7f259ce1848e140965" kind="function"><name>load</name></member>
+    <member refid="class_g_mapping_1_1_sensor_log_1a7a5c9ad7125e1173bd2eb93c00fe24ca" kind="function"><name>boundingBox</name></member>
+    <member refid="class_g_mapping_1_1_sensor_log_1aebe59c0b3ae95ba336db058085e945d4" kind="function"><name>parseOdometry</name></member>
+    <member refid="class_g_mapping_1_1_sensor_log_1ab0cf24fe49e6bb020c64ede8d3b619ce" kind="function"><name>parseRange</name></member>
+  </compound>
+  <compound refid="class_g_mapping_1_1_sensor_reading" kind="class"><name>GMapping::SensorReading</name>
+    <member refid="class_g_mapping_1_1_sensor_reading_1aa8965e26c4cc6be0036bb7f910fbee7d" kind="variable"><name>m_time</name></member>
+    <member refid="class_g_mapping_1_1_sensor_reading_1ae68dfa883281d964470df13e47d48275" kind="variable"><name>m_sensor</name></member>
+    <member refid="class_g_mapping_1_1_sensor_reading_1a640e3a5ba3ec48e96d84040e46dc28b7" kind="function"><name>SensorReading</name></member>
+    <member refid="class_g_mapping_1_1_sensor_reading_1a7411d16f81c3ede0f94b0e2707fde7ca" kind="function"><name>~SensorReading</name></member>
+    <member refid="class_g_mapping_1_1_sensor_reading_1afa80948b19650a98ae555f35e9549816" kind="function"><name>getTime</name></member>
+    <member refid="class_g_mapping_1_1_sensor_reading_1ace6521ab76975d9850a5f649b8113108" kind="function"><name>setTime</name></member>
+    <member refid="class_g_mapping_1_1_sensor_reading_1a81598df775634096b7d9a3cafe01eb91" kind="function"><name>getSensor</name></member>
+  </compound>
+  <compound refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node" kind="struct"><name>GMapping::GridSlamProcessor::TNode</name>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a00ffad9f49ae467746aa211fbfaf4523" kind="variable"><name>pose</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1ab30d02945ab4cba987bbc428f87b3028" kind="variable"><name>weight</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1ab0c21a7a7fb16bd061f3b61cae8f55bd" kind="variable"><name>accWeight</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a8163d6ff4d930d1762f9029b9f7162b3" kind="variable"><name>gweight</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1aa96443473844405f417fb8170b3d7243" kind="variable"><name>parent</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a574dd0cc9f28e7feb3d85a1ddb544d06" kind="variable"><name>reading</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a4c15378fddd812b0376ceb81c43be3e0" kind="variable"><name>childs</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1aa5aa2b0e4bea309de90270cd56a2bd78" kind="variable"><name>visitCounter</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a0d10763653ac0630632259c8c1e48e42" kind="variable"><name>flag</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a7742a4335c17d489467af9bbd21334ef" kind="function"><name>TNode</name></member>
+    <member refid="struct_g_mapping_1_1_grid_slam_processor_1_1_t_node_1a22b5e02c6b9dc2139f63652d8b0d57c5" kind="function"><name>~TNode</name></member>
+  </compound>
+  <compound refid="structuniform__resampler" kind="struct"><name>uniform_resampler</name>
+    <member refid="structuniform__resampler_1a9097c86356bc84ff0130b5a688247838" kind="function"><name>resampleIndexes</name></member>
+    <member refid="structuniform__resampler_1a38b6375a3f75998078c669a62ca76d92" kind="function"><name>resample</name></member>
+    <member refid="structuniform__resampler_1a1f6d66ec40619a3d96e399cb6c5140b3" kind="function"><name>neff</name></member>
+  </compound>
+  <compound refid="namespace_g_mapping" kind="namespace"><name>GMapping</name>
+    <member refid="accessstate_8h_1a019911ecc362fe562a3e6bbc4fa4da4c" kind="enum"><name>AccessibilityState</name></member>
+    <member refid="accessstate_8h_1a019911ecc362fe562a3e6bbc4fa4da4caf97119003b47bcbc70df567d6b45ee8c" kind="enumvalue"><name>Outside</name></member>
+    <member refid="accessstate_8h_1a019911ecc362fe562a3e6bbc4fa4da4cac83569b4f8da8f8e806cc437ba21ec49" kind="enumvalue"><name>Inside</name></member>
+    <member refid="accessstate_8h_1a019911ecc362fe562a3e6bbc4fa4da4ca537b8100edd3cc1dd9f150a9c6d977c7" kind="enumvalue"><name>Allocated</name></member>
+    <member refid="map_8h_1a6cc1de4fdfea96973d7cca9c06ce2642" kind="typedef"><name>DoubleArray2D</name></member>
+    <member refid="map_8h_1a682c22f665d03c8c33fff77093f7079f" kind="typedef"><name>DoubleMap</name></member>
+    <member refid="gridslamprocessor_8h_1a7dcee7ca2a2a5b13212faa84e250283c" kind="typedef"><name>TNodeMultimap</name></member>
+    <member refid="icp_8h_1a091accfc9928b96483c7fb1746d24aba" kind="typedef"><name>PointPair</name></member>
+    <member refid="smmap_8h_1afc5f0c8c35212b9a61fb43ef6d8966eb" kind="typedef"><name>ScanMatcherMap</name></member>
+    <member refid="sensor_8h_1af37440197d6baeaaf592e4980218742b" kind="typedef"><name>SensorMap</name></member>
+    <member refid="point_8h_1a42267ff9ee7271aef67e616b8f65ffb0" kind="typedef"><name>IntPoint</name></member>
+    <member refid="point_8h_1a02aca97274c6c5fe90097e517f88493d" kind="typedef"><name>Point</name></member>
+    <member refid="point_8h_1a341f9c97dfb3ebc1c451a351b484f19d" kind="typedef"><name>OrientedPoint</name></member>
+    <member refid="map_8h_1a38c77550a7decba15b5a8906a54547d2" kind="variable"><name>Map&lt; Cell, Storage, isClass &gt;::m_unknown</name></member>
+    <member refid="icp_8h_1a5d699434e4abf22ca9e2fb97698ea3b1" kind="function"><name>icpStep</name></member>
+    <member refid="icp_8h_1a87c3fe74a2c858a9535eb5a4c54edd60" kind="function"><name>icpNonlinearStep</name></member>
+    <member refid="point_8h_1a4b1a8f032e4b95b200b5b54ea3112ce3" kind="function"><name>operator+</name></member>
+    <member refid="point_8h_1a97469a08afd3735c8c82bd98ce440289" kind="function"><name>operator-</name></member>
+    <member refid="point_8h_1a37d161afb7e7418b8c2e866d3d00eab4" kind="function"><name>operator*</name></member>
+    <member refid="point_8h_1a19f05e4c296b33fc0e02d7cce2e71327" kind="function"><name>operator*</name></member>
+    <member refid="point_8h_1afddeb71462a5f466986ad41b939261db" kind="function"><name>operator*</name></member>
+    <member refid="point_8h_1a395da86fbc9e3d01f511e6aea6bd58d6" kind="function"><name>operator+</name></member>
+    <member refid="point_8h_1aa1dda22208d97a0dcbd64b1e0f7149a7" kind="function"><name>operator-</name></member>
+    <member refid="point_8h_1a476c9606d012855a25376aa137404a7b" kind="function"><name>operator*</name></member>
+    <member refid="point_8h_1a56394863e27bf574a54eaf7cc4f2b093" kind="function"><name>operator*</name></member>
+    <member refid="point_8h_1aab5cf65bbf130c6765d31bc5822681ff" kind="function"><name>absoluteDifference</name></member>
+    <member refid="point_8h_1acb84992cef22432c5ba8017e9feb3c9c" kind="function"><name>absoluteSum</name></member>
+    <member refid="point_8h_1a1517af52862a1930f94a9a8a5b802dbb" kind="function"><name>absoluteSum</name></member>
+    <member refid="point_8h_1a1b9688f5596a41157e6969b083541e4b" kind="function"><name>max</name></member>
+    <member refid="point_8h_1a38be3189cf5fe50b70b2c6c7977ef093" kind="function"><name>min</name></member>
+    <member refid="point_8h_1af25f800e83033cfa9e721968a4ed63cf" kind="function"><name>interpolate</name></member>
+    <member refid="point_8h_1a751968c262a540279f3b43f164aa3e8e" kind="function"><name>interpolate</name></member>
+    <member refid="point_8h_1a9fb08f8514edb3301f2e7dc0d6b40549" kind="function"><name>euclidianDist</name></member>
+    <member refid="point_8h_1a71a888906877083eaf43d89c764587f2" kind="function"><name>euclidianDist</name></member>
+    <member refid="point_8h_1a0765f34c70101397336ed26fa9523af1" kind="function"><name>euclidianDist</name></member>
+    <member refid="point_8h_1a3b885924ff851da7455ba49fa4c6d155" kind="function"><name>euclidianDist</name></member>
+    <member refid="stat_8h_1ad7d6bd6f93f6a89790795a6c8d027705" kind="function"><name>sampleGaussian</name></member>
+    <member refid="stat_8h_1a5c288a2cdd28dd7921dbd4a400cbd4a4" kind="function"><name>evalGaussian</name></member>
+    <member refid="stat_8h_1ab6785e51e0895e103be39b1f2297d4cb" kind="function"><name>evalLogGaussian</name></member>
+    <member refid="stat_8h_1a25f729844222571b25762f96c81beaeb" kind="function"><name>sampleUniformInt</name></member>
+    <member refid="stat_8h_1a424e591e6ebad081a91efa85eb4fcc1c" kind="function"><name>sampleUniformDouble</name></member>
+    <member refid="stat_8h_1ad96dc3a2fbeb5f5100e27a01d8bceccd" kind="function"><name>computeGaussianFromSamples</name></member>
+    <member refid="stat_8h_1a6052104196efe9e2c373a493792284d1" kind="function"><name>computeGaussianFromSamples</name></member>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="accessstate_8h" kind="file"><name>accessstate.h</name>
+  </compound>
+  <compound refid="array2d_8h" kind="file"><name>array2d.h</name>
+    <member refid="array2d_8h_1a2e82e5699b01e6fecdd9022aa0f1e535" kind="define"><name>__FUNCDNAME__</name></member>
+  </compound>
+  <compound refid="harray2d_8h" kind="file"><name>harray2d.h</name>
+  </compound>
+  <compound refid="map_8h" kind="file"><name>map.h</name>
+  </compound>
+  <compound refid="gridslamprocessor_8h" kind="file"><name>gridslamprocessor.h</name>
+  </compound>
+  <compound refid="gridslamprocessor_8hxx" kind="file"><name>gridslamprocessor.hxx</name>
+  </compound>
+  <compound refid="motionmodel_8h" kind="file"><name>motionmodel.h</name>
+  </compound>
+  <compound refid="configuration_8h" kind="file"><name>configuration.h</name>
+  </compound>
+  <compound refid="sensorlog_8h" kind="file"><name>sensorlog.h</name>
+  </compound>
+  <compound refid="particlefilter_8h" kind="file"><name>particlefilter.h</name>
+    <member refid="particlefilter_8h_1a97e6281d3d8ae7e187dd5039f32d6e24" kind="typedef"><name>UIntPair</name></member>
+    <member refid="particlefilter_8h_1a9d0f782f7a8e45ef0c1ebff64434870e" kind="function"><name>toNormalForm</name></member>
+    <member refid="particlefilter_8h_1aace430f7a11fad799b9a90136ec6bb67" kind="function"><name>toLogForm</name></member>
+    <member refid="particlefilter_8h_1a8b76542e1fb9304501eb4a9bf8164f73" kind="function"><name>resample</name></member>
+    <member refid="particlefilter_8h_1a70e3fec1037e3e397bdfa9c398096c5e" kind="function"><name>repeatIndexes</name></member>
+    <member refid="particlefilter_8h_1a8c7d3bee5088bb14ba097cb4cfeeeb2d" kind="function"><name>neff</name></member>
+    <member refid="particlefilter_8h_1a1ff1572e2ab6cf84fa2fc1fd6f2e21f8" kind="function"><name>normalize</name></member>
+    <member refid="particlefilter_8h_1a4531051362d95f7273d49cc607f0ede3" kind="function"><name>rle</name></member>
+  </compound>
+  <compound refid="icp_8h" kind="file"><name>icp.h</name>
+  </compound>
+  <compound refid="scanmatcher_8h" kind="file"><name>scanmatcher.h</name>
+    <member refid="scanmatcher_8h_1afe3d9777d646eef086e7623b376dacb3" kind="define"><name>LASER_MAXBEAMS</name></member>
+  </compound>
+  <compound refid="smmap_8h" kind="file"><name>smmap.h</name>
+    <member refid="smmap_8h_1a7b5846af516758aa17dda10ccf044a98" kind="define"><name>SIGHT_INC</name></member>
+  </compound>
+  <compound refid="sensor_8h" kind="file"><name>sensor.h</name>
+  </compound>
+  <compound refid="sensorreading_8h" kind="file"><name>sensorreading.h</name>
+  </compound>
+  <compound refid="odometryreading_8h" kind="file"><name>odometryreading.h</name>
+  </compound>
+  <compound refid="odometrysensor_8h" kind="file"><name>odometrysensor.h</name>
+  </compound>
+  <compound refid="rangereading_8h" kind="file"><name>rangereading.h</name>
+  </compound>
+  <compound refid="rangesensor_8h" kind="file"><name>rangesensor.h</name>
+  </compound>
+  <compound refid="autoptr_8h" kind="file"><name>autoptr.h</name>
+  </compound>
+  <compound refid="commandline_8h" kind="file"><name>commandline.h</name>
+    <member refid="commandline_8h_1a0d80dfc132aa9f408273ae366a577d43" kind="define"><name>parseFlag</name></member>
+    <member refid="commandline_8h_1a4cc24c08b980e087573d86bd61eb565e" kind="define"><name>parseString</name></member>
+    <member refid="commandline_8h_1ab3734006f6055b64a723137074496d72" kind="define"><name>parseDouble</name></member>
+    <member refid="commandline_8h_1a0cbe14e71d86d1a312501d9103bf8a00" kind="define"><name>parseInt</name></member>
+    <member refid="commandline_8h_1ae253b167c11826a411455821335f83ea" kind="define"><name>CMD_PARSE_BEGIN</name></member>
+    <member refid="commandline_8h_1a68b463faa67a8992497607d89ce080bc" kind="define"><name>CMD_PARSE_END</name></member>
+    <member refid="commandline_8h_1a98cd02d8e60ede703a938fbb8ab0ee05" kind="define"><name>CMD_PARSE_BEGIN_SILENT</name></member>
+    <member refid="commandline_8h_1ab4968dec1bee336b2afda8259120b5cf" kind="define"><name>CMD_PARSE_END_SILENT</name></member>
+    <member refid="commandline_8h_1a207930558e8fb49ed9a643ed9f1e7ac4" kind="define"><name>parseFlagSilent</name></member>
+    <member refid="commandline_8h_1ac40450eae42bd59848fed51d223cddb0" kind="define"><name>parseStringSilent</name></member>
+    <member refid="commandline_8h_1aedd04e9e6160199bc2db268833a00b2b" kind="define"><name>parseDoubleSilent</name></member>
+    <member refid="commandline_8h_1ad4c7e9eec1aa6ada4a846d7bf7ab02f5" kind="define"><name>parseIntSilent</name></member>
+  </compound>
+  <compound refid="gvalues_8h" kind="file"><name>gvalues.h</name>
+    <member refid="gvalues_8h_1ace724a9256f4e65b352465e5feb24a21" kind="define"><name>MAXDOUBLE</name></member>
+  </compound>
+  <compound refid="macro__params_8h" kind="file"><name>macro_params.h</name>
+    <member refid="macro__params_8h_1a6e1c7140bc09148edd9ce558168d8c14" kind="define"><name>PARAM_SET_GET</name></member>
+    <member refid="macro__params_8h_1a05b722dc673fd5e32b5150f06ca51a4e" kind="define"><name>PARAM_SET</name></member>
+    <member refid="macro__params_8h_1ae6a3b95681ad79346a8aefaa35a2dd32" kind="define"><name>PARAM_GET</name></member>
+    <member refid="macro__params_8h_1a82413e1c8ba898b189be93bdcd1cd7ec" kind="define"><name>MEMBER_PARAM_SET_GET</name></member>
+    <member refid="macro__params_8h_1a9e35a45d82566bb94185ca19e09e8656" kind="define"><name>MEMBER_PARAM_SET</name></member>
+    <member refid="macro__params_8h_1a08e58b7d3bae77a72ef3a1d920ad4a4c" kind="define"><name>MEMBER_PARAM_GET</name></member>
+    <member refid="macro__params_8h_1a0e10730a44abafbaa1c4a346177d86ef" kind="define"><name>STRUCT_PARAM_SET_GET</name></member>
+    <member refid="macro__params_8h_1a9f53434f86ec2430745e17c6dc6dd1b5" kind="define"><name>STRUCT_PARAM_SET</name></member>
+    <member refid="macro__params_8h_1aa3de02d916a51f9ec446b684def247ab" kind="define"><name>STRUCT_PARAM_GET</name></member>
+    <member refid="macro__params_8h_1a0e4d708edb8b0da60c8bbd249b82608d" kind="define"><name>convertStringArgument</name></member>
+  </compound>
+  <compound refid="point_8h" kind="file"><name>point.h</name>
+    <member refid="point_8h_1a01cc042ece075ab5f79f608fed6aa192" kind="define"><name>DEBUG_STREAM</name></member>
+  </compound>
+  <compound refid="stat_8h" kind="file"><name>stat.h</name>
+  </compound>
+  <compound refid="dir_ae99a96a867d1d340e1e20301d2554b1" kind="dir"><name>include/gmapping</name>
+  </compound>
+  <compound refid="dir_fba292c81b58166e61e600a71a05ec9f" kind="dir"><name>include/gmapping/grid</name>
+  </compound>
+  <compound refid="dir_b19b22e5a19aa0a0c924081f2391c279" kind="dir"><name>include/gmapping/gridfastslam</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_2de4d7561b0c8049860c3b86b5bff03d" kind="dir"><name>include/gmapping/log</name>
+  </compound>
+  <compound refid="dir_3b74f6c87f1cfef9feb6957a032f323a" kind="dir"><name>include/gmapping/particlefilter</name>
+  </compound>
+  <compound refid="dir_b3480f528c113c6d88e22919a885906d" kind="dir"><name>include/gmapping/scanmatcher</name>
+  </compound>
+  <compound refid="dir_2b2ee9970a864e32434e699e3080da4e" kind="dir"><name>include/gmapping/sensor</name>
+  </compound>
+  <compound refid="dir_666f709d4901df5650aea12adb57bef3" kind="dir"><name>include/gmapping/sensor/sensor_base</name>
+  </compound>
+  <compound refid="dir_f264bbb4f3bfb13e084b22c0c9923568" kind="dir"><name>include/gmapping/sensor/sensor_odometry</name>
+  </compound>
+  <compound refid="dir_ec6356ab7fd331a4dd3fbfec3a6c4cc5" kind="dir"><name>include/gmapping/sensor/sensor_range</name>
+  </compound>
+  <compound refid="dir_889379cc7fc980a95a4bc523c0019e35" kind="dir"><name>include/gmapping/utils</name>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_g_mapping_1_1autoptr" kind="class" language="C++" prot="public">
+    <compoundname>GMapping::autoptr</compoundname>
+    <innerclass refid="struct_g_mapping_1_1autoptr_1_1reference" prot="public">GMapping::autoptr::reference</innerclass>
+    <templateparamlist>
+      <param>
+        <type>class X</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_g_mapping_1_1autoptr_1aa641f3e33480944c12157ec2dbcfba43" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_mapping_1_1autoptr_1_1reference" kindref="compound">reference</ref> *</type>
+        <definition>reference* GMapping::autoptr&lt; X &gt;::m_reference</definition>
+        <argsstring></argsstring>
+        <name>m_reference</name>
+        <qualifiedname>GMapping::autoptr::m_reference</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/autoptr.h" line="24" column="12" bodyfile="include/gmapping/utils/autoptr.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g_mapping_1_1autoptr_1a881a032985196cd34211b73f2b42e85f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::autoptr&lt; X &gt;::autoptr</definition>
+        <argsstring>(X *p=(X *)(0))</argsstring>
+        <name>autoptr</name>
+        <qualifiedname>GMapping::autoptr::autoptr</qualifiedname>
+        <param>
+          <type>X *</type>
+          <declname>p</declname>
+          <defval>(X *)(0)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/autoptr.h" line="16" column="8" bodyfile="include/gmapping/utils/autoptr.h" bodystart="29" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1autoptr_1a138e5689bf690da8c8bb2273d251a263" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::autoptr&lt; X &gt;::autoptr</definition>
+        <argsstring>(const autoptr&lt; X &gt; &amp;ap)</argsstring>
+        <name>autoptr</name>
+        <qualifiedname>GMapping::autoptr::autoptr</qualifiedname>
+        <param>
+          <type>const autoptr&lt; X &gt; &amp;</type>
+          <declname>ap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/autoptr.h" line="17" column="8" bodyfile="include/gmapping/utils/autoptr.h" bodystart="39" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1autoptr_1a7d34a833cda2a53139f00b7b9ed6fa91" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>autoptr &amp;</type>
+        <definition>autoptr&lt; X &gt; &amp; GMapping::autoptr&lt; X &gt;::operator=</definition>
+        <argsstring>(const autoptr&lt; X &gt; &amp;ap)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>GMapping::autoptr::operator=</qualifiedname>
+        <param>
+          <type>const autoptr&lt; X &gt; &amp;</type>
+          <declname>ap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/autoptr.h" line="18" column="16" bodyfile="include/gmapping/utils/autoptr.h" bodystart="49" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1autoptr_1a8ebdd156f5ac607eb217d2b6e70c1083" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::autoptr&lt; X &gt;::~autoptr</definition>
+        <argsstring>()</argsstring>
+        <name>~autoptr</name>
+        <qualifiedname>GMapping::autoptr::~autoptr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/autoptr.h" line="19" column="8" bodyfile="include/gmapping/utils/autoptr.h" bodystart="71" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1autoptr_1adfd2157bfe4c2322d94dfdc831fc4ba4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::autoptr&lt; X &gt;::operator int</definition>
+        <argsstring>() const</argsstring>
+        <name>operator int</name>
+        <qualifiedname>GMapping::autoptr::operator int</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/autoptr.h" line="20" column="8" bodyfile="include/gmapping/utils/autoptr.h" bodystart="80" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1autoptr_1a465bd585f4f8e72c0afe9fbbb888035a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>X &amp;</type>
+        <definition>X &amp; GMapping::autoptr&lt; X &gt;::operator*</definition>
+        <argsstring>()</argsstring>
+        <name>operator*</name>
+        <qualifiedname>GMapping::autoptr::operator*</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/autoptr.h" line="21" column="10" bodyfile="include/gmapping/utils/autoptr.h" bodystart="85" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1autoptr_1a06051538281923780fde5a64a7eb6dc3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const X &amp;</type>
+        <definition>const X &amp; GMapping::autoptr&lt; X &gt;::operator*</definition>
+        <argsstring>() const</argsstring>
+        <name>operator*</name>
+        <qualifiedname>GMapping::autoptr::operator*</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/autoptr.h" line="22" column="16" bodyfile="include/gmapping/utils/autoptr.h" bodystart="91" bodyend="94"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GMapping::autoptr&lt; X &gt;::reference</label>
+        <link refid="struct_g_mapping_1_1autoptr_1_1reference"/>
+      </node>
+      <node id="1">
+        <label>GMapping::autoptr&lt; X &gt;</label>
+        <link refid="class_g_mapping_1_1autoptr"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>m_reference</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/gmapping/utils/autoptr.h" line="8" column="1" bodyfile="include/gmapping/utils/autoptr.h" bodystart="8" bodyend="26"/>
+    <listofallmembers>
+      <member refid="class_g_mapping_1_1autoptr_1a881a032985196cd34211b73f2b42e85f" prot="public" virt="non-virtual"><scope>GMapping::autoptr</scope><name>autoptr</name></member>
+      <member refid="class_g_mapping_1_1autoptr_1a138e5689bf690da8c8bb2273d251a263" prot="public" virt="non-virtual"><scope>GMapping::autoptr</scope><name>autoptr</name></member>
+      <member refid="class_g_mapping_1_1autoptr_1aa641f3e33480944c12157ec2dbcfba43" prot="public" virt="non-virtual"><scope>GMapping::autoptr</scope><name>m_reference</name></member>
+      <member refid="class_g_mapping_1_1autoptr_1adfd2157bfe4c2322d94dfdc831fc4ba4" prot="public" virt="non-virtual"><scope>GMapping::autoptr</scope><name>operator int</name></member>
+      <member refid="class_g_mapping_1_1autoptr_1a465bd585f4f8e72c0afe9fbbb888035a" prot="public" virt="non-virtual"><scope>GMapping::autoptr</scope><name>operator*</name></member>
+      <member refid="class_g_mapping_1_1autoptr_1a06051538281923780fde5a64a7eb6dc3" prot="public" virt="non-virtual"><scope>GMapping::autoptr</scope><name>operator*</name></member>
+      <member refid="class_g_mapping_1_1autoptr_1a7d34a833cda2a53139f00b7b9ed6fa91" prot="public" virt="non-virtual"><scope>GMapping::autoptr</scope><name>operator=</name></member>
+      <member refid="class_g_mapping_1_1autoptr_1a8ebdd156f5ac607eb217d2b6e70c1083" prot="public" virt="non-virtual"><scope>GMapping::autoptr</scope><name>~autoptr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

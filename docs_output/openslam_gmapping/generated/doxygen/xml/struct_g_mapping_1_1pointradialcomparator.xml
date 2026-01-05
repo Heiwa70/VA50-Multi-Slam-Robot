@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_g_mapping_1_1pointradialcomparator" kind="struct" language="C++" prot="public">
+    <compoundname>GMapping::pointradialcomparator</compoundname>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_mapping_1_1pointradialcomparator_1a4e1f35f20e5f53230cd4d21306070926" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt;</type>
+        <definition>point&lt;T&gt; GMapping::pointradialcomparator&lt; T &gt;::origin</definition>
+        <argsstring></argsstring>
+        <name>origin</name>
+        <qualifiedname>GMapping::pointradialcomparator::origin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="137" column="7" bodyfile="include/gmapping/utils/point.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_g_mapping_1_1pointradialcomparator_1a1804b5280042a9014285099fec87cdff" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GMapping::pointradialcomparator&lt; T &gt;::operator()</definition>
+        <argsstring>(const point&lt; T &gt; &amp;a, const point&lt; T &gt; &amp;b) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>GMapping::pointradialcomparator::operator()</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; T &gt; &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/utils/point.h" line="138" column="6" bodyfile="include/gmapping/utils/point.h" bodystart="138" bodyend="142"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/utils/point.h" line="136" column="1" bodyfile="include/gmapping/utils/point.h" bodystart="136" bodyend="143"/>
+    <listofallmembers>
+      <member refid="struct_g_mapping_1_1pointradialcomparator_1a1804b5280042a9014285099fec87cdff" prot="public" virt="non-virtual"><scope>GMapping::pointradialcomparator</scope><name>operator()</name></member>
+      <member refid="struct_g_mapping_1_1pointradialcomparator_1a4e1f35f20e5f53230cd4d21306070926" prot="public" virt="non-virtual"><scope>GMapping::pointradialcomparator</scope><name>origin</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

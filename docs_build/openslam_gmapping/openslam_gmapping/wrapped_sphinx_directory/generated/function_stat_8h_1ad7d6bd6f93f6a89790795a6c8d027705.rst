@@ -1,0 +1,14 @@
+.. _exhale_function_stat_8h_1ad7d6bd6f93f6a89790795a6c8d027705:
+
+Function GMapping::sampleGaussian
+=================================
+
+- Defined in :ref:`file_include_gmapping_utils_stat.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: GMapping::sampleGaussian(double, unsigned int)
+   :project: openslam_gmapping Doxygen Project

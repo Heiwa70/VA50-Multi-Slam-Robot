@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="structauxiliary__evolver" kind="struct" language="C++" prot="public">
+    <compoundname>auxiliary_evolver</compoundname>
+    <templateparamlist>
+      <param>
+        <type>class Particle</type>
+      </param>
+      <param>
+        <type>class Numeric</type>
+      </param>
+      <param>
+        <type>class QualificationModel</type>
+      </param>
+      <param>
+        <type>class EvolutionModel</type>
+      </param>
+      <param>
+        <type>class LikelyhoodModel</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structauxiliary__evolver_1a6376d772526806b776e7ee09e2b70de6" prot="public" static="no" mutable="no">
+        <type>EvolutionModel</type>
+        <definition>EvolutionModel auxiliary_evolver&lt; Particle, Numeric, QualificationModel, EvolutionModel, LikelyhoodModel &gt;::evolutionModel</definition>
+        <argsstring></argsstring>
+        <name>evolutionModel</name>
+        <qualifiedname>auxiliary_evolver::evolutionModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="285" column="16" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structauxiliary__evolver_1ad591b97ca5d245ad2bf0c32949bb3788" prot="public" static="no" mutable="no">
+        <type>QualificationModel</type>
+        <definition>QualificationModel auxiliary_evolver&lt; Particle, Numeric, QualificationModel, EvolutionModel, LikelyhoodModel &gt;::qualificationModel</definition>
+        <argsstring></argsstring>
+        <name>qualificationModel</name>
+        <qualifiedname>auxiliary_evolver::qualificationModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="286" column="20" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structauxiliary__evolver_1ab6f7b707a228d6f62a6fc33ad4e77e89" prot="public" static="no" mutable="no">
+        <type>LikelyhoodModel</type>
+        <definition>LikelyhoodModel auxiliary_evolver&lt; Particle, Numeric, QualificationModel, EvolutionModel, LikelyhoodModel &gt;::likelyhoodModel</definition>
+        <argsstring></argsstring>
+        <name>likelyhoodModel</name>
+        <qualifiedname>auxiliary_evolver::likelyhoodModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="287" column="17" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="287" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structauxiliary__evolver_1a5b5b1faaebe2bbb3f625ca6ac1678257" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void auxiliary_evolver&lt; Particle, Numeric, QualificationModel, EvolutionModel, LikelyhoodModel &gt;::evolve</definition>
+        <argsstring>(std::vector&lt; Particle &gt; &amp;particles)</argsstring>
+        <name>evolve</name>
+        <qualifiedname>auxiliary_evolver::evolve</qualifiedname>
+        <param>
+          <type>std::vector&lt; Particle &gt; &amp;</type>
+          <declname>particles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="288" column="6" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="294" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="structauxiliary__evolver_1a162deb7efec81ab84491c51d5387cc6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void auxiliary_evolver&lt; Particle, Numeric, QualificationModel, EvolutionModel, LikelyhoodModel &gt;::evolve</definition>
+        <argsstring>(std::vector&lt; Particle &gt; &amp;dest, const std::vector&lt; Particle &gt; &amp;src)</argsstring>
+        <name>evolve</name>
+        <qualifiedname>auxiliary_evolver::evolve</qualifiedname>
+        <param>
+          <type>std::vector&lt; Particle &gt; &amp;</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; Particle &gt; &amp;</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/particlefilter/particlefilter.h" line="289" column="6" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="311" bodyend="325"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/particlefilter/particlefilter.h" line="284" column="1" bodyfile="include/gmapping/particlefilter/particlefilter.h" bodystart="284" bodyend="290"/>
+    <listofallmembers>
+      <member refid="structauxiliary__evolver_1a6376d772526806b776e7ee09e2b70de6" prot="public" virt="non-virtual"><scope>auxiliary_evolver</scope><name>evolutionModel</name></member>
+      <member refid="structauxiliary__evolver_1a5b5b1faaebe2bbb3f625ca6ac1678257" prot="public" virt="non-virtual"><scope>auxiliary_evolver</scope><name>evolve</name></member>
+      <member refid="structauxiliary__evolver_1a162deb7efec81ab84491c51d5387cc6c" prot="public" virt="non-virtual"><scope>auxiliary_evolver</scope><name>evolve</name></member>
+      <member refid="structauxiliary__evolver_1ab6f7b707a228d6f62a6fc33ad4e77e89" prot="public" virt="non-virtual"><scope>auxiliary_evolver</scope><name>likelyhoodModel</name></member>
+      <member refid="structauxiliary__evolver_1ad591b97ca5d245ad2bf0c32949bb3788" prot="public" virt="non-virtual"><scope>auxiliary_evolver</scope><name>qualificationModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_invalid_name_exception" kind="class" language="C++" prot="public">
+    <compoundname>InvalidNameException</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::runtime_error</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_invalid_name_exception_1a5fbdbdabdfa17ccf4f3f151eecdc4704" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>InvalidNameException::InvalidNameException</definition>
+        <argsstring>(const std::string &amp;msg)</argsstring>
+        <name>InvalidNameException</name>
+        <qualifiedname>InvalidNameException::InvalidNameException</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map_merge/ros1_names.hpp" line="36" column="3" bodyfile="include/map_merge/ros1_names.hpp" bodystart="36" bodyend="38"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>InvalidNameException</label>
+        <link refid="class_invalid_name_exception"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::runtime_error</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>InvalidNameException</label>
+        <link refid="class_invalid_name_exception"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::runtime_error</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/map_merge/ros1_names.hpp" line="33" column="1" bodyfile="include/map_merge/ros1_names.hpp" bodystart="34" bodyend="39"/>
+    <listofallmembers>
+      <member refid="class_invalid_name_exception_1a5fbdbdabdfa17ccf4f3f151eecdc4704" prot="public" virt="non-virtual"><scope>InvalidNameException</scope><name>InvalidNameException</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_g_mapping_1_1_sensor_log" kind="class" language="C++" prot="public">
+    <compoundname>GMapping::SensorLog</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::list&lt; SensorReading * &gt;</basecompoundref>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_g_mapping_1_1_sensor_log_1a1b309acc3cacc72c26d4f67da2cf5d77" prot="protected" static="no" mutable="no">
+        <type>const SensorMap &amp;</type>
+        <definition>const SensorMap&amp; GMapping::SensorLog::m_sensorMap</definition>
+        <argsstring></argsstring>
+        <name>m_sensorMap</name>
+        <qualifiedname>GMapping::SensorLog::m_sensorMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/log/sensorlog.h" line="22" column="17" bodyfile="include/gmapping/log/sensorlog.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g_mapping_1_1_sensor_log_1ac4a889158ae6ccb35890cef3b701d00f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::SensorLog::SensorLog</definition>
+        <argsstring>(const SensorMap &amp;)</argsstring>
+        <name>SensorLog</name>
+        <qualifiedname>GMapping::SensorLog::SensorLog</qualifiedname>
+        <param>
+          <type>const SensorMap &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/log/sensorlog.h" line="17" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_sensor_log_1a63183f64ed2a773948c094544ceae595" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::SensorLog::~SensorLog</definition>
+        <argsstring>()</argsstring>
+        <name>~SensorLog</name>
+        <qualifiedname>GMapping::SensorLog::~SensorLog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/log/sensorlog.h" line="18" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_sensor_log_1a320ddef217720b7f259ce1848e140965" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::istream &amp;</type>
+        <definition>std::istream &amp; GMapping::SensorLog::load</definition>
+        <argsstring>(std::istream &amp;is)</argsstring>
+        <name>load</name>
+        <qualifiedname>GMapping::SensorLog::load</qualifiedname>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/log/sensorlog.h" line="19" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_sensor_log_1a7a5c9ad7125e1173bd2eb93c00fe24ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>OrientedPoint</type>
+        <definition>OrientedPoint GMapping::SensorLog::boundingBox</definition>
+        <argsstring>(double &amp;xmin, double &amp;ymin, double &amp;xmax, double &amp;ymax) const</argsstring>
+        <name>boundingBox</name>
+        <qualifiedname>GMapping::SensorLog::boundingBox</qualifiedname>
+        <param>
+          <type>double &amp;</type>
+          <declname>xmin</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>ymin</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>xmax</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>ymax</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/log/sensorlog.h" line="20" column="15"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_g_mapping_1_1_sensor_log_1aebe59c0b3ae95ba336db058085e945d4" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_g_mapping_1_1_odometry_reading" kindref="compound">OdometryReading</ref> *</type>
+        <definition>OdometryReading * GMapping::SensorLog::parseOdometry</definition>
+        <argsstring>(std::istream &amp;is, const OdometrySensor *) const</argsstring>
+        <name>parseOdometry</name>
+        <qualifiedname>GMapping::SensorLog::parseOdometry</qualifiedname>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_g_mapping_1_1_odometry_sensor" kindref="compound">OdometrySensor</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/log/sensorlog.h" line="23" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_sensor_log_1ab0cf24fe49e6bb020c64ede8d3b619ce" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_g_mapping_1_1_range_reading" kindref="compound">RangeReading</ref> *</type>
+        <definition>RangeReading * GMapping::SensorLog::parseRange</definition>
+        <argsstring>(std::istream &amp;is, const RangeSensor *) const</argsstring>
+        <name>parseRange</name>
+        <qualifiedname>GMapping::SensorLog::parseRange</qualifiedname>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_g_mapping_1_1_range_sensor" kindref="compound">RangeSensor</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/log/sensorlog.h" line="24" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GMapping::SensorLog</label>
+        <link refid="class_g_mapping_1_1_sensor_log"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::list&lt; SensorReading * &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GMapping::SensorLog</label>
+        <link refid="class_g_mapping_1_1_sensor_log"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>std::list&lt; SensorReading * &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/gmapping/log/sensorlog.h" line="15" column="1" bodyfile="include/gmapping/log/sensorlog.h" bodystart="15" bodyend="25"/>
+    <listofallmembers>
+      <member refid="class_g_mapping_1_1_sensor_log_1a7a5c9ad7125e1173bd2eb93c00fe24ca" prot="public" virt="non-virtual"><scope>GMapping::SensorLog</scope><name>boundingBox</name></member>
+      <member refid="class_g_mapping_1_1_sensor_log_1a320ddef217720b7f259ce1848e140965" prot="public" virt="non-virtual"><scope>GMapping::SensorLog</scope><name>load</name></member>
+      <member refid="class_g_mapping_1_1_sensor_log_1a1b309acc3cacc72c26d4f67da2cf5d77" prot="protected" virt="non-virtual"><scope>GMapping::SensorLog</scope><name>m_sensorMap</name></member>
+      <member refid="class_g_mapping_1_1_sensor_log_1aebe59c0b3ae95ba336db058085e945d4" prot="protected" virt="non-virtual"><scope>GMapping::SensorLog</scope><name>parseOdometry</name></member>
+      <member refid="class_g_mapping_1_1_sensor_log_1ab0cf24fe49e6bb020c64ede8d3b619ce" prot="protected" virt="non-virtual"><scope>GMapping::SensorLog</scope><name>parseRange</name></member>
+      <member refid="class_g_mapping_1_1_sensor_log_1ac4a889158ae6ccb35890cef3b701d00f" prot="public" virt="non-virtual"><scope>GMapping::SensorLog</scope><name>SensorLog</name></member>
+      <member refid="class_g_mapping_1_1_sensor_log_1a63183f64ed2a773948c094544ceae595" prot="public" virt="non-virtual"><scope>GMapping::SensorLog</scope><name>~SensorLog</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

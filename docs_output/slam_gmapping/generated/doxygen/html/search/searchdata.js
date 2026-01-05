@@ -1,0 +1,27 @@
+var indexSectionsWithContent =
+{
+  0: "abcefghimnoprstuvw~",
+  1: "abceghimoprstu",
+  2: "cgm",
+  3: "cgimopst~",
+  4: "acfmnprvw"
+};
+
+var indexSectionNames =
+{
+  0: "all",
+  1: "classes",
+  2: "namespaces",
+  3: "functions",
+  4: "variables"
+};
+
+var indexSectionLabels =
+{
+  0: "All",
+  1: "Classes",
+  2: "Namespaces",
+  3: "Functions",
+  4: "Variables"
+};
+

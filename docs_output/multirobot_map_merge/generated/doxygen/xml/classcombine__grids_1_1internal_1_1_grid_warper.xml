@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="classcombine__grids_1_1internal_1_1_grid_warper" kind="class" language="C++" prot="public">
+    <compoundname>combine_grids::internal::GridWarper</compoundname>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcombine__grids_1_1internal_1_1_grid_warper_1a6fddb9ebe60b8df6e86ff68eb063c4a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>cv::Rect</type>
+        <definition>cv::Rect combine_grids::internal::GridWarper::warp</definition>
+        <argsstring>(const cv::Mat &amp;grid, const cv::Mat &amp;transform, cv::Mat &amp;warped_grid)</argsstring>
+        <name>warp</name>
+        <qualifiedname>combine_grids::internal::GridWarper::warp</qualifiedname>
+        <param>
+          <type>const cv::Mat &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const cv::Mat &amp;</type>
+          <declname>transform</declname>
+        </param>
+        <param>
+          <type>cv::Mat &amp;</type>
+          <declname>warped_grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/combine_grids/grid_warper.h" line="50" column="12"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcombine__grids_1_1internal_1_1_grid_warper_1aac998e1dc1618cbc494bc2f31c2c97ca" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>cv::Rect</type>
+        <definition>cv::Rect combine_grids::internal::GridWarper::warpRoi</definition>
+        <argsstring>(const cv::Mat &amp;grid, const cv::Mat &amp;transform)</argsstring>
+        <name>warpRoi</name>
+        <qualifiedname>combine_grids::internal::GridWarper::warpRoi</qualifiedname>
+        <param>
+          <type>const cv::Mat &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const cv::Mat &amp;</type>
+          <declname>transform</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/combine_grids/grid_warper.h" line="54" column="12"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/combine_grids/grid_warper.h" line="47" column="1" bodyfile="include/combine_grids/grid_warper.h" bodystart="48" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classcombine__grids_1_1internal_1_1_grid_warper_1a6fddb9ebe60b8df6e86ff68eb063c4a6" prot="public" virt="non-virtual"><scope>combine_grids::internal::GridWarper</scope><name>warp</name></member>
+      <member refid="classcombine__grids_1_1internal_1_1_grid_warper_1aac998e1dc1618cbc494bc2f31c2c97ca" prot="private" virt="non-virtual"><scope>combine_grids::internal::GridWarper</scope><name>warpRoi</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

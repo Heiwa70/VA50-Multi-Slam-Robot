@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_ae99a96a867d1d340e1e20301d2554b1" kind="dir">
+    <compoundname>include/gmapping</compoundname>
+    <innerdir refid="dir_fba292c81b58166e61e600a71a05ec9f">include/gmapping/grid</innerdir>
+    <innerdir refid="dir_b19b22e5a19aa0a0c924081f2391c279">include/gmapping/gridfastslam</innerdir>
+    <innerdir refid="dir_2de4d7561b0c8049860c3b86b5bff03d">include/gmapping/log</innerdir>
+    <innerdir refid="dir_3b74f6c87f1cfef9feb6957a032f323a">include/gmapping/particlefilter</innerdir>
+    <innerdir refid="dir_b3480f528c113c6d88e22919a885906d">include/gmapping/scanmatcher</innerdir>
+    <innerdir refid="dir_2b2ee9970a864e32434e699e3080da4e">include/gmapping/sensor</innerdir>
+    <innerdir refid="dir_889379cc7fc980a95a4bc523c0019e35">include/gmapping/utils</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/gmapping/"/>
+  </compounddef>
+</doxygen>

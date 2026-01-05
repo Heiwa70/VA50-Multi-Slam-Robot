@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="struct_g_mapping_1_1_point_accumulator" kind="struct" language="C++" prot="public">
+    <compoundname>GMapping::PointAccumulator</compoundname>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="struct_g_mapping_1_1_point_accumulator_1aa256b887e57057b22cc726d0b708e63f" prot="public" static="no">
+        <type><ref refid="struct_g_mapping_1_1point" kindref="compound">point</ref>&lt; float &gt;</type>
+        <definition>typedef point&lt;float&gt; GMapping::PointAccumulator::FloatPoint</definition>
+        <argsstring></argsstring>
+        <name>FloatPoint</name>
+        <qualifiedname>GMapping::PointAccumulator::FloatPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/smmap.h" line="11" column="15" bodyfile="include/gmapping/scanmatcher/smmap.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="struct_g_mapping_1_1_point_accumulator_1a6567075a56ab6a676d766c3b8b95a442" prot="public" static="yes" mutable="no">
+        <type>PointAccumulator *</type>
+        <definition>PointAccumulator* GMapping::PointAccumulator::unknown_ptr</definition>
+        <argsstring></argsstring>
+        <name>unknown_ptr</name>
+        <qualifiedname>GMapping::PointAccumulator::unknown_ptr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/smmap.h" line="24" column="25" bodyfile="include/gmapping/scanmatcher/smmap.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_mapping_1_1_point_accumulator_1afe87f0be8d1e6fc22fa3b1cd071fccbc" prot="public" static="no" mutable="no">
+        <type>FloatPoint</type>
+        <definition>FloatPoint GMapping::PointAccumulator::acc</definition>
+        <argsstring></argsstring>
+        <name>acc</name>
+        <qualifiedname>GMapping::PointAccumulator::acc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/smmap.h" line="25" column="12" bodyfile="include/gmapping/scanmatcher/smmap.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_mapping_1_1_point_accumulator_1a0f8ef48ef8f7ffb3a032fae2b8894a59" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GMapping::PointAccumulator::n</definition>
+        <argsstring></argsstring>
+        <name>n</name>
+        <qualifiedname>GMapping::PointAccumulator::n</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/smmap.h" line="26" column="5" bodyfile="include/gmapping/scanmatcher/smmap.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_mapping_1_1_point_accumulator_1ac0f05215ef622a21313b219015ae5de1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GMapping::PointAccumulator::visits</definition>
+        <argsstring></argsstring>
+        <name>visits</name>
+        <qualifiedname>GMapping::PointAccumulator::visits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/smmap.h" line="26" column="7" bodyfile="include/gmapping/scanmatcher/smmap.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_g_mapping_1_1_point_accumulator_1aa1264f6df810b462d874501545f3077c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::PointAccumulator::PointAccumulator</definition>
+        <argsstring>()</argsstring>
+        <name>PointAccumulator</name>
+        <qualifiedname>GMapping::PointAccumulator::PointAccumulator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/smmap.h" line="16" column="1" bodyfile="include/gmapping/scanmatcher/smmap.h" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1_point_accumulator_1a2dcf27d200b53ba10f16c1b701bd0503" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::PointAccumulator::PointAccumulator</definition>
+        <argsstring>(int i)</argsstring>
+        <name>PointAccumulator</name>
+        <qualifiedname>GMapping::PointAccumulator::PointAccumulator</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/smmap.h" line="17" column="1" bodyfile="include/gmapping/scanmatcher/smmap.h" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1_point_accumulator_1ac414ab2f3d79d50fbb1b5326423fc84f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::PointAccumulator::update</definition>
+        <argsstring>(bool value, const Point &amp;p=Point(0, 0))</argsstring>
+        <name>update</name>
+        <qualifiedname>GMapping::PointAccumulator::update</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>const Point &amp;</type>
+          <declname>p</declname>
+          <defval>Point(0, 0)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/smmap.h" line="19" column="21" bodyfile="include/gmapping/scanmatcher/smmap.h" bodystart="30" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1_point_accumulator_1aee73954066c51b648da5b9af3cd2089d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Point</type>
+        <definition>Point GMapping::PointAccumulator::mean</definition>
+        <argsstring>() const</argsstring>
+        <name>mean</name>
+        <qualifiedname>GMapping::PointAccumulator::mean</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/smmap.h" line="20" column="14" bodyfile="include/gmapping/scanmatcher/smmap.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1_point_accumulator_1abdfda9e51d85cb2cc70f87b446be47f1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::PointAccumulator::operator double</definition>
+        <argsstring>() const</argsstring>
+        <name>operator double</name>
+        <qualifiedname>GMapping::PointAccumulator::operator double</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/smmap.h" line="21" column="8" bodyfile="include/gmapping/scanmatcher/smmap.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1_point_accumulator_1a81e890f24d04e5f04433ba2fc7c51be8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::PointAccumulator::add</definition>
+        <argsstring>(const PointAccumulator &amp;p)</argsstring>
+        <name>add</name>
+        <qualifiedname>GMapping::PointAccumulator::add</qualifiedname>
+        <param>
+          <type>const PointAccumulator &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/smmap.h" line="22" column="13" bodyfile="include/gmapping/scanmatcher/smmap.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_mapping_1_1_point_accumulator_1a723dc2aaaca092a1e33246f416feb59e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double GMapping::PointAccumulator::entropy</definition>
+        <argsstring>() const</argsstring>
+        <name>entropy</name>
+        <qualifiedname>GMapping::PointAccumulator::entropy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/smmap.h" line="27" column="15" bodyfile="include/gmapping/scanmatcher/smmap.h" bodystart="40" bodyend="47"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="struct_g_mapping_1_1_point_accumulator_1af90fe8362650bd94d87fd4adf42193cb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const PointAccumulator &amp;</type>
+        <definition>static const PointAccumulator &amp; GMapping::PointAccumulator::Unknown</definition>
+        <argsstring>()</argsstring>
+        <name>Unknown</name>
+        <qualifiedname>GMapping::PointAccumulator::Unknown</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/scanmatcher/smmap.h" line="23" column="31"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GMapping::PointAccumulator</label>
+        <link refid="struct_g_mapping_1_1_point_accumulator"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>unknown_ptr</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>acc</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GMapping::point&lt; float &gt;</label>
+        <link refid="struct_g_mapping_1_1point"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/gmapping/scanmatcher/smmap.h" line="10" column="1" bodyfile="include/gmapping/scanmatcher/smmap.h" bodystart="10" bodyend="28"/>
+    <listofallmembers>
+      <member refid="struct_g_mapping_1_1_point_accumulator_1afe87f0be8d1e6fc22fa3b1cd071fccbc" prot="public" virt="non-virtual"><scope>GMapping::PointAccumulator</scope><name>acc</name></member>
+      <member refid="struct_g_mapping_1_1_point_accumulator_1a81e890f24d04e5f04433ba2fc7c51be8" prot="public" virt="non-virtual"><scope>GMapping::PointAccumulator</scope><name>add</name></member>
+      <member refid="struct_g_mapping_1_1_point_accumulator_1a723dc2aaaca092a1e33246f416feb59e" prot="public" virt="non-virtual"><scope>GMapping::PointAccumulator</scope><name>entropy</name></member>
+      <member refid="struct_g_mapping_1_1_point_accumulator_1aa256b887e57057b22cc726d0b708e63f" prot="public" virt="non-virtual"><scope>GMapping::PointAccumulator</scope><name>FloatPoint</name></member>
+      <member refid="struct_g_mapping_1_1_point_accumulator_1aee73954066c51b648da5b9af3cd2089d" prot="public" virt="non-virtual"><scope>GMapping::PointAccumulator</scope><name>mean</name></member>
+      <member refid="struct_g_mapping_1_1_point_accumulator_1a0f8ef48ef8f7ffb3a032fae2b8894a59" prot="public" virt="non-virtual"><scope>GMapping::PointAccumulator</scope><name>n</name></member>
+      <member refid="struct_g_mapping_1_1_point_accumulator_1abdfda9e51d85cb2cc70f87b446be47f1" prot="public" virt="non-virtual"><scope>GMapping::PointAccumulator</scope><name>operator double</name></member>
+      <member refid="struct_g_mapping_1_1_point_accumulator_1aa1264f6df810b462d874501545f3077c" prot="public" virt="non-virtual"><scope>GMapping::PointAccumulator</scope><name>PointAccumulator</name></member>
+      <member refid="struct_g_mapping_1_1_point_accumulator_1a2dcf27d200b53ba10f16c1b701bd0503" prot="public" virt="non-virtual"><scope>GMapping::PointAccumulator</scope><name>PointAccumulator</name></member>
+      <member refid="struct_g_mapping_1_1_point_accumulator_1af90fe8362650bd94d87fd4adf42193cb" prot="public" virt="non-virtual"><scope>GMapping::PointAccumulator</scope><name>Unknown</name></member>
+      <member refid="struct_g_mapping_1_1_point_accumulator_1a6567075a56ab6a676d766c3b8b95a442" prot="public" virt="non-virtual"><scope>GMapping::PointAccumulator</scope><name>unknown_ptr</name></member>
+      <member refid="struct_g_mapping_1_1_point_accumulator_1ac414ab2f3d79d50fbb1b5326423fc84f" prot="public" virt="non-virtual"><scope>GMapping::PointAccumulator</scope><name>update</name></member>
+      <member refid="struct_g_mapping_1_1_point_accumulator_1ac0f05215ef622a21313b219015ae5de1" prot="public" virt="non-virtual"><scope>GMapping::PointAccumulator</scope><name>visits</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

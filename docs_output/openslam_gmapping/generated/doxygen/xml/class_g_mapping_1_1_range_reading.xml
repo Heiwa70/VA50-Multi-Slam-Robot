@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="class_g_mapping_1_1_range_reading" kind="class" language="C++" prot="public">
+    <compoundname>GMapping::RangeReading</compoundname>
+    <basecompoundref refid="class_g_mapping_1_1_sensor_reading" prot="public" virt="non-virtual">GMapping::SensorReading</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">std::vector&lt; double &gt;</basecompoundref>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_g_mapping_1_1_range_reading_1a2ee201c5ff8b2875904ca696234865e6" prot="protected" static="no" mutable="no">
+        <type>OrientedPoint</type>
+        <definition>OrientedPoint GMapping::RangeReading::m_pose</definition>
+        <argsstring></argsstring>
+        <name>m_pose</name>
+        <qualifiedname>GMapping::RangeReading::m_pose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangereading.h" line="21" column="15" bodyfile="include/gmapping/sensor/sensor_range/rangereading.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g_mapping_1_1_range_reading_1afd3cc81a7d26c4d141e7fb2b67b39de5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::RangeReading::RangeReading</definition>
+        <argsstring>(const RangeSensor *rs, double time=0)</argsstring>
+        <name>RangeReading</name>
+        <qualifiedname>GMapping::RangeReading::RangeReading</qualifiedname>
+        <param>
+          <type>const <ref refid="class_g_mapping_1_1_range_sensor" kindref="compound">RangeSensor</ref> *</type>
+          <declname>rs</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangereading.h" line="12" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_range_reading_1ab004e5752633c773410cc78e8578b218" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GMapping::RangeReading::RangeReading</definition>
+        <argsstring>(unsigned int n_beams, const double *d, const RangeSensor *rs, double time=0)</argsstring>
+        <name>RangeReading</name>
+        <qualifiedname>GMapping::RangeReading::RangeReading</qualifiedname>
+        <param>
+          <type>unsigned int</type>
+          <declname>n_beams</declname>
+        </param>
+        <param>
+          <type>const double *</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_g_mapping_1_1_range_sensor" kindref="compound">RangeSensor</ref> *</type>
+          <declname>rs</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangereading.h" line="13" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_range_reading_1aafed8df8050b4d54625956362d7a7b61" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual GMapping::RangeReading::~RangeReading</definition>
+        <argsstring>()</argsstring>
+        <name>~RangeReading</name>
+        <qualifiedname>GMapping::RangeReading::~RangeReading</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangereading.h" line="14" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_range_reading_1acbd7e132d613104b6ea3208c31c6295c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const OrientedPoint &amp;</type>
+        <definition>const OrientedPoint &amp; GMapping::RangeReading::getPose</definition>
+        <argsstring>() const</argsstring>
+        <name>getPose</name>
+        <qualifiedname>GMapping::RangeReading::getPose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangereading.h" line="15" column="28" bodyfile="include/gmapping/sensor/sensor_range/rangereading.h" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_range_reading_1a14bd6d1fe87196ffeb2b78f2d69500fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GMapping::RangeReading::setPose</definition>
+        <argsstring>(const OrientedPoint &amp;pose)</argsstring>
+        <name>setPose</name>
+        <qualifiedname>GMapping::RangeReading::setPose</qualifiedname>
+        <param>
+          <type>const OrientedPoint &amp;</type>
+          <declname>pose</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangereading.h" line="16" column="13" bodyfile="include/gmapping/sensor/sensor_range/rangereading.h" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_range_reading_1a567ac887823c73ca3d1da3d04df678dc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int GMapping::RangeReading::rawView</definition>
+        <argsstring>(double *v, double density=0.) const</argsstring>
+        <name>rawView</name>
+        <qualifiedname>GMapping::RangeReading::rawView</qualifiedname>
+        <param>
+          <type>double *</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>density</declname>
+          <defval>0.</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangereading.h" line="17" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_range_reading_1af6a18cc22892ffc409805066d6455fcb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; Point &gt;</type>
+        <definition>std::vector&lt; Point &gt; GMapping::RangeReading::cartesianForm</definition>
+        <argsstring>(double maxRange=1e6) const</argsstring>
+        <name>cartesianForm</name>
+        <qualifiedname>GMapping::RangeReading::cartesianForm</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>maxRange</declname>
+          <defval>1e6</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangereading.h" line="18" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_mapping_1_1_range_reading_1a7bf8e17ff306e0085ea6312e68471c50" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int GMapping::RangeReading::activeBeams</definition>
+        <argsstring>(double density=0.) const</argsstring>
+        <name>activeBeams</name>
+        <qualifiedname>GMapping::RangeReading::activeBeams</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>density</declname>
+          <defval>0.</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/gmapping/sensor/sensor_range/rangereading.h" line="19" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GMapping::RangeReading</label>
+        <link refid="class_g_mapping_1_1_range_reading"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GMapping::SensorReading</label>
+        <link refid="class_g_mapping_1_1_sensor_reading"/>
+      </node>
+      <node id="3">
+        <label>std::vector&lt; double &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GMapping::RangeReading</label>
+        <link refid="class_g_mapping_1_1_range_reading"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>m_pose</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GMapping::Sensor</label>
+        <link refid="class_g_mapping_1_1_sensor"/>
+      </node>
+      <node id="2">
+        <label>GMapping::SensorReading</label>
+        <link refid="class_g_mapping_1_1_sensor_reading"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_sensor</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>GMapping::orientedpoint&lt; double, double &gt;</label>
+        <link refid="struct_g_mapping_1_1orientedpoint"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>GMapping::point&lt; double &gt;</label>
+        <link refid="struct_g_mapping_1_1point"/>
+      </node>
+      <node id="4">
+        <label>std::vector&lt; double &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/gmapping/sensor/sensor_range/rangereading.h" line="10" column="1" bodyfile="include/gmapping/sensor/sensor_range/rangereading.h" bodystart="10" bodyend="22"/>
+    <listofallmembers>
+      <member refid="class_g_mapping_1_1_range_reading_1a7bf8e17ff306e0085ea6312e68471c50" prot="public" virt="non-virtual"><scope>GMapping::RangeReading</scope><name>activeBeams</name></member>
+      <member refid="class_g_mapping_1_1_range_reading_1af6a18cc22892ffc409805066d6455fcb" prot="public" virt="non-virtual"><scope>GMapping::RangeReading</scope><name>cartesianForm</name></member>
+      <member refid="class_g_mapping_1_1_range_reading_1acbd7e132d613104b6ea3208c31c6295c" prot="public" virt="non-virtual"><scope>GMapping::RangeReading</scope><name>getPose</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1a81598df775634096b7d9a3cafe01eb91" prot="public" virt="non-virtual"><scope>GMapping::RangeReading</scope><name>getSensor</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1afa80948b19650a98ae555f35e9549816" prot="public" virt="non-virtual"><scope>GMapping::RangeReading</scope><name>getTime</name></member>
+      <member refid="class_g_mapping_1_1_range_reading_1a2ee201c5ff8b2875904ca696234865e6" prot="protected" virt="non-virtual"><scope>GMapping::RangeReading</scope><name>m_pose</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1ae68dfa883281d964470df13e47d48275" prot="protected" virt="non-virtual"><scope>GMapping::RangeReading</scope><name>m_sensor</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1aa8965e26c4cc6be0036bb7f910fbee7d" prot="protected" virt="non-virtual"><scope>GMapping::RangeReading</scope><name>m_time</name></member>
+      <member refid="class_g_mapping_1_1_range_reading_1afd3cc81a7d26c4d141e7fb2b67b39de5" prot="public" virt="non-virtual"><scope>GMapping::RangeReading</scope><name>RangeReading</name></member>
+      <member refid="class_g_mapping_1_1_range_reading_1ab004e5752633c773410cc78e8578b218" prot="public" virt="non-virtual"><scope>GMapping::RangeReading</scope><name>RangeReading</name></member>
+      <member refid="class_g_mapping_1_1_range_reading_1a567ac887823c73ca3d1da3d04df678dc" prot="public" virt="non-virtual"><scope>GMapping::RangeReading</scope><name>rawView</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1a640e3a5ba3ec48e96d84040e46dc28b7" prot="public" virt="non-virtual"><scope>GMapping::RangeReading</scope><name>SensorReading</name></member>
+      <member refid="class_g_mapping_1_1_range_reading_1a14bd6d1fe87196ffeb2b78f2d69500fc" prot="public" virt="non-virtual"><scope>GMapping::RangeReading</scope><name>setPose</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1ace6521ab76975d9850a5f649b8113108" prot="public" virt="non-virtual"><scope>GMapping::RangeReading</scope><name>setTime</name></member>
+      <member refid="class_g_mapping_1_1_range_reading_1aafed8df8050b4d54625956362d7a7b61" prot="public" virt="virtual"><scope>GMapping::RangeReading</scope><name>~RangeReading</name></member>
+      <member refid="class_g_mapping_1_1_sensor_reading_1a7411d16f81c3ede0f94b0e2707fde7ca" prot="public" virt="non-virtual"><scope>GMapping::RangeReading</scope><name>~SensorReading</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
