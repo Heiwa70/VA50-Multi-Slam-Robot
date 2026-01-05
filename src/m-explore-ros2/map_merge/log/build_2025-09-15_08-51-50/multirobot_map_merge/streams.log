@@ -1,0 +1,33 @@
+[0.013s] Invoking command in '/home/user/Desktop/VA50/DOC/m-explore-ros2/map_merge/build/multirobot_map_merge': /usr/bin/cmake /home/user/Desktop/VA50/DOC/m-explore-ros2/map_merge -DCMAKE_INSTALL_PREFIX=/home/user/Desktop/VA50/DOC/m-explore-ros2/map_merge/install/multirobot_map_merge
+[0.116s] -- The C compiler identification is GNU 11.4.0
+[0.218s] -- The CXX compiler identification is GNU 11.4.0
+[0.236s] -- Detecting C compiler ABI info
+[0.365s] -- Detecting C compiler ABI info - done
+[0.386s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.386s] -- Detecting C compile features
+[0.387s] -- Detecting C compile features - done
+[0.395s] -- Detecting CXX compiler ABI info
+[0.538s] -- Detecting CXX compiler ABI info - done
+[0.555s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.556s] -- Detecting CXX compile features
+[0.557s] -- Detecting CXX compile features - done
+[0.580s] [31mCMake Error at CMakeLists.txt:19 (find_package):
+[0.581s]   By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project
+[0.581s]   has asked CMake to find a package configuration file provided by
+[0.581s]   "ament_cmake", but CMake did not find one.
+[0.581s] 
+[0.581s]   Could not find a package configuration file provided by "ament_cmake" with
+[0.581s]   any of the following names:
+[0.582s] 
+[0.582s]     ament_cmakeConfig.cmake
+[0.582s]     ament_cmake-config.cmake
+[0.582s] 
+[0.582s]   Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set
+[0.582s]   "ament_cmake_DIR" to a directory containing one of the above files.  If
+[0.583s]   "ament_cmake" provides a separate development package or SDK, be sure it
+[0.583s]   has been installed.
+[0.583s] 
+[0.583s] [0m
+[0.583s] -- Configuring incomplete, errors occurred!
+[0.583s] See also "/home/user/Desktop/VA50/DOC/m-explore-ros2/map_merge/build/multirobot_map_merge/CMakeFiles/CMakeOutput.log".
+[0.588s] Invoked command in '/home/user/Desktop/VA50/DOC/m-explore-ros2/map_merge/build/multirobot_map_merge' returned '1': /usr/bin/cmake /home/user/Desktop/VA50/DOC/m-explore-ros2/map_merge -DCMAKE_INSTALL_PREFIX=/home/user/Desktop/VA50/DOC/m-explore-ros2/map_merge/install/multirobot_map_merge

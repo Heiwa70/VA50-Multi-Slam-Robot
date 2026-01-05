@@ -1,0 +1,2 @@
+Invoking command in '/home/user/Desktop/VA50/DOC/m-explore-ros2/map_merge/build/multirobot_map_merge': /usr/bin/cmake /home/user/Desktop/VA50/DOC/m-explore-ros2/map_merge -DCMAKE_INSTALL_PREFIX=/home/user/Desktop/VA50/DOC/m-explore-ros2/map_merge/install/multirobot_map_merge
+Invoked command in '/home/user/Desktop/VA50/DOC/m-explore-ros2/map_merge/build/multirobot_map_merge' returned '1': /usr/bin/cmake /home/user/Desktop/VA50/DOC/m-explore-ros2/map_merge -DCMAKE_INSTALL_PREFIX=/home/user/Desktop/VA50/DOC/m-explore-ros2/map_merge/install/multirobot_map_merge
